@@ -4,7 +4,7 @@ branch="$(git symbolic-ref --quiet --short HEAD 2>/dev/null || true)"
 
 case "$branch" in
   main|master)
-    allowed_path='docs/reference/测试安排-原始.md'
+    allowed_path='测试安排.md'
     staged="$(git -c core.quotepath=false diff --cached --name-status)"
     allowed_entry="$(printf 'M\t%s' "$allowed_path")"
 

@@ -11,7 +11,7 @@
 
 ### 任务发布：不需要 PR
 
-`docs/reference/测试安排-原始.md` 是唯一任务源。仓库负责人可以在 `main` 直接修改并提交该文件，
+根目录 `测试安排.md` 是唯一任务源。仓库负责人可以在 `main` 直接修改并提交该文件，
 用于发布任务、调整优先级、补充验收标准或更新任务状态。
 
 一次任务发布提交只能修改这一个文件：
@@ -19,8 +19,8 @@
 ```powershell
 git switch main
 git pull --ff-only
-# 编辑 docs/reference/测试安排-原始.md
-git add "docs/reference/测试安排-原始.md"
+# 编辑根目录 测试安排.md
+git add "测试安排.md"
 git commit -m "task: publish T-YYYYMMDD-NN"
 git push origin main
 ```

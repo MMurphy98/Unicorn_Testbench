@@ -47,7 +47,7 @@ jobs:
               basehead: `${payload.before}...${payload.after}`
             });
             const files = comparison.data.files || [];
-            const allowedPath = 'docs/reference/测试安排-原始.md';
+            const allowedPath = '测试安排.md';
             const validTaskPublication =
               context.actor === 'MMurphy98' &&
               files.length === 1 &&
