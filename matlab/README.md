@@ -10,3 +10,12 @@
 ```powershell
 matlab -batch "addpath('matlab/tests'); results = run_all_tests; assertSuccess(results)"
 ```
+
+OPA189 正式分析入口：
+
+```matlab
+addpath("matlab/scripts");
+runOpa189NoiseAnalysis();
+```
+
+核心算法及其 `private/` 辅助函数位于 `src/+opa189/`。

@@ -37,3 +37,17 @@ Unicorn_Testbench/
 5. 使用仓库 PR 模板发起 PR，指定 `@MMurphy98` 审核。
 
 完整规则见 [`docs/WORKFLOW.md`](docs/WORKFLOW.md)。
+
+## OPA189 正式噪声分析
+
+任务 `T-20260814-01` 的可复现 MATLAB 实现在 `matlab/src/+opa189/`，入口为
+`matlab/scripts/runOpa189NoiseAnalysis.m`。原始数据按
+`data/raw/README.md` 的四条件、每条件十次目录结构放置后，在 MATLAB 中运行：
+
+```matlab
+addpath("matlab/scripts");
+runOpa189NoiseAnalysis();
+```
+
+算法从 InstrumentStudio 原始时域 CSV 重新计算 Welch PSD，不使用仪器 FFT：线性去趋势、
+10 s periodic Hann 窗、50% 重叠、单边 PSD；每条件十次先平均 PSD，再开方得到 ASD。
