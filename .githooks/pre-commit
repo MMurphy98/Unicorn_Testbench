@@ -4,8 +4,18 @@ branch="$(git symbolic-ref --quiet --short HEAD 2>/dev/null || true)"
 
 case "$branch" in
   main|master)
-    echo "ERROR: 禁止直接在 $branch 分支提交。"
-    echo "请先创建任务分支：git switch -c task/T-YYYYMMDD-NN-short-name"
+    allowed_path='docs/reference/测试安排-原始.md'
+    staged="$(git -c core.quotepath=false diff --cached --name-status)"
+    allowed_entry="$(printf 'M\t%s' "$allowed_path")"
+
+    if [ "$staged" = "$allowed_entry" ]; then
+      echo "允许直接发布任务：本次提交仅修改 $allowed_path"
+      exit 0
+    fi
+
+    echo "ERROR: 禁止直接在 $branch 分支提交交付内容。"
+    echo "唯一例外：单独修改 $allowed_path 发布任务。"
+    echo "其他变更请创建任务分支：git switch -c task/T-YYYYMMDD-NN-short-name"
     exit 1
     ;;
 esac

@@ -1,6 +1,6 @@
 # Unicorn\_Testbench
 
-> 原始测试需求与方案资料。任务执行状态以 `docs/TODO.md` 为准。
+> 原始测试需求与方案资料。任务执行状态以 `docs/reference/测试安排-原始.md` 为准。
 
 ## 测试需求
 
