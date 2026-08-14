@@ -1,0 +1,31 @@
+# MATLAB generated files
+*.asv
+*.autosave
+*.m~
+*.mex*
+*.mlappinstall
+*.prj
+*.slxc
+*.mexa64
+*.mexw64
+*.mexmaci64
+codegen/
+slprj/
+
+# MATLAB project/user state
+*.matlab.R20*
+.SimulinkProject/
+
+# Local raw data and generated outputs
+data/raw/*
+!data/raw/README.md
+results/*
+!results/README.md
+
+# Common local/editor files
+.DS_Store
+Thumbs.db
+desktop.ini
+.idea/
+.vscode/
+*.log

@@ -1,0 +1,13 @@
+#!/bin/sh
+
+branch="$(git symbolic-ref --quiet --short HEAD 2>/dev/null || true)"
+
+case "$branch" in
+  main|master)
+    echo "ERROR: 禁止直接在 $branch 分支提交。"
+    echo "请先创建任务分支：git switch -c task/T-YYYYMMDD-NN-short-name"
+    exit 1
+    ;;
+esac
+
+exit 0
