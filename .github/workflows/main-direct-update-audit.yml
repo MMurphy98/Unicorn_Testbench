@@ -26,6 +26,21 @@ jobs:
               return;
             }
 
+            try {
+              await github.rest.repos.getContent({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                path: '.github/workflows/main-direct-update-audit.yml',
+                ref: payload.before
+              });
+            } catch (error) {
+              if (error.status === 404) {
+                core.notice('One-time policy bootstrap: the audit workflow was not present before this push.');
+                return;
+              }
+              throw error;
+            }
+
             const associated = await github.rest.repos.listPullRequestsAssociatedWithCommit({
               owner: context.repo.owner,
               repo: context.repo.repo,
