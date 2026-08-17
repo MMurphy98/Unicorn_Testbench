@@ -22,7 +22,9 @@ end
 figureHandle = figure("Visible", "off", "Color", "w", ...
     "Position", [100, 100, 1250, 720]);
 cleanup = onCleanup(@() close(figureHandle));
-theme(figureHandle, "light");
+if ~isempty(which("theme"))
+    theme(figureHandle, "light");
+end
 axesHandle = axes(figureHandle);
 configureWhiteAxes(axesHandle);
 hold(axesHandle, "on");
