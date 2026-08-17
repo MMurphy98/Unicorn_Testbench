@@ -15,6 +15,7 @@ Unicorn_Testbench/
 |-- .githooks/                # 本地 main 分支提交保护
 |-- data/
 |   |-- raw/                  # 原始数据不入库，仅保留说明和外部链接
+|   |-- processed/            # 可提交的小型频谱结果，用于离线复图
 |   `-- README.md
 |-- docs/
 |   |-- WORKFLOW.md           # 分支、提交、PR、审核规则
@@ -37,3 +38,21 @@ Unicorn_Testbench/
 5. 使用仓库 PR 模板发起 PR，指定 `@MMurphy98` 审核。
 
 完整规则见 [`docs/WORKFLOW.md`](docs/WORKFLOW.md)。
+
+## OPA189 正式噪声分析
+
+任务 `T-20260814-01` 的 MATLAB 实现在 `matlab/src/+opa189/`，入口为
+`matlab/scripts/runOpa189NoiseAnalysis.m`。从仓库根目录在 MATLAB 中运行：
+
+```matlab
+addpath("matlab/scripts");
+runOpa189NoiseAnalysis();
+```
+
+入口会自动选择可用路径：若存在 `data/raw/opa189/formal_test/`，则从四条件、每条件十次的
+完整时域 CSV 重新计算 Welch PSD；若原始数据未下载，则读取仓库内
+`data/processed/opa189/formal_test/opa189_four_condition_analysis.mat`，重新生成两份 CSV 和
+两张正式图。离线复图不会重新计算 Welch，完整算法复算仍需要 `data/raw/README.md` 规定的原始波形。
+
+算法从 InstrumentStudio 原始时域 CSV 重新计算 Welch PSD，不使用仪器 FFT：线性去趋势、
+10 s periodic Hann 窗、50% 重叠、单边 PSD；每条件十次先平均 PSD，再开方得到 ASD。

@@ -10,3 +10,18 @@
 ```powershell
 matlab -batch "addpath('matlab/tests'); results = run_all_tests; assertSuccess(results)"
 ```
+
+OPA189 正式分析入口：
+
+```matlab
+addpath("matlab/scripts");
+runOpa189NoiseAnalysis();
+```
+
+若仓库内没有大型原始波形，上述同一入口会自动使用已提交的处理后频谱数据复图；若原始数据目录存在，
+则执行完整 Welch 分析。命令行会明确打印实际选择的路径。
+
+- 使用已提交频谱数据离线复图：需要 MATLAB R2026a。
+- 从原始时域波形重新计算 Welch PSD 或运行完整测试：还需要 Signal Processing Toolbox。
+
+核心算法及其 `private/` 辅助函数位于 `src/+opa189/`。
