@@ -1,0 +1,33 @@
+{
+	"partitions" : [
+		{
+			"name" : "Top",
+			"pins" : [
+				{
+					"name" : "clk_div_DUT",
+					"strict" : false
+				},
+				{
+					"name" : "LED_clk_div",
+					"strict" : false
+				},
+				{
+					"name" : "LED_pll_ready",
+					"strict" : false
+				},
+				{
+					"name" : "LED_por_ready",
+					"strict" : false
+				},
+				{
+					"name" : "rst_n",
+					"strict" : false
+				},
+				{
+					"name" : "key_clk_div",
+					"strict" : false
+				}
+			]
+		}
+	]
+}
