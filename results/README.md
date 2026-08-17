@@ -10,3 +10,6 @@ OPA189 正式入口生成：
 - `opa189_four_condition_run_summary.csv`
 - `opa189_four_condition_0p1_to_100hz.png`
 - `opa189_with_shield_voltage_comparison_0p1_to_100hz.png`
+
+没有本地原始波形时，同一入口会从 `data/processed/opa189/formal_test/` 复写上述产物；这些文件仍然
+属于本地生成结果，不进入 Git。仓库中随任务提交的参考 CSV、PNG 和频谱 MAT 位于 `data/processed/`。

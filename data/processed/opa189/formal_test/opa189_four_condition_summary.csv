@@ -1,0 +1,5 @@
+Condition,ConditionDirectory,RunCount,SamplesPerRun,SampleRateHz,RecordDurationSPerRun,WelchSegmentsPerRun,TotalWelchSegmentCount,FrequencyResolutionHz,QuietBandMedianInputAsdNVrtHz,Mains50HzInputAsdNVrtHz,IntegratedNoise0p1To10NVrms,IntegratedNoise0p1To100NVrms
+±3 V，无屏蔽罩,[raw waveform omitted; see data/raw/README.md],10,977436,50000,19.54872,2,20,0.1,5.42669956562706,393.364937673224,17.4753175634744,168.249065410101
+±3 V，有屏蔽罩,[raw waveform omitted; see data/raw/README.md],10,977436,50000,19.54872,2,20,0.1,5.49075028099174,390.791942684732,17.2581764502821,166.850176328091
+±18 V，无屏蔽罩,[raw waveform omitted; see data/raw/README.md],10,977436,50000,19.54872,2,20,0.1,5.61307518151402,403.485805235154,18.4318044325861,170.014126737809
+±18 V，有屏蔽罩,[raw waveform omitted; see data/raw/README.md],10,977436,50000,19.54872,2,20,0.1,5.63740164426467,412.769485062927,17.6763377299126,172.751559314739

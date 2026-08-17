@@ -40,22 +40,7 @@ comparison.analysisMethod = ...
     "PSD (10 s periodic Hann, 50% overlap). Ten run PSDs are averaged " + ...
     "along dimension 2; ASD is the square root of the mean PSD.";
 
-outputPaths = struct;
-outputPaths.dataPath = fullfile( ...
-    outputDir, "opa189_four_condition_analysis.mat");
-outputPaths.summaryPath = fullfile( ...
-    outputDir, "opa189_four_condition_summary.csv");
-outputPaths.runSummaryPath = fullfile( ...
-    outputDir, "opa189_four_condition_run_summary.csv");
-outputPaths.fourConditionFigurePath = fullfile(outputDir, ...
-    "opa189_four_condition_0p1_to_100hz.png");
-outputPaths.shieldedFigurePath = fullfile(outputDir, ...
-    "opa189_with_shield_voltage_comparison_0p1_to_100hz.png");
-
-save(outputPaths.dataPath, "comparison");
-writetable(comparison.summaryTable, outputPaths.summaryPath);
-writetable(comparison.runSummaryTable, outputPaths.runSummaryPath);
-exportComparisonFigures(comparison, outputPaths);
+outputPaths = writeComparisonArtifacts(comparison, outputDir);
 end
 
 function result = analyzeCondition(conditionDir, cfg)
