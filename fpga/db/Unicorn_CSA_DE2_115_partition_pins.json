@@ -8,6 +8,10 @@
 					"strict" : false
 				},
 				{
+					"name" : "por_div_DUT",
+					"strict" : false
+				},
+				{
 					"name" : "LED_clk_div",
 					"strict" : false
 				},

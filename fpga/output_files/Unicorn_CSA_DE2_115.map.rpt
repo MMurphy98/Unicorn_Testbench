@@ -1,5 +1,5 @@
 Analysis & Synthesis report for Unicorn_CSA_DE2_115
-Mon Aug 17 13:41:12 2026
+Mon Aug 17 21:40:41 2026
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Standard Edition
 
 
@@ -45,7 +45,7 @@ refer to the applicable agreement for further details.
 +--------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                         ;
 +------------------------------------+-------------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Mon Aug 17 13:41:12 2026           ;
+; Analysis & Synthesis Status        ; Successful - Mon Aug 17 21:40:41 2026           ;
 ; Quartus Prime Version              ; 18.1.0 Build 625 09/12/2018 SJ Standard Edition ;
 ; Revision Name                      ; Unicorn_CSA_DE2_115                             ;
 ; Top-level Entity Name              ; Unicorn_CAS_DE2_115                             ;
@@ -210,8 +210,8 @@ refer to the applicable agreement for further details.
 ;                                             ;                                                                                 ;
 ; Maximum fan-out node                        ; pll:Inst_pll|altpll:altpll_component|pll_altpll:auto_generated|wire_pll1_clk[0] ;
 ; Maximum fan-out                             ; 6                                                                               ;
-; Total fan-out                               ; 26                                                                              ;
-; Average fan-out                             ; 1.13                                                                            ;
+; Total fan-out                               ; 27                                                                              ;
+; Average fan-out                             ; 1.17                                                                            ;
 +---------------------------------------------+---------------------------------------------------------------------------------+
 
 
@@ -651,14 +651,13 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; boundary_port         ; 9                           ;
 ; cycloneiii_ff         ; 3                           ;
 ;     CLR               ; 3                           ;
-; cycloneiii_lcell_comb ; 2                           ;
-;     normal            ; 2                           ;
-;         0 data inputs ; 1                           ;
+; cycloneiii_lcell_comb ; 1                           ;
+;     normal            ; 1                           ;
 ;         2 data inputs ; 1                           ;
 ; cycloneiii_pll        ; 1                           ;
 ;                       ;                             ;
 ; Max LUT depth         ; 1.00                        ;
-; Average LUT depth     ; 0.27                        ;
+; Average LUT depth     ; 0.30                        ;
 +-----------------------+-----------------------------+
 
 
@@ -667,7 +666,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:00     ;
+; Top            ; 00:00:01     ;
 +----------------+--------------+
 
 
@@ -677,7 +676,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 18.1.0 Build 625 09/12/2018 SJ Standard Edition
-    Info: Processing started: Mon Aug 17 13:40:56 2026
+    Info: Processing started: Mon Aug 17 21:40:23 2026
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off Unicorn_CSA_DE2_115 -c Unicorn_CSA_DE2_115
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 12 of the 12 processors detected
@@ -686,7 +685,6 @@ Info (12021): Found 1 design units, including 1 entities, in source file src/uni
 Info (12021): Found 1 design units, including 1 entities, in source file ip/pll.v
     Info (12023): Found entity 1: pll File: C:/Users/Jinge/GitHub/Unicorn_Testbench/fpga/ip/pll.v Line: 39
 Info (12127): Elaborating entity "Unicorn_CAS_DE2_115" for the top level hierarchy
-Warning (10034): Output port "por_div_DUT" at Unicorn_CAS_DE2_115.v(8) has no driver File: C:/Users/Jinge/GitHub/Unicorn_Testbench/fpga/src/Unicorn_CAS_DE2_115.v Line: 8
 Info (12128): Elaborating entity "pll" for hierarchy "pll:Inst_pll" File: C:/Users/Jinge/GitHub/Unicorn_Testbench/fpga/src/Unicorn_CAS_DE2_115.v Line: 24
 Info (12128): Elaborating entity "altpll" for hierarchy "pll:Inst_pll|altpll:altpll_component" File: C:/Users/Jinge/GitHub/Unicorn_Testbench/fpga/ip/pll.v Line: 103
 Info (12130): Elaborated megafunction instantiation "pll:Inst_pll|altpll:altpll_component" File: C:/Users/Jinge/GitHub/Unicorn_Testbench/fpga/ip/pll.v Line: 103
@@ -749,8 +747,6 @@ Info (12133): Instantiated megafunction "pll:Inst_pll|altpll:altpll_component" w
 Info (12021): Found 1 design units, including 1 entities, in source file db/pll_altpll.v
     Info (12023): Found entity 1: pll_altpll File: C:/Users/Jinge/GitHub/Unicorn_Testbench/fpga/db/pll_altpll.v Line: 30
 Info (12128): Elaborating entity "pll_altpll" for hierarchy "pll:Inst_pll|altpll:altpll_component|pll_altpll:auto_generated" File: c:/intelfpga/18.1/quartus/libraries/megafunctions/altpll.tdf Line: 897
-Warning (13024): Output pins are stuck at VCC or GND
-    Warning (13410): Pin "por_div_DUT" is stuck at GND File: C:/Users/Jinge/GitHub/Unicorn_Testbench/fpga/src/Unicorn_CAS_DE2_115.v Line: 8
 Info (286030): Timing-Driven Synthesis is running
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 1 node(s), including 0 DDIO, 1 PLL, 0 transceiver and 0 LCELL
@@ -759,10 +755,10 @@ Info (21057): Implemented 14 device resources after synthesis - the final resour
     Info (21059): Implemented 6 output pins
     Info (21061): Implemented 4 logic cells
     Info (21065): Implemented 1 PLLs
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 4 warnings
-    Info: Peak virtual memory: 4783 megabytes
-    Info: Processing ended: Mon Aug 17 13:41:12 2026
-    Info: Elapsed time: 00:00:16
-    Info: Total CPU time (on all processors): 00:00:30
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 1 warning
+    Info: Peak virtual memory: 4784 megabytes
+    Info: Processing ended: Mon Aug 17 21:40:41 2026
+    Info: Elapsed time: 00:00:18
+    Info: Total CPU time (on all processors): 00:00:34
 
 

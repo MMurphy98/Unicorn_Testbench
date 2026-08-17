@@ -43,7 +43,7 @@ end
 assign clk_div_DUT = clk_div_dut_reg;
 assign LED_clk_div = clk_div_dut_reg;
 assign LED_por_ready = por_div_dut_reg;
-
+assign por_div_DUT = por_div_dut_reg;
 
 
 
