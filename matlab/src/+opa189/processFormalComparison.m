@@ -40,22 +40,7 @@ comparison.analysisMethod = ...
     "PSD (10 s periodic Hann, 50% overlap). Ten run PSDs are averaged " + ...
     "along dimension 2; ASD is the square root of the mean PSD.";
 
-outputPaths = struct;
-outputPaths.dataPath = fullfile( ...
-    outputDir, "opa189_four_condition_analysis.mat");
-outputPaths.summaryPath = fullfile( ...
-    outputDir, "opa189_four_condition_summary.csv");
-outputPaths.runSummaryPath = fullfile( ...
-    outputDir, "opa189_four_condition_run_summary.csv");
-outputPaths.fourConditionFigurePath = fullfile(outputDir, ...
-    "opa189_four_condition_0p1_to_100hz.png");
-outputPaths.shieldedFigurePath = fullfile(outputDir, ...
-    "opa189_with_shield_voltage_comparison_0p1_to_100hz.png");
-
-save(outputPaths.dataPath, "comparison");
-writetable(comparison.summaryTable, outputPaths.summaryPath);
-writetable(comparison.runSummaryTable, outputPaths.runSummaryPath);
-exportComparisonFigures(comparison, outputPaths);
+outputPaths = writeComparisonArtifacts(comparison, outputDir);
 end
 
 function result = analyzeCondition(conditionDir, cfg)
@@ -88,8 +73,7 @@ outputPsdPerRun = cat(2, perRunResults.outputPsdV2PerHz);
 meanInputPsd = mean(inputPsdPerRun, 2);
 meanOutputPsd = mean(outputPsdPerRun, 2);
 frequencyHz = perRunResults(1).frequencyHz;
-quietMask = frequencyHz >= cfg.quietBandHz(1) & ...
-    frequencyHz <= cfg.quietBandHz(2);
+quietMask = frequencyBandMask(frequencyHz, cfg.quietBandHz);
 [~, mainsIndex] = min(abs(frequencyHz-50));
 
 result = perRunResults(1);
@@ -218,7 +202,7 @@ end
 end
 
 function noiseVrms = integratePsdBand(frequencyHz, psdV2PerHz, limitsHz)
-take = frequencyHz >= limitsHz(1) & frequencyHz <= limitsHz(2);
+take = frequencyBandMask(frequencyHz, limitsHz);
 if nnz(take) < 2
     error("opa189:MissingComparisonBand", ...
         "The Welch result does not contain the requested band.");

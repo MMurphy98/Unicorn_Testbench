@@ -48,7 +48,7 @@ if fileId < 0
     error("opa189:CannotOpenCaptureFile", ...
         "Cannot open InstrumentStudio waveform: %s", csvPath);
 end
-cleanup = onCleanup(@() fclose(fileId)); %#ok<NASGU>
+cleanup = onCleanup(@() fclose(fileId));
 
 metadataLine = "";
 dataHeaderLine = NaN;
