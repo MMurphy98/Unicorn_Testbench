@@ -36,11 +36,35 @@ classdef opa189NoiseAnalysisTest < matlab.unittest.TestCase
 
             result = opa189.analyzeWaveform(csvPath, testCase.Config);
 
-            testCase.verifyEqual(result.sampleRateHz, 1000, AbsTol=1e-12);
+            testCase.verifyEqual(result.sampleRateHz, 1000, RelTol=1e-9);
             testCase.verifyEqual(result.welchSegmentCount, 2);
             testCase.verifyEqual( ...
                 result.frequencyResolutionHz, 0.1, AbsTol=1e-12);
+            testCase.verifyEqual( ...
+                result.frequencyHz(1), 0.1, AbsTol=1e-9);
+            testCase.verifyEqual( ...
+                result.frequencyHz(end), 100, AbsTol=1e-9);
+            testCase.verifyNumElements(result.frequencyHz, 1000);
             testCase.verifyTrue(all(isfinite(result.inputPsdV2PerHz)));
+        end
+
+        function testFormalIntegrationIncludesNominalLowerEdge(testCase)
+            [conditionDirs, labels] = formalInputs(testCase.FormalDataDir);
+
+            [~, comparison] = opa189.processFormalComparison( ...
+                conditionDirs, labels, testCase.OutputDir, testCase.Config);
+            result = comparison.results(1);
+            expectedNoiseVrms = sqrt(trapz( ...
+                result.frequencyHz(1:100), ...
+                result.inputPsdV2PerHz(1:100)));
+
+            testCase.verifyEqual( ...
+                result.frequencyHz(1), 0.1, AbsTol=1e-9);
+            testCase.verifyEqual( ...
+                result.frequencyHz(100), 10, AbsTol=1e-9);
+            testCase.verifyEqual( ...
+                result.integratedNoise0p1To10Vrms, expectedNoiseVrms, ...
+                RelTol=1e-12);
         end
 
         function testFormalComparisonAveragesPsd(testCase)
@@ -108,7 +132,7 @@ end
 function writeFormalDataset(formalDataDir, cfg)
 [conditionDirs, ~] = formalInputs(formalDataDir);
 originalState = rng;
-cleanup = onCleanup(@() rng(originalState)); %#ok<NASGU>
+cleanup = onCleanup(@() rng(originalState));
 rng(42, "twister");
 for conditionIndex = 1:4
     for runIndex = 1:10
@@ -123,7 +147,7 @@ end
 
 function writeWaveform(csvPath, cfg, conditionIndex, runIndex)
 sampleCount = round(19.54872*cfg.expectedSampleRateHz);
-sampleIntervalS = 1/cfg.expectedSampleRateHz;
+sampleIntervalS = (1/cfg.expectedSampleRateHz)*(1 + 1e-12);
 timeS = (0:sampleCount-1).'*sampleIntervalS;
 noiseV = 40e-9*randn(sampleCount, 1);
 mainsV = (0.8e-6 + conditionIndex*0.1e-6)*sin(2*pi*50*timeS);
@@ -135,10 +159,10 @@ if fileId < 0
     error("opa189Test:CannotCreateCsv", ...
         "Cannot create synthetic waveform CSV.");
 end
-cleanup = onCleanup(@() fclose(fileId)); %#ok<NASGU>
+cleanup = onCleanup(@() fclose(fileId));
 fprintf(fileId, "Meta data\n");
 fprintf(fileId, "Physical channel,Start Time,Sample Interval,Sample Count\n");
-fprintf(fileId, "Channel 0 (PXI1Slot2/0),0,%.12g,%d\n\n", ...
+fprintf(fileId, "Channel 0 (PXI1Slot2/0),0,%.17g,%d\n\n", ...
     sampleIntervalS, sampleCount);
 fprintf(fileId, "Data\n");
 fprintf(fileId, "Channel 0 (PXI1Slot2/0)\n");

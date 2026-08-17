@@ -73,8 +73,7 @@ outputPsdPerRun = cat(2, perRunResults.outputPsdV2PerHz);
 meanInputPsd = mean(inputPsdPerRun, 2);
 meanOutputPsd = mean(outputPsdPerRun, 2);
 frequencyHz = perRunResults(1).frequencyHz;
-quietMask = frequencyHz >= cfg.quietBandHz(1) & ...
-    frequencyHz <= cfg.quietBandHz(2);
+quietMask = frequencyBandMask(frequencyHz, cfg.quietBandHz);
 [~, mainsIndex] = min(abs(frequencyHz-50));
 
 result = perRunResults(1);
@@ -203,7 +202,7 @@ end
 end
 
 function noiseVrms = integratePsdBand(frequencyHz, psdV2PerHz, limitsHz)
-take = frequencyHz >= limitsHz(1) & frequencyHz <= limitsHz(2);
+take = frequencyBandMask(frequencyHz, limitsHz);
 if nnz(take) < 2
     error("opa189:MissingComparisonBand", ...
         "The Welch result does not contain the requested band.");

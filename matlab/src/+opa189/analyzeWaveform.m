@@ -17,8 +17,7 @@ voltageDetrendedV = detrend(record.voltageV, 1);
     voltageDetrendedV, window, overlapLength, segmentLength, ...
     record.sampleRateHz, "onesided");
 
-analysisMask = frequencyHz >= cfg.analysisBandHz(1) & ...
-    frequencyHz <= cfg.analysisBandHz(2);
+analysisMask = frequencyBandMask(frequencyHz, cfg.analysisBandHz);
 if nnz(analysisMask) < 2
     error("opa189:MissingAnalysisBand", ...
         "The Welch result does not contain the configured analysis band.");
@@ -27,8 +26,7 @@ frequencyHz = frequencyHz(analysisMask);
 outputPsdV2PerHz = outputPsdV2PerHz(analysisMask);
 inputPsdV2PerHz = outputPsdV2PerHz/(cfg.noiseGain^2);
 inputAsdVrtHz = sqrt(max(inputPsdV2PerHz, 0));
-quietMask = frequencyHz >= cfg.quietBandHz(1) & ...
-    frequencyHz <= cfg.quietBandHz(2);
+quietMask = frequencyBandMask(frequencyHz, cfg.quietBandHz);
 [~, mainsIndex] = min(abs(frequencyHz-50));
 segmentStep = max(1, segmentLength-overlapLength);
 segmentCount = 1 + floor( ...
@@ -78,7 +76,7 @@ end
 end
 
 function noiseVrms = integrateBand(frequencyHz, psdV2PerHz, limitsHz)
-use = frequencyHz >= limitsHz(1) & frequencyHz <= limitsHz(2);
+use = frequencyBandMask(frequencyHz, limitsHz);
 if nnz(use) < 2
     error("opa189:MissingIntegrationBand", ...
         "The Welch result does not contain the requested integration band.");
