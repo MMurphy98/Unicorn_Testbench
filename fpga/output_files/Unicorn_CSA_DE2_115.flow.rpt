@@ -1,5 +1,5 @@
 Flow report for Unicorn_CSA_DE2_115
-Mon Aug 17 21:41:05 2026
+Wed Aug 19 22:49:13 2026
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Standard Edition
 
 
@@ -40,7 +40,7 @@ refer to the applicable agreement for further details.
 +--------------------------------------------------------------------------------------+
 ; Flow Summary                                                                         ;
 +------------------------------------+-------------------------------------------------+
-; Flow Status                        ; Successful - Mon Aug 17 21:41:02 2026           ;
+; Flow Status                        ; Successful - Wed Aug 19 22:49:09 2026           ;
 ; Quartus Prime Version              ; 18.1.0 Build 625 09/12/2018 SJ Standard Edition ;
 ; Revision Name                      ; Unicorn_CSA_DE2_115                             ;
 ; Top-level Entity Name              ; Unicorn_CAS_DE2_115                             ;
@@ -48,10 +48,10 @@ refer to the applicable agreement for further details.
 ; Device                             ; EP4CE115F29C7                                   ;
 ; Timing Models                      ; Final                                           ;
 ; Total logic elements               ; 4 / 114,480 ( < 1 % )                           ;
-;     Total combinational functions  ; 3 / 114,480 ( < 1 % )                           ;
+;     Total combinational functions  ; 2 / 114,480 ( < 1 % )                           ;
 ;     Dedicated logic registers      ; 3 / 114,480 ( < 1 % )                           ;
 ; Total registers                    ; 3                                               ;
-; Total pins                         ; 9 / 529 ( 2 % )                                 ;
+; Total pins                         ; 10 / 529 ( 2 % )                                ;
 ; Total virtual pins                 ; 0                                               ;
 ; Total memory bits                  ; 0 / 3,981,312 ( 0 % )                           ;
 ; Embedded Multiplier 9-bit elements ; 0 / 532 ( 0 % )                                 ;
@@ -64,7 +64,7 @@ refer to the applicable agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 08/17/2026 21:40:24 ;
+; Start date & time ; 08/19/2026 22:48:30 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; Unicorn_CSA_DE2_115 ;
 +-------------------+---------------------+
@@ -75,7 +75,7 @@ refer to the applicable agreement for further details.
 +-------------------------------------+----------------------------------------+---------------------+---------------------+------------+
 ; Assignment Name                     ; Value                                  ; Default Value       ; Entity Name         ; Section Id ;
 +-------------------------------------+----------------------------------------+---------------------+---------------------+------------+
-; COMPILER_SIGNATURE_ID               ; 158527626708287.178697402361880        ; --                  ; --                  ; --         ;
+; COMPILER_SIGNATURE_ID               ; 158527626708287.178715091038424        ; --                  ; --                  ; --         ;
 ; MAX_CORE_JUNCTION_TEMP              ; 85                                     ; --                  ; --                  ; --         ;
 ; MIN_CORE_JUNCTION_TEMP              ; 0                                      ; --                  ; --                  ; --         ;
 ; MISC_FILE                           ; ip/pll_bb.v                            ; --                  ; --                  ; --         ;
@@ -95,11 +95,11 @@ refer to the applicable agreement for further details.
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis ; 00:00:18     ; 1.0                     ; 4784 MB             ; 00:00:34                           ;
-; Fitter               ; 00:00:13     ; 1.0                     ; 6318 MB             ; 00:00:23                           ;
-; Assembler            ; 00:00:04     ; 1.0                     ; 4687 MB             ; 00:00:04                           ;
-; Timing Analyzer      ; 00:00:02     ; 1.0                     ; 4921 MB             ; 00:00:02                           ;
-; Total                ; 00:00:37     ; --                      ; --                  ; 00:01:03                           ;
+; Analysis & Synthesis ; 00:00:17     ; 1.0                     ; 4784 MB             ; 00:00:30                           ;
+; Fitter               ; 00:00:14     ; 1.0                     ; 6321 MB             ; 00:00:24                           ;
+; Assembler            ; 00:00:05     ; 1.0                     ; 4687 MB             ; 00:00:05                           ;
+; Timing Analyzer      ; 00:00:03     ; 1.0                     ; 4929 MB             ; 00:00:03                           ;
+; Total                ; 00:00:39     ; --                      ; --                  ; 00:01:02                           ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 

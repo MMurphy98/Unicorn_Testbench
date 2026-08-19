@@ -8,7 +8,8 @@ module Unicorn_CAS_DE2_115(
     output  wire    por_div_DUT,
 
 // from FPGA Board
-    input   key_clk_div,
+    input   sw_clk_div,
+    input   sw_por,
     output  wire    LED_clk_div,
     output  wire    LED_pll_ready,
     output  wire    LED_por_ready
@@ -34,8 +35,8 @@ always @(posedge clk_DUT or negedge rst_n) begin
         por_div_dut_reg <= 1'd0;
     end
     else begin
-        clk_div_dut_reg <= key_clk_div;
-        por_div_dut_reg <= rst_n;
+        clk_div_dut_reg <= sw_clk_div;
+        por_div_dut_reg <= sw_por;
     end
 end
 

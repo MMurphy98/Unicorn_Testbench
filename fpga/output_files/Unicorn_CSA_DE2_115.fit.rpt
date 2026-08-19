@@ -1,5 +1,5 @@
 Fitter report for Unicorn_CSA_DE2_115
-Mon Aug 17 21:40:56 2026
+Wed Aug 19 22:49:02 2026
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Standard Edition
 
 
@@ -66,7 +66,7 @@ refer to the applicable agreement for further details.
 +--------------------------------------------------------------------------------------+
 ; Fitter Summary                                                                       ;
 +------------------------------------+-------------------------------------------------+
-; Fitter Status                      ; Successful - Mon Aug 17 21:40:56 2026           ;
+; Fitter Status                      ; Successful - Wed Aug 19 22:49:02 2026           ;
 ; Quartus Prime Version              ; 18.1.0 Build 625 09/12/2018 SJ Standard Edition ;
 ; Revision Name                      ; Unicorn_CSA_DE2_115                             ;
 ; Top-level Entity Name              ; Unicorn_CAS_DE2_115                             ;
@@ -74,10 +74,10 @@ refer to the applicable agreement for further details.
 ; Device                             ; EP4CE115F29C7                                   ;
 ; Timing Models                      ; Final                                           ;
 ; Total logic elements               ; 4 / 114,480 ( < 1 % )                           ;
-;     Total combinational functions  ; 3 / 114,480 ( < 1 % )                           ;
+;     Total combinational functions  ; 2 / 114,480 ( < 1 % )                           ;
 ;     Dedicated logic registers      ; 3 / 114,480 ( < 1 % )                           ;
 ; Total registers                    ; 3                                               ;
-; Total pins                         ; 9 / 529 ( 2 % )                                 ;
+; Total pins                         ; 10 / 529 ( 2 % )                                ;
 ; Total virtual pins                 ; 0                                               ;
 ; Total memory bits                  ; 0 / 3,981,312 ( 0 % )                           ;
 ; Embedded Multiplier 9-bit elements ; 0 / 532 ( 0 % )                                 ;
@@ -167,8 +167,8 @@ refer to the applicable agreement for further details.
 ; Type                ; Total [A + B]     ; From Design Partitions [A] ; From Rapid Recompile [B] ;
 +---------------------+-------------------+----------------------------+--------------------------+
 ; Placement (by node) ;                   ;                            ;                          ;
-;     -- Requested    ; 0.00 % ( 0 / 35 ) ; 0.00 % ( 0 / 35 )          ; 0.00 % ( 0 / 35 )        ;
-;     -- Achieved     ; 0.00 % ( 0 / 35 ) ; 0.00 % ( 0 / 35 )          ; 0.00 % ( 0 / 35 )        ;
+;     -- Requested    ; 0.00 % ( 0 / 37 ) ; 0.00 % ( 0 / 37 )          ; 0.00 % ( 0 / 37 )        ;
+;     -- Achieved     ; 0.00 % ( 0 / 37 ) ; 0.00 % ( 0 / 37 )          ; 0.00 % ( 0 / 37 )        ;
 ;                     ;                   ;                            ;                          ;
 ; Routing (by net)    ;                   ;                            ;                          ;
 ;     -- Requested    ; 0.00 % ( 0 / 0 )  ; 0.00 % ( 0 / 0 )           ; 0.00 % ( 0 / 0 )         ;
@@ -191,7 +191,7 @@ refer to the applicable agreement for further details.
 +--------------------------------+-----------------------+-------------------------+-------------------+---------------------+-------+
 ; Partition Name                 ; Preservation Achieved ; Preservation Level Used ; Netlist Type Used ; Preservation Method ; Notes ;
 +--------------------------------+-----------------------+-------------------------+-------------------+---------------------+-------+
-; Top                            ; 0.00 % ( 0 / 23 )     ; N/A                     ; Source File       ; N/A                 ;       ;
+; Top                            ; 0.00 % ( 0 / 25 )     ; N/A                     ; Source File       ; N/A                 ;       ;
 ; hard_block:auto_generated_inst ; 0.00 % ( 0 / 12 )     ; N/A                     ; Source File       ; N/A                 ;       ;
 +--------------------------------+-----------------------+-------------------------+-------------------+---------------------+-------+
 
@@ -209,17 +209,17 @@ The pin-out file can be found in C:/Users/Jinge/GitHub/Unicorn_Testbench/fpga/ou
 +---------------------------------------------+-----------------------+
 ; Total logic elements                        ; 4 / 114,480 ( < 1 % ) ;
 ;     -- Combinational with no register       ; 1                     ;
-;     -- Register only                        ; 1                     ;
-;     -- Combinational with a register        ; 2                     ;
+;     -- Register only                        ; 2                     ;
+;     -- Combinational with a register        ; 1                     ;
 ;                                             ;                       ;
 ; Logic element usage by number of LUT inputs ;                       ;
 ;     -- 4 input functions                    ; 0                     ;
 ;     -- 3 input functions                    ; 0                     ;
-;     -- <=2 input functions                  ; 3                     ;
-;     -- Register only                        ; 1                     ;
+;     -- <=2 input functions                  ; 2                     ;
+;     -- Register only                        ; 2                     ;
 ;                                             ;                       ;
 ; Logic elements by mode                      ;                       ;
-;     -- normal mode                          ; 3                     ;
+;     -- normal mode                          ; 2                     ;
 ;     -- arithmetic mode                      ; 0                     ;
 ;                                             ;                       ;
 ; Total registers*                            ; 3 / 117,053 ( < 1 % ) ;
@@ -228,7 +228,7 @@ The pin-out file can be found in C:/Users/Jinge/GitHub/Unicorn_Testbench/fpga/ou
 ;                                             ;                       ;
 ; Total LABs:  partially or completely used   ; 1 / 7,155 ( < 1 % )   ;
 ; Virtual pins                                ; 0                     ;
-; I/O pins                                    ; 9 / 529 ( 2 % )       ;
+; I/O pins                                    ; 10 / 529 ( 2 % )      ;
 ;     -- Clock pins                           ; 1 / 7 ( 14 % )        ;
 ;     -- Dedicated input pins                 ; 0 / 9 ( 0 % )         ;
 ;                                             ;                       ;
@@ -248,7 +248,7 @@ The pin-out file can be found in C:/Users/Jinge/GitHub/Unicorn_Testbench/fpga/ou
 ; Peak interconnect usage (total/H/V)         ; 0.2% / 0.1% / 0.3%    ;
 ; Maximum fan-out                             ; 4                     ;
 ; Highest non-global fan-out                  ; 4                     ;
-; Total fan-out                               ; 36                    ;
+; Total fan-out                               ; 37                    ;
 ; Average fan-out                             ; 0.97                  ;
 +---------------------------------------------+-----------------------+
 *  Register count does not include registers inside RAM blocks or DSP blocks.
@@ -264,17 +264,17 @@ The pin-out file can be found in C:/Users/Jinge/GitHub/Unicorn_Testbench/fpga/ou
 ;                                             ;                      ;                                ;
 ; Total logic elements                        ; 4 / 114480 ( < 1 % ) ; 0 / 114480 ( 0 % )             ;
 ;     -- Combinational with no register       ; 1                    ; 0                              ;
-;     -- Register only                        ; 1                    ; 0                              ;
-;     -- Combinational with a register        ; 2                    ; 0                              ;
+;     -- Register only                        ; 2                    ; 0                              ;
+;     -- Combinational with a register        ; 1                    ; 0                              ;
 ;                                             ;                      ;                                ;
 ; Logic element usage by number of LUT inputs ;                      ;                                ;
 ;     -- 4 input functions                    ; 0                    ; 0                              ;
 ;     -- 3 input functions                    ; 0                    ; 0                              ;
-;     -- <=2 input functions                  ; 3                    ; 0                              ;
-;     -- Register only                        ; 1                    ; 0                              ;
+;     -- <=2 input functions                  ; 2                    ; 0                              ;
+;     -- Register only                        ; 2                    ; 0                              ;
 ;                                             ;                      ;                                ;
 ; Logic elements by mode                      ;                      ;                                ;
-;     -- normal mode                          ; 3                    ; 0                              ;
+;     -- normal mode                          ; 2                    ; 0                              ;
 ;     -- arithmetic mode                      ; 0                    ; 0                              ;
 ;                                             ;                      ;                                ;
 ; Total registers                             ; 3                    ; 0                              ;
@@ -284,7 +284,7 @@ The pin-out file can be found in C:/Users/Jinge/GitHub/Unicorn_Testbench/fpga/ou
 ; Total LABs:  partially or completely used   ; 1 / 7155 ( < 1 % )   ; 0 / 7155 ( 0 % )               ;
 ;                                             ;                      ;                                ;
 ; Virtual pins                                ; 0                    ; 0                              ;
-; I/O pins                                    ; 9                    ; 0                              ;
+; I/O pins                                    ; 10                   ; 0                              ;
 ; Embedded Multiplier 9-bit elements          ; 0 / 532 ( 0 % )      ; 0 / 532 ( 0 % )                ;
 ; Total memory bits                           ; 0                    ; 0                              ;
 ; Total RAM block bits                        ; 0                    ; 0                              ;
@@ -298,7 +298,7 @@ The pin-out file can be found in C:/Users/Jinge/GitHub/Unicorn_Testbench/fpga/ou
 ;     -- Registered Output Connections        ; 0                    ; 0                              ;
 ;                                             ;                      ;                                ;
 ; Internal Connections                        ;                      ;                                ;
-;     -- Total Connections                    ; 29                   ; 14                             ;
+;     -- Total Connections                    ; 30                   ; 14                             ;
 ;     -- Registered Connections               ; 8                    ; 0                              ;
 ;                                             ;                      ;                                ;
 ; External Connections                        ;                      ;                                ;
@@ -306,7 +306,7 @@ The pin-out file can be found in C:/Users/Jinge/GitHub/Unicorn_Testbench/fpga/ou
 ;     -- hard_block:auto_generated_inst       ; 7                    ; 0                              ;
 ;                                             ;                      ;                                ;
 ; Partition Interface                         ;                      ;                                ;
-;     -- Input Ports                          ; 3                    ; 2                              ;
+;     -- Input Ports                          ; 4                    ; 2                              ;
 ;     -- Output Ports                         ; 6                    ; 2                              ;
 ;     -- Bidir Ports                          ; 0                    ; 0                              ;
 ;                                             ;                      ;                                ;
@@ -326,15 +326,16 @@ The pin-out file can be found in C:/Users/Jinge/GitHub/Unicorn_Testbench/fpga/ou
 +---------------------------------------------+----------------------+--------------------------------+
 
 
-+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Input Pins                                                                                                                                                                                                                                                                                   ;
-+-------------+-------+----------+--------------+--------------+--------------+-----------------------+--------------------+--------+----------------+---------------+-----------------+----------+--------------+--------------+---------------------------+----------------------+-----------+
-; Name        ; Pin # ; I/O Bank ; X coordinate ; Y coordinate ; Z coordinate ; Combinational Fan-Out ; Registered Fan-Out ; Global ; Input Register ; Power Up High ; PCI I/O Enabled ; Bus Hold ; Weak Pull Up ; I/O Standard ; Termination Control Block ; Location assigned by ; Slew Rate ;
-+-------------+-------+----------+--------------+--------------+--------------+-----------------------+--------------------+--------+----------------+---------------+-----------------+----------+--------------+--------------+---------------------------+----------------------+-----------+
-; clk_50M     ; AG15  ; 4        ; 58           ; 0            ; 7            ; 1                     ; 0                  ; no     ; no             ; no            ; yes             ; no       ; Off          ; 3.3-V LVTTL  ; --                        ; User                 ; no        ;
-; key_clk_div ; AB28  ; 5        ; 115          ; 17           ; 0            ; 1                     ; 0                  ; no     ; no             ; no            ; yes             ; no       ; Off          ; 3.3-V LVTTL  ; --                        ; User                 ; no        ;
-; rst_n       ; M23   ; 6        ; 115          ; 40           ; 7            ; 4                     ; 0                  ; no     ; no             ; no            ; yes             ; no       ; Off          ; 3.3-V LVTTL  ; --                        ; User                 ; no        ;
-+-------------+-------+----------+--------------+--------------+--------------+-----------------------+--------------------+--------+----------------+---------------+-----------------+----------+--------------+--------------+---------------------------+----------------------+-----------+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Input Pins                                                                                                                                                                                                                                                                                  ;
++------------+-------+----------+--------------+--------------+--------------+-----------------------+--------------------+--------+----------------+---------------+-----------------+----------+--------------+--------------+---------------------------+----------------------+-----------+
+; Name       ; Pin # ; I/O Bank ; X coordinate ; Y coordinate ; Z coordinate ; Combinational Fan-Out ; Registered Fan-Out ; Global ; Input Register ; Power Up High ; PCI I/O Enabled ; Bus Hold ; Weak Pull Up ; I/O Standard ; Termination Control Block ; Location assigned by ; Slew Rate ;
++------------+-------+----------+--------------+--------------+--------------+-----------------------+--------------------+--------+----------------+---------------+-----------------+----------+--------------+--------------+---------------------------+----------------------+-----------+
+; clk_50M    ; AG15  ; 4        ; 58           ; 0            ; 7            ; 1                     ; 0                  ; no     ; no             ; no            ; yes             ; no       ; Off          ; 3.3-V LVTTL  ; --                        ; User                 ; no        ;
+; rst_n      ; M23   ; 6        ; 115          ; 40           ; 7            ; 4                     ; 0                  ; no     ; no             ; no            ; yes             ; no       ; Off          ; 3.3-V LVTTL  ; --                        ; User                 ; no        ;
+; sw_clk_div ; AB28  ; 5        ; 115          ; 17           ; 0            ; 1                     ; 0                  ; no     ; no             ; no            ; yes             ; no       ; Off          ; 3.3-V LVTTL  ; --                        ; User                 ; no        ;
+; sw_por     ; AC28  ; 5        ; 115          ; 14           ; 0            ; 1                     ; 0                  ; no     ; no             ; no            ; yes             ; no       ; Off          ; 3.3-V LVTTL  ; --                        ; User                 ; no        ;
++------------+-------+----------+--------------+--------------+--------------+-----------------------+--------------------+--------+----------------+---------------+-----------------+----------+--------------+--------------+---------------------------+----------------------+-----------+
 
 
 +------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -381,7 +382,7 @@ The pin-out file can be found in C:/Users/Jinge/GitHub/Unicorn_Testbench/fpga/ou
 ; 2        ; 0 / 63 ( 0 % ) ; 2.5V          ; --           ;
 ; 3        ; 0 / 73 ( 0 % ) ; 2.5V          ; --           ;
 ; 4        ; 4 / 71 ( 6 % ) ; 3.3V          ; --           ;
-; 5        ; 1 / 65 ( 2 % ) ; 3.3V          ; --           ;
+; 5        ; 2 / 65 ( 3 % ) ; 3.3V          ; --           ;
 ; 6        ; 2 / 58 ( 3 % ) ; 3.3V          ; --           ;
 ; 7        ; 3 / 72 ( 4 % ) ; 3.3V          ; --           ;
 ; 8        ; 0 / 71 ( 0 % ) ; 2.5V          ; --           ;
@@ -474,7 +475,7 @@ The pin-out file can be found in C:/Users/Jinge/GitHub/Unicorn_Testbench/fpga/ou
 ; AB25     ; 292        ; 5        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Row I/O    ;                 ; no       ; On           ;
 ; AB26     ; 291        ; 5        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Row I/O    ;                 ; no       ; On           ;
 ; AB27     ; 296        ; 5        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Row I/O    ;                 ; no       ; On           ;
-; AB28     ; 295        ; 5        ; key_clk_div                                               ; input  ; 3.3-V LVTTL  ;         ; Row I/O    ; Y               ; no       ; Off          ;
+; AB28     ; 295        ; 5        ; sw_clk_div                                                ; input  ; 3.3-V LVTTL  ;         ; Row I/O    ; Y               ; no       ; Off          ;
 ; AC1      ; 94         ; 2        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Row I/O    ;                 ; no       ; On           ;
 ; AC2      ; 93         ; 2        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Row I/O    ;                 ; no       ; On           ;
 ; AC3      ; 95         ; 2        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Row I/O    ;                 ; no       ; On           ;
@@ -502,7 +503,7 @@ The pin-out file can be found in C:/Users/Jinge/GitHub/Unicorn_Testbench/fpga/ou
 ; AC25     ; 272        ; 5        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Row I/O    ;                 ; no       ; On           ;
 ; AC26     ; 282        ; 5        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Row I/O    ;                 ; no       ; On           ;
 ; AC27     ; 290        ; 5        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Row I/O    ;                 ; no       ; On           ;
-; AC28     ; 289        ; 5        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Row I/O    ;                 ; no       ; On           ;
+; AC28     ; 289        ; 5        ; sw_por                                                    ; input  ; 3.3-V LVTTL  ;         ; Row I/O    ; Y               ; no       ; Off          ;
 ; AD1      ; 98         ; 2        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Row I/O    ;                 ; no       ; On           ;
 ; AD2      ; 97         ; 2        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Row I/O    ;                 ; no       ; On           ;
 ; AD3      ; 96         ; 2        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Row I/O    ;                 ; no       ; On           ;
@@ -1232,7 +1233,7 @@ Note: Pin directions (input, output or bidir) are based on device operating in u
 +--------------------------------------+-------------+---------------------------+---------------+-------------+------+--------------+---------+-----------+------+--------------+--------------+-------------------+------------------+-------------------------------------------------------------------------------------+---------------------+--------------+
 ; Compilation Hierarchy Node           ; Logic Cells ; Dedicated Logic Registers ; I/O Registers ; Memory Bits ; M9Ks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; LUT-Only LCs ; Register-Only LCs ; LUT/Register LCs ; Full Hierarchy Name                                                                 ; Entity Name         ; Library Name ;
 +--------------------------------------+-------------+---------------------------+---------------+-------------+------+--------------+---------+-----------+------+--------------+--------------+-------------------+------------------+-------------------------------------------------------------------------------------+---------------------+--------------+
-; |Unicorn_CAS_DE2_115                 ; 4 (2)       ; 3 (2)                     ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 9    ; 0            ; 1 (0)        ; 1 (1)             ; 2 (1)            ; |Unicorn_CAS_DE2_115                                                                ; Unicorn_CAS_DE2_115 ; work         ;
+; |Unicorn_CAS_DE2_115                 ; 4 (2)       ; 3 (2)                     ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 10   ; 0            ; 1 (0)        ; 2 (2)             ; 1 (0)            ; |Unicorn_CAS_DE2_115                                                                ; Unicorn_CAS_DE2_115 ; work         ;
 ;    |pll:Inst_pll|                    ; 2 (0)       ; 1 (0)                     ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 1 (0)        ; 0 (0)             ; 1 (0)            ; |Unicorn_CAS_DE2_115|pll:Inst_pll                                                   ; pll                 ; work         ;
 ;       |altpll:altpll_component|      ; 2 (0)       ; 1 (0)                     ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 1 (0)        ; 0 (0)             ; 1 (0)            ; |Unicorn_CAS_DE2_115|pll:Inst_pll|altpll:altpll_component                           ; altpll              ; work         ;
 ;          |pll_altpll:auto_generated| ; 2 (2)       ; 1 (1)                     ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 1 (1)        ; 0 (0)             ; 1 (1)            ; |Unicorn_CAS_DE2_115|pll:Inst_pll|altpll:altpll_component|pll_altpll:auto_generated ; pll_altpll          ; work         ;
@@ -1253,7 +1254,8 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; LED_por_ready ; Output   ; --            ; --            ; --                    ; --  ; --   ;
 ; rst_n         ; Input    ; --            ; (6) 1314 ps   ; --                    ; --  ; --   ;
 ; clk_50M       ; Input    ; --            ; --            ; --                    ; --  ; --   ;
-; key_clk_div   ; Input    ; (6) 1314 ps   ; --            ; --                    ; --  ; --   ;
+; sw_clk_div    ; Input    ; (6) 1314 ps   ; --            ; --                    ; --  ; --   ;
+; sw_por        ; Input    ; --            ; (6) 1314 ps   ; --                    ; --  ; --   ;
 +---------------+----------+---------------+---------------+-----------------------+-----+------+
 
 
@@ -1268,8 +1270,10 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ;      - pll:Inst_pll|altpll:altpll_component|pll_altpll:auto_generated|pll_lock_sync ; 1                 ; 6       ;
 ;      - pll:Inst_pll|altpll:altpll_component|pll_altpll:auto_generated|pll1          ; 1                 ; 6       ;
 ; clk_50M                                                                             ;                   ;         ;
-; key_clk_div                                                                         ;                   ;         ;
+; sw_clk_div                                                                          ;                   ;         ;
 ;      - clk_div_dut_reg~feeder                                                       ; 0                 ; 6       ;
+; sw_por                                                                              ;                   ;         ;
+;      - por_div_dut_reg                                                              ; 1                 ; 6       ;
 +-------------------------------------------------------------------------------------+-------------------+---------+
 
 
@@ -1299,9 +1303,9 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +-----------------------+------------------------+
 ; Routing Resource Type ; Usage                  ;
 +-----------------------+------------------------+
-; Block interconnects   ; 10 / 342,891 ( < 1 % ) ;
+; Block interconnects   ; 11 / 342,891 ( < 1 % ) ;
 ; C16 interconnects     ; 13 / 10,120 ( < 1 % )  ;
-; C4 interconnects      ; 22 / 209,544 ( < 1 % ) ;
+; C4 interconnects      ; 23 / 209,544 ( < 1 % ) ;
 ; Direct links          ; 0 / 342,891 ( 0 % )    ;
 ; Global clocks         ; 1 / 20 ( 5 % )         ;
 ; Local interconnects   ; 1 / 119,088 ( < 1 % )  ;
@@ -1347,7 +1351,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +---------------------------------------------------------------------------+
 ; LAB Signals Sourced                                                       ;
 +---------------------------------------------+-----------------------------+
-; Number of Signals Sourced  (Average = 7.00) ; Number of LABs  (Total = 1) ;
+; Number of Signals Sourced  (Average = 6.00) ; Number of LABs  (Total = 1) ;
 +---------------------------------------------+-----------------------------+
 ; 0                                           ; 0                           ;
 ; 1                                           ; 0                           ;
@@ -1355,8 +1359,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; 3                                           ; 0                           ;
 ; 4                                           ; 0                           ;
 ; 5                                           ; 0                           ;
-; 6                                           ; 0                           ;
-; 7                                           ; 1                           ;
+; 6                                           ; 1                           ;
 +---------------------------------------------+-----------------------------+
 
 
@@ -1375,13 +1378,14 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +---------------------------------------------------------------------------+
 ; LAB Distinct Inputs                                                       ;
 +---------------------------------------------+-----------------------------+
-; Number of Distinct Inputs  (Average = 4.00) ; Number of LABs  (Total = 1) ;
+; Number of Distinct Inputs  (Average = 5.00) ; Number of LABs  (Total = 1) ;
 +---------------------------------------------+-----------------------------+
 ; 0                                           ; 0                           ;
 ; 1                                           ; 0                           ;
 ; 2                                           ; 0                           ;
 ; 3                                           ; 0                           ;
-; 4                                           ; 1                           ;
+; 4                                           ; 0                           ;
+; 5                                           ; 1                           ;
 +---------------------------------------------+-----------------------------+
 
 
@@ -1441,9 +1445,9 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +--------------------+-----------+--------------+-----------+--------------+--------------+-----------+-----------+--------------+-----------+-----------+-----------+--------------+--------------+--------------+--------------+-----------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+-----------+--------------+--------------+
 ; Pin/Rules          ; IO_000001 ; IO_000002    ; IO_000003 ; IO_000004    ; IO_000005    ; IO_000006 ; IO_000007 ; IO_000008    ; IO_000009 ; IO_000010 ; IO_000011 ; IO_000012    ; IO_000013    ; IO_000014    ; IO_000015    ; IO_000018 ; IO_000019    ; IO_000020    ; IO_000021    ; IO_000022    ; IO_000023    ; IO_000024    ; IO_000026    ; IO_000027    ; IO_000045    ; IO_000046    ; IO_000047    ; IO_000033 ; IO_000034    ; IO_000042    ;
 +--------------------+-----------+--------------+-----------+--------------+--------------+-----------+-----------+--------------+-----------+-----------+-----------+--------------+--------------+--------------+--------------+-----------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+-----------+--------------+--------------+
-; Total Pass         ; 9         ; 0            ; 9         ; 0            ; 0            ; 9         ; 9         ; 0            ; 9         ; 9         ; 9         ; 0            ; 0            ; 0            ; 3            ; 9         ; 0            ; 3            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 9         ; 0            ; 0            ;
+; Total Pass         ; 10        ; 0            ; 10        ; 0            ; 0            ; 10        ; 10        ; 0            ; 10        ; 10        ; 10        ; 0            ; 0            ; 0            ; 4            ; 10        ; 0            ; 4            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 10        ; 0            ; 0            ;
 ; Total Unchecked    ; 0         ; 0            ; 0         ; 0            ; 0            ; 0         ; 0         ; 0            ; 0         ; 0         ; 0         ; 0            ; 0            ; 0            ; 0            ; 0         ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0         ; 0            ; 0            ;
-; Total Inapplicable ; 0         ; 9            ; 0         ; 9            ; 9            ; 0         ; 0         ; 9            ; 0         ; 0         ; 0         ; 9            ; 9            ; 9            ; 6            ; 0         ; 9            ; 6            ; 9            ; 9            ; 9            ; 9            ; 9            ; 9            ; 9            ; 9            ; 9            ; 0         ; 9            ; 9            ;
+; Total Inapplicable ; 0         ; 10           ; 0         ; 10           ; 10           ; 0         ; 0         ; 10           ; 0         ; 0         ; 0         ; 10           ; 10           ; 10           ; 6            ; 0         ; 10           ; 6            ; 10           ; 10           ; 10           ; 10           ; 10           ; 10           ; 10           ; 10           ; 10           ; 0         ; 10           ; 10           ;
 ; Total Fail         ; 0         ; 0            ; 0         ; 0            ; 0            ; 0         ; 0         ; 0            ; 0         ; 0         ; 0         ; 0            ; 0            ; 0            ; 0            ; 0         ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0         ; 0            ; 0            ;
 ; clk_DUT            ; Pass      ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Pass      ; Pass      ; Pass      ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ;
 ; clk_div_DUT        ; Pass      ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Pass      ; Pass      ; Pass      ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ;
@@ -1453,7 +1457,8 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; LED_por_ready      ; Pass      ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Pass      ; Pass      ; Pass      ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ;
 ; rst_n              ; Pass      ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Pass      ; Pass      ; Pass      ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Pass      ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ;
 ; clk_50M            ; Pass      ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Pass      ; Pass      ; Pass      ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Pass      ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ;
-; key_clk_div        ; Pass      ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Pass      ; Pass      ; Pass      ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Pass      ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ;
+; sw_clk_div         ; Pass      ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Pass      ; Pass      ; Pass      ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Pass      ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ;
+; sw_por             ; Pass      ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Pass      ; Pass      ; Pass      ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Pass      ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ;
 +--------------------+-----------+--------------+-----------+--------------+--------------+-----------+-----------+--------------+-----------+-----------+-----------+--------------+--------------+--------------+--------------+-----------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+-----------+--------------+--------------+
 
 
@@ -1533,7 +1538,7 @@ Info (176233): Starting register packing
 Info (176235): Finished register packing
     Extra Info (176219): No registers were packed into other blocks
 Warning (15064): PLL "pll:Inst_pll|altpll:altpll_component|pll_altpll:auto_generated|pll1" output port clk[0] feeds output pin "clk_DUT~output" via non-dedicated routing -- jitter performance depends on switching rate of other design elements. Use PLL dedicated clock outputs to ensure jitter performance File: C:/Users/Jinge/GitHub/Unicorn_Testbench/fpga/db/pll_altpll.v Line: 50
-Info (171121): Fitter preparation operations ending: elapsed time is 00:00:01
+Info (171121): Fitter preparation operations ending: elapsed time is 00:00:02
 Info (14896): Fitter has disabled Advanced Physical Optimization because it is not supported for the current family.
 Info (170189): Fitter placement preparation operations beginning
 Info (170190): Fitter placement preparation operations ending: elapsed time is 00:00:00
@@ -1547,22 +1552,23 @@ Info (170199): The Fitter performed an Auto Fit compilation.  Optimizations were
     Info (170201): Optimizations that may affect the design's routability were skipped
     Info (170200): Optimizations that may affect the design's timing were skipped
 Info (170194): Fitter routing operations ending: elapsed time is 00:00:00
-Info (11888): Total time spent on timing analysis during the Fitter is 0.07 seconds.
+Info (11888): Total time spent on timing analysis during the Fitter is 0.08 seconds.
 Info (334003): Started post-fitting delay annotation
 Info (334004): Delay annotation completed successfully
 Info (334003): Started post-fitting delay annotation
 Info (334004): Delay annotation completed successfully
 Info (11218): Fitter post-fit operations ending: elapsed time is 00:00:01
-Warning (169177): 3 pins must meet Intel FPGA requirements for 3.3-, 3.0-, and 2.5-V interfaces. For more information, refer to AN 447: Interfacing Cyclone IV E Devices with 3.3/3.0/2.5-V LVTTL/LVCMOS I/O Systems.
+Warning (169177): 4 pins must meet Intel FPGA requirements for 3.3-, 3.0-, and 2.5-V interfaces. For more information, refer to AN 447: Interfacing Cyclone IV E Devices with 3.3/3.0/2.5-V LVTTL/LVCMOS I/O Systems.
     Info (169178): Pin rst_n uses I/O standard 3.3-V LVTTL at M23 File: C:/Users/Jinge/GitHub/Unicorn_Testbench/fpga/src/Unicorn_CAS_DE2_115.v Line: 3
     Info (169178): Pin clk_50M uses I/O standard 3.3-V LVTTL at AG15 File: C:/Users/Jinge/GitHub/Unicorn_Testbench/fpga/src/Unicorn_CAS_DE2_115.v Line: 2
-    Info (169178): Pin key_clk_div uses I/O standard 3.3-V LVTTL at AB28 File: C:/Users/Jinge/GitHub/Unicorn_Testbench/fpga/src/Unicorn_CAS_DE2_115.v Line: 11
+    Info (169178): Pin sw_clk_div uses I/O standard 3.3-V LVTTL at AB28 File: C:/Users/Jinge/GitHub/Unicorn_Testbench/fpga/src/Unicorn_CAS_DE2_115.v Line: 11
+    Info (169178): Pin sw_por uses I/O standard 3.3-V LVTTL at AC28 File: C:/Users/Jinge/GitHub/Unicorn_Testbench/fpga/src/Unicorn_CAS_DE2_115.v Line: 12
 Info (144001): Generated suppressed messages file C:/Users/Jinge/GitHub/Unicorn_Testbench/fpga/output_files/Unicorn_CSA_DE2_115.fit.smsg
 Info: Quartus Prime Fitter was successful. 0 errors, 4 warnings
-    Info: Peak virtual memory: 6318 megabytes
-    Info: Processing ended: Mon Aug 17 21:40:57 2026
-    Info: Elapsed time: 00:00:14
-    Info: Total CPU time (on all processors): 00:00:24
+    Info: Peak virtual memory: 6321 megabytes
+    Info: Processing ended: Wed Aug 19 22:49:03 2026
+    Info: Elapsed time: 00:00:15
+    Info: Total CPU time (on all processors): 00:00:25
 
 
 +----------------------------+

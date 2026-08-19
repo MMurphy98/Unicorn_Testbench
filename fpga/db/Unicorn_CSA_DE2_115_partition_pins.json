@@ -28,7 +28,11 @@
 					"strict" : false
 				},
 				{
-					"name" : "key_clk_div",
+					"name" : "sw_clk_div",
+					"strict" : false
+				},
+				{
+					"name" : "sw_por",
 					"strict" : false
 				}
 			]

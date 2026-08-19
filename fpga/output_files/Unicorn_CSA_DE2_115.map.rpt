@@ -1,5 +1,5 @@
 Analysis & Synthesis report for Unicorn_CSA_DE2_115
-Mon Aug 17 21:40:41 2026
+Wed Aug 19 22:48:47 2026
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Standard Edition
 
 
@@ -45,7 +45,7 @@ refer to the applicable agreement for further details.
 +--------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                         ;
 +------------------------------------+-------------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Mon Aug 17 21:40:41 2026           ;
+; Analysis & Synthesis Status        ; Successful - Wed Aug 19 22:48:47 2026           ;
 ; Quartus Prime Version              ; 18.1.0 Build 625 09/12/2018 SJ Standard Edition ;
 ; Revision Name                      ; Unicorn_CSA_DE2_115                             ;
 ; Top-level Entity Name              ; Unicorn_CAS_DE2_115                             ;
@@ -54,7 +54,7 @@ refer to the applicable agreement for further details.
 ;     Total combinational functions  ; 1                                               ;
 ;     Dedicated logic registers      ; 3                                               ;
 ; Total registers                    ; 3                                               ;
-; Total pins                         ; 9                                               ;
+; Total pins                         ; 10                                              ;
 ; Total virtual pins                 ; 0                                               ;
 ; Total memory bits                  ; 0                                               ;
 ; Embedded Multiplier 9-bit elements ; 0                                               ;
@@ -201,7 +201,7 @@ refer to the applicable agreement for further details.
 ;     -- Dedicated logic registers            ; 3                                                                               ;
 ;     -- I/O registers                        ; 0                                                                               ;
 ;                                             ;                                                                                 ;
-; I/O pins                                    ; 9                                                                               ;
+; I/O pins                                    ; 10                                                                              ;
 ;                                             ;                                                                                 ;
 ; Embedded Multiplier 9-bit elements          ; 0                                                                               ;
 ;                                             ;                                                                                 ;
@@ -210,8 +210,8 @@ refer to the applicable agreement for further details.
 ;                                             ;                                                                                 ;
 ; Maximum fan-out node                        ; pll:Inst_pll|altpll:altpll_component|pll_altpll:auto_generated|wire_pll1_clk[0] ;
 ; Maximum fan-out                             ; 6                                                                               ;
-; Total fan-out                               ; 27                                                                              ;
-; Average fan-out                             ; 1.17                                                                            ;
+; Total fan-out                               ; 29                                                                              ;
+; Average fan-out                             ; 1.16                                                                            ;
 +---------------------------------------------+---------------------------------------------------------------------------------+
 
 
@@ -220,7 +220,7 @@ refer to the applicable agreement for further details.
 +--------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------------------------------------------------------+---------------------+--------------+
 ; Compilation Hierarchy Node           ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                 ; Entity Name         ; Library Name ;
 +--------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------------------------------------------------------+---------------------+--------------+
-; |Unicorn_CAS_DE2_115                 ; 1 (0)               ; 3 (2)                     ; 0           ; 0            ; 0       ; 0         ; 9    ; 0            ; |Unicorn_CAS_DE2_115                                                                ; Unicorn_CAS_DE2_115 ; work         ;
+; |Unicorn_CAS_DE2_115                 ; 1 (0)               ; 3 (2)                     ; 0           ; 0            ; 0       ; 0         ; 10   ; 0            ; |Unicorn_CAS_DE2_115                                                                ; Unicorn_CAS_DE2_115 ; work         ;
 ;    |pll:Inst_pll|                    ; 1 (0)               ; 1 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Unicorn_CAS_DE2_115|pll:Inst_pll                                                   ; pll                 ; work         ;
 ;       |altpll:altpll_component|      ; 1 (0)               ; 1 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Unicorn_CAS_DE2_115|pll:Inst_pll|altpll:altpll_component                           ; altpll              ; work         ;
 ;          |pll_altpll:auto_generated| ; 1 (1)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Unicorn_CAS_DE2_115|pll:Inst_pll|altpll:altpll_component|pll_altpll:auto_generated ; pll_altpll          ; work         ;
@@ -648,7 +648,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; boundary_port         ; 9                           ;
+; boundary_port         ; 10                          ;
 ; cycloneiii_ff         ; 3                           ;
 ;     CLR               ; 3                           ;
 ; cycloneiii_lcell_comb ; 1                           ;
@@ -657,7 +657,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; cycloneiii_pll        ; 1                           ;
 ;                       ;                             ;
 ; Max LUT depth         ; 1.00                        ;
-; Average LUT depth     ; 0.30                        ;
+; Average LUT depth     ; 0.27                        ;
 +-----------------------+-----------------------------+
 
 
@@ -676,7 +676,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 18.1.0 Build 625 09/12/2018 SJ Standard Edition
-    Info: Processing started: Mon Aug 17 21:40:23 2026
+    Info: Processing started: Wed Aug 19 22:48:29 2026
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off Unicorn_CSA_DE2_115 -c Unicorn_CSA_DE2_115
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 12 of the 12 processors detected
@@ -685,7 +685,7 @@ Info (12021): Found 1 design units, including 1 entities, in source file src/uni
 Info (12021): Found 1 design units, including 1 entities, in source file ip/pll.v
     Info (12023): Found entity 1: pll File: C:/Users/Jinge/GitHub/Unicorn_Testbench/fpga/ip/pll.v Line: 39
 Info (12127): Elaborating entity "Unicorn_CAS_DE2_115" for the top level hierarchy
-Info (12128): Elaborating entity "pll" for hierarchy "pll:Inst_pll" File: C:/Users/Jinge/GitHub/Unicorn_Testbench/fpga/src/Unicorn_CAS_DE2_115.v Line: 24
+Info (12128): Elaborating entity "pll" for hierarchy "pll:Inst_pll" File: C:/Users/Jinge/GitHub/Unicorn_Testbench/fpga/src/Unicorn_CAS_DE2_115.v Line: 25
 Info (12128): Elaborating entity "altpll" for hierarchy "pll:Inst_pll|altpll:altpll_component" File: C:/Users/Jinge/GitHub/Unicorn_Testbench/fpga/ip/pll.v Line: 103
 Info (12130): Elaborated megafunction instantiation "pll:Inst_pll|altpll:altpll_component" File: C:/Users/Jinge/GitHub/Unicorn_Testbench/fpga/ip/pll.v Line: 103
 Info (12133): Instantiated megafunction "pll:Inst_pll|altpll:altpll_component" with the following parameter: File: C:/Users/Jinge/GitHub/Unicorn_Testbench/fpga/ip/pll.v Line: 103
@@ -750,15 +750,15 @@ Info (12128): Elaborating entity "pll_altpll" for hierarchy "pll:Inst_pll|altpll
 Info (286030): Timing-Driven Synthesis is running
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 1 node(s), including 0 DDIO, 1 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 14 device resources after synthesis - the final resource count might be different
-    Info (21058): Implemented 3 input pins
+Info (21057): Implemented 15 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 4 input pins
     Info (21059): Implemented 6 output pins
     Info (21061): Implemented 4 logic cells
     Info (21065): Implemented 1 PLLs
 Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 1 warning
     Info: Peak virtual memory: 4784 megabytes
-    Info: Processing ended: Mon Aug 17 21:40:41 2026
+    Info: Processing ended: Wed Aug 19 22:48:47 2026
     Info: Elapsed time: 00:00:18
-    Info: Total CPU time (on all processors): 00:00:34
+    Info: Total CPU time (on all processors): 00:00:31
 
 
