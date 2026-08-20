@@ -29,3 +29,7 @@ PXI-5922 在 floating-input 条件下的综合噪声底，不进行增益换算�
 V/sqrt(Hz) 换算为 nV/sqrt(Hz)，再将 AC/DC 输入等效噪声绘制在同一双对数坐标系中并添加 legend；
 PNG 和 MATLAB FIG 写入
 `results/PXI-5922/2026-08-19_Unicorn_COB_RevA_ac_dc_comparison/`。
+
+`plotPxi5922Run02NoiseReference.m` 只加载 `run_02` 已保存的 MAT 结果，将 ASD 除以 1001 并转换为
+nV/sqrt(Hz)，绘制 1 Hz 至 25 kHz 的双对数输入等效噪声图，同时标出依据 100 Hz 至 10 kHz 数据评估
+得到的 5.1 nV/sqrt(Hz) 宽带噪声参考线。PNG 和 MATLAB FIG 保存在 `run_02` 结果目录中。

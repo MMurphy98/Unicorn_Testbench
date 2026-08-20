@@ -49,3 +49,12 @@ results/PXI-5922/2026-08-19_Unicorn_COB_RevA_ac_dc_comparison/
 |-- ac_dc_average_noise_asd_comparison.png
 `-- ac_dc_average_noise_asd_comparison.fig
 ```
+
+`matlab/scripts/plotPxi5922Run02NoiseReference.m` 从 `run_02` 的 MAT 结果生成 1 Hz 至 25 kHz 输入等效
+噪声图，并标出 5.1 nV/sqrt(Hz) 参考线，不重新读取原始 CSV。输出为：
+
+```text
+results/PXI-5922/2026-08-19_Unicorn_COB_RevA_run_02/
+|-- run02_input_referred_noise_1Hz_25kHz.png
+`-- run02_input_referred_noise_1Hz_25kHz.fig
+```
