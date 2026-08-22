@@ -25,3 +25,36 @@ runOpa189NoiseAnalysis();
 - 从原始时域波形重新计算 Welch PSD 或运行完整测试：还需要 Signal Processing Toolbox。
 
 核心算法及其 `private/` 辅助函数位于 `src/+opa189/`。
+
+## DUT COB 偏置电流扫描与异常证据复图
+
+默认入口保留COB 1--3阶段快照。正式COB 1--5、正负3 V、1001倍增益数据可从仓库根目录显式运行：
+
+```matlab
+addpath("matlab/scripts");
+[result, outputPaths] = runDutNoiseAnalysis( ...
+    "../Chip_Benchmark/data/DUT_noise", ...
+    "results/DUT_noise/3V3_1001gain_COB1-5", ...
+    "data/processed/dut_noise/3V3_1001gain_COB1-5", ...
+    1:5);
+```
+
+入口验证每份InstrumentStudio波形为50 kS/s且至少有900,000点，对前900,000点去均值，以整段
+periodic Hann窗计算单边PSD；每条件十份PSD先平均，随后除以 `1001^2` 并开方，得到输入等效ASD。
+完整频率数据与FIG写入已忽略的 `results/DUT_noise/`；小型频谱、摘要和PNG写入 `data/processed/`。
+
+没有原始CSV时，可只凭已提交的小型MAT复图：
+
+```matlab
+addpath("matlab/src");
+dut.replayProcessedCampaign( ...
+    "data/processed/dut_noise/3V3_1001gain_COB1-5");
+dut.replayRepeatedCondition( ...
+    "data/processed/dut_noise/3V3_1001gain_COB1_With50Ohm");
+dut.replaySupplyComparison( ...
+    "data/processed/dut_noise/3V3_vs_6V6_1001gain_COB1_1uA");
+```
+
+三种复图入口均不执行FFT，也不能用于修改频谱处理参数。操作人员已确认正负6 V测量时辅助运放
+50 Ohm电阻断开，而对照中的正负3 V数据为电阻接入状态；因此该图标为双变量配置对照，不能隔离
+供电电压的影响。核心代码位于 `src/+dut/`。

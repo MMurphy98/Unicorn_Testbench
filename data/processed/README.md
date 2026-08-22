@@ -16,3 +16,98 @@
 `runOpa189NoiseAnalysis()` 时，如果本地没有 `data/raw/opa189/formal_test/`，入口会读取该 MAT 并
 重新生成 `results/opa189/` 下的五项产物。此路径只验证处理后数据到图表的可复现性；若要更改
 去趋势、Welch 段长、窗函数或重叠比例，必须下载原始波形并重新运行完整分析。
+
+## 2026-08-21 DUT COB 1--3 阶段快照
+
+`dut_noise/3V3_1001gain_COB1-3/` 保存正负 3 V、1001 倍增益、三块 COB 和三档
+`Ib2 = Ib3 = 1/2/4 uA` 的小型结果。完整分析对每份 50 kS/s 波形取前 900,000 点并去均值，使用
+900,000 点周期 Hann 窗计算单边 PSD；每条件十份 PSD 在功率域平均，开方后除以 1001，得到输入
+等效 ASD。用于绘图的对数频率压缩仍在功率域取平均，不直接平均 ASD。
+
+- `dut_noise_plot_data.mat`：压缩后的 PSD/ASD、条件、配置和脱敏摘要，可独立复图；
+- `dut_noise_plot_spectra.csv`：九个条件的输入等效 ASD，单位 nV/sqrt(Hz)；
+- `dut_noise_run_summary.csv`、`dut_noise_condition_summary.csv`：逐次与逐条件指标；
+- `dut_noise_by_cob.png`、`dut_noise_by_bias.png`：按 COB 和按偏置电流组织的双对数图。
+
+MAT 文件 SHA-256：
+
+```text
+73F323A684194D8D312461FD6449303E20E6D4B8F4DC773C700053277B941140
+```
+
+不需要原始波形即可在仓库根目录重新生成两张 PNG：
+
+```matlab
+addpath("matlab/src");
+dut.replayProcessedCampaign( ...
+    "data/processed/dut_noise/3V3_1001gain_COB1-3");
+```
+
+该 MAT 只保留约 3,000 个绘图频点，不能用于更换窗函数、点数或重新计算完整频谱；这些操作必须从
+仓库外的原始 CSV 重新运行。逐次摘要中的原始路径已统一替换为说明文字，不包含本机绝对路径。
+
+## 2026-08-22 DUT COB 1--5 正式扫描
+
+`dut_noise/3V3_1001gain_COB1-5/` 扩展为五块COB、三档偏置、每条件十次，共150份波形；该正式
+扫描期间辅助运放50 Ohm电阻处于断开状态。处理方法与上述阶段快照相同。运行下列命令可从已提交
+的小型MAT重新生成按COB和按偏置组织的PNG：
+
+```matlab
+addpath("matlab/src");
+dut.replayProcessedCampaign( ...
+    "data/processed/dut_noise/3V3_1001gain_COB1-5");
+```
+
+`dut_noise_plot_data.mat` SHA-256：
+
+```text
+67100B34B144FF0A9E2C311ED664727D23426126BABB0F3A61597AC64B028CDD
+```
+
+## 50 Ohm重复测量
+
+`dut_noise/3V3_1001gain_COB1_With50Ohm/` 保存COB 1、正负3 V、1001倍、1 uA的十次功率域平均结果。
+`initial_measurement_reference.png` 是初测时保留的参考截图；原始全频图作为测量证据保留，另可从
+小型MAT生成带 `_replayed` 后缀的压缩频谱图和左右对比图：
+
+```matlab
+dut.replayRepeatedCondition( ...
+    "data/processed/dut_noise/3V3_1001gain_COB1_With50Ohm");
+```
+
+`with50ohm_plot_data.mat` SHA-256：
+
+```text
+EED4C57E056560EC47367F833D2A130DAFD7E79D73189138BCDBA75A1FDF3311
+```
+
+## 正负6 V、50 Ohm断开单条件测量
+
+`dut_noise/6V6_1001gain_COB1_1uA/` 保存 COB 1、正负6 V、1001倍、1 uA、辅助运放50 Ohm电阻
+断开时的十次测量结果；断开状态由操作人员于2026-08-22确认，并写入小型MAT的 `cfg`。处理方法与
+正负3 V正式扫描一致。它是下述双变量配置对照的正负6 V数据源。`dut_noise_plot_data.mat` SHA-256：
+
+```text
+8268F2F8BFE1AB36A3BB17D1A75047C7EC84C44B5F41C354EE5059075DC44AA3
+```
+
+## 正负3 V / 正负6 V双变量配置对照
+
+`dut_noise/3V3_vs_6V6_1001gain_COB1_1uA/` 保存两种配置的压缩频谱、汇总和对照PNG。正负3 V来源为
+明确接入50 Ohm电阻的十次测量；正负6 V测量时该电阻已确认断开。因此供电和电阻状态同时改变，
+结果标记为 `confounded-two-factor`，只描述两套配置的观测差异，不能归因于某一个因素。离线复图
+命令为：
+
+```matlab
+dut.replaySupplyComparison( ...
+    "data/processed/dut_noise/3V3_vs_6V6_1001gain_COB1_1uA");
+```
+
+`supply_voltage_plot_data.mat` SHA-256：
+
+```text
+22180646F754555C1B1841EDC2ED93E718FC6B8470B7F231927B71AE52679447
+```
+
+原始目录映射和证据等级统一记录在 `dut_noise/evidence_manifest.csv`。小型MAT不能用于改变窗函数或
+重新计算PSD；完整算法复算仍需仓库外原始CSV。

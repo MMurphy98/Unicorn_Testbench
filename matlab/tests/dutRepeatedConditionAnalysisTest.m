@@ -1,0 +1,196 @@
+classdef dutRepeatedConditionAnalysisTest < matlab.unittest.TestCase
+    %DUTREPEATEDCONDITIONANALYSISTEST Tests repeated-condition analysis.
+
+    methods (TestClassSetup)
+        function addSourceToPath(testCase)
+            testDir = fileparts(mfilename("fullpath"));
+            matlabDir = fileparts(testDir);
+            testCase.applyFixture(matlab.unittest.fixtures.PathFixture( ...
+                fullfile(matlabDir, "src"), IncludingSubfolders=true));
+        end
+    end
+
+    methods (Test)
+        function testPowerAveragesRunsAndExportsReferenceFigures(testCase)
+            workDir = string(tempname);
+            mkdir(workDir);
+            testCase.addTeardown(@() rmdir(workDir, "s"));
+
+            cfg = syntheticConfig();
+            runDirs = createSyntheticRuns(workDir, cfg);
+            initialImagePath = fullfile(workDir, "initial.png");
+            imwrite(uint8(240*ones(40, 60, 3)), initialImagePath);
+
+            result = dut.analyzeRepeatedCondition( ...
+                runDirs, fullfile(workDir, "results"), ...
+                fullfile(workDir, "processed"), ...
+                initialImagePath, cfg);
+
+            integratedInputNoiseV2 = trapz( ...
+                result.frequencyHz, result.averageInputPsdV2PerHz);
+            expectedInputNoiseV2 = ((1^2/2) + (3^2/2))/2/cfg.gain^2;
+            testCase.verifyEqual( ...
+                integratedInputNoiseV2, expectedInputNoiseV2, ...
+                RelTol=1e-10);
+            testCase.verifyEqual(result.runCount, 2);
+            testCase.verifyTrue(all(ismember([ ...
+                "InputAsdAt1HzNVrtHz", ...
+                "MedianInputAsd1To10NVrtHz", ...
+                "MedianInputAsd100To10kNVrtHz"], ...
+                string(result.runSummary.Properties.VariableNames))));
+            testCase.assertTrue( ...
+                isfield(result.outputPaths, "comparisonFig"), ...
+                "The editable comparison figure must be exported.");
+            testCase.verifyTrue(all(isfile([ ...
+                result.outputPaths.fullAnalysisMat; ...
+                result.outputPaths.fullSpectrumCsv; ...
+                result.outputPaths.runSummaryCsv; ...
+                result.outputPaths.sameFormatPng; ...
+                result.outputPaths.sameFormatFig; ...
+                result.outputPaths.comparisonPng; ...
+                result.outputPaths.comparisonFig; ...
+                result.outputPaths.processedPlotDataMat; ...
+                result.outputPaths.processedSpectrumCsv; ...
+                result.outputPaths.processedRunSummaryCsv])));
+
+            figureHandle = openfig( ...
+                result.outputPaths.sameFormatFig, "invisible");
+            testCase.addTeardown(@() close(figureHandle));
+            axisHandle = findall(figureHandle, Type="axes");
+            referenceLine = findall(figureHandle, Type="constantline");
+            pngInfo = imfinfo(result.outputPaths.sameFormatPng);
+            testCase.verifyNumElements(axisHandle, 1);
+            testCase.verifyEqual(axisHandle.XScale, 'log');
+            testCase.verifyEqual(axisHandle.YScale, 'log');
+            testCase.verifyEqual(axisHandle.Color, [1, 1, 1], ...
+                AbsTol=1e-12);
+            testCase.verifyEqual(axisHandle.XColor, [0, 0, 0], ...
+                AbsTol=1e-12);
+            testCase.verifyEqual(axisHandle.YColor, [0, 0, 0], ...
+                AbsTol=1e-12);
+            testCase.verifyEqual(axisHandle.FontSize, 20, ...
+                AbsTol=1e-12);
+            testCase.verifyEqual(axisHandle.Title.FontSize, 28, ...
+                AbsTol=1e-12);
+            testCase.verifyEqual(axisHandle.Title.FontWeight, 'bold');
+            testCase.verifyEqual(axisHandle.XLabel.FontSize, 26, ...
+                AbsTol=1e-12);
+            testCase.verifyEqual(axisHandle.YLabel.FontSize, 26, ...
+                AbsTol=1e-12);
+            testCase.verifyEqual(axisHandle.XLim, [1, 500], ...
+                AbsTol=1e-12);
+            testCase.verifyNumElements(referenceLine, 1);
+            testCase.verifyEqual(referenceLine.Value, 5.1, ...
+                AbsTol=1e-12);
+            testCase.verifyEqual(referenceLine.FontSize, 20, ...
+                AbsTol=1e-12);
+            testCase.verifyEqual([pngInfo.Width, pngInfo.Height], ...
+                [1515, 1293]);
+
+            comparisonFigure = openfig( ...
+                result.outputPaths.comparisonFig, "invisible");
+            testCase.addTeardown(@() close(comparisonFigure));
+            comparisonAxes = findall(comparisonFigure, Type="axes");
+            testCase.verifyNumElements(comparisonAxes, 2);
+            positions = vertcat(comparisonAxes.Position);
+            positions = sortrows(positions, 1);
+            leftMargin = positions(1, 1);
+            centerGap = positions(2, 1) - ...
+                sum(positions(1, [1, 3]));
+            rightMargin = 1 - sum(positions(2, [1, 3]));
+            testCase.verifyLessThanOrEqual(centerGap, 0.015);
+            testCase.verifyEqual(leftMargin, rightMargin, ...
+                AbsTol=0.003);
+            comparisonPngInfo = imfinfo( ...
+                result.outputPaths.comparisonPng);
+            testCase.verifyEqual( ...
+                [comparisonPngInfo.Width, comparisonPngInfo.Height], ...
+                [3000, 1320]);
+        end
+
+        function testInvalidGainIsRejected(testCase)
+            workDir = string(tempname);
+            mkdir(workDir);
+            testCase.addTeardown(@() rmdir(workDir, "s"));
+
+            cfg = syntheticConfig();
+            cfg.gain = 0;
+            runDirs = createSyntheticRuns(workDir, cfg);
+            initialImagePath = fullfile(workDir, "initial.png");
+            imwrite(uint8(240*ones(40, 60, 3)), initialImagePath);
+            action = @() dut.analyzeRepeatedCondition( ...
+                runDirs, fullfile(workDir, "results"), ...
+                fullfile(workDir, "processed"), ...
+                initialImagePath, cfg);
+
+            testCase.verifyError( ...
+                action, "dut:InvalidRepeatedConditionConfig");
+        end
+
+        function testInvalidMetadataValuesAreRejected(testCase)
+            workDir = string(tempname);
+            mkdir(workDir);
+            testCase.addTeardown(@() rmdir(workDir, "s"));
+
+            cfg = syntheticConfig();
+            runDirs = createSyntheticRuns(workDir, cfg);
+            csvPath = fullfile( ...
+                runDirs(1), "Synthetic Oscilloscope - Waveform Data.csv");
+            lines = readlines(csvPath);
+            metadataFields = split(lines(3), ",");
+            metadataFields(4) = "NaN";
+            lines(3) = join(metadataFields, ",");
+            writelines(lines, csvPath);
+            initialImagePath = fullfile(workDir, "initial.png");
+            imwrite(uint8(240*ones(40, 60, 3)), initialImagePath);
+            action = @() dut.analyzeRepeatedCondition( ...
+                runDirs, fullfile(workDir, "results"), ...
+                fullfile(workDir, "processed"), ...
+                initialImagePath, cfg);
+
+            testCase.verifyError(action, "dut:InvalidWaveformHeader");
+        end
+    end
+end
+
+function cfg = syntheticConfig()
+cfg = struct;
+cfg.sampleRateHz = 1000;
+cfg.pointCount = 1000;
+cfg.gain = 10;
+cfg.plotFrequencyLimitsHz = [1, 500];
+cfg.plotBinCount = 64;
+cfg.referenceNvRtHz = 5.1;
+cfg.testLabel = "Synthetic DUT with 50 Ohm";
+cfg.figureSubtitle = ...
+    "PXI-5922, 10x gain, DC coupling, 2-capture PSD average";
+end
+
+function runDirs = createSyntheticRuns(workDir, cfg)
+runDirs = strings(2, 1);
+t = (0:cfg.pointCount-1)'/cfg.sampleRateHz;
+amplitudesV = [1, 3];
+offsetsV = [0.1, 0.2];
+for runIndex = 1:2
+    runDirs(runIndex) = fullfile( ...
+        workDir, sprintf("run_%02d", runIndex));
+    mkdir(runDirs(runIndex));
+    waveformV = offsetsV(runIndex) + ...
+        amplitudesV(runIndex)*sin(2*pi*100*t);
+    writeWaveform(runDirs(runIndex), waveformV, cfg.sampleRateHz);
+end
+end
+
+function writeWaveform(runDir, waveformV, sampleRateHz)
+csvPath = fullfile(runDir, "Synthetic Oscilloscope - Waveform Data.csv");
+header = [ ...
+    "Meta data"; ...
+    "Physical channel,Start Time,Sample Interval,Sample Count"; ...
+    sprintf("Channel 0 (PXI1Slot2/0),0,%.17g,%d", ...
+    1/sampleRateHz, numel(waveformV)); ...
+    ""; ...
+    "Data"; ...
+    "Channel 0 (PXI1Slot2/0)"];
+writelines(header, csvPath);
+writematrix(waveformV, csvPath, WriteMode="append");
+end
