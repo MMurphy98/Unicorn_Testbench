@@ -24,4 +24,5 @@ CSV 和图片。也可显式传入本机正式数据目录和输出目录。离�
 `dut.replayProcessedCampaign(processedDir)` 只读取小型 `dut_noise_plot_data.mat` 并重新生成按 COB、按
 偏置电流组织的两张 PNG，不依赖原始波形。
 `dut.replayRepeatedCondition(processedDir)` 与 `dut.replaySupplyComparison(processedDir)` 分别复现
-50 Ohm 诊断结果和临时供电对比；它们同样不重新计算 FFT。
+50 Ohm诊断结果和双变量配置对照；后者的两组数据同时改变供电及50 Ohm状态，不能作为受控供电
+对比。它们同样不重新计算 FFT。

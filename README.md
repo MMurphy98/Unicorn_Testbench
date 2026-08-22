@@ -63,7 +63,8 @@ COB 1--5 在正负3 V、1001倍增益和 `Ib2 = Ib3 = 1/2/4 uA` 下的入口为
 `matlab/scripts/runDutNoiseAnalysis.m`。150份原始波形保存在仓库外；完整输出留在忽略的 `results/`，
 可提交的小型MAT、CSV和PNG位于 `data/processed/dut_noise/3V3_1001gain_COB1-5/`。
 
-同目录还保存50 Ohm接入复现实验、正负6 V实验和临时供电对比。`dut.replayProcessedCampaign`、
+同目录还保存50 Ohm接入复现实验、正负6 V且50 Ohm断开实验，以及供电与50 Ohm状态同时改变的
+双变量配置对照。`dut.replayProcessedCampaign`、
 `dut.replayRepeatedCondition` 与 `dut.replaySupplyComparison` 可在没有原始CSV时重画相应图片。测试结论、
 来源限制和待师兄接手的问题见
 [`2026-08-22 测试记录`](docs/test-reports/2026/08/2026-08-22-T-20260817-01.md)。

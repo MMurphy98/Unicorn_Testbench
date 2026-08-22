@@ -48,8 +48,9 @@ dut.replayProcessedCampaign( ...
 
 ## 2026-08-22 DUT COB 1--5 正式扫描
 
-`dut_noise/3V3_1001gain_COB1-5/` 扩展为五块COB、三档偏置、每条件十次，共150份波形。处理方法与
-上述阶段快照相同。运行下列命令可从已提交的小型MAT重新生成按COB和按偏置组织的PNG：
+`dut_noise/3V3_1001gain_COB1-5/` 扩展为五块COB、三档偏置、每条件十次，共150份波形；该正式
+扫描期间辅助运放50 Ohm电阻处于断开状态。处理方法与上述阶段快照相同。运行下列命令可从已提交
+的小型MAT重新生成按COB和按偏置组织的PNG：
 
 ```matlab
 addpath("matlab/src");
@@ -80,20 +81,22 @@ dut.replayRepeatedCondition( ...
 EED4C57E056560EC47367F833D2A130DAFD7E79D73189138BCDBA75A1FDF3311
 ```
 
-## 正负6 V单条件测量
+## 正负6 V、50 Ohm断开单条件测量
 
-`dut_noise/6V6_1001gain_COB1_1uA/` 保存 COB 1、正负6 V、1001倍、1 uA的十次测量结果，处理方法与
-正负3 V正式扫描一致。它是下述临时供电对比的正负6 V数据源。`dut_noise_plot_data.mat` SHA-256：
+`dut_noise/6V6_1001gain_COB1_1uA/` 保存 COB 1、正负6 V、1001倍、1 uA、辅助运放50 Ohm电阻
+断开时的十次测量结果；断开状态由操作人员于2026-08-22确认，并写入小型MAT的 `cfg`。处理方法与
+正负3 V正式扫描一致。它是下述双变量配置对照的正负6 V数据源。`dut_noise_plot_data.mat` SHA-256：
 
 ```text
-E5625FC45C2473D07430D17EA296A745F2E6B0CFDE247B7922EDB60FB7FBC147
+8268F2F8BFE1AB36A3BB17D1A75047C7EC84C44B5F41C354EE5059075DC44AA3
 ```
 
-## 正负3 V / 正负6 V临时对比
+## 正负3 V / 正负6 V双变量配置对照
 
-`dut_noise/3V3_vs_6V6_1001gain_COB1_1uA/` 保存两种供电的压缩频谱、汇总和对比PNG。正负3 V来源为
-明确接入50 Ohm电阻的十次测量；正负6 V的电阻状态仅由连续实验操作推定，未编码在原始目录名中，
-所以该结果标记为 `provisional`，不能替代硬件记录确认。离线复图命令为：
+`dut_noise/3V3_vs_6V6_1001gain_COB1_1uA/` 保存两种配置的压缩频谱、汇总和对照PNG。正负3 V来源为
+明确接入50 Ohm电阻的十次测量；正负6 V测量时该电阻已确认断开。因此供电和电阻状态同时改变，
+结果标记为 `confounded-two-factor`，只描述两套配置的观测差异，不能归因于某一个因素。离线复图
+命令为：
 
 ```matlab
 dut.replaySupplyComparison( ...
@@ -103,7 +106,7 @@ dut.replaySupplyComparison( ...
 `supply_voltage_plot_data.mat` SHA-256：
 
 ```text
-D5BB9192A850AA2B6356490CFBDCD1AA87EE5CA07F94002E751D7299C8A31AA9
+22180646F754555C1B1841EDC2ED93E718FC6B8470B7F231927B71AE52679447
 ```
 
 原始目录映射和证据等级统一记录在 `dut_noise/evidence_manifest.csv`。小型MAT不能用于改变窗函数或
