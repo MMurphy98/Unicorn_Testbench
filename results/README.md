@@ -13,12 +13,13 @@ OPA189 正式入口生成：
 
 没有本地原始波形时，同一入口会从 `data/processed/opa189/formal_test/` 复写上述产物；这些文件仍然
 属于本地生成结果，不进入 Git。仓库中随任务提交的参考 CSV、PNG 和频谱 MAT 位于 `data/processed/`。
-## DUT COB 1--3 偏置电流扫描
+## DUT COB 偏置电流扫描
 
-`matlab/scripts/runDutNoiseAnalysis.m` 从 90 份仓库外原始波形生成：
+`matlab/scripts/runDutNoiseAnalysis.m` 的默认参数保留 90 份波形的 COB 1--3 阶段快照；本轮显式传入
+`1:5` 后从 150 份仓库外原始波形生成：
 
 ```text
-results/DUT_noise/3V3_1001gain_COB1-3/
+results/DUT_noise/3V3_1001gain_COB1-5/
 |-- dut_noise_full_analysis.mat
 |-- dut_noise_full_average_input_asd.csv
 |-- dut_noise_run_summary.csv
@@ -28,4 +29,10 @@ results/DUT_noise/3V3_1001gain_COB1-3/
 ```
 
 完整 MAT、全频率 CSV 和可编辑 FIG 仅在本地保存，不进入 Git。相应的压缩频谱、脱敏摘要和 PNG
-位于 `data/processed/dut_noise/3V3_1001gain_COB1-3/`，可在没有原始 CSV 时复图。
+位于 `data/processed/dut_noise/3V3_1001gain_COB1-5/`，可在没有原始 CSV 时复图。
+
+辅助运放 50 Ohm 接入诊断、正负 6 V 单条件结果以及正负 3 V/正负 6 V 临时对比分别归档到
+`data/processed/dut_noise/3V3_1001gain_COB1_With50Ohm/`、
+`data/processed/dut_noise/6V6_1001gain_COB1_1uA/` 和
+`data/processed/dut_noise/3V3_vs_6V6_1001gain_COB1_1uA/`。这些目录中的小型 MAT、CSV 与 PNG 是
+提交证据；完整时域波形仍留在仓库外。

@@ -22,6 +22,14 @@ data/raw/*
 results/*
 !results/README.md
 
+# Quartus generated databases, reports, programming files, and user state
+fpga/db/
+fpga/incremental_db/
+fpga/greybox_tmp/
+fpga/output_files/
+fpga/*.qws
+fpga/*.bak
+
 # Common local/editor files
 .DS_Store
 Thumbs.db

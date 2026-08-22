@@ -179,6 +179,35 @@ classdef dutNoiseAnalysisTest < matlab.unittest.TestCase
             testCase.verifyError(action, "dut:UnexpectedSampleRate");
         end
 
+        function testInvalidGainErrorsBeforeReadingRawData(testCase)
+            workDir = string(tempname);
+            mkdir(workDir);
+            testCase.addTeardown(@() rmdir(workDir, "s"));
+
+            cfg = syntheticConfig();
+            cfg.gain = 0;
+            action = @() dut.processCampaign( ...
+                fullfile(workDir, "missing-raw"), ...
+                fullfile(workDir, "results"), ...
+                fullfile(workDir, "processed"), 1, cfg);
+
+            testCase.verifyError(action, "dut:InvalidConfig");
+        end
+
+        function testMissingConfigFieldErrorsBeforeReadingRawData(testCase)
+            workDir = string(tempname);
+            mkdir(workDir);
+            testCase.addTeardown(@() rmdir(workDir, "s"));
+
+            cfg = rmfield(syntheticConfig(), "plotFrequencyLimitsHz");
+            action = @() dut.processCampaign( ...
+                fullfile(workDir, "missing-raw"), ...
+                fullfile(workDir, "results"), ...
+                fullfile(workDir, "processed"), 1, cfg);
+
+            testCase.verifyError(action, "dut:InvalidConfig");
+        end
+
         function testNonfiniteSamplesError(testCase)
             workDir = string(tempname);
             mkdir(workDir);
@@ -196,6 +225,22 @@ classdef dutNoiseAnalysisTest < matlab.unittest.TestCase
                 fullfile(workDir, "processed"), 1, cfg);
 
             testCase.verifyError(action, "dut:NonfiniteSamples");
+        end
+
+        function testMalformedWaveformHeaderHasDomainError(testCase)
+            workDir = string(tempname);
+            mkdir(workDir);
+            testCase.addTeardown(@() rmdir(workDir, "s"));
+
+            cfg = syntheticConfig();
+            cfg.runCount = 1;
+            dataRoot = fullfile(workDir, "raw");
+            writeMalformedRun(dataRoot, cfg);
+            action = @() dut.processCampaign( ...
+                dataRoot, fullfile(workDir, "results"), ...
+                fullfile(workDir, "processed"), 1, cfg);
+
+            testCase.verifyError(action, "dut:InvalidWaveformHeader");
         end
 
         function testProcessedDataReplaysFiguresWithoutRawCsv(testCase)
@@ -220,6 +265,23 @@ classdef dutNoiseAnalysisTest < matlab.unittest.TestCase
             testCase.verifyTrue(isfile(replayPaths.byBiasPng));
         end
     end
+end
+
+function writeMalformedRun(dataRoot, cfg)
+conditionDir = fullfile(dataRoot, sprintf( ...
+    "NO.1_%s_%s_Ibias_1uA", cfg.supplyLabel, cfg.gainLabel));
+runDir = fullfile(conditionDir, "run_01");
+mkdir(runDir);
+csvPath = fullfile(runDir, "Malformed Oscilloscope - Waveform Data.csv");
+header = [ ...
+    "Meta data"; ...
+    "Physical channel,Start Time,Sample Interval,Sample Count"; ...
+    "Channel 0 (PXI1Slot2/0),0"; ...
+    ""; ...
+    "Data"; ...
+    "Channel 0 (PXI1Slot2/0)"];
+writelines(header, csvPath);
+writematrix(zeros(cfg.pointCount, 1), csvPath, WriteMode="append");
 end
 
 function verifyOpa189References(testCase, figureHandle)

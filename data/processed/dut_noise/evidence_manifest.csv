@@ -1,0 +1,6 @@
+Evidence_ID,Raw_Directory_Pattern,Supply_Rails_V,Gain,Bias_Current_uA,Capture_Count,Auxiliary_50_Ohm_Status,Review_Status
+formal_campaign_3v3_cob1_5,NO.<1|2|3|4|5>_3V3_1001gain_Ibias_<1|2|4>uA/run_<01..10>,-3;+3,1001,1;2;4,150,not-part-of-this-comparison,formal
+with50ohm_3v3_cob1_1ua,NO.1_3V3_1001gain_Ibias_1uA/With50Ohm_<01..10>,-3;+3,1001,1,10,connected-explicit,diagnostic
+supply_6v6_cob1_1ua,NO.1_6V6_1001gain_Ibias_1uA/run_<01..10>,-6;+6,1001,1,10,inferred-connected-not-encoded-in-source-folder,provisional
+supply_comparison,derived-from-with50ohm_3v3-and-supply_6v6,-3;+3|-6;+6,1001,1,20,see-source-rows,provisional-pending-hardware-record-confirmation
+dc_offset_validation,DC_offset_test/run_01,-3;+3,1001,1,1,disconnected,operator-agreed-result-26.67-mV

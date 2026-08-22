@@ -17,7 +17,7 @@
 重新生成 `results/opa189/` 下的五项产物。此路径只验证处理后数据到图表的可复现性；若要更改
 去趋势、Welch 段长、窗函数或重叠比例，必须下载原始波形并重新运行完整分析。
 
-## 2026-08-21 DUT COB 1--3 偏置电流扫描
+## 2026-08-21 DUT COB 1--3 阶段快照
 
 `dut_noise/3V3_1001gain_COB1-3/` 保存正负 3 V、1001 倍增益、三块 COB 和三档
 `Ib2 = Ib3 = 1/2/4 uA` 的小型结果。完整分析对每份 50 kS/s 波形取前 900,000 点并去均值，使用
@@ -45,3 +45,66 @@ dut.replayProcessedCampaign( ...
 
 该 MAT 只保留约 3,000 个绘图频点，不能用于更换窗函数、点数或重新计算完整频谱；这些操作必须从
 仓库外的原始 CSV 重新运行。逐次摘要中的原始路径已统一替换为说明文字，不包含本机绝对路径。
+
+## 2026-08-22 DUT COB 1--5 正式扫描
+
+`dut_noise/3V3_1001gain_COB1-5/` 扩展为五块COB、三档偏置、每条件十次，共150份波形。处理方法与
+上述阶段快照相同。运行下列命令可从已提交的小型MAT重新生成按COB和按偏置组织的PNG：
+
+```matlab
+addpath("matlab/src");
+dut.replayProcessedCampaign( ...
+    "data/processed/dut_noise/3V3_1001gain_COB1-5");
+```
+
+`dut_noise_plot_data.mat` SHA-256：
+
+```text
+67100B34B144FF0A9E2C311ED664727D23426126BABB0F3A61597AC64B028CDD
+```
+
+## 50 Ohm重复测量
+
+`dut_noise/3V3_1001gain_COB1_With50Ohm/` 保存COB 1、正负3 V、1001倍、1 uA的十次功率域平均结果。
+`initial_measurement_reference.png` 是初测时保留的参考截图；原始全频图作为测量证据保留，另可从
+小型MAT生成带 `_replayed` 后缀的压缩频谱图和左右对比图：
+
+```matlab
+dut.replayRepeatedCondition( ...
+    "data/processed/dut_noise/3V3_1001gain_COB1_With50Ohm");
+```
+
+`with50ohm_plot_data.mat` SHA-256：
+
+```text
+EED4C57E056560EC47367F833D2A130DAFD7E79D73189138BCDBA75A1FDF3311
+```
+
+## 正负6 V单条件测量
+
+`dut_noise/6V6_1001gain_COB1_1uA/` 保存 COB 1、正负6 V、1001倍、1 uA的十次测量结果，处理方法与
+正负3 V正式扫描一致。它是下述临时供电对比的正负6 V数据源。`dut_noise_plot_data.mat` SHA-256：
+
+```text
+E5625FC45C2473D07430D17EA296A745F2E6B0CFDE247B7922EDB60FB7FBC147
+```
+
+## 正负3 V / 正负6 V临时对比
+
+`dut_noise/3V3_vs_6V6_1001gain_COB1_1uA/` 保存两种供电的压缩频谱、汇总和对比PNG。正负3 V来源为
+明确接入50 Ohm电阻的十次测量；正负6 V的电阻状态仅由连续实验操作推定，未编码在原始目录名中，
+所以该结果标记为 `provisional`，不能替代硬件记录确认。离线复图命令为：
+
+```matlab
+dut.replaySupplyComparison( ...
+    "data/processed/dut_noise/3V3_vs_6V6_1001gain_COB1_1uA");
+```
+
+`supply_voltage_plot_data.mat` SHA-256：
+
+```text
+D5BB9192A850AA2B6356490CFBDCD1AA87EE5CA07F94002E751D7299C8A31AA9
+```
+
+原始目录映射和证据等级统一记录在 `dut_noise/evidence_manifest.csv`。小型MAT不能用于改变窗函数或
+重新计算PSD；完整算法复算仍需仓库外原始CSV。

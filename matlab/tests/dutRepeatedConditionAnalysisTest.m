@@ -107,6 +107,25 @@ classdef dutRepeatedConditionAnalysisTest < matlab.unittest.TestCase
                 [comparisonPngInfo.Width, comparisonPngInfo.Height], ...
                 [3000, 1320]);
         end
+
+        function testInvalidGainIsRejected(testCase)
+            workDir = string(tempname);
+            mkdir(workDir);
+            testCase.addTeardown(@() rmdir(workDir, "s"));
+
+            cfg = syntheticConfig();
+            cfg.gain = 0;
+            runDirs = createSyntheticRuns(workDir, cfg);
+            initialImagePath = fullfile(workDir, "initial.png");
+            imwrite(uint8(240*ones(40, 60, 3)), initialImagePath);
+            action = @() dut.analyzeRepeatedCondition( ...
+                runDirs, fullfile(workDir, "results"), ...
+                fullfile(workDir, "processed"), ...
+                initialImagePath, cfg);
+
+            testCase.verifyError( ...
+                action, "dut:InvalidRepeatedConditionConfig");
+        end
     end
 end
 

@@ -57,10 +57,13 @@ runOpa189NoiseAnalysis();
 算法从 InstrumentStudio 原始时域 CSV 重新计算 Welch PSD，不使用仪器 FFT：线性去趋势、
 10 s periodic Hann 窗、50% 重叠、单边 PSD；每条件十次先平均 PSD，再开方得到 ASD。
 
-## DUT COB 偏置电流扫描
+## DUT COB 噪声扫描
 
-COB 1--3 在正负 3 V、1001 倍增益和 `Ib2 = Ib3 = 1/2/4 uA` 下的入口为
-`matlab/scripts/runDutNoiseAnalysis.m`。它默认读取仓库同级 `Chip_Benchmark/data/DUT_noise/` 的 90 份
-原始波形；完整输出留在忽略的 `results/`，可提交的小型复图 MAT、CSV 和 PNG 位于
-`data/processed/dut_noise/3V3_1001gain_COB1-3/`。具体算法、数据格式和离线复图命令见
-`matlab/README.md` 与 `data/processed/README.md`。
+COB 1--5 在正负3 V、1001倍增益和 `Ib2 = Ib3 = 1/2/4 uA` 下的入口为
+`matlab/scripts/runDutNoiseAnalysis.m`。150份原始波形保存在仓库外；完整输出留在忽略的 `results/`，
+可提交的小型MAT、CSV和PNG位于 `data/processed/dut_noise/3V3_1001gain_COB1-5/`。
+
+同目录还保存50 Ohm接入复现实验、正负6 V实验和临时供电对比。`dut.replayProcessedCampaign`、
+`dut.replayRepeatedCondition` 与 `dut.replaySupplyComparison` 可在没有原始CSV时重画相应图片。测试结论、
+来源限制和待师兄接手的问题见
+[`2026-08-22 测试记录`](docs/test-reports/2026/08/2026-08-22-T-20260817-01.md)。
