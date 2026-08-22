@@ -126,6 +126,30 @@ classdef dutRepeatedConditionAnalysisTest < matlab.unittest.TestCase
             testCase.verifyError( ...
                 action, "dut:InvalidRepeatedConditionConfig");
         end
+
+        function testInvalidMetadataValuesAreRejected(testCase)
+            workDir = string(tempname);
+            mkdir(workDir);
+            testCase.addTeardown(@() rmdir(workDir, "s"));
+
+            cfg = syntheticConfig();
+            runDirs = createSyntheticRuns(workDir, cfg);
+            csvPath = fullfile( ...
+                runDirs(1), "Synthetic Oscilloscope - Waveform Data.csv");
+            lines = readlines(csvPath);
+            metadataFields = split(lines(3), ",");
+            metadataFields(4) = "NaN";
+            lines(3) = join(metadataFields, ",");
+            writelines(lines, csvPath);
+            initialImagePath = fullfile(workDir, "initial.png");
+            imwrite(uint8(240*ones(40, 60, 3)), initialImagePath);
+            action = @() dut.analyzeRepeatedCondition( ...
+                runDirs, fullfile(workDir, "results"), ...
+                fullfile(workDir, "processed"), ...
+                initialImagePath, cfg);
+
+            testCase.verifyError(action, "dut:InvalidWaveformHeader");
+        end
     end
 end
 
