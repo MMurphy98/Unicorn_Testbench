@@ -1,133 +1,159 @@
 #!/usr/bin/env python3
-"""Analyze a DUT RevB (with PMU) NI-SCOPE TDMS noise capture."""
+"""Convert numbered DUT noise TDMS captures into per-run Welch spectra."""
 
 from __future__ import annotations
 
 import argparse
-import sys
 from pathlib import Path
+import re
 
-import matplotlib
 import numpy as np
 from nptdms import TdmsFile
 from scipy.signal import welch
 
 
-GROUP_NAME = "DUT RevB with PMU"
-CHANNEL_NAME = "CH0"
-WELCH_NPERSEG = 262_144
-PLOT_FMIN_HZ = 1.0
-PLOT_FMAX_HZ = 25_000.0
-TARGET_FREQUENCIES_HZ = (1.0, 1_000.0)
+DEFAULT_TASK_ID = "DUT_RevB_with_PMU"
+DEFAULT_NPERSEG = 262_144
+SPECTRUM_FORMAT_VERSION = 1
+
+
+def positive_int(value: str) -> int:
+    parsed = int(value)
+    if parsed <= 0:
+        raise argparse.ArgumentTypeError("value must be a positive integer")
+    return parsed
+
+
+def task_id_value(value: str) -> str:
+    if not re.fullmatch(r"[A-Za-z0-9][A-Za-z0-9._-]*", value):
+        raise argparse.ArgumentTypeError(
+            "task ID must start with a letter or digit and contain only "
+            "letters, digits, dot, underscore, or hyphen"
+        )
+    return value
 
 
 def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
+    project_dir = Path(__file__).resolve().parent
     parser = argparse.ArgumentParser(
         description=(
-            "Calculate DUT RevB (with PMU) input-referred noise ASD from "
-            "a float64 NI-SCOPE TDMS capture."
+            "Read each numbered TDMS capture for a task, calculate a one-sided "
+            "Welch input-referred PSD, and save one compressed NPZ spectrum per run."
         )
     )
-    parser.add_argument("tdms_file", type=Path, help="Input TDMS capture")
+    parser.add_argument("--task-id", type=task_id_value, default=DEFAULT_TASK_ID)
+    parser.add_argument(
+        "--data-dir",
+        type=Path,
+        default=project_dir / "data",
+        help="Base data directory containing the task-ID subdirectory",
+    )
     parser.add_argument(
         "--output-dir",
         type=Path,
-        default=None,
-        help="Plot output directory (default: results beside this script)",
+        default=project_dir / "spectra",
+        help="Base spectrum directory; a task-ID subdirectory is created",
     )
+    parser.add_argument("--nperseg", type=positive_int, default=DEFAULT_NPERSEG)
     parser.add_argument(
-        "--show",
+        "--overwrite",
         action="store_true",
-        help="Show the plot interactively after saving it",
+        help="Recalculate spectra that already exist",
     )
     return parser.parse_args(argv)
 
 
-def _required_float(properties: dict, name: str, location: str) -> float:
+def numbered_tdms_files(task_dir: Path, task_id: str) -> list[tuple[int, Path]]:
+    pattern = re.compile(rf"^{re.escape(task_id)}_(\d+)\.tdms$", re.IGNORECASE)
+    matches: list[tuple[int, Path]] = []
+    for path in task_dir.glob(f"{task_id}_*.tdms"):
+        match = pattern.fullmatch(path.name)
+        if match:
+            matches.append((int(match.group(1)), path))
+    return sorted(matches)
+
+
+def required_property(properties: dict, name: str, location: str) -> object:
     if name not in properties:
-        raise ValueError(f"Required TDMS property {name!r} is missing from {location}.")
-    try:
-        value = float(properties[name])
-    except (TypeError, ValueError) as exc:
-        raise ValueError(
-            f"TDMS property {name!r} in {location} is not numeric: "
-            f"{properties[name]!r}"
-        ) from exc
+        raise ValueError(f"Missing required property {name!r} in {location}.")
+    return properties[name]
+
+
+def required_positive_float(properties: dict, name: str, location: str) -> float:
+    value = float(required_property(properties, name, location))
     if not np.isfinite(value) or value <= 0.0:
         raise ValueError(
-            f"TDMS property {name!r} in {location} must be positive and finite; "
+            f"Property {name!r} in {location} must be positive and finite; "
             f"got {value!r}."
         )
     return value
 
 
-def read_capture(tdms_path: Path) -> tuple[np.ndarray, float, float, float, dict]:
-    if not tdms_path.is_file():
-        raise FileNotFoundError(f"TDMS file not found: {tdms_path}")
-
+def read_capture(
+    tdms_path: Path, expected_task_id: str
+) -> tuple[np.ndarray, float, float, float, int, str]:
     tdms = TdmsFile.read(tdms_path)
     root_properties = dict(tdms.properties)
-
-    try:
-        channel = tdms[GROUP_NAME][CHANNEL_NAME]
-    except KeyError as exc:
-        available = [
-            f"{group.name}/{item.name}"
-            for group in tdms.groups()
-            for item in group.channels()
-        ]
+    task_id = str(required_property(root_properties, "task_id", "TDMS root"))
+    if task_id != expected_task_id:
         raise ValueError(
-            f"Expected TDMS channel {GROUP_NAME!r}/{CHANNEL_NAME!r}; "
-            f"available channels: {available}"
-        ) from exc
-
-    samples = channel[:]
-    if samples.dtype != np.dtype(np.float64):
-        raise TypeError(
-            f"{GROUP_NAME}/{CHANNEL_NAME} must be float64; got {samples.dtype}."
+            f"TDMS task ID {task_id!r} does not match {expected_task_id!r}: "
+            f"{tdms_path}"
         )
-    if samples.ndim != 1 or samples.size < WELCH_NPERSEG:
-        raise ValueError(
-            f"Capture must be one-dimensional with at least {WELCH_NPERSEG:,} "
-            f"samples; got shape {samples.shape}."
-        )
-    if not np.all(np.isfinite(samples)):
-        raise ValueError("Capture contains NaN or infinite voltage samples.")
-
-    channel_properties = dict(channel.properties)
-    sample_interval_s = _required_float(
-        channel_properties, "wf_increment", f"{GROUP_NAME}/{CHANNEL_NAME}"
+    group_name = str(
+        required_property(root_properties, "tdms_group_name", "TDMS root")
     )
-    closed_loop_gain = _required_float(
+    channel_name = str(
+        required_property(root_properties, "tdms_channel_name", "TDMS root")
+    )
+    run_number = int(required_property(root_properties, "run_number", "TDMS root"))
+    closed_loop_gain = required_positive_float(
         root_properties, "closed_loop_gain_v_per_v", "TDMS root"
     )
-    closed_loop_bandwidth_hz = _required_float(
+    closed_loop_bandwidth_hz = required_positive_float(
         root_properties, "estimated_closed_loop_bandwidth_hz", "TDMS root"
     )
 
-    metadata = {
-        "root": root_properties,
-        "channel": channel_properties,
-    }
+    try:
+        channel = tdms[group_name][channel_name]
+    except KeyError as exc:
+        raise ValueError(
+            f"TDMS channel {group_name!r}/{channel_name!r} does not exist in "
+            f"{tdms_path}."
+        ) from exc
+
+    samples_v = channel[:]
+    if samples_v.dtype != np.dtype(np.float64):
+        raise TypeError(f"Expected float64 samples in {tdms_path}; got {samples_v.dtype}.")
+    if samples_v.ndim != 1 or not np.all(np.isfinite(samples_v)):
+        raise ValueError(f"TDMS waveform is not a finite one-dimensional array: {tdms_path}")
+    sample_interval_s = required_positive_float(
+        dict(channel.properties), "wf_increment", f"{group_name}/{channel_name}"
+    )
     return (
-        np.asarray(samples, dtype=np.float64),
+        np.asarray(samples_v, dtype=np.float64),
         1.0 / sample_interval_s,
         closed_loop_gain,
         closed_loop_bandwidth_hz,
-        metadata,
+        run_number,
+        channel_name,
     )
 
 
-def estimate_input_noise_asd(
+def calculate_input_psd(
     samples_v: np.ndarray,
     sample_rate_hz: float,
     closed_loop_gain: float,
-) -> tuple[np.ndarray, np.ndarray, int, int, float]:
-    nperseg = min(WELCH_NPERSEG, samples_v.size)
+    nperseg: int,
+) -> tuple[np.ndarray, np.ndarray, int, float]:
+    if samples_v.size < nperseg:
+        raise ValueError(
+            f"Capture has {samples_v.size:,} samples, fewer than "
+            f"nperseg={nperseg:,}."
+        )
     noverlap = nperseg // 2
     hop = nperseg - noverlap
     segment_count = 1 + (samples_v.size - nperseg) // hop
-
     frequency_hz, output_psd_v2_per_hz = welch(
         samples_v,
         fs=sample_rate_hz,
@@ -139,187 +165,150 @@ def estimate_input_noise_asd(
         scaling="density",
         average="mean",
     )
-    input_asd_nv_per_rt_hz = (
-        np.sqrt(np.maximum(output_psd_v2_per_hz, 0.0))
-        / closed_loop_gain
-        * 1.0e9
-    )
-    frequency_resolution_hz = sample_rate_hz / nperseg
-    return (
-        frequency_hz,
-        input_asd_nv_per_rt_hz,
-        nperseg,
-        segment_count,
-        frequency_resolution_hz,
-    )
+    input_psd_v2_per_hz = output_psd_v2_per_hz / closed_loop_gain**2
+    return frequency_hz, input_psd_v2_per_hz, segment_count, sample_rate_hz / nperseg
 
 
-def nearest_frequency_value(
-    frequency_hz: np.ndarray,
-    values: np.ndarray,
-    target_hz: float,
+def nearest_asd(
+    frequency_hz: np.ndarray, input_psd_v2_per_hz: np.ndarray, target_hz: float
 ) -> tuple[float, float]:
-    usable = np.flatnonzero(frequency_hz > 0.0)
-    if usable.size == 0:
-        raise ValueError("PSD result does not contain any positive-frequency bins.")
-    index = usable[np.argmin(np.abs(frequency_hz[usable] - target_hz))]
-    return float(frequency_hz[index]), float(values[index])
+    positive = np.flatnonzero(frequency_hz > 0.0)
+    index = positive[np.argmin(np.abs(frequency_hz[positive] - target_hz))]
+    return (
+        float(frequency_hz[index]),
+        float(np.sqrt(input_psd_v2_per_hz[index]) * 1.0e9),
+    )
 
 
-def create_plot(
-    tdms_path: Path,
-    output_dir: Path,
+def save_spectrum(
+    output_path: Path,
+    *,
+    overwrite: bool,
     frequency_hz: np.ndarray,
-    input_asd_nv_per_rt_hz: np.ndarray,
+    input_psd_v2_per_hz: np.ndarray,
+    source_tdms: Path,
+    task_id: str,
+    run_number: int,
+    channel_name: str,
+    sample_rate_hz: float,
+    closed_loop_gain: float,
     closed_loop_bandwidth_hz: float,
-    target_values: dict[float, tuple[float, float]],
-    show: bool,
-) -> Path:
-    if not show:
-        matplotlib.use("Agg")
-    import matplotlib.pyplot as plt
-
-    output_dir.mkdir(parents=True, exist_ok=True)
-    output_path = output_dir / f"{tdms_path.stem}_input_noise_asd.png"
-
-    upper_frequency_hz = min(PLOT_FMAX_HZ, float(frequency_hz[-1]))
-    plot_mask = (
-        (frequency_hz >= PLOT_FMIN_HZ)
-        & (frequency_hz <= upper_frequency_hz)
-        & np.isfinite(input_asd_nv_per_rt_hz)
-        & (input_asd_nv_per_rt_hz > 0.0)
-    )
-    if np.count_nonzero(plot_mask) < 2:
-        raise ValueError("Not enough valid PSD bins in the requested plot range.")
-
-    fig, axis = plt.subplots(figsize=(11.5, 7.0))
-    axis.loglog(
-        frequency_hz[plot_mask],
-        input_asd_nv_per_rt_hz[plot_mask],
-        color="tab:blue",
-        linewidth=1.0,
-        label="Welch input-referred noise ASD",
-    )
-
-    if PLOT_FMIN_HZ < closed_loop_bandwidth_hz < upper_frequency_hz:
-        axis.axvspan(
-            closed_loop_bandwidth_hz,
-            upper_frequency_hz,
-            color="tab:gray",
-            alpha=0.14,
-            label="Above estimated closed-loop bandwidth",
+    sample_count: int,
+    nperseg: int,
+    segment_count: int,
+    frequency_resolution_hz: float,
+) -> None:
+    partial_path = output_path.with_suffix(".partial.npz")
+    if partial_path.exists():
+        raise FileExistsError(
+            f"Partial spectrum already exists; inspect or remove it: {partial_path}"
         )
-        axis.axvline(
-            closed_loop_bandwidth_hz,
-            color="tab:gray",
-            linestyle="--",
-            linewidth=1.2,
-        )
-
-    marker_colors = {1.0: "tab:red", 1_000.0: "tab:green"}
-    for target_hz, (actual_hz, value) in target_values.items():
-        axis.scatter(
-            [actual_hz],
-            [value],
-            s=48,
-            color=marker_colors.get(target_hz, "tab:orange"),
-            zorder=4,
-            label=(
-                f"{target_hz:g} Hz target: {actual_hz:.6g} Hz bin, "
-                f"{value:.4g} nV/√Hz"
+    if output_path.exists() and not overwrite:
+        raise FileExistsError(f"Refusing to overwrite spectrum: {output_path}")
+    with partial_path.open("wb") as stream:
+        np.savez_compressed(
+            stream,
+            format_version=np.int64(SPECTRUM_FORMAT_VERSION),
+            frequency_hz=np.asarray(frequency_hz, dtype=np.float64),
+            input_psd_v2_per_hz=np.asarray(input_psd_v2_per_hz, dtype=np.float64),
+            source_tdms=np.str_(str(source_tdms.resolve())),
+            task_id=np.str_(task_id),
+            run_number=np.int64(run_number),
+            channel_name=np.str_(channel_name),
+            sample_rate_hz=np.float64(sample_rate_hz),
+            closed_loop_gain_v_per_v=np.float64(closed_loop_gain),
+            estimated_closed_loop_bandwidth_hz=np.float64(
+                closed_loop_bandwidth_hz
             ),
+            source_sample_count=np.int64(sample_count),
+            welch_window=np.str_("hann"),
+            welch_nperseg=np.int64(nperseg),
+            welch_noverlap=np.int64(nperseg // 2),
+            welch_detrend=np.str_("constant"),
+            welch_average=np.str_("mean"),
+            welch_segment_count=np.int64(segment_count),
+            frequency_resolution_hz=np.float64(frequency_resolution_hz),
         )
-
-    axis.set_xlim(PLOT_FMIN_HZ, upper_frequency_hz)
-    axis.set_xlabel("Frequency (Hz)")
-    axis.set_ylabel("Equivalent input noise ASD (nV/√Hz)")
-    axis.set_title("DUT RevB (with PMU) equivalent input noise")
-    axis.grid(True, which="both", alpha=0.28)
-    axis.legend(loc="best", fontsize=9)
-    fig.tight_layout()
-    fig.savefig(output_path, dpi=220)
-
-    if show:
-        plt.show()
-    else:
-        plt.close(fig)
-    return output_path
+    partial_path.replace(output_path)
 
 
 def main(argv: list[str] | None = None) -> int:
     args = parse_args(argv)
-    tdms_path = args.tdms_file.expanduser().resolve()
-    output_dir = (
-        args.output_dir.expanduser().resolve()
-        if args.output_dir is not None
-        else Path(__file__).resolve().parent / "results"
-    )
-
-    (
-        samples_v,
-        sample_rate_hz,
-        closed_loop_gain,
-        closed_loop_bandwidth_hz,
-        metadata,
-    ) = read_capture(tdms_path)
-    (
-        frequency_hz,
-        input_asd_nv_per_rt_hz,
-        nperseg,
-        segment_count,
-        frequency_resolution_hz,
-    ) = estimate_input_noise_asd(samples_v, sample_rate_hz, closed_loop_gain)
-
-    target_values = {
-        target_hz: nearest_frequency_value(
-            frequency_hz, input_asd_nv_per_rt_hz, target_hz
+    task_data_dir = args.data_dir.expanduser().resolve() / args.task_id
+    task_output_dir = args.output_dir.expanduser().resolve() / args.task_id
+    captures = numbered_tdms_files(task_data_dir, args.task_id)
+    if not captures:
+        raise FileNotFoundError(
+            f"No numbered TDMS files found for task {args.task_id!r} in "
+            f"{task_data_dir}."
         )
-        for target_hz in TARGET_FREQUENCIES_HZ
-    }
+    task_output_dir.mkdir(parents=True, exist_ok=True)
 
-    plot_path = create_plot(
-        tdms_path=tdms_path,
-        output_dir=output_dir,
-        frequency_hz=frequency_hz,
-        input_asd_nv_per_rt_hz=input_asd_nv_per_rt_hz,
-        closed_loop_bandwidth_hz=closed_loop_bandwidth_hz,
-        target_values=target_values,
-        show=args.show,
-    )
+    print(f"Task: {args.task_id}")
+    print(f"TDMS input: {task_data_dir}")
+    print(f"Spectrum output: {task_output_dir}")
+    print(f"Found {len(captures)} TDMS file(s); Welch nperseg={args.nperseg:,}.")
 
-    ac_samples = samples_v - np.mean(samples_v)
-    print(f"TDMS: {tdms_path}")
-    print(f"Samples: {samples_v.size:,} ({samples_v.dtype})")
-    print(f"Sample rate: {sample_rate_hz:,.9f} Sa/s")
-    print(f"Duration: {samples_v.size / sample_rate_hz:.9f} s")
-    print(f"Mean: {np.mean(samples_v):.12g} V")
-    print(f"AC RMS: {np.sqrt(np.mean(ac_samples**2)):.12g} V")
-    print(f"Peak-to-peak: {np.ptp(samples_v):.12g} Vpp")
-    print(f"Closed-loop gain: {closed_loop_gain:.12g} V/V")
-    print(f"Estimated closed-loop bandwidth: {closed_loop_bandwidth_hz:,.6g} Hz")
-    print(
-        f"Welch: Hann, nperseg={nperseg:,}, 50% overlap, "
-        f"segments={segment_count}, df={frequency_resolution_hz:.9f} Hz"
-    )
-    for target_hz, (actual_hz, value) in target_values.items():
-        print(
-            f"{target_hz:g} Hz target -> {actual_hz:.9f} Hz bin: "
-            f"{value:.9g} nV/sqrt(Hz)"
-        )
-
-    vertical_range_vpp = metadata["channel"].get("vertical_range_vpp")
-    vertical_offset_v = float(metadata["channel"].get("vertical_offset_v", 0.0))
-    if vertical_range_vpp is not None:
-        half_range = float(vertical_range_vpp) / 2.0
-        peak_from_center = float(np.max(np.abs(samples_v - vertical_offset_v)))
-        if peak_from_center >= 0.98 * half_range:
+    processed = 0
+    skipped = 0
+    for position, (filename_run_number, tdms_path) in enumerate(captures, start=1):
+        output_path = task_output_dir / f"{tdms_path.stem}_spectrum.npz"
+        if output_path.exists() and not args.overwrite:
+            skipped += 1
             print(
-                "WARNING: Capture is within 2% of the configured vertical full scale; "
-                "noise results may be affected by clipping.",
-                file=sys.stderr,
+                f"[{position:03d}/{len(captures):03d}] Skip existing "
+                f"{output_path.name}"
             )
+            continue
+        (
+            samples_v,
+            sample_rate_hz,
+            closed_loop_gain,
+            closed_loop_bandwidth_hz,
+            metadata_run_number,
+            channel_name,
+        ) = read_capture(tdms_path, args.task_id)
+        if metadata_run_number != filename_run_number:
+            raise ValueError(
+                f"Run number mismatch in {tdms_path}: filename="
+                f"{filename_run_number}, metadata={metadata_run_number}."
+            )
+        frequency_hz, input_psd_v2_per_hz, segment_count, df_hz = (
+            calculate_input_psd(
+                samples_v,
+                sample_rate_hz,
+                closed_loop_gain,
+                args.nperseg,
+            )
+        )
+        save_spectrum(
+            output_path,
+            overwrite=args.overwrite,
+            frequency_hz=frequency_hz,
+            input_psd_v2_per_hz=input_psd_v2_per_hz,
+            source_tdms=tdms_path,
+            task_id=args.task_id,
+            run_number=metadata_run_number,
+            channel_name=channel_name,
+            sample_rate_hz=sample_rate_hz,
+            closed_loop_gain=closed_loop_gain,
+            closed_loop_bandwidth_hz=closed_loop_bandwidth_hz,
+            sample_count=samples_v.size,
+            nperseg=args.nperseg,
+            segment_count=segment_count,
+            frequency_resolution_hz=df_hz,
+        )
+        one_hz = nearest_asd(frequency_hz, input_psd_v2_per_hz, 1.0)
+        one_khz = nearest_asd(frequency_hz, input_psd_v2_per_hz, 1_000.0)
+        processed += 1
+        print(
+            f"[{position:03d}/{len(captures):03d}] Saved {output_path.name} | "
+            f"1 Hz target: {one_hz[0]:.6f} Hz, {one_hz[1]:.6g} nV/sqrt(Hz); "
+            f"1 kHz target: {one_khz[0]:.6f} Hz, "
+            f"{one_khz[1]:.6g} nV/sqrt(Hz)"
+        )
 
-    print(f"Plot: {plot_path}")
+    print(f"Completed: {processed} processed, {skipped} skipped.")
     return 0
 
 

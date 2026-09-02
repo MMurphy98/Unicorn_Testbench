@@ -1,0 +1,34 @@
+{
+  "format_version": 1,
+  "task_id": "RevB_Chip_1_wiShield_Gmx_default_OSC_default_Vsup_pm6V",
+  "spectrum_file_count": 100,
+  "first_run_number": 1,
+  "last_run_number": 100,
+  "welch_nperseg": 262144,
+  "total_welch_segments": 700,
+  "frequency_resolution_hz": 0.19073486328124997,
+  "estimated_closed_loop_bandwidth_hz": 14985.014985014985,
+  "smoothing_method": "arithmetic mean of PSD in a 1/6-octave full-width band, with at least 5 FFT bins",
+  "approximate_single_bin_asd_one_sigma_fraction": 0.01889822365046136,
+  "targets": {
+    "1_hz": {
+      "target_frequency_hz": 1.0,
+      "nearest_bin_frequency_hz": 0.9536743164062499,
+      "nearest_bin_asd_nv_per_sqrt_hz": 5.1939719905703,
+      "smoothed_estimate_asd_nv_per_sqrt_hz": 5.253586144108587,
+      "smoothing_band_lower_hz": 0.5722045898437499,
+      "smoothing_band_upper_hz": 1.3351440429687498,
+      "smoothing_bin_count": 5
+    },
+    "1000_hz": {
+      "target_frequency_hz": 1000.0,
+      "nearest_bin_frequency_hz": 1000.0228881835936,
+      "nearest_bin_asd_nv_per_sqrt_hz": 5.1936904839461535,
+      "smoothed_estimate_asd_nv_per_sqrt_hz": 5.174125113016561,
+      "smoothing_band_lower_hz": 943.9468383789061,
+      "smoothing_band_upper_hz": 1059.3414306640623,
+      "smoothing_bin_count": 606
+    }
+  },
+  "plot": "C:\\Users\\jinge\\Projects\\Unicorn_Testbench\\Unicorn_CSA_RevB-COB\\results\\RevB_Chip_1_wiShield_Gmx_default_OSC_default_Vsup_pm6V\\RevB_Chip_1_wiShield_Gmx_default_OSC_default_Vsup_pm6V_average_input_noise_asd.png"
+}
