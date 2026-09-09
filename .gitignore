@@ -16,11 +16,36 @@ slprj/
 *.matlab.R20*
 .SimulinkProject/
 
-# Local raw data and generated outputs
-data/raw/*
-!data/raw/README.md
-results/*
-!results/README.md
+# Raw data and per-capture spectra stay local at every directory depth.
+# Existing committed reference fixtures are retained; new data is ignored.
+*.tdms
+*.tdms_index
+data/
+spectra/
+per_run_fft/
+*.npz
+
+# Keep results/, analysis_results/ and validation_results/ reviewable.
+# Full-resolution spectral workspaces, figures and CSV arrays are reproducible.
+*.mat
+*.fig
+*FullResolution.csv
+results/PXI-5922/**/average_noise_asd.csv
+
+# Python environments, bytecode and incomplete pipeline outputs
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+*.partial.*
+
+# MATLAB machine-local preferences, certificates and graphics state
+/.codex-matlab-*/
+/MathWorks/
+
+# Local review/render scratch files
+/tmp/
 
 # Common local/editor files
 .DS_Store

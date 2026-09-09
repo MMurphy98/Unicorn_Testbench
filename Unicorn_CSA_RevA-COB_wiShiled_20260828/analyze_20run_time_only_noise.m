@@ -3,7 +3,12 @@
 % used for the woShield data set, while directing all input and output to
 % this folder.  Run this file whenever the wiShield data need re-analysis.
 
-clearvars;
+if exist("analysisProfileOverride", "var")
+    analysisProfileOverride = string(analysisProfileOverride);
+else
+    analysisProfileOverride = "whole_record_22s";
+end
+clearvars -except analysisProfileOverride;
 close all;
 clc;
 

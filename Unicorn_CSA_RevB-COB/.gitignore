@@ -2,4 +2,4 @@ __pycache__/
 *.py[cod]
 data/
 spectra/
-results/*/
+# Final results are versioned; shared intermediate-file rules live at the root.

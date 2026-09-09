@@ -3,7 +3,12 @@
 % uses only their saved PSD results, so both sides retain identical FFT and
 % averaging settings.
 
-clearvars;
+if exist("analysisProfileOverride", "var")
+    analysisProfile = lower(strtrim(string(analysisProfileOverride)));
+else
+    analysisProfile = "whole_record_22s";
+end
+clearvars -except analysisProfile;
 close all;
 clc;
 
@@ -14,10 +19,23 @@ wiFolder = string(fileparts(scriptPath));
 repoFolder = string(fileparts(wiFolder));
 woFolder = fullfile(repoFolder, ...
     "Unicorn_CSA_RevA-COB_woShiled_20260828");
-outputFolder = fullfile(wiFolder, "analysis_results");
+switch analysisProfile
+    case {"whole_record_22s", "whole-record"}
+        analysisProfile = "whole_record_22s";
+        resultRelativeFolder = "analysis_results";
+        methodLabel = "22 s whole-record";
+    case {"welch_8s_50pct", "fixed-duration"}
+        analysisProfile = "welch_8s_50pct";
+        resultRelativeFolder = fullfile( ...
+            "analysis_results", "welch_8s_50pct");
+        methodLabel = "8 s Welch, 50% overlap";
+    otherwise
+        error("Unknown analysis profile '%s'.", analysisProfile);
+end
+outputFolder = fullfile(wiFolder, resultRelativeFolder);
 
 wiPath = fullfile(outputFolder, "Average_FFT.mat");
-woPath = fullfile(woFolder, "analysis_results", "Average_FFT.mat");
+woPath = fullfile(woFolder, resultRelativeFolder, "Average_FFT.mat");
 assert(isfile(wiPath), "wiShield result was not found: %s", wiPath);
 assert(isfile(woPath), "woShield result was not found: %s", woPath);
 
@@ -27,6 +45,8 @@ assert(isequal(wi.frequencyHz, wo.frequencyHz), ...
     "Full-resolution frequency grids do not match.");
 assert(isequal(wi.octaveFrequencyHz, wo.octaveFrequencyHz), ...
     "Fractional-octave frequency grids do not match.");
+assertMatchingAnalysisSettings(wi.analysisSettings, ...
+    wo.analysisSettings, analysisProfile);
 
 frequencyHz = wi.octaveFrequencyHz;
 wiAsdVPerSqrtHz = wi.ensembleOctaveAsdVPerSqrtHz;
@@ -94,7 +114,7 @@ hold(topAxes, "off");
 grid(topAxes, "on");
 xlim(topAxes, [1, 25e3]);
 ylabel(topAxes, "ASD (V/\surdHz)");
-title(topAxes, "20-run 1/12-octave PSD averages");
+title(topAxes, "20-run 1/12-octave PSD averages - " + methodLabel);
 legend(topAxes, Location="best", Interpreter="none");
 
 bottomAxes = nexttile(layout);
@@ -109,7 +129,8 @@ xlabel(bottomAxes, "Frequency (Hz)");
 ylabel(bottomAxes, "wiShield / woShield (dB)");
 title(bottomAxes, "Positive values mean higher noise with the shield");
 
-title(layout, "Shielding comparison using identical FFT processing");
+title(layout, "Shielding comparison using identical " + methodLabel + ...
+    " processing");
 savefig(comparisonFigure, fullfile(outputFolder, ...
     "Shielding_Comparison.fig"));
 exportgraphics(comparisonFigure, fullfile(outputFolder, ...
@@ -117,6 +138,36 @@ exportgraphics(comparisonFigure, fullfile(outputFolder, ...
 
 fprintf("Shielding comparison saved under %s\n", outputFolder);
 disp(keyMetricComparison);
+
+function assertMatchingAnalysisSettings(wiSettings, woSettings, ...
+        expectedProfile)
+fieldsToMatch = ["segmentationMode", "segmentDurationSeconds", ...
+    "segmentOverlapFraction", "windowName"];
+for fieldName = fieldsToMatch
+    assert(isfield(wiSettings, fieldName) && ...
+        isfield(woSettings, fieldName), ...
+        "Missing analysis setting '%s'.", fieldName);
+    assert(isequal(wiSettings.(fieldName), woSettings.(fieldName)), ...
+        "wiShield and woShield setting '%s' does not match.", fieldName);
+end
+fftFieldsToMatch = ["fftLength", "segmentCount", ...
+    "overlapSamples", "binSpacingHz", "enbwHz"];
+for fieldName = fftFieldsToMatch
+    assert(isequal(wiSettings.fftInfo.(fieldName), ...
+        woSettings.fftInfo.(fieldName)), ...
+        "wiShield and woShield FFT setting '%s' does not match.", ...
+        fieldName);
+end
+if isfield(wiSettings, "analysisProfile") && ...
+        isfield(woSettings, "analysisProfile")
+    assert(strcmpi(wiSettings.analysisProfile, expectedProfile) && ...
+        strcmpi(woSettings.analysisProfile, expectedProfile), ...
+        "Saved result profile does not match requested profile '%s'.", ...
+        expectedProfile);
+elseif ~strcmpi(expectedProfile, "whole_record_22s")
+    error("Saved Welch results do not contain analysis-profile metadata.");
+end
+end
 
 function value = centeredFractionalOctaveAsd( ...
         frequencyHz, psd, centerHz, bandsPerOctave)

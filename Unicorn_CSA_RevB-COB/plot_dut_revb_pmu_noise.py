@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import argparse
+import csv
 import json
 import math
 from pathlib import Path
@@ -77,12 +78,25 @@ def scalar(archive: np.lib.npyio.NpzFile, name: str) -> object:
 
 def load_average_psd(
     files: list[tuple[int, Path]], expected_task_id: str
-) -> tuple[np.ndarray, np.ndarray, float, int, int, float]:
+) -> tuple[
+    np.ndarray,
+    np.ndarray,
+    float,
+    int,
+    int,
+    float,
+    np.ndarray,
+    dict[float, np.ndarray],
+]:
     reference_frequency_hz: np.ndarray | None = None
     mean_input_psd_v2_per_hz: np.ndarray | None = None
     reference_bandwidth_hz: float | None = None
     reference_nperseg: int | None = None
     total_welch_segments = 0
+    run_numbers: list[int] = []
+    target_asd_by_frequency: dict[float, list[float]] = {
+        target_hz: [] for target_hz in TARGET_FREQUENCIES_HZ
+    }
 
     for count, (filename_run_number, path) in enumerate(files, start=1):
         with np.load(path, allow_pickle=False) as archive:
@@ -131,6 +145,11 @@ def load_average_psd(
             mean_input_psd_v2_per_hz += (
                 input_psd - mean_input_psd_v2_per_hz
             ) / count
+        run_numbers.append(run_number)
+        for target_hz in TARGET_FREQUENCIES_HZ:
+            target_asd_by_frequency[target_hz].append(
+                local_power_estimate(frequency_hz, input_psd, target_hz)[0]
+            )
         total_welch_segments += segment_count
 
     assert reference_frequency_hz is not None
@@ -144,6 +163,11 @@ def load_average_psd(
         reference_nperseg,
         total_welch_segments,
         float(reference_frequency_hz[1] - reference_frequency_hz[0]),
+        np.asarray(run_numbers, dtype=np.int64),
+        {
+            target_hz: np.asarray(values, dtype=np.float64)
+            for target_hz, values in target_asd_by_frequency.items()
+        },
     )
 
 
@@ -214,6 +238,140 @@ def nearest_bin_estimate(
     )
 
 
+def distribution_statistics(
+    values: np.ndarray,
+) -> dict[str, float | int | None]:
+    values = np.asarray(values, dtype=np.float64)
+    if values.ndim != 1 or values.size == 0 or not np.all(np.isfinite(values)):
+        raise ValueError("Distribution values must be a non-empty finite vector.")
+    percentiles = np.percentile(values, [2.5, 25.0, 50.0, 75.0, 97.5])
+    sample_std = float(np.std(values, ddof=1)) if values.size > 1 else None
+    mean_value = float(np.mean(values))
+    return {
+        "count": int(values.size),
+        "mean_asd_nv_per_sqrt_hz": mean_value,
+        "sample_std_asd_nv_per_sqrt_hz": sample_std,
+        "coefficient_of_variation_percent": (
+            100.0 * sample_std / mean_value if sample_std is not None else None
+        ),
+        "minimum_asd_nv_per_sqrt_hz": float(np.min(values)),
+        "percentile_2p5_asd_nv_per_sqrt_hz": float(percentiles[0]),
+        "percentile_25_asd_nv_per_sqrt_hz": float(percentiles[1]),
+        "median_asd_nv_per_sqrt_hz": float(percentiles[2]),
+        "percentile_75_asd_nv_per_sqrt_hz": float(percentiles[3]),
+        "percentile_97p5_asd_nv_per_sqrt_hz": float(percentiles[4]),
+        "maximum_asd_nv_per_sqrt_hz": float(np.max(values)),
+    }
+
+
+def write_target_distribution_csv(
+    path: Path,
+    run_numbers: np.ndarray,
+    target_asd_by_frequency: dict[float, np.ndarray],
+) -> None:
+    columns = {
+        target_hz: f"asd_{target_hz:g}_hz_nv_per_sqrt_hz"
+        for target_hz in TARGET_FREQUENCIES_HZ
+    }
+    partial_path = path.with_name(path.stem + ".partial" + path.suffix)
+    with partial_path.open("w", encoding="utf-8", newline="") as output_file:
+        writer = csv.writer(output_file)
+        writer.writerow(["run_number", *columns.values()])
+        for index, run_number in enumerate(run_numbers):
+            writer.writerow(
+                [
+                    int(run_number),
+                    *[
+                        format(target_asd_by_frequency[target_hz][index], ".17g")
+                        for target_hz in TARGET_FREQUENCIES_HZ
+                    ],
+                ]
+            )
+    partial_path.replace(path)
+
+
+def create_target_distribution_figure(
+    plt: object,
+    task_id: str,
+    target_asd_by_frequency: dict[float, np.ndarray],
+    target_results: dict[str, dict[str, float | int]],
+    target_distribution_results: dict[str, dict[str, float | int | None]],
+) -> object:
+    figure, axes = plt.subplots(
+        len(TARGET_FREQUENCIES_HZ),
+        1,
+        figsize=(10.0, 7.5),
+        sharex=True,
+    )
+    axes = np.atleast_1d(axes)
+    colors = {1.0: "tab:purple", 1_000.0: "tab:green"}
+    all_values = np.concatenate(
+        [target_asd_by_frequency[target_hz] for target_hz in TARGET_FREQUENCIES_HZ]
+    )
+    x_min = float(np.min(all_values))
+    x_max = float(np.max(all_values))
+    x_padding = max(0.08 * (x_max - x_min), 0.05)
+
+    for axis, target_hz in zip(axes, TARGET_FREQUENCIES_HZ, strict=True):
+        key = f"{target_hz:g}_hz"
+        values = target_asd_by_frequency[target_hz]
+        statistics = target_distribution_results[key]
+        color = colors[target_hz]
+        histogram_edges = np.histogram_bin_edges(values, bins="auto")
+        axis.hist(
+            values,
+            bins=histogram_edges,
+            color=color,
+            alpha=0.68,
+            label="Per-record local power estimate",
+        )
+        lower = float(statistics["percentile_2p5_asd_nv_per_sqrt_hz"])
+        upper = float(statistics["percentile_97p5_asd_nv_per_sqrt_hz"])
+        median = float(statistics["median_asd_nv_per_sqrt_hz"])
+        pooled = float(
+            target_results[key]["smoothed_estimate_asd_nv_per_sqrt_hz"]
+        )
+        axis.axvspan(
+            lower,
+            upper,
+            color="tab:gray",
+            alpha=0.14,
+            label="2.5th-97.5th percentile",
+        )
+        axis.axvline(
+            median,
+            color=color,
+            linewidth=2.0,
+            label=f"Median: {median:.4g} nV/√Hz",
+        )
+        axis.axvline(
+            pooled,
+            color="black",
+            linestyle="--",
+            linewidth=1.5,
+            label=f"ASD from mean PSD: {pooled:.4g} nV/√Hz",
+        )
+        band_lower = float(target_results[key]["smoothing_band_lower_hz"])
+        band_upper = float(target_results[key]["smoothing_band_upper_hz"])
+        band_bins = int(target_results[key]["smoothing_bin_count"])
+        axis.set_title(
+            f"{target_hz:g} Hz estimate: {band_lower:.6g}-{band_upper:.6g} Hz, "
+            f"{band_bins} FFT bins"
+        )
+        axis.set_ylabel("Record count")
+        axis.grid(axis="y", alpha=0.28)
+        axis.legend(loc="best", fontsize=8)
+
+    axes[-1].set_xlabel("Per-record equivalent input noise ASD (nV/√Hz)")
+    axes[-1].set_xlim(x_min - x_padding, x_max + x_padding)
+    figure.suptitle(
+        f"{task_id}: 1 Hz and 1 kHz per-record noise distributions\n"
+        f"{all_values.size // len(TARGET_FREQUENCIES_HZ)} records"
+    )
+    figure.tight_layout(rect=(0.0, 0.0, 1.0, 0.94))
+    return figure
+
+
 def main(argv: list[str] | None = None) -> int:
     args = parse_args(argv)
     if not args.show:
@@ -237,6 +395,8 @@ def main(argv: list[str] | None = None) -> int:
         nperseg,
         total_welch_segments,
         frequency_resolution_hz,
+        run_numbers,
+        target_asd_by_frequency,
     ) = load_average_psd(files, args.task_id)
     mean_asd_nv_per_rt_hz = np.sqrt(mean_input_psd_v2_per_hz) * 1.0e9
 
@@ -330,19 +490,69 @@ def main(argv: list[str] | None = None) -> int:
     fig.tight_layout()
 
     plot_path = task_output_dir / f"{args.task_id}_average_input_noise_asd.png"
-    partial_plot_path = task_output_dir / f"{args.task_id}_average_input_noise_asd.partial.png"
+    partial_plot_path = task_output_dir / (
+        f"{args.task_id}_average_input_noise_asd.partial.png"
+    )
     fig.savefig(partial_plot_path, dpi=220)
     partial_plot_path.replace(plot_path)
-    if args.show:
-        plt.show()
-    else:
-        plt.close(fig)
+
+    target_distribution_results: dict[
+        str, dict[str, float | int | None]
+    ] = {}
+    for target_hz in TARGET_FREQUENCIES_HZ:
+        key = f"{target_hz:g}_hz"
+        distribution = distribution_statistics(
+            target_asd_by_frequency[target_hz]
+        )
+        distribution.update(
+            {
+                "target_frequency_hz": target_hz,
+                "smoothing_band_lower_hz": target_results[key][
+                    "smoothing_band_lower_hz"
+                ],
+                "smoothing_band_upper_hz": target_results[key][
+                    "smoothing_band_upper_hz"
+                ],
+                "smoothing_bin_count": target_results[key][
+                    "smoothing_bin_count"
+                ],
+                "asd_from_mean_psd_nv_per_sqrt_hz": target_results[key][
+                    "smoothed_estimate_asd_nv_per_sqrt_hz"
+                ],
+            }
+        )
+        target_distribution_results[key] = distribution
+
+    distribution_csv_path = (
+        task_output_dir / f"{args.task_id}_target_asd_distribution.csv"
+    )
+    write_target_distribution_csv(
+        distribution_csv_path,
+        run_numbers,
+        target_asd_by_frequency,
+    )
+
+    distribution_figure = create_target_distribution_figure(
+        plt,
+        args.task_id,
+        target_asd_by_frequency,
+        target_results,
+        target_distribution_results,
+    )
+    distribution_plot_path = (
+        task_output_dir / f"{args.task_id}_target_asd_distributions.png"
+    )
+    partial_distribution_plot_path = distribution_plot_path.with_name(
+        distribution_plot_path.stem + ".partial" + distribution_plot_path.suffix
+    )
+    distribution_figure.savefig(partial_distribution_plot_path, dpi=220)
+    partial_distribution_plot_path.replace(distribution_plot_path)
 
     approximate_asd_one_sigma_fraction = 1.0 / (
         2.0 * math.sqrt(total_welch_segments)
     )
     summary = {
-        "format_version": 1,
+        "format_version": 2,
         "task_id": args.task_id,
         "spectrum_file_count": len(files),
         "first_run_number": files[0][0],
@@ -359,10 +569,19 @@ def main(argv: list[str] | None = None) -> int:
             approximate_asd_one_sigma_fraction
         ),
         "targets": target_results,
+        "target_distribution_method": (
+            "for each record, arithmetic mean of local PSD followed by square "
+            "root and conversion to nV/sqrt(Hz)"
+        ),
+        "target_distributions": target_distribution_results,
         "plot": str(plot_path),
+        "distribution_plot": str(distribution_plot_path),
+        "distribution_csv": str(distribution_csv_path),
     }
     summary_path = task_output_dir / f"{args.task_id}_noise_summary.json"
-    partial_summary_path = task_output_dir / f"{args.task_id}_noise_summary.partial.json"
+    partial_summary_path = task_output_dir / (
+        f"{args.task_id}_noise_summary.partial.json"
+    )
     partial_summary_path.write_text(
         json.dumps(summary, indent=2, ensure_ascii=False) + "\n",
         encoding="utf-8",
@@ -380,7 +599,8 @@ def main(argv: list[str] | None = None) -> int:
         f"{approximate_asd_one_sigma_fraction * 100.0:.3f}% (1 sigma, idealized)."
     )
     for target_hz in TARGET_FREQUENCIES_HZ:
-        result = target_results[f"{target_hz:g}_hz"]
+        key = f"{target_hz:g}_hz"
+        result = target_results[key]
         print(
             f"{target_hz:g} Hz: nearest bin "
             f"{float(result['nearest_bin_frequency_hz']):.9f} Hz = "
@@ -392,7 +612,26 @@ def main(argv: list[str] | None = None) -> int:
             f"{float(result['smoothing_band_upper_hz']):.6g} Hz "
             f"({int(result['smoothing_bin_count'])} bins)."
         )
+        distribution = target_distribution_results[key]
+        sample_std = distribution["sample_std_asd_nv_per_sqrt_hz"]
+        sample_std_text = "n/a" if sample_std is None else f"{float(sample_std):.9g}"
+        print(
+            f"  Per-record distribution: n={int(distribution['count'])}, "
+            f"mean={float(distribution['mean_asd_nv_per_sqrt_hz']):.9g}, "
+            f"median={float(distribution['median_asd_nv_per_sqrt_hz']):.9g}, "
+            f"sample std={sample_std_text}, 2.5th-97.5th percentile="
+            f"{float(distribution['percentile_2p5_asd_nv_per_sqrt_hz']):.9g}-"
+            f"{float(distribution['percentile_97p5_asd_nv_per_sqrt_hz']):.9g} "
+            "nV/sqrt(Hz)."
+        )
+    if args.show:
+        plt.show()
+    else:
+        plt.close(fig)
+        plt.close(distribution_figure)
     print(f"Plot: {plot_path}")
+    print(f"Distribution plot: {distribution_plot_path}")
+    print(f"Distribution CSV: {distribution_csv_path}")
     print(f"Summary: {summary_path}")
     return 0
 

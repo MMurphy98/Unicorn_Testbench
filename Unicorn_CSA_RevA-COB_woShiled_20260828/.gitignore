@@ -4,7 +4,12 @@
 
 # Large, reproducible MATLAB artifacts stay local.  Compact CSV/PNG/TXT
 # results remain visible to Git for review and regression comparison.
-analysis_results/*.mat
-analysis_results/*.fig
-analysis_results/*FullResolution.csv
-analysis_results/per_run_fft/
+analysis_results/**/*.mat
+analysis_results/**/*.fig
+analysis_results/**/*FullResolution.csv
+analysis_results/**/per_run_fft/
+
+# Full-resolution synthetic-validation workspaces and MATLAB figures are
+# reproducible; compact CSV/PNG/TXT validation evidence remains reviewable.
+validation_results/*.mat
+validation_results/*.fig

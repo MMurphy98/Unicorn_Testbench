@@ -9,14 +9,20 @@
 % Requirement: MATLAB R2022a or newer with Data Acquisition Toolbox.
 % Signal Processing Toolbox is not required.
 
-% A small wrapper may define dataFolderOverride before calling this script.
-% This keeps multiple data sets on the exact same analysis implementation.
+% A small wrapper may define dataFolderOverride and analysisProfileOverride
+% before calling this script.  This keeps multiple data sets and analysis
+% profiles on the exact same reviewed implementation.
 if exist("dataFolderOverride", "var")
     dataFolderOverride = string(dataFolderOverride);
 else
     dataFolderOverride = "";
 end
-clearvars -except dataFolderOverride;
+if exist("analysisProfileOverride", "var")
+    analysisProfile = lower(strtrim(string(analysisProfileOverride)));
+else
+    analysisProfile = "whole_record_22s";
+end
+clearvars -except dataFolderOverride analysisProfile;
 close all;
 clc;
 
@@ -35,22 +41,33 @@ tdmsFilePattern = "*.tdms";
 expectedRunCount = 20;
 channelSearchText = "Channel 0";
 
-% Segmentation choices:
-%   "whole-record"   Recommended for the 20 x 22 s data set.  Every TDMS
-%                    file contributes one full-length periodogram and
-%                    preserves df ~= 0.04545 Hz around 1 Hz.
-%   "fixed-duration" Optional Welch averaging inside each file.  It is
-%                    smoother but lowers frequency resolution.
-segmentationMode = "whole-record";
-segmentDurationSeconds = 8; % used only for "fixed-duration"
-segmentOverlapFraction = 0.5;
+% Analysis profiles deliberately write to separate locations so a Welch
+% rerun never overwrites the archived 22 s full-record result.
+switch analysisProfile
+    case {"whole_record_22s", "whole-record"}
+        analysisProfile = "whole_record_22s";
+        segmentationMode = "whole-record";
+        segmentDurationSeconds = 8; % unused in whole-record mode
+        segmentOverlapFraction = 0.5; % unused in whole-record mode
+        outputRelativeFolder = "analysis_results";
+    case {"welch_8s_50pct", "fixed-duration"}
+        analysisProfile = "welch_8s_50pct";
+        segmentationMode = "fixed-duration";
+        segmentDurationSeconds = 8;
+        segmentOverlapFraction = 0.5;
+        outputRelativeFolder = fullfile( ...
+            "analysis_results", "welch_8s_50pct");
+    otherwise
+        error("Unknown analysis profile '%s'. Use 'whole_record_22s' " + ...
+            "or 'welch_8s_50pct'.", analysisProfile);
+end
 
 removeMeanPerSegment = true;
 windowName = "Hamming";       % periodic Hamming, matching prior setup
 plotFrequencyRangeHz = [1, 25e3];
 fractionalOctaveBandsPerOctave = 12;
 
-outputFolder = fullfile(dataFolder, "analysis_results");
+outputFolder = fullfile(dataFolder, outputRelativeFolder);
 perRunFolder = fullfile(outputFolder, "per_run_fft");
 pngResolution = 240;
 
@@ -300,6 +317,7 @@ runSummary = table(runNumbers, sourceFile, sampleCountByRun, ...
 %% Save numeric results
 analysisSettings = struct;
 analysisSettings.dataFolder = dataFolder;
+analysisSettings.analysisProfile = analysisProfile;
 analysisSettings.tdmsFilePattern = tdmsFilePattern;
 analysisSettings.expectedRunCount = expectedRunCount;
 analysisSettings.channelSearchText = channelSearchText;
@@ -450,15 +468,30 @@ set(averageAxes, XScale="log", YScale="log");
 fullUse = frequencyHz >= plotFrequencyRangeHz(1) & ...
     frequencyHz <= plotFrequencyRangeHz(2) & ...
     ensembleAsdVPerSqrtHz > 0;
-loglog(averageAxes, frequencyHz(fullUse), ...
-    ensembleAsdVPerSqrtHz(fullUse), ...
-    Color=[0.65, 0.80, 0.94], LineWidth=0.45, ...
-    DisplayName="20-run average, full resolution");
-hold(averageAxes, "on");
-loglog(averageAxes, octaveFrequencyHz, ...
-    ensembleOctaveAsdVPerSqrtHz, ...
-    Color=[0.85, 0.325, 0.098], LineWidth=2.0, ...
-    DisplayName="1/12-octave PSD average");
+if strcmpi(segmentationMode, "fixed-duration")
+    loglog(averageAxes, frequencyHz(fullUse), ...
+        ensembleAsdVPerSqrtHz(fullUse), ...
+        Color=[0.85, 0.325, 0.098], LineWidth=1.15, ...
+        DisplayName=sprintf( ...
+        "20-run %.3g s Welch PSD average, %.0f%% overlap", ...
+        segmentDurationSeconds, 100*segmentOverlapFraction));
+    hold(averageAxes, "on");
+    loglog(averageAxes, octaveFrequencyHz, ...
+        ensembleOctaveAsdVPerSqrtHz, ...
+        Color=[0.25, 0.25, 0.25], LineWidth=1.4, ...
+        LineStyle="--", ...
+        DisplayName="Optional 1/12-octave power trend");
+else
+    loglog(averageAxes, frequencyHz(fullUse), ...
+        ensembleAsdVPerSqrtHz(fullUse), ...
+        Color=[0.65, 0.80, 0.94], LineWidth=0.45, ...
+        DisplayName="20-run average, full resolution");
+    hold(averageAxes, "on");
+    loglog(averageAxes, octaveFrequencyHz, ...
+        ensembleOctaveAsdVPerSqrtHz, ...
+        Color=[0.85, 0.325, 0.098], LineWidth=2.0, ...
+        DisplayName="1/12-octave PSD average");
+end
 loglog(averageAxes, octaveFrequencyHz(oneHzIndex), ...
     ensembleOctaveAsdVPerSqrtHz(oneHzIndex), "ko", ...
     MarkerFaceColor="k", MarkerSize=6, ...
@@ -469,12 +502,60 @@ grid(averageAxes, "on");
 xlim(averageAxes, plotFrequencyRangeHz);
 xlabel(averageAxes, "Frequency (Hz)");
 ylabel(averageAxes, "Voltage noise density (V/\surdHz)");
-title(averageAxes, "Final 20-run average Channel 0 noise FFT");
+if strcmpi(segmentationMode, "fixed-duration")
+    title(averageAxes, ...
+        "Final 20-run Channel 0 noise ASD - 8 s Welch, 50% overlap");
+else
+    title(averageAxes, "Final 20-run average Channel 0 noise FFT");
+end
 legend(averageAxes, Location="best", Interpreter="none");
 
 savefig(averageFigure, fullfile(outputFolder, "Average_FFT.fig"));
 exportgraphics(averageFigure, fullfile(outputFolder, "Average_FFT.png"), ...
     Resolution=pngResolution);
+
+% The requested formal presentation range is 1 Hz to 1 kHz.  Keep this as
+% a separate artifact so the full 1 Hz to 25 kHz diagnostic remains
+% available without changing the stated DUT-noise reporting bandwidth.
+if strcmpi(segmentationMode, "fixed-duration")
+    formalFigure = figure(Name="Formal 1 Hz to 1 kHz Welch ASD", ...
+        Color="w", Position=[130, 130, 1200, 760]);
+    formalAxes = axes(formalFigure);
+    set(formalAxes, XScale="log", YScale="log");
+    formalUse = frequencyHz >= 1 & frequencyHz <= 1e3 & ...
+        ensembleAsdVPerSqrtHz > 0;
+    loglog(formalAxes, frequencyHz(formalUse), ...
+        ensembleAsdVPerSqrtHz(formalUse), ...
+        Color=[0.85, 0.325, 0.098], LineWidth=1.15, ...
+        DisplayName=sprintf( ...
+        "20-run %.3g s Welch PSD average, %.0f%% overlap", ...
+        segmentDurationSeconds, 100*segmentOverlapFraction));
+    hold(formalAxes, "on");
+    formalOctaveUse = octaveFrequencyHz >= 1 & ...
+        octaveFrequencyHz <= 1e3;
+    loglog(formalAxes, octaveFrequencyHz(formalOctaveUse), ...
+        ensembleOctaveAsdVPerSqrtHz(formalOctaveUse), ...
+        Color=[0.25, 0.25, 0.25], LineWidth=1.4, ...
+        LineStyle="--", ...
+        DisplayName="Optional 1/12-octave power trend");
+    loglog(formalAxes, octaveFrequencyHz(oneHzIndex), ...
+        ensembleOctaveAsdVPerSqrtHz(oneHzIndex), "ko", ...
+        MarkerFaceColor="k", MarkerSize=6, ...
+        DisplayName=sprintf("1 Hz: %.4g V/rtHz", ...
+        ensembleAsd1HzVPerSqrtHz));
+    hold(formalAxes, "off");
+    grid(formalAxes, "on");
+    xlim(formalAxes, [1, 1e3]);
+    xlabel(formalAxes, "Frequency (Hz)");
+    ylabel(formalAxes, "Voltage noise density (V/\surdHz)");
+    title(formalAxes, ...
+        "Formal 1 Hz-1 kHz noise ASD - 8 s Welch, 50% overlap");
+    legend(formalAxes, Location="best", Interpreter="none");
+    savefig(formalFigure, fullfile(outputFolder, ...
+        "Average_FFT_1Hz_to_1kHz.fig"));
+    exportgraphics(formalFigure, fullfile(outputFolder, ...
+        "Average_FFT_1Hz_to_1kHz.png"), Resolution=pngResolution);
+end
 
 %% Figure 3: run-to-run stability
 stabilityFigure = figure(Name="Run stability", Color="w", ...
@@ -521,7 +602,17 @@ fprintf(summaryFile, "Samples/run: %d\n", referenceSampleCount);
 fprintf(summaryFile, "Sample rate: %.12g Hz\n", referenceSampleRateHz);
 fprintf(summaryFile, "Actual capture duration N/Fs: %.12g s\n", ...
     referenceSampleCount/referenceSampleRateHz);
+fprintf(summaryFile, "Analysis profile: %s\n", analysisProfile);
 fprintf(summaryFile, "Segmentation: %s\n", segmentationMode);
+fprintf(summaryFile, "Segments/run: %d\n", ...
+    referenceFftInfo.segmentCount);
+fprintf(summaryFile, "Segment duration: %.12g s\n", ...
+    referenceFftInfo.segmentDurationSeconds);
+fprintf(summaryFile, "Segment overlap: %.6g %%\n", ...
+    100*referenceFftInfo.overlapFraction);
+fprintf(summaryFile, "Discarded tail: %d samples (%.12g s)\n", ...
+    referenceFftInfo.discardedSamples, ...
+    referenceFftInfo.discardedSamples/referenceSampleRateHz);
 fprintf(summaryFile, "Window: %s (periodic)\n", windowName);
 fprintf(summaryFile, "FFT length: %d\n", referenceFftInfo.fftLength);
 fprintf(summaryFile, "Bin spacing: %.12g Hz\n", ...

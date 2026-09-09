@@ -1,0 +1,35 @@
+Unicorn CSA 20-run time-only TDMS noise analysis
+Generated: 2026-08-28 23:13:55
+
+Runs: 20
+Waveform unit assumption: TDMS numeric values are volts (unit metadata blank).
+Samples/run: 1100002
+Sample rate: 50000 Hz
+Actual capture duration N/Fs: 22.00004 s
+Analysis profile: welch_8s_50pct
+Segmentation: fixed-duration
+Segments/run: 4
+Segment duration: 8 s
+Segment overlap: 50 %
+Discarded tail: 100002 samples (2.00004 s)
+Window: Hamming (periodic)
+FFT length: 400000
+Bin spacing: 0.125 Hz
+ENBW: 0.170353223594 Hz
+1 Hz ensemble ASD: 7.32706505203e-06 V/sqrt(Hz)
+Integrated noise 1-25 kHz: 0.000680539638754 Vrms
+Mean AC RMS across runs: 0.000690995282564 V
+AC RMS range: 0.000679369751311 to 0.000757311728788 V
+Flagged runs (not excluded): [13 16]
+Exact duplicate runs: none
+Duplicate policy: duplicates are flagged but retained with equal weight in the requested 20-run average.
+Independent waveform count after de-duplication: 20
+De-duplicated 1 Hz ASD: 7.32706505203e-06 V/sqrt(Hz) (+0.0000% vs 20-file result)
+50 Hz spur: 50 Hz, 9.2797079e-05 V/sqrt(Hz), +/-0.5 Hz integrated 3.99391468e-05 Vrms
+150 Hz-region spur: 150 Hz, 1.82722584e-05 V/sqrt(Hz), +/-0.5 Hz integrated 1.09073341e-05 Vrms
+High-frequency RMS-ASD roll-off (10 kHz-25 kHz vs 1 kHz-10 kHz): -2.210817 dB ensemble
+Per-run roll-off mean/std: -2.210833 / 0.015226 dB
+Interpretation: the high-frequency roll-off is repeatable across runs; a calibrated flat reference is needed to separate DUT and acquisition-chain response.
+
+Averaging rule: every file has equal weight; PSD (V^2/Hz) is averaged before square root.
+Fractional-octave curves are display-frequency power averages and do not replace the full-resolution FFT data.

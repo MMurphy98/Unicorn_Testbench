@@ -1,0 +1,33 @@
+Synthetic validation of InstrumentStudio noise PSD method
+========================================================
+MATLAB: 23.2.0.2365128 (R2023b)
+Random seed: 20260828
+Fs: 50000 Hz
+N: 1100002 samples
+Record duration N/Fs: 22.00004 s
+FFT bin spacing: 0.0454544628101 Hz
+Hamming ENBW: 0.0619465141314 Hz
+
+White-noise ensemble case
+  Input levels: 10 x 4e-06 and 10 x 8e-06 V/sqrt(Hz)
+  Correct theoretical sqrt(mean ASD^2): 6.32455532034e-06 V/sqrt(Hz)
+  Measured 100 Hz-10 kHz: 6.32397391753e-06 V/sqrt(Hz)
+  Measured 1 Hz 1/12-octave: 6.10874416804e-06 V/sqrt(Hz)
+  Incorrect theoretical arithmetic mean ASD: 6e-06 V/sqrt(Hz)
+  Measured arithmetic mean of per-run broadband ASD: 5.99917804019e-06 V/sqrt(Hz)
+  Correct PSD-first vs arithmetic-ASD result: +0.457966 dB
+  Expected 1 Hz-25 kHz RMS: 0.000999979545283 Vrms
+  Measured 1 Hz-25 kHz RMS: 0.000999795395188 Vrms
+
+Coherent sine case
+  Tone frequency: 49.9999090911 Hz (FFT bin 1100)
+  Known tone RMS: 0.0001 Vrms
+  Expected peak ASD = Arms/sqrt(ENBW): 0.000401783005981 V/sqrt(Hz)
+  Measured peak ASD: 0.000401783005981 V/sqrt(Hz)
+  Main-lobe integrated RMS: 0.0001 Vrms
+
+Independent reference checks
+  Explicit formula vs MATLAB periodogram: 6.31745069119e-16
+  Explicit formula vs one-segment pwelch: 6.31745069119e-16
+  Maximum Parseval relative error: 3.43820903148e-16
+  Tests passed: 12/12

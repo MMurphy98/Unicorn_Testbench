@@ -1,7 +1,15 @@
 * text=auto
+.gitattributes text eol=lf
+.gitignore text eol=lf
 *.m text eol=lf
 *.md text eol=lf
 *.yml text eol=lf
 *.yaml text eol=lf
 *.sh text eol=lf
 .githooks/* text eol=lf
+
+# Keep the selected final MATLAB binary artifacts in Git LFS. Add future
+# reviewed artifacts explicitly so existing regular-Git MAT files are not
+# silently migrated and reproducible intermediates remain local.
+Unicorn_CSA_RevA-COB_woShiled_Gain101_20260829.mat filter=lfs diff=lfs merge=lfs -text
+combine_Gain1001_Gain101.fig filter=lfs diff=lfs merge=lfs -text

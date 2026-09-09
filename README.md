@@ -31,6 +31,13 @@ Unicorn_Testbench/
 
 ## 开始工作
 
+克隆后先启用 Git LFS 和仓库 hooks：
+
+```powershell
+git lfs install
+git config core.hooksPath .githooks
+```
+
 1. 从 `main` 创建任务分支：`git switch -c task/T-YYYYMMDD-NN-short-name`。
 2. 在根目录 `测试安排.md` 找到任务内容和验收标准。
 3. 每日推送代码，并更新对应日期的测试结论文件。
@@ -38,6 +45,15 @@ Unicorn_Testbench/
 5. 使用仓库 PR 模板发起 PR，指定 `@MMurphy98` 审核。
 
 完整规则见 [`docs/WORKFLOW.md`](docs/WORKFLOW.md)。
+
+## 测试数据与二进制结果
+
+- 所有层级的 `results/`、`analysis_results/` 和 `validation_results/` 均允许提交结果图表与
+  CSV、JSON、TXT、Markdown 摘要。
+- `data/`、`spectra/`、`per_run_fft/`，原始 `*.tdms` / `*.tdms_index`，以及 NPZ、MAT、FIG
+  和完整分辨率频谱 CSV 留在本地；原有已入库参考数据继续作为回归测试基准。
+- `.gitattributes` 为两个历史选定的 MATLAB 产物保留 Git LFS 配置，但本次不新增这些二进制文件；
+  后续确需归档时应单独审查。
 
 ## OPA189 正式噪声分析
 

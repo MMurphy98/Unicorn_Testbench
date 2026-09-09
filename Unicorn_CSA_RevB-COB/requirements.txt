@@ -1,0 +1,8 @@
+# Main dependencies from the Windows 64-bit / Python 3.11.9 test environment.
+# Recorded on 2026-09-09; see README.md for instrument drivers and Notebook setup.
+niscope==1.4.7
+PyVISA==1.16.2
+npTDMS==1.11.0
+numpy==2.4.6
+scipy==1.17.1
+matplotlib==3.11.1

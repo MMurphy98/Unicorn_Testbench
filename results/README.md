@@ -1,7 +1,9 @@
 # Generated results
 
-此目录用于本地生成的图表、日志和中间结果，除本说明外均被 `.gitignore` 忽略。需要进入版本控制的关键
-指标和结论应整理到 `docs/test-reports/`；确需提交的小型最终产物应在 PR 中说明原因。
+此目录的最终图表和 CSV、JSON、TXT、Markdown 摘要进入 Git；其他层级的 `results/`、
+`analysis_results/` 和 `validation_results/` 使用相同原则。关键指标和结论同时整理到
+`docs/test-reports/`。原始 `data/`、`spectra/`、逐次 FFT、NPZ/MAT/FIG 和完整分辨率频谱 CSV
+由 `.gitignore` 排除，保留在本地。
 
 OPA189 正式入口生成：
 
@@ -11,8 +13,9 @@ OPA189 正式入口生成：
 - `opa189_four_condition_0p1_to_100hz.png`
 - `opa189_with_shield_voltage_comparison_0p1_to_100hz.png`
 
-没有本地原始波形时，同一入口会从 `data/processed/opa189/formal_test/` 复写上述产物；这些文件仍然
-属于本地生成结果，不进入 Git。仓库中随任务提交的参考 CSV、PNG 和频谱 MAT 位于 `data/processed/`。
+没有本地原始波形时，同一入口会从历史已提交的 `data/processed/opa189/formal_test/` 复写上述产物；
+其中 CSV 和 PNG 作为最终结果提交，MAT 留在本地。历史参考文件继续用于离线回归测试，新的
+`data/` 内容不再自动进入 Git。
 
 ## PXI-5922 Unicorn COB RevA 噪声结果
 
@@ -29,7 +32,7 @@ results/PXI-5922/2026-08-19_Unicorn_COB_RevA_run_03/  # PXI-5922 floating input
 ```
 
 每个目录包含 `average_noise_asd.csv`、`average_noise_asd.mat`、`average_noise_asd.png` 和
-`average_noise_asd.fig`。
+`average_noise_asd.fig`。其中 PNG 入库；完整频率网格 CSV、MAT 和 FIG 留在本地。
 
 三组数据均为 50 kS/s、每种条件十次采集；每份波形统一取前 900,000 点，以 900,000 点周期 Hann
 窗计算一份单边 PSD。每种条件先在功率域平均十份 PSD，再开平方得到最终 ASD，不能直接对十份 ASD

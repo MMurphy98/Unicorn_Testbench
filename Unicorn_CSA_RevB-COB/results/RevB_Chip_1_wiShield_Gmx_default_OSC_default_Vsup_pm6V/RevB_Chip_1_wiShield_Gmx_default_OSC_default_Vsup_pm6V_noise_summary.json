@@ -1,5 +1,5 @@
 {
-  "format_version": 1,
+  "format_version": 2,
   "task_id": "RevB_Chip_1_wiShield_Gmx_default_OSC_default_Vsup_pm6V",
   "spectrum_file_count": 100,
   "first_run_number": 1,
@@ -30,5 +30,46 @@
       "smoothing_bin_count": 606
     }
   },
-  "plot": "C:\\Users\\jinge\\Projects\\Unicorn_Testbench\\Unicorn_CSA_RevB-COB\\results\\RevB_Chip_1_wiShield_Gmx_default_OSC_default_Vsup_pm6V\\RevB_Chip_1_wiShield_Gmx_default_OSC_default_Vsup_pm6V_average_input_noise_asd.png"
+  "target_distribution_method": "for each record, arithmetic mean of local PSD followed by square root and conversion to nV/sqrt(Hz)",
+  "target_distributions": {
+    "1_hz": {
+      "count": 100,
+      "mean_asd_nv_per_sqrt_hz": 5.2186445948779,
+      "sample_std_asd_nv_per_sqrt_hz": 0.6079573067159373,
+      "coefficient_of_variation_percent": 11.649716620147833,
+      "minimum_asd_nv_per_sqrt_hz": 3.935233436720455,
+      "percentile_2p5_asd_nv_per_sqrt_hz": 4.13157376150581,
+      "percentile_25_asd_nv_per_sqrt_hz": 4.835196331480666,
+      "median_asd_nv_per_sqrt_hz": 5.1974316942415655,
+      "percentile_75_asd_nv_per_sqrt_hz": 5.580181886881556,
+      "percentile_97p5_asd_nv_per_sqrt_hz": 6.652149470379255,
+      "maximum_asd_nv_per_sqrt_hz": 7.220415715037525,
+      "target_frequency_hz": 1.0,
+      "smoothing_band_lower_hz": 0.5722045898437499,
+      "smoothing_band_upper_hz": 1.3351440429687498,
+      "smoothing_bin_count": 5,
+      "asd_from_mean_psd_nv_per_sqrt_hz": 5.253586144108587
+    },
+    "1000_hz": {
+      "count": 100,
+      "mean_asd_nv_per_sqrt_hz": 5.17376030251486,
+      "sample_std_asd_nv_per_sqrt_hz": 0.06175069843769504,
+      "coefficient_of_variation_percent": 1.1935361289868662,
+      "minimum_asd_nv_per_sqrt_hz": 5.058373900879374,
+      "percentile_2p5_asd_nv_per_sqrt_hz": 5.07098287043033,
+      "percentile_25_asd_nv_per_sqrt_hz": 5.132369903322845,
+      "median_asd_nv_per_sqrt_hz": 5.167043948074111,
+      "percentile_75_asd_nv_per_sqrt_hz": 5.212539921260786,
+      "percentile_97p5_asd_nv_per_sqrt_hz": 5.3115245287101835,
+      "maximum_asd_nv_per_sqrt_hz": 5.317329356846717,
+      "target_frequency_hz": 1000.0,
+      "smoothing_band_lower_hz": 943.9468383789061,
+      "smoothing_band_upper_hz": 1059.3414306640623,
+      "smoothing_bin_count": 606,
+      "asd_from_mean_psd_nv_per_sqrt_hz": 5.174125113016561
+    }
+  },
+  "plot": "C:\\Users\\jinge\\Projects\\Unicorn_Testbench\\Unicorn_CSA_RevB-COB\\results\\RevB_Chip_1_wiShield_Gmx_default_OSC_default_Vsup_pm6V\\RevB_Chip_1_wiShield_Gmx_default_OSC_default_Vsup_pm6V_average_input_noise_asd.png",
+  "distribution_plot": "C:\\Users\\jinge\\Projects\\Unicorn_Testbench\\Unicorn_CSA_RevB-COB\\results\\RevB_Chip_1_wiShield_Gmx_default_OSC_default_Vsup_pm6V\\RevB_Chip_1_wiShield_Gmx_default_OSC_default_Vsup_pm6V_target_asd_distributions.png",
+  "distribution_csv": "C:\\Users\\jinge\\Projects\\Unicorn_Testbench\\Unicorn_CSA_RevB-COB\\results\\RevB_Chip_1_wiShield_Gmx_default_OSC_default_Vsup_pm6V\\RevB_Chip_1_wiShield_Gmx_default_OSC_default_Vsup_pm6V_target_asd_distribution.csv"
 }

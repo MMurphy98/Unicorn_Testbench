@@ -1,0 +1,84 @@
+{
+  "format_version": 1,
+  "task_id": "Offset_RevB_Chip_5_wiShield_Gmx_default_OSC_default_Vsup_pm6V_night",
+  "generated_at_utc": "2026-09-03T13:23:51.082297+00:00",
+  "run_count": 1,
+  "total_reading_count": 500,
+  "source_files": [
+    "C:\\Users\\jinge\\Projects\\Unicorn_Testbench\\Unicorn_CSA_RevB-COB\\data\\Offset_RevB_Chip_5_wiShield_Gmx_default_OSC_default_Vsup_pm6V_night\\Offset_RevB_Chip_5_wiShield_Gmx_default_OSC_default_Vsup_pm6V_night_dcv_0001.tdms"
+  ],
+  "configuration": {
+    "instrument_manufacturer": "KEITHLEY INSTRUMENTS",
+    "instrument_model": "MODEL DMM7510",
+    "instrument_serial_number": "04476049",
+    "instrument_firmware_revision": "1.6.7d",
+    "terminals": "FRONT",
+    "measurement_function": "VOLT:DC",
+    "range_v": 0.1,
+    "autorange_enabled": false,
+    "input_impedance_mode": "AUTO",
+    "nplc": 10.0,
+    "autozero_enabled": true,
+    "dmm_averaging_enabled": false,
+    "relative_enabled": false,
+    "line_sync_enabled": true,
+    "line_frequency_hz": 50.0,
+    "closed_loop_gain_v_per_v": 1001.0
+  },
+  "output_voltage_v": {
+    "count": 500,
+    "mean": -3.331641929798e-05,
+    "median": -3.8386935e-05,
+    "sample_std": 2.8659748467570292e-05,
+    "standard_error": 1.281702915830652e-06,
+    "confidence_95_lower": -3.5834618687227104e-05,
+    "confidence_95_upper": -3.07982199087329e-05,
+    "minimum": -8.679927e-05,
+    "maximum": 4.086383e-05
+  },
+  "equivalent_input_offset_v": {
+    "count": 500,
+    "mean": -3.328313616181818e-08,
+    "median": -3.834858641358642e-08,
+    "sample_std": 2.8631117350220067e-08,
+    "standard_error": 1.2804224933373143e-09,
+    "confidence_95_lower": -3.579881986735974e-08,
+    "confidence_95_upper": -3.0767452456276616e-08,
+    "minimum": -8.671255744255744e-08,
+    "maximum": 4.0823006993006995e-08
+  },
+  "per_run": [
+    {
+      "run_number": 1,
+      "source_file": "C:\\Users\\jinge\\Projects\\Unicorn_Testbench\\Unicorn_CSA_RevB-COB\\data\\Offset_RevB_Chip_5_wiShield_Gmx_default_OSC_default_Vsup_pm6V_night\\Offset_RevB_Chip_5_wiShield_Gmx_default_OSC_default_Vsup_pm6V_night_dcv_0001.tdms",
+      "acquisition_start_utc": "2026-09-03T13:17:55.947346+00:00",
+      "output_voltage_v": {
+        "count": 500,
+        "mean": -3.331641929798e-05,
+        "median": -3.8386935e-05,
+        "sample_std": 2.8659748467570292e-05,
+        "standard_error": 1.281702915830652e-06,
+        "confidence_95_lower": -3.5834618687227104e-05,
+        "confidence_95_upper": -3.07982199087329e-05,
+        "minimum": -8.679927e-05,
+        "maximum": 4.086383e-05
+      },
+      "equivalent_input_offset_v": {
+        "count": 500,
+        "mean": -3.3283136161818185e-08,
+        "median": -3.834858641358641e-08,
+        "sample_std": 2.8631117350220073e-08,
+        "standard_error": 1.2804224933373147e-09,
+        "confidence_95_lower": -3.5798819867359746e-08,
+        "confidence_95_upper": -3.076745245627662e-08,
+        "minimum": -8.671255744255744e-08,
+        "maximum": 4.0823006993006995e-08
+      }
+    }
+  ],
+  "between_run_output_mean_v": null,
+  "between_run_equivalent_input_mean_v": null,
+  "uncertainty_note": "Standard errors and 95% t intervals are descriptive repeatability statistics. They assume independent readings and do not include DMM calibration uncertainty, thermoelectric EMF, gain error, or correlated DUT temperature and low-frequency drift.",
+  "plot": "C:\\Users\\jinge\\Projects\\Unicorn_Testbench\\Unicorn_CSA_RevB-COB\\results\\Offset_RevB_Chip_5_wiShield_Gmx_default_OSC_default_Vsup_pm6V_night\\Offset_RevB_Chip_5_wiShield_Gmx_default_OSC_default_Vsup_pm6V_night_dcv_offset.png",
+  "readings_csv": "C:\\Users\\jinge\\Projects\\Unicorn_Testbench\\Unicorn_CSA_RevB-COB\\results\\Offset_RevB_Chip_5_wiShield_Gmx_default_OSC_default_Vsup_pm6V_night\\Offset_RevB_Chip_5_wiShield_Gmx_default_OSC_default_Vsup_pm6V_night_dcv_readings.csv"
+}

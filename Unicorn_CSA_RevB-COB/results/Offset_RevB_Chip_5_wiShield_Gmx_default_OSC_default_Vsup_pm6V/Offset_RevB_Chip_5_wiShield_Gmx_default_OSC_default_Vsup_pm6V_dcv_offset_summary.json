@@ -1,0 +1,132 @@
+{
+  "format_version": 1,
+  "task_id": "Offset_RevB_Chip_5_wiShield_Gmx_default_OSC_default_Vsup_pm6V",
+  "generated_at_utc": "2026-09-03T13:16:32.263491+00:00",
+  "run_count": 2,
+  "total_reading_count": 200,
+  "source_files": [
+    "C:\\Users\\jinge\\Projects\\Unicorn_Testbench\\Unicorn_CSA_RevB-COB\\data\\Offset_RevB_Chip_5_wiShield_Gmx_default_OSC_default_Vsup_pm6V\\Offset_RevB_Chip_5_wiShield_Gmx_default_OSC_default_Vsup_pm6V_dcv_0001.tdms",
+    "C:\\Users\\jinge\\Projects\\Unicorn_Testbench\\Unicorn_CSA_RevB-COB\\data\\Offset_RevB_Chip_5_wiShield_Gmx_default_OSC_default_Vsup_pm6V\\Offset_RevB_Chip_5_wiShield_Gmx_default_OSC_default_Vsup_pm6V_dcv_0002.tdms"
+  ],
+  "configuration": {
+    "instrument_manufacturer": "KEITHLEY INSTRUMENTS",
+    "instrument_model": "MODEL DMM7510",
+    "instrument_serial_number": "04476049",
+    "instrument_firmware_revision": "1.6.7d",
+    "terminals": "FRONT",
+    "measurement_function": "VOLT:DC",
+    "range_v": 0.1,
+    "autorange_enabled": false,
+    "input_impedance_mode": "AUTO",
+    "nplc": 10.0,
+    "autozero_enabled": true,
+    "dmm_averaging_enabled": false,
+    "relative_enabled": false,
+    "line_sync_enabled": true,
+    "line_frequency_hz": 50.0,
+    "closed_loop_gain_v_per_v": 1001.0
+  },
+  "output_voltage_v": {
+    "count": 200,
+    "mean": 0.00018781782875000003,
+    "median": 0.00019237565,
+    "sample_std": 0.0002620669420662112,
+    "standard_error": 1.8530931185984004e-05,
+    "confidence_95_lower": 0.00015127563772671996,
+    "confidence_95_upper": 0.0002243600197732801,
+    "minimum": -0.0001013704,
+    "maximum": 0.0004704869
+  },
+  "equivalent_input_offset_v": {
+    "count": 200,
+    "mean": 1.8763019855144854e-07,
+    "median": 1.9218346653346653e-07,
+    "sample_std": 2.618051369292819e-07,
+    "standard_error": 1.8512418767216783e-08,
+    "confidence_95_lower": 1.511245132135064e-07,
+    "confidence_95_upper": 2.2413588388939067e-07,
+    "minimum": -1.0126913086913087e-07,
+    "maximum": 4.700168831168831e-07
+  },
+  "per_run": [
+    {
+      "run_number": 1,
+      "source_file": "C:\\Users\\jinge\\Projects\\Unicorn_Testbench\\Unicorn_CSA_RevB-COB\\data\\Offset_RevB_Chip_5_wiShield_Gmx_default_OSC_default_Vsup_pm6V\\Offset_RevB_Chip_5_wiShield_Gmx_default_OSC_default_Vsup_pm6V_dcv_0001.tdms",
+      "acquisition_start_utc": "2026-09-03T06:26:40.748547+00:00",
+      "output_voltage_v": {
+        "count": 100,
+        "mean": 0.00044904978500000004,
+        "median": 0.00044969585000000003,
+        "sample_std": 9.723928748854704e-06,
+        "standard_error": 9.723928748854704e-07,
+        "confidence_95_lower": 0.00044712034657405045,
+        "confidence_95_upper": 0.0004509792234259496,
+        "minimum": 0.0004295999,
+        "maximum": 0.0004704869
+      },
+      "equivalent_input_offset_v": {
+        "count": 100,
+        "mean": 4.4860118381618383e-07,
+        "median": 4.492466033966034e-07,
+        "sample_std": 9.714214534320383e-09,
+        "standard_error": 9.714214534320383e-10,
+        "confidence_95_lower": 4.466736729011493e-07,
+        "confidence_95_upper": 4.505286947312184e-07,
+        "minimum": 4.291707292707293e-07,
+        "maximum": 4.700168831168831e-07
+      }
+    },
+    {
+      "run_number": 2,
+      "source_file": "C:\\Users\\jinge\\Projects\\Unicorn_Testbench\\Unicorn_CSA_RevB-COB\\data\\Offset_RevB_Chip_5_wiShield_Gmx_default_OSC_default_Vsup_pm6V\\Offset_RevB_Chip_5_wiShield_Gmx_default_OSC_default_Vsup_pm6V_dcv_0002.tdms",
+      "acquisition_start_utc": "2026-09-03T13:15:08.044521+00:00",
+      "output_voltage_v": {
+        "count": 100,
+        "mean": -7.34141275e-05,
+        "median": -7.372245e-05,
+        "sample_std": 9.717954424615697e-06,
+        "standard_error": 9.717954424615698e-07,
+        "confidence_95_lower": -7.534238049040668e-05,
+        "confidence_95_upper": -7.148587450959333e-05,
+        "minimum": -0.0001013704,
+        "maximum": -4.48486e-05
+      },
+      "equivalent_input_offset_v": {
+        "count": 100,
+        "mean": -7.334078671328672e-08,
+        "median": -7.364880119880119e-08,
+        "sample_std": 9.70824617843726e-09,
+        "standard_error": 9.708246178437261e-10,
+        "confidence_95_lower": -7.526711337702965e-08,
+        "confidence_95_upper": -7.141446004954379e-08,
+        "minimum": -1.0126913086913087e-07,
+        "maximum": -4.480379620379621e-08
+      }
+    }
+  ],
+  "between_run_output_mean_v": {
+    "count": 2,
+    "mean": 0.00018781782875,
+    "median": 0.00018781782875,
+    "sample_std": 0.000369437775454005,
+    "standard_error": 0.00026123195625,
+    "confidence_95_lower": -0.0031314488909939303,
+    "confidence_95_upper": 0.00350708454849393,
+    "minimum": -7.34141275e-05,
+    "maximum": 0.00044904978500000004
+  },
+  "between_run_equivalent_input_mean_v": {
+    "count": 2,
+    "mean": 1.8763019855144854e-07,
+    "median": 1.8763019855144854e-07,
+    "sample_std": 3.6906870674725773e-07,
+    "standard_error": 2.6097098526473524e-07,
+    "confidence_95_lower": -3.1283205704235068e-06,
+    "confidence_95_upper": 3.5035809675264038e-06,
+    "minimum": -7.334078671328672e-08,
+    "maximum": 4.4860118381618383e-07
+  },
+  "uncertainty_note": "Standard errors and 95% t intervals are descriptive repeatability statistics. They assume independent readings and do not include DMM calibration uncertainty, thermoelectric EMF, gain error, or correlated DUT temperature and low-frequency drift.",
+  "plot": "C:\\Users\\jinge\\Projects\\Unicorn_Testbench\\Unicorn_CSA_RevB-COB\\results\\Offset_RevB_Chip_5_wiShield_Gmx_default_OSC_default_Vsup_pm6V\\Offset_RevB_Chip_5_wiShield_Gmx_default_OSC_default_Vsup_pm6V_dcv_offset.png",
+  "readings_csv": "C:\\Users\\jinge\\Projects\\Unicorn_Testbench\\Unicorn_CSA_RevB-COB\\results\\Offset_RevB_Chip_5_wiShield_Gmx_default_OSC_default_Vsup_pm6V\\Offset_RevB_Chip_5_wiShield_Gmx_default_OSC_default_Vsup_pm6V_dcv_readings.csv"
+}
