@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "run_id": "308be326eec74db595e6f05d9456eb84",
+  "job_id": "0a9234fa8aa3470fa4a001c617714dc3",
+  "stage_index": 1,
+  "target_c": -40.0,
+  "issued_at_utc": "2026-09-13T00:05:02.111000+00:00",
+  "stop_file": "C:\\Users\\jinge\\Projects\\Unicorn_Testbench\\results\\offset_drift\\offline_validation_20260913_run01\\STOP",
+  "dmm": {
+    "readings": 1000,
+    "gain": 1001.0,
+    "range_v": 0.1,
+    "nplc": 10.0,
+    "terminals": "FRONT",
+    "input_impedance": "AUTO",
+    "resource": null,
+    "timeout": 60.0,
+    "settling_delay": 2.0,
+    "discard_readings": 3,
+    "inter_reading_delay": 0.0
+  },
+  "execution_environment": "offline_simulation"
+}

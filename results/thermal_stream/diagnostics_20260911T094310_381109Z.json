@@ -1,0 +1,285 @@
+{
+  "started_at_utc": "2026-09-11T09:43:10.381109+00:00",
+  "read_only": true,
+  "target": {
+    "host": "192.168.1.50",
+    "port": 3000,
+    "unit_id": 0
+  },
+  "reads": [
+    {
+      "at_utc": "2026-09-11T09:43:10.386099+00:00",
+      "name": "air_temperature_c",
+      "function": 3,
+      "address": 0,
+      "raw": 340,
+      "value": 34.0
+    },
+    {
+      "at_utc": "2026-09-11T09:43:10.391884+00:00",
+      "name": "product_temperature_c",
+      "function": 3,
+      "address": 1,
+      "raw": 712,
+      "value": 71.2
+    },
+    {
+      "at_utc": "2026-09-11T09:43:10.396942+00:00",
+      "name": "temperature_output_raw",
+      "function": 3,
+      "address": 2,
+      "raw": 0,
+      "value": 0
+    },
+    {
+      "at_utc": "2026-09-11T09:43:10.402331+00:00",
+      "name": "control_min_c",
+      "function": 3,
+      "address": 3,
+      "raw": 64536,
+      "value": -100.0
+    },
+    {
+      "at_utc": "2026-09-11T09:43:10.407521+00:00",
+      "name": "control_max_c",
+      "function": 3,
+      "address": 4,
+      "raw": 2350,
+      "value": 235.0
+    },
+    {
+      "at_utc": "2026-09-11T09:43:10.412190+00:00",
+      "name": "defrost_candidate_R14_raw",
+      "function": 3,
+      "address": 14,
+      "raw": 300,
+      "value": 300
+    },
+    {
+      "at_utc": "2026-09-11T09:43:10.418232+00:00",
+      "name": "defrost_candidate_R15_raw",
+      "function": 3,
+      "address": 15,
+      "raw": 300,
+      "value": 300
+    },
+    {
+      "at_utc": "2026-09-11T09:43:10.423364+00:00",
+      "name": "defrost_candidate_R16_raw",
+      "function": 3,
+      "address": 16,
+      "raw": 1,
+      "value": 1
+    },
+    {
+      "at_utc": "2026-09-11T09:43:10.427981+00:00",
+      "name": "flow_actual_raw",
+      "function": 3,
+      "address": 102,
+      "raw": 114,
+      "value": 114
+    },
+    {
+      "at_utc": "2026-09-11T09:43:10.433364+00:00",
+      "name": "hot_setpoint_c",
+      "function": 3,
+      "address": 103,
+      "raw": 1250,
+      "value": 125.0
+    },
+    {
+      "at_utc": "2026-09-11T09:43:10.438449+00:00",
+      "name": "ambient_setpoint_c",
+      "function": 3,
+      "address": 104,
+      "raw": 650,
+      "value": 65.0
+    },
+    {
+      "at_utc": "2026-09-11T09:43:10.443421+00:00",
+      "name": "cold_setpoint_c",
+      "function": 3,
+      "address": 105,
+      "raw": 65286,
+      "value": -25.0
+    },
+    {
+      "at_utc": "2026-09-11T09:43:10.449245+00:00",
+      "name": "defrost_flow_setpoint_scfm",
+      "function": 3,
+      "address": 106,
+      "raw": 100,
+      "value": 10.0
+    },
+    {
+      "at_utc": "2026-09-11T09:43:10.454310+00:00",
+      "name": "flow_setpoint_scfm",
+      "function": 3,
+      "address": 107,
+      "raw": 120,
+      "value": 12.0
+    },
+    {
+      "at_utc": "2026-09-11T09:43:10.459329+00:00",
+      "name": "flow_output_raw",
+      "function": 3,
+      "address": 109,
+      "raw": 244,
+      "value": 244
+    },
+    {
+      "at_utc": "2026-09-11T09:43:10.464103+00:00",
+      "name": "runtime_hours",
+      "function": 3,
+      "address": 110,
+      "raw": 0,
+      "value": 0
+    },
+    {
+      "at_utc": "2026-09-11T09:43:10.470251+00:00",
+      "name": "runtime_minutes",
+      "function": 3,
+      "address": 111,
+      "raw": 0,
+      "value": 0
+    },
+    {
+      "at_utc": "2026-09-11T09:43:10.475224+00:00",
+      "name": "runtime_seconds",
+      "function": 3,
+      "address": 112,
+      "raw": 29,
+      "value": 29
+    },
+    {
+      "at_utc": "2026-09-11T09:43:10.480218+00:00",
+      "name": "defrost_time_H_raw",
+      "function": 3,
+      "address": 124,
+      "raw": 0,
+      "value": 0
+    },
+    {
+      "at_utc": "2026-09-11T09:43:10.485698+00:00",
+      "name": "defrost_time_minutes",
+      "function": 3,
+      "address": 125,
+      "raw": 150,
+      "value": 15.0
+    },
+    {
+      "at_utc": "2026-09-11T09:43:10.491163+00:00",
+      "name": "temperature_slope_raw",
+      "function": 3,
+      "address": 126,
+      "raw": 0,
+      "value": 0
+    },
+    {
+      "at_utc": "2026-09-11T09:43:10.496225+00:00",
+      "name": "running",
+      "function": 1,
+      "address": 10,
+      "raw": true,
+      "value": true
+    },
+    {
+      "at_utc": "2026-09-11T09:43:10.500878+00:00",
+      "name": "hot_mode",
+      "function": 1,
+      "address": 14,
+      "raw": false,
+      "value": false
+    },
+    {
+      "at_utc": "2026-09-11T09:43:10.506778+00:00",
+      "name": "ambient_mode",
+      "function": 1,
+      "address": 15,
+      "raw": false,
+      "value": false
+    },
+    {
+      "at_utc": "2026-09-11T09:43:10.511763+00:00",
+      "name": "cold_mode",
+      "function": 1,
+      "address": 16,
+      "raw": true,
+      "value": true
+    },
+    {
+      "at_utc": "2026-09-11T09:43:10.517254+00:00",
+      "name": "hot_flag",
+      "function": 1,
+      "address": 17,
+      "raw": false,
+      "value": false
+    },
+    {
+      "at_utc": "2026-09-11T09:43:10.522368+00:00",
+      "name": "ambient_flag",
+      "function": 1,
+      "address": 18,
+      "raw": false,
+      "value": false
+    },
+    {
+      "at_utc": "2026-09-11T09:43:10.527564+00:00",
+      "name": "cold_flag",
+      "function": 1,
+      "address": 19,
+      "raw": true,
+      "value": true
+    },
+    {
+      "at_utc": "2026-09-11T09:43:10.533348+00:00",
+      "name": "program_mode",
+      "function": 1,
+      "address": 20,
+      "raw": false,
+      "value": false
+    },
+    {
+      "at_utc": "2026-09-11T09:43:10.538426+00:00",
+      "name": "timer_enabled",
+      "function": 1,
+      "address": 21,
+      "raw": false,
+      "value": false
+    },
+    {
+      "at_utc": "2026-09-11T09:43:10.543954+00:00",
+      "name": "product_control",
+      "function": 1,
+      "address": 22,
+      "raw": true,
+      "value": true
+    },
+    {
+      "at_utc": "2026-09-11T09:43:10.549062+00:00",
+      "name": "defrost_active",
+      "function": 1,
+      "address": 24,
+      "raw": false,
+      "value": false
+    },
+    {
+      "at_utc": "2026-09-11T09:43:10.553968+00:00",
+      "name": "tuning_active",
+      "function": 1,
+      "address": 25,
+      "raw": false,
+      "value": false
+    }
+  ],
+  "notes": [
+    "Output and actual-flow units/scaling are not established by the documents.",
+    "Slope time base and the meaning of a zero slope are not documented.",
+    "Defrost temperature/period table addresses (15/16) conflict with example addresses (14/15).",
+    "For this device, R125=150 was matched to panel defrost time 15 min on 2026-09-11; use 0.1 min per count provisionally.",
+    "R124/R125 ranges and H/M composition are undocumented; the single R125 panel match is not a complete calibration.",
+    "A stopped-state snapshot cannot establish the preceding running-state output."
+  ],
+  "finished_at_utc": "2026-09-11T09:43:10.553968+00:00",
+  "ok": true
+}

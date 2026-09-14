@@ -1,0 +1,1 @@
+Synthetic validation only. Virtual clock and in-memory Modbus peer; no physical device was used.

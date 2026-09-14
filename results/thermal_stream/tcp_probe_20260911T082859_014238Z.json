@@ -1,0 +1,16 @@
+{
+  "started_at_utc": "2026-09-11T08:28:59.014238+00:00",
+  "target": {
+    "host": "192.168.1.55",
+    "port": 3000,
+    "unit_id": 0
+  },
+  "source_ip": null,
+  "timeout_seconds": 3.0,
+  "read_only": true,
+  "tcp_connected": false,
+  "reads": [],
+  "ok": false,
+  "error": "TimeoutError: timed out",
+  "finished_at_utc": "2026-09-11T08:29:02.019536+00:00"
+}

@@ -1,0 +1,34 @@
+{
+  "evaluated_at_utc": "2026-09-11T09:44:32.426048+00:00",
+  "method": "Retrospective evaluation of recorded samples; original CSV and summary unchanged.",
+  "reason": "User said 0.5 C was too strict; adopted +/-1 C for this attempt and future default.",
+  "source_sha256": {
+    "temperature.csv": "97f3c487c67f7ad695f059820e00a0868b50b6563a8d2e6b886f0a786128c2d0",
+    "summary.json": "d4e21f499d22787465005d111c083ec35280c141436d3bcc34337f9e9216c0f3",
+    "script_snapshot.py": "de9347d98fbf7d1a80ff5b438db5948f367b55c755dbac77cc1b9edafb3b4191"
+  },
+  "target_c": 125,
+  "tolerance_c": 1,
+  "hold_seconds": 60,
+  "max_gap_seconds": 3,
+  "control": "product",
+  "passed": true,
+  "first_in_band_at_utc": "2026-09-11T09:37:33.368417+00:00",
+  "seconds_from_start_confirmation_to_first_in_band": 18.113594,
+  "first_pass_at_utc": "2026-09-11T09:38:33.398827+00:00",
+  "longest_contiguous_in_band_s": 302.093,
+  "final_running_window": {
+    "start_utc": "2026-09-11T09:41:35.434771+00:00",
+    "end_utc": "2026-09-11T09:42:35.471420+00:00",
+    "samples": 61,
+    "duration_s": 60.031,
+    "max_gap_s": 1.016,
+    "min_c": 124.3,
+    "max_c": 125.6,
+    "mean_c": 125.013115,
+    "sample_stddev_c": 0.416923,
+    "max_absolute_error_c": 0.7
+  },
+  "post_run_state": "Device stopped at the end of this recording. User confirmed manually switching and restarting in cold mode afterward.",
+  "post_run_diagnostic": "../diagnostics_20260911T094310_381109Z.json"
+}

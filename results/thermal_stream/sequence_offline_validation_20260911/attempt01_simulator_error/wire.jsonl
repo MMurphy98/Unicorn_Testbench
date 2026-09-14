@@ -1,0 +1,80 @@
+{"at_utc": "2026-09-11T10:10:27.441030+00:00", "function": 3, "address": 0, "request_hex": "00 00 00 00 00 06 00 03 00 00 00 01", "ok": true, "response_hex": "00 00 00 00 00 05 00 03 02 01 4A"}
+{"at_utc": "2026-09-11T10:10:27.442026+00:00", "function": 3, "address": 1, "request_hex": "00 00 00 00 00 06 00 03 00 01 00 01", "ok": true, "response_hex": "00 00 00 00 00 05 00 03 02 00 FA"}
+{"at_utc": "2026-09-11T10:10:27.442026+00:00", "function": 3, "address": 2, "request_hex": "00 00 00 00 00 06 00 03 00 02 00 01", "ok": true, "response_hex": "00 00 00 00 00 05 00 03 02 00 00"}
+{"at_utc": "2026-09-11T10:10:27.442026+00:00", "function": 3, "address": 105, "request_hex": "00 00 00 00 00 06 00 03 00 69 00 01", "ok": true, "response_hex": "00 00 00 00 00 05 00 03 02 FF 06"}
+{"at_utc": "2026-09-11T10:10:27.443028+00:00", "function": 3, "address": 126, "request_hex": "00 00 00 00 00 06 00 03 00 7E 00 01", "ok": true, "response_hex": "00 00 00 00 00 05 00 03 02 00 00"}
+{"at_utc": "2026-09-11T10:10:27.443028+00:00", "function": 3, "address": 102, "request_hex": "00 00 00 00 00 06 00 03 00 66 00 01", "ok": true, "response_hex": "00 00 00 00 00 05 00 03 02 00 78"}
+{"at_utc": "2026-09-11T10:10:27.443028+00:00", "function": 1, "address": 10, "request_hex": "00 00 00 00 00 06 00 01 00 0A 00 01", "ok": true, "response_hex": "00 00 00 00 00 04 00 01 01 00"}
+{"at_utc": "2026-09-11T10:10:27.443028+00:00", "function": 1, "address": 22, "request_hex": "00 00 00 00 00 06 00 01 00 16 00 01", "ok": true, "response_hex": "00 00 00 00 00 04 00 01 01 00"}
+{"at_utc": "2026-09-11T10:10:27.443028+00:00", "function": 1, "address": 16, "request_hex": "00 00 00 00 00 06 00 01 00 10 00 01", "ok": true, "response_hex": "00 00 00 00 00 04 00 01 01 01"}
+{"at_utc": "2026-09-11T10:10:27.443028+00:00", "function": 1, "address": 19, "request_hex": "00 00 00 00 00 06 00 01 00 13 00 01", "ok": true, "response_hex": "00 00 00 00 00 04 00 01 01 01"}
+{"at_utc": "2026-09-11T10:10:27.443028+00:00", "function": 1, "address": 14, "request_hex": "00 00 00 00 00 06 00 01 00 0E 00 01", "ok": true, "response_hex": "00 00 00 00 00 04 00 01 01 00"}
+{"at_utc": "2026-09-11T10:10:27.443028+00:00", "function": 1, "address": 15, "request_hex": "00 00 00 00 00 06 00 01 00 0F 00 01", "ok": true, "response_hex": "00 00 00 00 00 04 00 01 01 00"}
+{"at_utc": "2026-09-11T10:10:27.444020+00:00", "function": 1, "address": 17, "request_hex": "00 00 00 00 00 06 00 01 00 11 00 01", "ok": true, "response_hex": "00 00 00 00 00 04 00 01 01 00"}
+{"at_utc": "2026-09-11T10:10:27.444020+00:00", "function": 1, "address": 18, "request_hex": "00 00 00 00 00 06 00 01 00 12 00 01", "ok": true, "response_hex": "00 00 00 00 00 04 00 01 01 00"}
+{"at_utc": "2026-09-11T10:10:27.444020+00:00", "function": 1, "address": 20, "request_hex": "00 00 00 00 00 06 00 01 00 14 00 01", "ok": true, "response_hex": "00 00 00 00 00 04 00 01 01 00"}
+{"at_utc": "2026-09-11T10:10:27.444020+00:00", "function": 1, "address": 21, "request_hex": "00 00 00 00 00 06 00 01 00 15 00 01", "ok": true, "response_hex": "00 00 00 00 00 04 00 01 01 00"}
+{"at_utc": "2026-09-11T10:10:27.444020+00:00", "function": 1, "address": 24, "request_hex": "00 00 00 00 00 06 00 01 00 18 00 01", "ok": true, "response_hex": "00 00 00 00 00 04 00 01 01 00"}
+{"at_utc": "2026-09-11T10:10:27.444020+00:00", "function": 1, "address": 25, "request_hex": "00 00 00 00 00 06 00 01 00 19 00 01", "ok": true, "response_hex": "00 00 00 00 00 04 00 01 01 00"}
+{"at_utc": "2026-09-11T10:10:27.444020+00:00", "function": 3, "address": 3, "request_hex": "00 00 00 00 00 06 00 03 00 03 00 01", "ok": true, "response_hex": "00 00 00 00 00 05 00 03 02 FC 18"}
+{"at_utc": "2026-09-11T10:10:27.444020+00:00", "function": 3, "address": 4, "request_hex": "00 00 00 00 00 06 00 03 00 04 00 01", "ok": true, "response_hex": "00 00 00 00 00 05 00 03 02 09 2E"}
+{"at_utc": "2026-09-11T10:10:27.444020+00:00", "function": 3, "address": 107, "request_hex": "00 00 00 00 00 06 00 03 00 6B 00 01", "ok": true, "response_hex": "00 00 00 00 00 05 00 03 02 00 78"}
+{"at_utc": "2026-09-11T10:10:27.448009+00:00", "function": 1, "address": 10, "request_hex": "00 00 00 00 00 06 00 01 00 0A 00 01", "ok": true, "response_hex": "00 00 00 00 00 04 00 01 01 00"}
+{"at_utc": "2026-09-11T10:10:27.449003+00:00", "function": 3, "address": 0, "request_hex": "00 00 00 00 00 06 00 03 00 00 00 01", "ok": true, "response_hex": "00 00 00 00 00 05 00 03 02 01 4A"}
+{"at_utc": "2026-09-11T10:10:27.449003+00:00", "function": 3, "address": 1, "request_hex": "00 00 00 00 00 06 00 03 00 01 00 01", "ok": true, "response_hex": "00 00 00 00 00 05 00 03 02 00 FA"}
+{"at_utc": "2026-09-11T10:10:27.449003+00:00", "function": 3, "address": 2, "request_hex": "00 00 00 00 00 06 00 03 00 02 00 01", "ok": true, "response_hex": "00 00 00 00 00 05 00 03 02 00 00"}
+{"at_utc": "2026-09-11T10:10:27.449003+00:00", "function": 3, "address": 105, "request_hex": "00 00 00 00 00 06 00 03 00 69 00 01", "ok": true, "response_hex": "00 00 00 00 00 05 00 03 02 FF 06"}
+{"at_utc": "2026-09-11T10:10:27.449003+00:00", "function": 3, "address": 126, "request_hex": "00 00 00 00 00 06 00 03 00 7E 00 01", "ok": true, "response_hex": "00 00 00 00 00 05 00 03 02 00 00"}
+{"at_utc": "2026-09-11T10:10:27.449003+00:00", "function": 3, "address": 102, "request_hex": "00 00 00 00 00 06 00 03 00 66 00 01", "ok": true, "response_hex": "00 00 00 00 00 05 00 03 02 00 78"}
+{"at_utc": "2026-09-11T10:10:27.449003+00:00", "function": 1, "address": 10, "request_hex": "00 00 00 00 00 06 00 01 00 0A 00 01", "ok": true, "response_hex": "00 00 00 00 00 04 00 01 01 00"}
+{"at_utc": "2026-09-11T10:10:27.449003+00:00", "function": 1, "address": 22, "request_hex": "00 00 00 00 00 06 00 01 00 16 00 01", "ok": true, "response_hex": "00 00 00 00 00 04 00 01 01 00"}
+{"at_utc": "2026-09-11T10:10:27.449003+00:00", "function": 1, "address": 16, "request_hex": "00 00 00 00 00 06 00 01 00 10 00 01", "ok": true, "response_hex": "00 00 00 00 00 04 00 01 01 01"}
+{"at_utc": "2026-09-11T10:10:27.449003+00:00", "function": 1, "address": 19, "request_hex": "00 00 00 00 00 06 00 01 00 13 00 01", "ok": true, "response_hex": "00 00 00 00 00 04 00 01 01 01"}
+{"at_utc": "2026-09-11T10:10:27.449003+00:00", "function": 1, "address": 14, "request_hex": "00 00 00 00 00 06 00 01 00 0E 00 01", "ok": true, "response_hex": "00 00 00 00 00 04 00 01 01 00"}
+{"at_utc": "2026-09-11T10:10:27.449003+00:00", "function": 1, "address": 15, "request_hex": "00 00 00 00 00 06 00 01 00 0F 00 01", "ok": true, "response_hex": "00 00 00 00 00 04 00 01 01 00"}
+{"at_utc": "2026-09-11T10:10:27.449003+00:00", "function": 1, "address": 17, "request_hex": "00 00 00 00 00 06 00 01 00 11 00 01", "ok": true, "response_hex": "00 00 00 00 00 04 00 01 01 00"}
+{"at_utc": "2026-09-11T10:10:27.449003+00:00", "function": 1, "address": 18, "request_hex": "00 00 00 00 00 06 00 01 00 12 00 01", "ok": true, "response_hex": "00 00 00 00 00 04 00 01 01 00"}
+{"at_utc": "2026-09-11T10:10:27.449003+00:00", "function": 1, "address": 20, "request_hex": "00 00 00 00 00 06 00 01 00 14 00 01", "ok": true, "response_hex": "00 00 00 00 00 04 00 01 01 00"}
+{"at_utc": "2026-09-11T10:10:27.449003+00:00", "function": 1, "address": 21, "request_hex": "00 00 00 00 00 06 00 01 00 15 00 01", "ok": true, "response_hex": "00 00 00 00 00 04 00 01 01 00"}
+{"at_utc": "2026-09-11T10:10:27.449003+00:00", "function": 1, "address": 24, "request_hex": "00 00 00 00 00 06 00 01 00 18 00 01", "ok": true, "response_hex": "00 00 00 00 00 04 00 01 01 00"}
+{"at_utc": "2026-09-11T10:10:27.450000+00:00", "function": 1, "address": 25, "request_hex": "00 00 00 00 00 06 00 01 00 19 00 01", "ok": true, "response_hex": "00 00 00 00 00 04 00 01 01 00"}
+{"at_utc": "2026-09-11T10:10:27.450000+00:00", "function": 6, "address": 105, "request_hex": "00 00 00 00 00 06 00 06 00 69 FE 70", "ok": true, "response_hex": "00 00 00 00 00 06 00 06 00 69 FE 70"}
+{"at_utc": "2026-09-11T10:10:27.450000+00:00", "function": 3, "address": 105, "request_hex": "00 00 00 00 00 06 00 03 00 69 00 01", "ok": true, "response_hex": "00 00 00 00 00 05 00 03 02 FE 70"}
+{"at_utc": "2026-09-11T10:10:27.450000+00:00", "function": 1, "address": 20, "request_hex": "00 00 00 00 00 06 00 01 00 14 00 01", "ok": true, "response_hex": "00 00 00 00 00 04 00 01 01 00"}
+{"at_utc": "2026-09-11T10:10:27.450000+00:00", "function": 1, "address": 20, "request_hex": "00 00 00 00 00 06 00 01 00 14 00 01", "ok": true, "response_hex": "00 00 00 00 00 04 00 01 01 00"}
+{"at_utc": "2026-09-11T10:10:27.450000+00:00", "function": 1, "address": 21, "request_hex": "00 00 00 00 00 06 00 01 00 15 00 01", "ok": true, "response_hex": "00 00 00 00 00 04 00 01 01 00"}
+{"at_utc": "2026-09-11T10:10:27.450000+00:00", "function": 1, "address": 21, "request_hex": "00 00 00 00 00 06 00 01 00 15 00 01", "ok": true, "response_hex": "00 00 00 00 00 04 00 01 01 00"}
+{"at_utc": "2026-09-11T10:10:27.450000+00:00", "function": 1, "address": 22, "request_hex": "00 00 00 00 00 06 00 01 00 16 00 01", "ok": true, "response_hex": "00 00 00 00 00 04 00 01 01 00"}
+{"at_utc": "2026-09-11T10:10:27.450000+00:00", "function": 5, "address": 22, "request_hex": "00 00 00 00 00 06 00 05 00 16 FF 00", "ok": true, "response_hex": "00 00 00 00 00 06 00 05 00 16 FF 00"}
+{"at_utc": "2026-09-11T10:10:27.450000+00:00", "function": 1, "address": 22, "request_hex": "00 00 00 00 00 06 00 01 00 16 00 01", "ok": true, "response_hex": "00 00 00 00 00 04 00 01 01 01"}
+{"at_utc": "2026-09-11T10:10:27.450000+00:00", "function": 1, "address": 14, "request_hex": "00 00 00 00 00 06 00 01 00 0E 00 01", "ok": true, "response_hex": "00 00 00 00 00 04 00 01 01 00"}
+{"at_utc": "2026-09-11T10:10:27.450000+00:00", "function": 1, "address": 14, "request_hex": "00 00 00 00 00 06 00 01 00 0E 00 01", "ok": true, "response_hex": "00 00 00 00 00 04 00 01 01 00"}
+{"at_utc": "2026-09-11T10:10:27.450000+00:00", "function": 1, "address": 15, "request_hex": "00 00 00 00 00 06 00 01 00 0F 00 01", "ok": true, "response_hex": "00 00 00 00 00 04 00 01 01 00"}
+{"at_utc": "2026-09-11T10:10:27.450000+00:00", "function": 1, "address": 15, "request_hex": "00 00 00 00 00 06 00 01 00 0F 00 01", "ok": true, "response_hex": "00 00 00 00 00 04 00 01 01 00"}
+{"at_utc": "2026-09-11T10:10:27.450997+00:00", "function": 1, "address": 16, "request_hex": "00 00 00 00 00 06 00 01 00 10 00 01", "ok": true, "response_hex": "00 00 00 00 00 04 00 01 01 01"}
+{"at_utc": "2026-09-11T10:10:27.450997+00:00", "function": 1, "address": 16, "request_hex": "00 00 00 00 00 06 00 01 00 10 00 01", "ok": true, "response_hex": "00 00 00 00 00 04 00 01 01 01"}
+{"at_utc": "2026-09-11T10:10:27.450997+00:00", "function": 3, "address": 0, "request_hex": "00 00 00 00 00 06 00 03 00 00 00 01", "ok": true, "response_hex": "00 00 00 00 00 05 00 03 02 01 4A"}
+{"at_utc": "2026-09-11T10:10:27.450997+00:00", "function": 3, "address": 1, "request_hex": "00 00 00 00 00 06 00 03 00 01 00 01", "ok": true, "response_hex": "00 00 00 00 00 05 00 03 02 00 FA"}
+{"at_utc": "2026-09-11T10:10:27.450997+00:00", "function": 3, "address": 2, "request_hex": "00 00 00 00 00 06 00 03 00 02 00 01", "ok": true, "response_hex": "00 00 00 00 00 05 00 03 02 00 00"}
+{"at_utc": "2026-09-11T10:10:27.450997+00:00", "function": 3, "address": 105, "request_hex": "00 00 00 00 00 06 00 03 00 69 00 01", "ok": true, "response_hex": "00 00 00 00 00 05 00 03 02 FE 70"}
+{"at_utc": "2026-09-11T10:10:27.450997+00:00", "function": 3, "address": 126, "request_hex": "00 00 00 00 00 06 00 03 00 7E 00 01", "ok": true, "response_hex": "00 00 00 00 00 05 00 03 02 00 00"}
+{"at_utc": "2026-09-11T10:10:27.450997+00:00", "function": 3, "address": 102, "request_hex": "00 00 00 00 00 06 00 03 00 66 00 01", "ok": true, "response_hex": "00 00 00 00 00 05 00 03 02 00 78"}
+{"at_utc": "2026-09-11T10:10:27.450997+00:00", "function": 1, "address": 10, "request_hex": "00 00 00 00 00 06 00 01 00 0A 00 01", "ok": true, "response_hex": "00 00 00 00 00 04 00 01 01 00"}
+{"at_utc": "2026-09-11T10:10:27.450997+00:00", "function": 1, "address": 22, "request_hex": "00 00 00 00 00 06 00 01 00 16 00 01", "ok": true, "response_hex": "00 00 00 00 00 04 00 01 01 01"}
+{"at_utc": "2026-09-11T10:10:27.450997+00:00", "function": 1, "address": 16, "request_hex": "00 00 00 00 00 06 00 01 00 10 00 01", "ok": true, "response_hex": "00 00 00 00 00 04 00 01 01 01"}
+{"at_utc": "2026-09-11T10:10:27.450997+00:00", "function": 1, "address": 19, "request_hex": "00 00 00 00 00 06 00 01 00 13 00 01", "ok": true, "response_hex": "00 00 00 00 00 04 00 01 01 01"}
+{"at_utc": "2026-09-11T10:10:27.450997+00:00", "function": 1, "address": 14, "request_hex": "00 00 00 00 00 06 00 01 00 0E 00 01", "ok": true, "response_hex": "00 00 00 00 00 04 00 01 01 00"}
+{"at_utc": "2026-09-11T10:10:27.450997+00:00", "function": 1, "address": 15, "request_hex": "00 00 00 00 00 06 00 01 00 0F 00 01", "ok": true, "response_hex": "00 00 00 00 00 04 00 01 01 00"}
+{"at_utc": "2026-09-11T10:10:27.450997+00:00", "function": 1, "address": 17, "request_hex": "00 00 00 00 00 06 00 01 00 11 00 01", "ok": true, "response_hex": "00 00 00 00 00 04 00 01 01 00"}
+{"at_utc": "2026-09-11T10:10:27.450997+00:00", "function": 1, "address": 18, "request_hex": "00 00 00 00 00 06 00 01 00 12 00 01", "ok": true, "response_hex": "00 00 00 00 00 04 00 01 01 00"}
+{"at_utc": "2026-09-11T10:10:27.450997+00:00", "function": 1, "address": 20, "request_hex": "00 00 00 00 00 06 00 01 00 14 00 01", "ok": true, "response_hex": "00 00 00 00 00 04 00 01 01 00"}
+{"at_utc": "2026-09-11T10:10:27.450997+00:00", "function": 1, "address": 21, "request_hex": "00 00 00 00 00 06 00 01 00 15 00 01", "ok": true, "response_hex": "00 00 00 00 00 04 00 01 01 00"}
+{"at_utc": "2026-09-11T10:10:27.450997+00:00", "function": 1, "address": 24, "request_hex": "00 00 00 00 00 06 00 01 00 18 00 01", "ok": true, "response_hex": "00 00 00 00 00 04 00 01 01 00"}
+{"at_utc": "2026-09-11T10:10:27.450997+00:00", "function": 1, "address": 25, "request_hex": "00 00 00 00 00 06 00 01 00 19 00 01", "ok": true, "response_hex": "00 00 00 00 00 04 00 01 01 00"}
+{"at_utc": "2026-09-11T10:10:27.456978+00:00", "function": 5, "address": 0, "request_hex": "00 00 00 00 00 06 00 05 00 00 FF 00", "ok": true, "response_hex": "00 00 00 00 00 06 00 05 00 00 FF 00"}
+{"at_utc": "2026-09-11T10:10:27.456978+00:00", "function": 1, "address": 10, "request_hex": "00 00 00 00 00 06 00 01 00 0A 00 01", "ok": true, "response_hex": "00 00 00 00 00 04 00 01 01 01"}
+{"at_utc": "2026-09-11T10:10:27.457973+00:00", "function": 3, "address": 0, "request_hex": "00 00 00 00 00 06 00 03 00 00 00 01", "ok": false, "error": "ValueError: Temperature must be finite and a multiple of 0.1 C", "response_hex": ""}
+{"at_utc": "2026-09-11T10:10:27.458970+00:00", "function": 1, "address": 10, "request_hex": "00 00 00 00 00 06 00 01 00 0A 00 01", "ok": true, "response_hex": "00 00 00 00 00 04 00 01 01 01"}
+{"at_utc": "2026-09-11T10:10:27.458970+00:00", "function": 5, "address": 1, "request_hex": "00 00 00 00 00 06 00 05 00 01 FF 00", "ok": true, "response_hex": "00 00 00 00 00 06 00 05 00 01 FF 00"}
+{"at_utc": "2026-09-11T10:10:27.458970+00:00", "function": 1, "address": 10, "request_hex": "00 00 00 00 00 06 00 01 00 0A 00 01", "ok": true, "response_hex": "00 00 00 00 00 04 00 01 01 00"}
+{"at_utc": "2026-09-11T10:10:27.458970+00:00", "function": 3, "address": 0, "request_hex": "00 00 00 00 00 06 00 03 00 00 00 01", "ok": false, "error": "ValueError: Temperature must be finite and a multiple of 0.1 C", "response_hex": ""}

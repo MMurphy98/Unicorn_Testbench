@@ -1,0 +1,11 @@
+﻿{
+    "started_at":  "2026-09-13T13:25:02.7549399+08:00",
+    "interface_index":  5,
+    "expected_mac_address":  "08-26-AE-32-33-8C",
+    "configured_address":  "192.168.1.200",
+    "prefix_length":  24,
+    "policy_store":  "ActiveStore",
+    "ok":  false,
+    "error":  " CIM 服务器上的 ROOT/StandardCimv2/MSFT_NetIPAddress 类实例的 CIM 查询: SELECT * FROM MSFT_NetIPAddress  WHERE ((InterfaceIndex = 5)) AND ((AddressFamily = 2)) 找不到任何匹配的 MSFT_NetIPAddress 对象。请验证查询参数，然后重试。",
+    "finished_at":  "2026-09-13T13:25:02.8596001+08:00"
+}

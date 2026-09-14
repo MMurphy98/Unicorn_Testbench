@@ -19,6 +19,7 @@ Unicorn_Testbench/
 |   `-- README.md
 |-- docs/
 |   |-- WORKFLOW.md           # 分支、提交、PR、审核规则
+|   |-- instruments/          # 仪器接口能力、接入参数与验证范围
 |   |-- reference/            # 原始需求与总体测试方案
 |   `-- test-reports/         # 按 YYYY/MM/YYYY-MM-DD-任务编号.md 记录结论
 |-- matlab/
@@ -54,6 +55,27 @@ git config core.hooksPath .githooks
   和完整分辨率频谱 CSV 留在本地；原有已入库参考数据继续作为回归测试基准。
 - `.gitattributes` 为两个历史选定的 MATLAB 产物保留 Git LFS 配置，但本次不新增这些二进制文件；
   后续确需归档时应单独审查。
+
+## 热流仪 TCP 接口
+
+[热流仪 TCP 接口能力与接入说明](docs/instruments/thermal_stream_tcp.md) 记录实际连接参数、
+控制能力、线圈和寄存器地址、报文示例、验证结果及厂家文档疑点。
+当前实机通信入口为 `192.168.1.50:3000`，Unit ID 为 `0`；空气温度、产品温度和运行状态读取已验证。
+运行入口见 [只读探测脚本说明](scripts/thermal_stream_tcp_probe.md)。
+
+[高低温控制与记录脚本](scripts/thermal_stream_temperature_run.py) 可设置高温或低温目标、逐秒记录空气和产品温度，
+并在稳定完成、超时或异常时停止并确认运行状态。默认低温目标为 -25℃；125℃测试使用 `--mode hot --target 125`。
+参数、记录格式、绘图方法和停止方法见 [使用说明](scripts/thermal_stream_temperature_run.md)。
+
+[三阶段产品温度脚本](scripts/thermal_stream_temperature_sequence.py) 依次执行 −40℃、27℃、125℃，
+每段首次进入 ±1℃后固定计时 5 分钟，最终停止并自动绘图；等待到温不设超时。
+运行方式及验证情况见 [三阶段使用说明](scripts/thermal_stream_temperature_sequence.md)。
+2026-09-13 实机尝试在低温阶段因通信中断结束，随后重连并确认停机；
+曲线及原始记录见 [本次实机报告](results/thermal_stream/sequence_20260913_run01/README.md)。
+
+[三温度 offset drift 联动](scripts/thermal_stream_offset_drift.md) 将热流仪与独立 DMM7510 进程连接：
+每个温度首次进入 ±1℃后计时 5 分钟，再采集 1000 点（增益 1001），确认 DMM 完成标志后才切换温度。
+点数可统一或按温度分别配置；本轮只做代码和离线验证。
 
 ## OPA189 正式噪声分析
 

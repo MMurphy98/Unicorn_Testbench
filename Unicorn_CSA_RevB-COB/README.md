@@ -256,6 +256,11 @@ results/<task_id>/<task_id>_noise_summary.json
 
 ## DMM7510 Offset 两步测试
 
+需要与 −40℃、27℃、125℃热流仪测试联动时，使用
+[三温度 offset drift 联动入口](../scripts/thermal_stream_offset_drift.md)。
+该入口在到温后固定等待 5 分钟，启动独立 DMM 进程，收到完成标志才切换温度；
+复用以下采集和分析代码，默认每温度 1000 点、增益 1001。
+
 正式 offset 测试使用两个脚本。交互式 Notebook 只用于换片后快速确认接线和数量级；正式采集时不要同时运行 Notebook、KickStart、InstrumentStudio 或其他访问 DMM7510 的 VISA 程序。
 
 ### 第一步：采集 DCV TDMS

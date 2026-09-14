@@ -1,0 +1,17 @@
+{
+  "run_id": "308be326eec74db595e6f05d9456eb84",
+  "job_id": "19d462ed71ea443bab3f16871dfb00d0",
+  "stage_index": 3,
+  "target_c": 125.0,
+  "schema_version": 1,
+  "request_sha256": "20e6072d9413fd8f3902a129f9803d80be23bb682dda950154fd0e16bc127b99",
+  "status": "running",
+  "started_at_utc": "2026-09-13T05:48:21.308557+00:00",
+  "requested_readings": 1000,
+  "completed_readings": 1000,
+  "gain": 1001.0,
+  "execution_environment": "offline_simulation",
+  "first_reading_at_utc": "2026-09-13T00:32:38.296000+00:00",
+  "last_reading_at_utc": "2026-09-13T00:32:48.286000+00:00",
+  "updated_at_utc": "2026-09-13T05:48:27.789233+00:00"
+}

@@ -1,0 +1,34 @@
+﻿{
+    "started_at":  "2026-09-11T16:32:11.8182530+08:00",
+    "interface_index":  5,
+    "expected_mac_address":  "08-26-AE-32-33-8C",
+    "configured_address":  "192.168.1.200",
+    "prefix_length":  24,
+    "policy_store":  "ActiveStore",
+    "ok":  true,
+    "before":  {
+                   "dhcp":  "Enabled",
+                   "description":  "ASIX USB to Gigabit Ethernet Family Adapter",
+                   "addresses":  [
+                                     {
+                                         "IPAddress":  "169.254.69.18",
+                                         "PrefixLength":  16,
+                                         "AddressState":  4
+                                     }
+                                 ],
+                   "adapter_name":  "以太网 2",
+                   "default_routes":  [
+
+                                      ],
+                   "mac_address":  "08-26-AE-32-33-8C"
+               },
+    "netsh_output":  "",
+    "after":  [
+                  {
+                      "IPAddress":  "192.168.1.200",
+                      "PrefixLength":  24,
+                      "AddressState":  4
+                  }
+              ],
+    "finished_at":  "2026-09-11T16:32:17.1196870+08:00"
+}

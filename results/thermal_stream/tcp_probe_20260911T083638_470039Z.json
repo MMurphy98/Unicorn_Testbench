@@ -1,0 +1,54 @@
+{
+  "started_at_utc": "2026-09-11T08:36:38.470039+00:00",
+  "target": {
+    "host": "192.168.1.50",
+    "port": 3000,
+    "unit_id": 0
+  },
+  "source_ip": "192.168.1.200",
+  "timeout_seconds": 3.0,
+  "read_only": true,
+  "tcp_connected": true,
+  "reads": [
+    {
+      "name": "air_temperature_c",
+      "function": 3,
+      "address": 0,
+      "request_hex": "00 00 00 00 00 06 00 03 00 00 00 01",
+      "ok": true,
+      "raw": 305,
+      "value": 30.5,
+      "response_hex": "00 00 00 00 00 05 00 03 02 01 31"
+    },
+    {
+      "name": "product_temperature_c",
+      "function": 3,
+      "address": 1,
+      "request_hex": "00 00 00 00 00 06 00 03 00 01 00 01",
+      "ok": true,
+      "raw": 408,
+      "value": 40.8,
+      "response_hex": "00 00 00 00 00 05 00 03 02 01 98"
+    },
+    {
+      "name": "running",
+      "function": 1,
+      "address": 10,
+      "request_hex": "00 00 00 00 00 06 00 01 00 0A 00 01",
+      "ok": true,
+      "raw": 0,
+      "value": false,
+      "response_hex": "00 00 00 00 00 04 00 01 01 00"
+    }
+  ],
+  "ok": true,
+  "local_endpoint": [
+    "192.168.1.200",
+    62444
+  ],
+  "remote_endpoint": [
+    "192.168.1.50",
+    3000
+  ],
+  "finished_at_utc": "2026-09-11T08:36:38.485458+00:00"
+}

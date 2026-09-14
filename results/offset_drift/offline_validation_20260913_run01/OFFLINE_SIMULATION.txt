@@ -1,0 +1,2 @@
+SIMULATED TEMPERATURE AND DMM DATA. No real instrument connections.
+Virtual timing is not a benchmark for real acquisition speed or thermal response.

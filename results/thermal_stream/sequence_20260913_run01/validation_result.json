@@ -1,0 +1,81 @@
+{
+  "execution_environment": "real_hardware",
+  "validation_passed": false,
+  "sequence_completed": false,
+  "reason": "TCP connection reset interrupted stage 1 before the 300-second fixed hold finished; stages 2 and 3 were not started.",
+  "control": "product",
+  "original_run_status": "error",
+  "original_stop_confirmed": false,
+  "final_stop_confirmed": true,
+  "final_stop_confirmed_at_utc": "2026-09-13T05:30:48.955843+00:00",
+  "final_stop_confirmed_at_elapsed_s": 261.458519,
+  "final_device_snapshot": {
+    "air_temperature_c": -65.3,
+    "product_temperature_c": -38.6,
+    "temperature_output_raw": 0,
+    "setpoint_readback_c": -40.0,
+    "temperature_slope_raw": 0,
+    "flow_raw": 118,
+    "running": false,
+    "product_control": true,
+    "cold_mode": true,
+    "cold_flag": true,
+    "hot_mode": false,
+    "ambient_mode": false,
+    "hot_flag": false,
+    "ambient_flag": false,
+    "program_mode": false,
+    "timer_enabled": false,
+    "defrost_active": false,
+    "tuning_active": false
+  },
+  "stages": [
+    {
+      "index": 1,
+      "mode": "cold",
+      "target_c": -40.0,
+      "status": "aborted",
+      "hold_samples": 150,
+      "hold_out_of_band_samples": 79,
+      "hold_elapsed_s": 149.063,
+      "started_at_utc": "2026-09-13T05:26:28.152650+00:00",
+      "started_at_elapsed_s": 0.657,
+      "first_arrival_at_utc": "2026-09-13T05:27:25.295032+00:00",
+      "first_arrival_at_elapsed_s": 57.797,
+      "time_to_arrival_s": 57.14,
+      "hold_product_min_c": -40.7,
+      "hold_product_max_c": -35.1,
+      "reason": "ConnectionResetError: [WinError 10054] 远程主机强迫关闭了一个现有的连接。"
+    },
+    {
+      "index": 2,
+      "mode": "ambient",
+      "target_c": 27,
+      "status": "not_started"
+    },
+    {
+      "index": 3,
+      "mode": "hot",
+      "target_c": 125,
+      "status": "not_started"
+    }
+  ],
+  "analysis_checks": {
+    "sample_count_matches_summary": true,
+    "only_first_stage_started": true,
+    "no_timer_before_first_arrival": true,
+    "first_arrival_in_inclusive_band": true,
+    "timer_not_reset_by_excursions": true,
+    "hold_stats_match_csv": true,
+    "incomplete_sequence_preserved": true,
+    "original_stop_failure_preserved": true,
+    "later_stop_confirmed": true,
+    "snapshot_hashes_match": true
+  },
+  "original_summary": "summary.json",
+  "stop_recovery_report": "stop_recovery_20260913T053048_663527Z.json",
+  "original_plot": "temperature_curve.png",
+  "plot_with_recovery": "temperature_curve_with_recovery.png",
+  "operator_report": "No additional diagnostic program, cable reconnection, or power operation around the failure.",
+  "reset_cause": "not established"
+}

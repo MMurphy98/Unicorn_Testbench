@@ -298,10 +298,16 @@ def parse_identity(identity: str) -> dict[str, str]:
 def acquire_run(
     instrument: object,
     args: argparse.Namespace,
+    *,
+    check_cancel=None,
+    on_reading=None,
 ) -> tuple[np.ndarray, np.ndarray, datetime, float]:
+    check_cancel = check_cancel or (lambda: None)
+    check_cancel()
     print(f"Waiting {args.settling_delay:g} s for the DMM input path to settle...")
-    time.sleep(args.settling_delay)
+    cancellable_sleep(args.settling_delay, check_cancel)
     for index in range(args.discard_readings):
+        check_cancel()
         discarded_v = float(instrument.query(":READ?"))
         print(
             f"  Discarded settling reading {index + 1}/{args.discard_readings}: "
@@ -315,6 +321,7 @@ def acquire_run(
     acquisition_start = time.monotonic()
 
     for index in range(args.readings):
+        check_cancel()
         query_start = time.monotonic()
         readings_v[index] = float(instrument.query(":READ?"))
         query_end = time.monotonic()
@@ -327,6 +334,10 @@ def acquire_run(
                 f"{readings_v[index]!r} V on the {args.range_v:g} V range."
             )
         elapsed_s[index] = 0.5 * (query_start + query_end) - acquisition_start
+        if on_reading is not None:
+            on_reading(index + 1, float(readings_v[index]), float(elapsed_s[index]),
+                       acquisition_start_utc)
+        check_cancel()
         running_mean_v = float(np.mean(readings_v[: index + 1]))
         elapsed = query_end - acquisition_start
         eta_s = elapsed / (index + 1) * (args.readings - index - 1)
@@ -339,7 +350,7 @@ def acquire_run(
             flush=True,
         )
         if args.inter_reading_delay > 0.0:
-            time.sleep(args.inter_reading_delay)
+            cancellable_sleep(args.inter_reading_delay, check_cancel)
 
     acquisition_duration_s = time.monotonic() - acquisition_start
     if not np.all(np.isfinite(readings_v)):
@@ -348,6 +359,16 @@ def acquire_run(
         raise RuntimeError("Reading timestamps are not finite and strictly increasing.")
     require_no_scpi_error(instrument, "acquisition")
     return readings_v, elapsed_s, acquisition_start_utc, acquisition_duration_s
+
+
+def cancellable_sleep(seconds, check_cancel):
+    deadline = time.monotonic() + seconds
+    while True:
+        check_cancel()
+        remaining = deadline - time.monotonic()
+        if remaining <= 0:
+            return
+        time.sleep(min(0.2, remaining))
 
 
 def write_verified_tdms(
@@ -472,9 +493,12 @@ def write_verified_tdms(
     return mean_v, sample_std_v, standard_error_v
 
 
-def main(argv: list[str] | None = None) -> int:
+def main(argv: list[str] | None = None, *, check_cancel=None, on_reading=None) -> int:
+    """Standalone capture; optional callbacks support a separate orchestrated worker."""
+    check_cancel = check_cancel or (lambda: None)
     args = parse_args(argv)
     check_runtime()
+    check_cancel()
     output_base = args.output_dir.expanduser().resolve()
     task_dir = output_base / args.task_id
     task_dir.mkdir(parents=True, exist_ok=True)
@@ -504,6 +528,7 @@ def main(argv: list[str] | None = None) -> int:
         identity = parse_identity(identity_text)
         print(f"Connected: {identity_text}")
         actual = configure_and_verify(instrument, args)
+        check_cancel()
         print(
             "Verified configuration: "
             f"{actual['terminals']} terminals, {float(actual['range_v']):g} V range, "
@@ -531,8 +556,9 @@ def main(argv: list[str] | None = None) -> int:
             )
             run_started = time.monotonic()
             readings_v, elapsed_s, acquisition_start_utc, duration_s = acquire_run(
-                instrument, args
+                instrument, args, check_cancel=check_cancel, on_reading=on_reading
             )
+            check_cancel()
             mean_v, std_v, sem_v = write_verified_tdms(
                 partial_path=partial_path,
                 final_path=final_path,

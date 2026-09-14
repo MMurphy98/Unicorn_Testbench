@@ -1,0 +1,16 @@
+{
+  "started_at_utc": "2026-09-11T08:31:18.458584+00:00",
+  "target": {
+    "host": "192.168.1.55",
+    "port": 3000,
+    "unit_id": 0
+  },
+  "source_ip": "192.168.1.100",
+  "timeout_seconds": 3.0,
+  "read_only": true,
+  "tcp_connected": false,
+  "reads": [],
+  "ok": false,
+  "error": "OSError: [WinError 10049] 在其上下文中，该请求的地址无效。",
+  "finished_at_utc": "2026-09-11T08:31:18.462638+00:00"
+}

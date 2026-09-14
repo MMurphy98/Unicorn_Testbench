@@ -1,0 +1,23 @@
+{
+  "run_id": "308be326eec74db595e6f05d9456eb84",
+  "job_id": "ad6c87bbd0b940c885c7f9a9c474bbc5",
+  "stage_index": 2,
+  "target_c": 27.0,
+  "schema_version": 1,
+  "request_sha256": "42e1fc5157a4c98810cb66eca1f6e5433ad56ad8736e0e4ed9540754d879b7a4",
+  "status": "completed",
+  "started_at_utc": "2026-09-13T05:48:05.550621+00:00",
+  "requested_readings": 1000,
+  "completed_readings": 1000,
+  "gain": 1001.0,
+  "execution_environment": "offline_simulation",
+  "first_reading_at_utc": "2026-09-13T00:17:39.221000+00:00",
+  "last_reading_at_utc": "2026-09-13T00:17:49.211000+00:00",
+  "artifacts": {
+    "summary": "results/offset/offset_dcv_offset_summary.json",
+    "readings_csv": "results/offset/offset_dcv_readings.csv",
+    "plot": "results/offset/offset_dcv_offset.png",
+    "tdms": "data/offset/offset_dcv_0001.tdms"
+  },
+  "finished_at_utc": "2026-09-13T05:48:12.920336+00:00"
+}

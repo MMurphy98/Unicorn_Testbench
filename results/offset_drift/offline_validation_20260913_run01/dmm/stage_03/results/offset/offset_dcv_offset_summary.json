@@ -1,0 +1,84 @@
+{
+  "format_version": 1,
+  "task_id": "offset",
+  "generated_at_utc": "2026-09-13T05:48:28.727204+00:00",
+  "run_count": 1,
+  "total_reading_count": 1000,
+  "source_files": [
+    "C:\\Users\\jinge\\Projects\\Unicorn_Testbench\\results\\offset_drift\\offline_validation_20260913_run01\\dmm\\stage_03\\data\\offset\\offset_dcv_0001.tdms"
+  ],
+  "configuration": {
+    "instrument_manufacturer": "KEITHLEY INSTRUMENTS",
+    "instrument_model": "DMM7510",
+    "instrument_serial_number": "SIMULATED",
+    "instrument_firmware_revision": "OFFLINE",
+    "terminals": "FRONT",
+    "measurement_function": "VOLT:DC",
+    "range_v": 0.1,
+    "autorange_enabled": false,
+    "input_impedance_mode": "AUTO",
+    "nplc": 10.0,
+    "autozero_enabled": true,
+    "dmm_averaging_enabled": false,
+    "relative_enabled": false,
+    "line_sync_enabled": true,
+    "line_frequency_hz": 50.0,
+    "closed_loop_gain_v_per_v": 1001.0
+  },
+  "output_voltage_v": {
+    "count": 1000,
+    "mean": 0.0012512500000000002,
+    "median": 0.00125125,
+    "sample_std": 1.4149211999262702e-07,
+    "standard_error": 4.474373701425481e-09,
+    "confidence_95_lower": 0.0012512412197509732,
+    "confidence_95_upper": 0.0012512587802490272,
+    "minimum": 0.00125105,
+    "maximum": 0.0012514499999999999
+  },
+  "equivalent_input_offset_v": {
+    "count": 1000,
+    "mean": 1.2500000000000003e-06,
+    "median": 1.2499999999999999e-06,
+    "sample_std": 1.4135076922336798e-10,
+    "standard_error": 4.469903797626727e-12,
+    "confidence_95_lower": 1.249991228522451e-06,
+    "confidence_95_upper": 1.2500087714775496e-06,
+    "minimum": 1.2498001998002e-06,
+    "maximum": 1.2501998001998e-06
+  },
+  "per_run": [
+    {
+      "run_number": 1,
+      "source_file": "C:\\Users\\jinge\\Projects\\Unicorn_Testbench\\results\\offset_drift\\offline_validation_20260913_run01\\dmm\\stage_03\\data\\offset\\offset_dcv_0001.tdms",
+      "acquisition_start_utc": "2026-09-13T00:32:38.291000+00:00",
+      "output_voltage_v": {
+        "count": 1000,
+        "mean": 0.0012512500000000002,
+        "median": 0.00125125,
+        "sample_std": 1.4149211999262702e-07,
+        "standard_error": 4.474373701425481e-09,
+        "confidence_95_lower": 0.0012512412197509732,
+        "confidence_95_upper": 0.0012512587802490272,
+        "minimum": 0.00125105,
+        "maximum": 0.0012514499999999999
+      },
+      "equivalent_input_offset_v": {
+        "count": 1000,
+        "mean": 1.25e-06,
+        "median": 1.2499999999999999e-06,
+        "sample_std": 1.4135076922340363e-10,
+        "standard_error": 4.469903797627853e-12,
+        "confidence_95_lower": 1.2499912285224508e-06,
+        "confidence_95_upper": 1.2500087714775496e-06,
+        "minimum": 1.2498001998002e-06,
+        "maximum": 1.2501998001998e-06
+      }
+    }
+  ],
+  "between_run_output_mean_v": null,
+  "between_run_equivalent_input_mean_v": null,
+  "uncertainty_note": "Standard errors and 95% t intervals are descriptive repeatability statistics. They assume independent readings and do not include DMM calibration uncertainty, thermoelectric EMF, gain error, or correlated DUT temperature and low-frequency drift.",
+  "plot": "C:\\Users\\jinge\\Projects\\Unicorn_Testbench\\results\\offset_drift\\offline_validation_20260913_run01\\dmm\\stage_03\\results\\offset\\offset_dcv_offset.png",
+  "readings_csv": "C:\\Users\\jinge\\Projects\\Unicorn_Testbench\\results\\offset_drift\\offline_validation_20260913_run01\\dmm\\stage_03\\results\\offset\\offset_dcv_readings.csv"
+}

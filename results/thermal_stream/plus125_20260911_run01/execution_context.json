@@ -1,0 +1,19 @@
+{
+  "git_head": "2cd4efcdc73e599be5518a699d34802697e55fa5",
+  "git_branch": "task/T-20260911-01-offset-drift",
+  "python": "C:\\Users\\jinge\\AppData\\Local\\Programs\\Python\\Python311\\python.exe",
+  "script_source": "scripts/thermal_stream_temperature_run.py",
+  "script_snapshot": "script_snapshot.py",
+  "script_sha256": "DE9347D98FBF7D1A80FF5B438DB5948F367B55C755DBAC77CC1B9EDAFB3B4191",
+  "mode": "hot",
+  "target_c": 125.0,
+  "control": "current (product at preflight)",
+  "sample_interval_s": 1.0,
+  "tolerance_c": 0.5,
+  "hold_seconds": 60.0,
+  "max_seconds": 1200.0,
+  "stop_after_recording": true,
+  "command": "python scripts/thermal_stream_temperature_run.py --mode hot --target 125 --control current --interval 1 --tolerance 0.5 --hold-seconds 60 --max-seconds 1200 --output-dir results/thermal_stream/plus125_20260911_run01",
+  "authorization": "User requested setting 125 C and attempting a measurement; previous preference is to stop after recording.",
+  "cooling_status": "User suspects the cooler was not started. This run tests heating only and does not confirm the cooling cause."
+}

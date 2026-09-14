@@ -1,0 +1,5 @@
+{"at_utc": "2026-09-11T09:00:01.851593+00:00", "event": "preflight", "air_temperature_c": 27.2, "product_temperature_c": 36.0, "setpoint_readback_c": -25.0, "flow_raw": 121, "running": true, "product_control": true, "cold_mode": true, "cold_flag": true, "hot_mode": false, "ambient_mode": false, "program_mode": false, "timer_enabled": false, "control_min_c": -100.0, "control_max_c": 235.0, "flow_setting_raw": 120, "defrost_active": false, "tuning_active": false}
+{"at_utc": "2026-09-11T09:00:07.280443+00:00", "event": "setpoint_verified", "address": 105, "target_c": -25.0}
+{"at_utc": "2026-09-11T09:00:07.405223+00:00", "event": "configured", "air_temperature_c": 27.2, "product_temperature_c": 36.0, "setpoint_readback_c": -25.0, "flow_raw": 121, "running": true, "product_control": true, "cold_mode": true, "cold_flag": true, "hot_mode": false, "ambient_mode": false, "program_mode": false, "timer_enabled": false}
+{"at_utc": "2026-09-11T09:00:07.406220+00:00", "event": "adopted_existing_run"}
+{"at_utc": "2026-09-11T09:14:22.389059+00:00", "event": "stop_confirmed"}

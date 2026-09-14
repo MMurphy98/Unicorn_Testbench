@@ -1,0 +1,66 @@
+{
+  "sample_count": 329,
+  "duration_s": 327.469,
+  "mode": "hot",
+  "selected_control": "product",
+  "target_c": 125,
+  "original_run_status": "device_stopped",
+  "original_tolerance_c": 0.5,
+  "original_target_reached": false,
+  "original_longest_in_band_s": 13.0,
+  "stop_confirmed_at_run_end": true,
+  "stop_command_sent_in_this_run": false,
+  "start_confirmed_at_utc": "2026-09-11T09:37:15.254823+00:00",
+  "median_sample_interval_s": 1.0,
+  "max_sample_interval_s": 1.1099999999999999,
+  "protocol_requests": 5983,
+  "failed_protocol_requests": 0,
+  "write_requests": [
+    {
+      "at_utc": "2026-09-11T09:37:14.815799+00:00",
+      "function": 6,
+      "address": 103,
+      "request_hex": "00 00 00 00 00 06 00 06 00 67 04 E2",
+      "ok": true,
+      "response_hex": "00 00 00 00 00 06 00 06 00 67 04 E2"
+    },
+    {
+      "at_utc": "2026-09-11T09:37:14.873147+00:00",
+      "function": 5,
+      "address": 16,
+      "request_hex": "00 00 00 00 00 06 00 05 00 10 00 00",
+      "ok": true,
+      "response_hex": "00 00 00 00 00 06 00 05 00 10 00 00"
+    },
+    {
+      "at_utc": "2026-09-11T09:37:14.888992+00:00",
+      "function": 5,
+      "address": 14,
+      "request_hex": "00 00 00 00 00 06 00 05 00 0E FF 00",
+      "ok": true,
+      "response_hex": "00 00 00 00 00 06 00 05 00 0E FF 00"
+    },
+    {
+      "at_utc": "2026-09-11T09:37:14.992956+00:00",
+      "function": 5,
+      "address": 0,
+      "request_hex": "00 00 00 00 00 06 00 05 00 00 FF 00",
+      "ok": true,
+      "response_hex": "00 00 00 00 00 06 00 05 00 00 FF 00"
+    }
+  ],
+  "air_temperature_c": {
+    "initial": 30.7,
+    "final": 143.8,
+    "min": 28.7,
+    "max": 235.0
+  },
+  "product_temperature_c": {
+    "initial": 36.0,
+    "final": 125.3,
+    "min": 36.0,
+    "max": 125.7
+  },
+  "observed_defrost_samples": 0,
+  "observed_tuning_samples": 0
+}

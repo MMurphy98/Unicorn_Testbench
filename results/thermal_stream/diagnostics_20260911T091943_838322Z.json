@@ -1,0 +1,234 @@
+{
+  "started_at_utc": "2026-09-11T09:19:43.838322+00:00",
+  "read_only": true,
+  "target": {
+    "host": "192.168.1.50",
+    "port": 3000,
+    "unit_id": 0
+  },
+  "reads": [
+    {
+      "at_utc": "2026-09-11T09:19:43.845458+00:00",
+      "name": "air_temperature_c",
+      "function": 3,
+      "address": 0,
+      "raw": 306,
+      "value": 30.6
+    },
+    {
+      "at_utc": "2026-09-11T09:19:43.850932+00:00",
+      "name": "product_temperature_c",
+      "function": 3,
+      "address": 1,
+      "raw": 360,
+      "value": 36.0
+    },
+    {
+      "at_utc": "2026-09-11T09:19:43.855915+00:00",
+      "name": "temperature_output_raw",
+      "function": 3,
+      "address": 2,
+      "raw": 0,
+      "value": 0
+    },
+    {
+      "at_utc": "2026-09-11T09:19:43.861351+00:00",
+      "name": "control_min_c",
+      "function": 3,
+      "address": 3,
+      "raw": 64536,
+      "value": -100.0
+    },
+    {
+      "at_utc": "2026-09-11T09:19:43.866338+00:00",
+      "name": "control_max_c",
+      "function": 3,
+      "address": 4,
+      "raw": 2350,
+      "value": 235.0
+    },
+    {
+      "at_utc": "2026-09-11T09:19:43.871321+00:00",
+      "name": "flow_actual_raw",
+      "function": 3,
+      "address": 102,
+      "raw": 51,
+      "value": 51
+    },
+    {
+      "at_utc": "2026-09-11T09:19:43.877301+00:00",
+      "name": "hot_setpoint_c",
+      "function": 3,
+      "address": 103,
+      "raw": 1250,
+      "value": 125.0
+    },
+    {
+      "at_utc": "2026-09-11T09:19:43.882285+00:00",
+      "name": "ambient_setpoint_c",
+      "function": 3,
+      "address": 104,
+      "raw": 650,
+      "value": 65.0
+    },
+    {
+      "at_utc": "2026-09-11T09:19:43.887272+00:00",
+      "name": "cold_setpoint_c",
+      "function": 3,
+      "address": 105,
+      "raw": 65286,
+      "value": -25.0
+    },
+    {
+      "at_utc": "2026-09-11T09:19:43.892256+00:00",
+      "name": "flow_setpoint_scfm",
+      "function": 3,
+      "address": 107,
+      "raw": 120,
+      "value": 12.0
+    },
+    {
+      "at_utc": "2026-09-11T09:19:43.898231+00:00",
+      "name": "flow_output_raw",
+      "function": 3,
+      "address": 109,
+      "raw": 37,
+      "value": 37
+    },
+    {
+      "at_utc": "2026-09-11T09:19:43.903214+00:00",
+      "name": "runtime_hours",
+      "function": 3,
+      "address": 110,
+      "raw": 0,
+      "value": 0
+    },
+    {
+      "at_utc": "2026-09-11T09:19:43.908483+00:00",
+      "name": "runtime_minutes",
+      "function": 3,
+      "address": 111,
+      "raw": 0,
+      "value": 0
+    },
+    {
+      "at_utc": "2026-09-11T09:19:43.912912+00:00",
+      "name": "runtime_seconds",
+      "function": 3,
+      "address": 112,
+      "raw": 0,
+      "value": 0
+    },
+    {
+      "at_utc": "2026-09-11T09:19:43.918891+00:00",
+      "name": "temperature_slope_raw",
+      "function": 3,
+      "address": 126,
+      "raw": 0,
+      "value": 0
+    },
+    {
+      "at_utc": "2026-09-11T09:19:43.923874+00:00",
+      "name": "running",
+      "function": 1,
+      "address": 10,
+      "raw": false,
+      "value": false
+    },
+    {
+      "at_utc": "2026-09-11T09:19:43.928858+00:00",
+      "name": "hot_mode",
+      "function": 1,
+      "address": 14,
+      "raw": false,
+      "value": false
+    },
+    {
+      "at_utc": "2026-09-11T09:19:43.933842+00:00",
+      "name": "ambient_mode",
+      "function": 1,
+      "address": 15,
+      "raw": false,
+      "value": false
+    },
+    {
+      "at_utc": "2026-09-11T09:19:43.939493+00:00",
+      "name": "cold_mode",
+      "function": 1,
+      "address": 16,
+      "raw": true,
+      "value": true
+    },
+    {
+      "at_utc": "2026-09-11T09:19:43.944513+00:00",
+      "name": "hot_flag",
+      "function": 1,
+      "address": 17,
+      "raw": false,
+      "value": false
+    },
+    {
+      "at_utc": "2026-09-11T09:19:43.949539+00:00",
+      "name": "ambient_flag",
+      "function": 1,
+      "address": 18,
+      "raw": false,
+      "value": false
+    },
+    {
+      "at_utc": "2026-09-11T09:19:43.954448+00:00",
+      "name": "cold_flag",
+      "function": 1,
+      "address": 19,
+      "raw": true,
+      "value": true
+    },
+    {
+      "at_utc": "2026-09-11T09:19:43.960481+00:00",
+      "name": "program_mode",
+      "function": 1,
+      "address": 20,
+      "raw": false,
+      "value": false
+    },
+    {
+      "at_utc": "2026-09-11T09:19:43.965486+00:00",
+      "name": "timer_enabled",
+      "function": 1,
+      "address": 21,
+      "raw": false,
+      "value": false
+    },
+    {
+      "at_utc": "2026-09-11T09:19:43.970392+00:00",
+      "name": "product_control",
+      "function": 1,
+      "address": 22,
+      "raw": true,
+      "value": true
+    },
+    {
+      "at_utc": "2026-09-11T09:19:43.975376+00:00",
+      "name": "defrost_active",
+      "function": 1,
+      "address": 24,
+      "raw": false,
+      "value": false
+    },
+    {
+      "at_utc": "2026-09-11T09:19:43.981355+00:00",
+      "name": "tuning_active",
+      "function": 1,
+      "address": 25,
+      "raw": false,
+      "value": false
+    }
+  ],
+  "notes": [
+    "Output and actual-flow units/scaling are not established by the documents.",
+    "Slope time base and the meaning of a zero slope are not documented.",
+    "A stopped-state snapshot cannot establish the preceding running-state output."
+  ],
+  "finished_at_utc": "2026-09-11T09:19:43.981355+00:00",
+  "ok": true
+}

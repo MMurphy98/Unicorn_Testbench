@@ -1,0 +1,37 @@
+{
+  "captured_at": "2026-09-11T16:35:24.8049313+08:00",
+  "active_interface": [
+    {
+      "InterfaceAlias": "以太网 2",
+      "Dhcp": 0,
+      "ConnectionState": 1
+    }
+  ],
+  "persistent_interface": [
+    {
+      "InterfaceAlias": "以太网 2",
+      "Dhcp": null
+    }
+  ],
+  "routes": [
+    {
+      "DestinationPrefix": "192.168.1.0/24",
+      "NextHop": "0.0.0.0",
+      "InterfaceIndex": 5,
+      "InterfaceAlias": "以太网 2"
+    },
+    {
+      "DestinationPrefix": "0.0.0.0/0",
+      "NextHop": "10.135.0.1",
+      "InterfaceIndex": 13,
+      "InterfaceAlias": "WLAN"
+    }
+  ],
+  "addresses": [
+    {
+      "IPAddress": "192.168.1.200",
+      "PrefixLength": 24,
+      "AddressState": 4
+    }
+  ]
+}

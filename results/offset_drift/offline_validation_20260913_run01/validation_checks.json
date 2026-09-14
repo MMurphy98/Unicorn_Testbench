@@ -1,0 +1,36 @@
+{
+  "checks": {
+    "sequence_and_stop_completed": true,
+    "thermal_protocol_no_failures": true,
+    "independent_job_ids": true,
+    "synthetic_slope_recovered": true,
+    "stage_1_1000_readings_roundtrip": true,
+    "stage_1_handshake_order": true,
+    "stage_1_request_digest": true,
+    "stage_1_simulation_and_cleanup": true,
+    "stage_2_1000_readings_roundtrip": true,
+    "stage_2_handshake_order": true,
+    "stage_2_request_digest": true,
+    "stage_2_simulation_and_cleanup": true,
+    "stage_3_1000_readings_roundtrip": true,
+    "stage_3_handshake_order": true,
+    "stage_3_request_digest": true,
+    "stage_3_simulation_and_cleanup": true
+  },
+  "test_suite": {
+    "tests": 34,
+    "result": "passed",
+    "duration_s": 44.123
+  },
+  "thermal_wire_requests": 45588,
+  "dmm_readings_total": 3000,
+  "execution_environment": "offline_simulation",
+  "python": "3.11.9 (tags/v3.11.9:de54cf5, Apr  2 2024, 10:12:12) [MSC v.1938 64 bit (AMD64)]",
+  "packages": {
+    "numpy": "2.4.6",
+    "nptdms": "1.11.0",
+    "pyvisa": "1.16.2",
+    "scipy": "1.17.1",
+    "matplotlib": "3.11.1"
+  }
+}
