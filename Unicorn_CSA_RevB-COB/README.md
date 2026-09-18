@@ -39,6 +39,13 @@ RevB_Chip_1_wiShield_Gmx_default_OSC_default_Vsup_pm6V
 python .\capture_dut_revb_pmu_noise.py --task-id RevB_Chip_1_wiShield_Gmx_default_OSC_default_Vsup_pm6V
 ```
 
+## 2026-09-18 补充噪声测试
+
+新增七组、每组 100 次的 trim / 供电测试及与历史基线的对比见
+[2026-09-18 测试记录](../docs/test-reports/2026/09/2026-09-18-T-20260817-01.md)。
+用户已确认 `Gmx_max` 对应 `4'b1111`；Chip 1 的 `Gmx_4b1111` 是相同设置的重复测试。
+两组保留各自 task-id，分别分析。Chip 2 满电流时出现明显低频升高，详细数值、复核和原始文件哈希见记录。
+
 ## 环境
 
 当前测试环境为 **Windows 64 位、CPython 3.11.9**，使用标准 `venv` 虚拟环境

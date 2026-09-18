@@ -1,0 +1,640 @@
+{
+  "verified_at_utc": "2026-09-18T07:05:11.040589+00:00",
+  "verification": "All 1000 TDMS waveforms checked and Welch PSD recomputed against existing NPZ; all target CSVs and JSON statistics reproduced at rtol=1e-10, atol=0",
+  "git_head_at_verification": "a232d2cea9216189db0537d6bdd4d53dca542df9",
+  "environment": {
+    "python": "3.11.9 (tags/v3.11.9:de54cf5, Apr  2 2024, 10:12:12) [MSC v.1938 64 bit (AMD64)]",
+    "platform": "Windows-10-10.0.19045-SP0",
+    "packages": {
+      "numpy": "2.4.6",
+      "scipy": "1.17.1",
+      "npTDMS": "1.11.0",
+      "matplotlib": "3.11.1",
+      "niscope": "1.4.7"
+    }
+  },
+  "trim_mapping_provenance": {
+    "max_and_4b1111": "Operator confirmed on 2026-09-18: same code 1111; Chip 1's explicitly named 4b1111 group is a repeat",
+    "default": "Project README: 0110",
+    "4b1001": "Acquisition task ID; not independently read from DUT"
+  },
+  "code_sha256": {
+    "Unicorn_CSA_RevB-COB/results/noise_retest_20260918/verify_and_summarize.py": "2af0f4a9438df32e537571341da718d8c76777d6c12c7f020763d7bc08c539c7",
+    "Unicorn_CSA_RevB-COB/capture_dut_revb_pmu_noise.py": "0c27f3b1b95df8f6de91df75a0b1fa9c05f1fe0e1aa88c1f3d0e082009d8d917",
+    "Unicorn_CSA_RevB-COB/analyze_dut_revb_pmu_noise.py": "b804c45443b2a939ea0988b801835033ed080c063e64ce846901d99ebd9bcda6",
+    "Unicorn_CSA_RevB-COB/plot_dut_revb_pmu_noise.py": "8e6869f2abf82481d895f440d9d52678bf22a37cbf6374ca21c8308346a2bfc8",
+    "Unicorn_CSA_RevB-COB/run_dut_revb_pmu_noise_pipeline.py": "1b60f85ba22e26dd3863f96ee2a886120eb832812d41347aa5c12a9437f38deb"
+  },
+  "groups": [
+    {
+      "group_id": "H1",
+      "task_id": "RevB_Chip_1_wiShield_Gmx_default_OSC_default_Vsup_pm6V",
+      "new_measurement": false,
+      "chip": 1,
+      "gmx_label": "default",
+      "trim_code": "0110",
+      "supply_magnitude_v": 6,
+      "records": 100,
+      "welch_segments": 700,
+      "raw_bytes": 880196500,
+      "first_start_beijing": "2026-09-02T23:29:48.781734",
+      "last_end_beijing": "2026-09-03T00:06:34.848190",
+      "near_clipping_count": 0,
+      "dc_mean_v_range": [
+        -0.010862090591597045,
+        -0.010811266094909287
+      ],
+      "ac_rms_v_range": [
+        0.0006650117023696988,
+        0.0006678818117694695
+      ],
+      "max_absolute_output_v": 0.014591803805316252,
+      "maximum_psd_relative_error": 0.0,
+      "acquisition": {
+        "closed_loop_gain_v_per_v": 1001.0,
+        "op_amp_gbw_hz": 15000000.0,
+        "estimated_closed_loop_bandwidth_hz": 14985.014985014985,
+        "resource_name": "PXI1Slot2",
+        "instrument_model": "NI PXI-5922",
+        "instrument_serial_number": "2094935",
+        "ni_scope_driver_version": "Driver: NI-SCOPE 23.8.0, Model: NI PXI-5922, Compiler: MSVC 14.00, Engine: IVI 21.00, Compiler: MSVC 14.00, Components: VISA-Spec 5.70",
+        "actual_sample_rate_hz": 50000.0,
+        "actual_record_length": 1100000,
+        "vertical_range_vpp": 2.0,
+        "input_impedance_ohm": 1000000.0,
+        "coupling": "DC",
+        "physical_channel": "0",
+        "max_input_frequency_hz": -1.0,
+        "trigger_type": "Immediate"
+      },
+      "targets": {
+        "1_hz": {
+          "asd_nv_per_sqrt_hz": 5.253586144108587,
+          "cv_percent": 11.649716620147833,
+          "minimum": 3.935233436720455,
+          "maximum": 7.220415715037525,
+          "first_50_rms": 5.191718691161304,
+          "last_50_rms": 5.314733462647569
+        },
+        "1000_hz": {
+          "asd_nv_per_sqrt_hz": 5.174125113016561,
+          "cv_percent": 1.1935361289868662,
+          "minimum": 5.058373900879374,
+          "maximum": 5.317329356846717,
+          "first_50_rms": 5.181329322523526,
+          "last_50_rms": 5.166910858709986
+        }
+      },
+      "summary_sha256": "dd3b3b94e1f872df6d726fc687c4051190ce86fa17eebf11f47bab752e7755ef"
+    },
+    {
+      "group_id": "H2",
+      "task_id": "RevB_Chip_2_wiShield_Gmx_default_OSC_default_Vsup_pm6V",
+      "new_measurement": false,
+      "chip": 2,
+      "gmx_label": "default",
+      "trim_code": "0110",
+      "supply_magnitude_v": 6,
+      "records": 100,
+      "welch_segments": 700,
+      "raw_bytes": 880208400,
+      "first_start_beijing": "2026-09-03T11:19:29.685745",
+      "last_end_beijing": "2026-09-03T11:56:14.809594",
+      "near_clipping_count": 0,
+      "dc_mean_v_range": [
+        -0.01072944321048273,
+        -0.002723792956103593
+      ],
+      "ac_rms_v_range": [
+        0.0006760958601779581,
+        0.0006804433410333928
+      ],
+      "max_absolute_output_v": 0.014537250195603308,
+      "maximum_psd_relative_error": 0.0,
+      "acquisition": {
+        "closed_loop_gain_v_per_v": 1001.0,
+        "op_amp_gbw_hz": 15000000.0,
+        "estimated_closed_loop_bandwidth_hz": 14985.014985014985,
+        "resource_name": "PXI1Slot2_2",
+        "instrument_model": "NI PXI-5922",
+        "instrument_serial_number": "2094935",
+        "ni_scope_driver_version": "Driver: NI-SCOPE 23.8.0, Model: NI PXI-5922, Compiler: MSVC 14.00, Engine: IVI 21.00, Compiler: MSVC 14.00, Components: VISA-Spec 5.70",
+        "actual_sample_rate_hz": 50000.0,
+        "actual_record_length": 1100000,
+        "vertical_range_vpp": 2.0,
+        "input_impedance_ohm": 1000000.0,
+        "coupling": "DC",
+        "physical_channel": "0",
+        "max_input_frequency_hz": -1.0,
+        "trigger_type": "Immediate"
+      },
+      "targets": {
+        "1_hz": {
+          "asd_nv_per_sqrt_hz": 5.43587503426962,
+          "cv_percent": 12.016046517802536,
+          "minimum": 3.710176004643183,
+          "maximum": 7.122387958002826,
+          "first_50_rms": 5.454370183592844,
+          "last_50_rms": 5.417316741406658
+        },
+        "1000_hz": {
+          "asd_nv_per_sqrt_hz": 5.210721617989695,
+          "cv_percent": 1.1997976478890038,
+          "minimum": 5.068582560133699,
+          "maximum": 5.381014577953599,
+          "first_50_rms": 5.2139445752385845,
+          "last_50_rms": 5.207496666029699
+        }
+      },
+      "summary_sha256": "adaef74ce37176fab4ab40c597e469a5852fdef9a7df39f087a466ee43b9d863"
+    },
+    {
+      "group_id": "H3",
+      "task_id": "RevB_Chip_3_wiShield_Gmx_default_OSC_default_Vsup_pm6V",
+      "new_measurement": false,
+      "chip": 3,
+      "gmx_label": "default",
+      "trim_code": "0110",
+      "supply_magnitude_v": 6,
+      "records": 100,
+      "welch_segments": 700,
+      "raw_bytes": 880196700,
+      "first_start_beijing": "2026-09-03T12:07:24.626530",
+      "last_end_beijing": "2026-09-03T12:44:09.726912",
+      "near_clipping_count": 0,
+      "dc_mean_v_range": [
+        -0.009905749073760328,
+        1.9211305013725024e-05
+      ],
+      "ac_rms_v_range": [
+        0.000674343139146951,
+        0.0006787288299705386
+      ],
+      "max_absolute_output_v": 0.013763585442474786,
+      "maximum_psd_relative_error": 0.0,
+      "acquisition": {
+        "closed_loop_gain_v_per_v": 1001.0,
+        "op_amp_gbw_hz": 15000000.0,
+        "estimated_closed_loop_bandwidth_hz": 14985.014985014985,
+        "resource_name": "PXI1Slot2_2",
+        "instrument_model": "NI PXI-5922",
+        "instrument_serial_number": "2094935",
+        "ni_scope_driver_version": "Driver: NI-SCOPE 23.8.0, Model: NI PXI-5922, Compiler: MSVC 14.00, Engine: IVI 21.00, Compiler: MSVC 14.00, Components: VISA-Spec 5.70",
+        "actual_sample_rate_hz": 50000.0,
+        "actual_record_length": 1100000,
+        "vertical_range_vpp": 2.0,
+        "input_impedance_ohm": 1000000.0,
+        "coupling": "DC",
+        "physical_channel": "0",
+        "max_input_frequency_hz": -1.0,
+        "trigger_type": "Immediate"
+      },
+      "targets": {
+        "1_hz": {
+          "asd_nv_per_sqrt_hz": 5.459184595803214,
+          "cv_percent": 10.173221840307125,
+          "minimum": 4.246617520217876,
+          "maximum": 6.667046601588168,
+          "first_50_rms": 5.486641114532952,
+          "last_50_rms": 5.431589286979164
+        },
+        "1000_hz": {
+          "asd_nv_per_sqrt_hz": 5.325620323807731,
+          "cv_percent": 1.0601179985060558,
+          "minimum": 5.1895412035483215,
+          "maximum": 5.449458023729955,
+          "first_50_rms": 5.322123303991762,
+          "last_50_rms": 5.329115048844014
+        }
+      },
+      "summary_sha256": "1f2d2515da62376cb27228a72092639ea2e1b3654572d6fb1ef420ae60f6a207"
+    },
+    {
+      "group_id": "N1",
+      "task_id": "RevB_Chip_1_wiShield_Gmx_max_OSC_default_Vsup_pm6V",
+      "new_measurement": true,
+      "chip": 1,
+      "gmx_label": "max",
+      "trim_code": "1111",
+      "supply_magnitude_v": 6,
+      "records": 100,
+      "welch_segments": 700,
+      "raw_bytes": 880196300,
+      "first_start_beijing": "2026-09-17T23:25:52.310541",
+      "last_end_beijing": "2026-09-18T00:02:37.858795",
+      "near_clipping_count": 0,
+      "dc_mean_v_range": [
+        9.026980901160666e-05,
+        0.00035519278594443545
+      ],
+      "ac_rms_v_range": [
+        0.0006297581181339392,
+        0.0006327718570977249
+      ],
+      "max_absolute_output_v": 0.0038478986218897647,
+      "maximum_psd_relative_error": 0.0,
+      "acquisition": {
+        "closed_loop_gain_v_per_v": 1001.0,
+        "op_amp_gbw_hz": 15000000.0,
+        "estimated_closed_loop_bandwidth_hz": 14985.014985014985,
+        "resource_name": "PXI1Slot2_2",
+        "instrument_model": "NI PXI-5922",
+        "instrument_serial_number": "2094935",
+        "ni_scope_driver_version": "Driver: NI-SCOPE 23.8.0, Model: NI PXI-5922, Compiler: MSVC 14.00, Engine: IVI 21.00, Compiler: MSVC 14.00, Components: VISA-Spec 5.70",
+        "actual_sample_rate_hz": 50000.0,
+        "actual_record_length": 1100000,
+        "vertical_range_vpp": 2.0,
+        "input_impedance_ohm": 1000000.0,
+        "coupling": "DC",
+        "physical_channel": "0",
+        "max_input_frequency_hz": -1.0,
+        "trigger_type": "Immediate"
+      },
+      "targets": {
+        "1_hz": {
+          "asd_nv_per_sqrt_hz": 5.459819976065687,
+          "cv_percent": 10.841201285684356,
+          "minimum": 3.8240699193470595,
+          "maximum": 7.209918209180813,
+          "first_50_rms": 5.552713814234641,
+          "last_50_rms": 5.365318037106432
+        },
+        "1000_hz": {
+          "asd_nv_per_sqrt_hz": 4.6069079872165615,
+          "cv_percent": 1.2404188418935664,
+          "minimum": 4.424065044262121,
+          "maximum": 4.746109030612434,
+          "first_50_rms": 4.608372030664508,
+          "last_50_rms": 4.605443478357819
+        }
+      },
+      "summary_sha256": "b816eca56ab2e6f825aa68285015f4053550be7e30466f42ce071d1ff3108060"
+    },
+    {
+      "group_id": "N2",
+      "task_id": "RevB_Chip_2_wiShield_Gmx_max_OSC_default_Vsup_pm6V",
+      "new_measurement": true,
+      "chip": 2,
+      "gmx_label": "max",
+      "trim_code": "1111",
+      "supply_magnitude_v": 6,
+      "records": 100,
+      "welch_segments": 700,
+      "raw_bytes": 880196300,
+      "first_start_beijing": "2026-09-18T00:04:00.005183",
+      "last_end_beijing": "2026-09-18T00:40:45.221407",
+      "near_clipping_count": 0,
+      "dc_mean_v_range": [
+        -0.00018931255651749107,
+        0.000490189343751146
+      ],
+      "ac_rms_v_range": [
+        0.0007164445681615619,
+        0.0007232103595179253
+      ],
+      "max_absolute_output_v": 0.004262273560022928,
+      "maximum_psd_relative_error": 0.0,
+      "acquisition": {
+        "closed_loop_gain_v_per_v": 1001.0,
+        "op_amp_gbw_hz": 15000000.0,
+        "estimated_closed_loop_bandwidth_hz": 14985.014985014985,
+        "resource_name": "PXI1Slot2_2",
+        "instrument_model": "NI PXI-5922",
+        "instrument_serial_number": "2094935",
+        "ni_scope_driver_version": "Driver: NI-SCOPE 23.8.0, Model: NI PXI-5922, Compiler: MSVC 14.00, Engine: IVI 21.00, Compiler: MSVC 14.00, Components: VISA-Spec 5.70",
+        "actual_sample_rate_hz": 50000.0,
+        "actual_record_length": 1100000,
+        "vertical_range_vpp": 2.0,
+        "input_impedance_ohm": 1000000.0,
+        "coupling": "DC",
+        "physical_channel": "0",
+        "max_input_frequency_hz": -1.0,
+        "trigger_type": "Immediate"
+      },
+      "targets": {
+        "1_hz": {
+          "asd_nv_per_sqrt_hz": 34.04684184948979,
+          "cv_percent": 11.776376308749397,
+          "minimum": 23.923253270769912,
+          "maximum": 43.92875241836979,
+          "first_50_rms": 33.913565406456,
+          "last_50_rms": 34.17959861189667
+        },
+        "1000_hz": {
+          "asd_nv_per_sqrt_hz": 4.824876331869191,
+          "cv_percent": 1.2238191780206054,
+          "minimum": 4.6915894210794455,
+          "maximum": 5.012198768356336,
+          "first_50_rms": 4.8176734073735465,
+          "last_50_rms": 4.832068519335045
+        }
+      },
+      "summary_sha256": "0d0949a23c6dbbcbf768e9985c0476d443ed2a480f733be41084afff7dbea981"
+    },
+    {
+      "group_id": "N3",
+      "task_id": "RevB_Chip_3_wiShield_Gmx_max_OSC_default_Vsup_pm6V",
+      "new_measurement": true,
+      "chip": 3,
+      "gmx_label": "max",
+      "trim_code": "1111",
+      "supply_magnitude_v": 6,
+      "records": 100,
+      "welch_segments": 700,
+      "raw_bytes": 880196300,
+      "first_start_beijing": "2026-09-18T00:41:46.031471",
+      "last_end_beijing": "2026-09-18T01:18:31.052485",
+      "near_clipping_count": 0,
+      "dc_mean_v_range": [
+        -0.0011721667306323214,
+        -0.0007982231825253606
+      ],
+      "ac_rms_v_range": [
+        0.0007233026740309002,
+        0.0007265519731640992
+      ],
+      "max_absolute_output_v": 0.005415800239229185,
+      "maximum_psd_relative_error": 0.0,
+      "acquisition": {
+        "closed_loop_gain_v_per_v": 1001.0,
+        "op_amp_gbw_hz": 15000000.0,
+        "estimated_closed_loop_bandwidth_hz": 14985.014985014985,
+        "resource_name": "PXI1Slot2_2",
+        "instrument_model": "NI PXI-5922",
+        "instrument_serial_number": "2094935",
+        "ni_scope_driver_version": "Driver: NI-SCOPE 23.8.0, Model: NI PXI-5922, Compiler: MSVC 14.00, Engine: IVI 21.00, Compiler: MSVC 14.00, Components: VISA-Spec 5.70",
+        "actual_sample_rate_hz": 50000.0,
+        "actual_record_length": 1100000,
+        "vertical_range_vpp": 2.0,
+        "input_impedance_ohm": 1000000.0,
+        "coupling": "DC",
+        "physical_channel": "0",
+        "max_input_frequency_hz": -1.0,
+        "trigger_type": "Immediate"
+      },
+      "targets": {
+        "1_hz": {
+          "asd_nv_per_sqrt_hz": 7.539210284990806,
+          "cv_percent": 12.01287100441282,
+          "minimum": 5.532057173772886,
+          "maximum": 10.35978209247347,
+          "first_50_rms": 7.646878887493797,
+          "last_50_rms": 7.429981609844262
+        },
+        "1000_hz": {
+          "asd_nv_per_sqrt_hz": 4.8055365469914095,
+          "cv_percent": 1.1274530818072657,
+          "minimum": 4.6456682105867815,
+          "maximum": 4.924269913727513,
+          "first_50_rms": 4.805426819975235,
+          "last_50_rms": 4.805646271502195
+        }
+      },
+      "summary_sha256": "99ac61b5bf83ac3c8ca3174136855b88f67eee2ace707dee19a87f662d5b8f2e"
+    },
+    {
+      "group_id": "N4",
+      "task_id": "RevB_Chip_3_wiShield_Gmx_default_OSC_default_Vsup_pm12V",
+      "new_measurement": true,
+      "chip": 3,
+      "gmx_label": "default",
+      "trim_code": "0110",
+      "supply_magnitude_v": 12,
+      "records": 100,
+      "welch_segments": 700,
+      "raw_bytes": 880196800,
+      "first_start_beijing": "2026-09-18T09:34:14.561865",
+      "last_end_beijing": "2026-09-18T10:10:59.935480",
+      "near_clipping_count": 0,
+      "dc_mean_v_range": [
+        0.0006372060455070708,
+        0.0009830987347680383
+      ],
+      "ac_rms_v_range": [
+        0.0006666501670169182,
+        0.0006700157696205393
+      ],
+      "max_absolute_output_v": 0.004863944546929721,
+      "maximum_psd_relative_error": 0.0,
+      "acquisition": {
+        "closed_loop_gain_v_per_v": 1001.0,
+        "op_amp_gbw_hz": 15000000.0,
+        "estimated_closed_loop_bandwidth_hz": 14985.014985014985,
+        "resource_name": "PXI1Slot2_2",
+        "instrument_model": "NI PXI-5922",
+        "instrument_serial_number": "2094935",
+        "ni_scope_driver_version": "Driver: NI-SCOPE 23.8.0, Model: NI PXI-5922, Compiler: MSVC 14.00, Engine: IVI 21.00, Compiler: MSVC 14.00, Components: VISA-Spec 5.70",
+        "actual_sample_rate_hz": 50000.0,
+        "actual_record_length": 1100000,
+        "vertical_range_vpp": 2.0,
+        "input_impedance_ohm": 1000000.0,
+        "coupling": "DC",
+        "physical_channel": "0",
+        "max_input_frequency_hz": -1.0,
+        "trigger_type": "Immediate"
+      },
+      "targets": {
+        "1_hz": {
+          "asd_nv_per_sqrt_hz": 5.503148057409553,
+          "cv_percent": 11.578722595950383,
+          "minimum": 3.637636452771163,
+          "maximum": 7.344615335301312,
+          "first_50_rms": 5.519322945340798,
+          "last_50_rms": 5.486925487791467
+        },
+        "1000_hz": {
+          "asd_nv_per_sqrt_hz": 5.163839528870627,
+          "cv_percent": 1.0217838649671172,
+          "minimum": 5.002364743016951,
+          "maximum": 5.271873126934177,
+          "first_50_rms": 5.1599931288404015,
+          "last_50_rms": 5.167683065956491
+        }
+      },
+      "summary_sha256": "dcd7e5d60cd066f0891cc561d5c8139070954e853a90132e373164d451f01253"
+    },
+    {
+      "group_id": "N5",
+      "task_id": "RevB_Chip_3_wiShield_Gmx_max_OSC_default_Vsup_pm12V",
+      "new_measurement": true,
+      "chip": 3,
+      "gmx_label": "max",
+      "trim_code": "1111",
+      "supply_magnitude_v": 12,
+      "records": 100,
+      "welch_segments": 700,
+      "raw_bytes": 880196400,
+      "first_start_beijing": "2026-09-18T10:19:45.726317",
+      "last_end_beijing": "2026-09-18T10:56:31.450016",
+      "near_clipping_count": 0,
+      "dc_mean_v_range": [
+        0.0001762830595906746,
+        0.0005189157197166592
+      ],
+      "ac_rms_v_range": [
+        0.0007064732705679011,
+        0.0007091569163873334
+      ],
+      "max_absolute_output_v": 0.004677854072265286,
+      "maximum_psd_relative_error": 0.0,
+      "acquisition": {
+        "closed_loop_gain_v_per_v": 1001.0,
+        "op_amp_gbw_hz": 15000000.0,
+        "estimated_closed_loop_bandwidth_hz": 14985.014985014985,
+        "resource_name": "PXI1Slot2_2",
+        "instrument_model": "NI PXI-5922",
+        "instrument_serial_number": "2094935",
+        "ni_scope_driver_version": "Driver: NI-SCOPE 23.8.0, Model: NI PXI-5922, Compiler: MSVC 14.00, Engine: IVI 21.00, Compiler: MSVC 14.00, Components: VISA-Spec 5.70",
+        "actual_sample_rate_hz": 50000.0,
+        "actual_record_length": 1100000,
+        "vertical_range_vpp": 2.0,
+        "input_impedance_ohm": 1000000.0,
+        "coupling": "DC",
+        "physical_channel": "0",
+        "max_input_frequency_hz": -1.0,
+        "trigger_type": "Immediate"
+      },
+      "targets": {
+        "1_hz": {
+          "asd_nv_per_sqrt_hz": 10.217370970625675,
+          "cv_percent": 12.095163624433887,
+          "minimum": 7.059482188580065,
+          "maximum": 12.955857018429437,
+          "first_50_rms": 10.48705375370688,
+          "last_50_rms": 9.940374372710062
+        },
+        "1000_hz": {
+          "asd_nv_per_sqrt_hz": 4.6701003547160695,
+          "cv_percent": 1.0530761077361517,
+          "minimum": 4.558282029171461,
+          "maximum": 4.788416867914106,
+          "first_50_rms": 4.665075484094351,
+          "last_50_rms": 4.675119824554251
+        }
+      },
+      "summary_sha256": "eeb6de2b76a3ae25e57a1c858819143a3a1fae7f8b9b7dd7b6da5e60fad768bd"
+    },
+    {
+      "group_id": "N6",
+      "task_id": "RevB_Chip_2_wiShield_Gmx_4b1001_OSC_default_Vsup_pm6V",
+      "new_measurement": true,
+      "chip": 2,
+      "gmx_label": "4b1001",
+      "trim_code": "1001",
+      "supply_magnitude_v": 6,
+      "records": 100,
+      "welch_segments": 700,
+      "raw_bytes": 880196600,
+      "first_start_beijing": "2026-09-18T11:10:54.443612",
+      "last_end_beijing": "2026-09-18T11:47:39.631950",
+      "near_clipping_count": 0,
+      "dc_mean_v_range": [
+        -6.426913618426652e-05,
+        0.0001423557356522821
+      ],
+      "ac_rms_v_range": [
+        0.0006692788367640528,
+        0.0006721396306448975
+      ],
+      "max_absolute_output_v": 0.004059078519239132,
+      "maximum_psd_relative_error": 0.0,
+      "acquisition": {
+        "closed_loop_gain_v_per_v": 1001.0,
+        "op_amp_gbw_hz": 15000000.0,
+        "estimated_closed_loop_bandwidth_hz": 14985.014985014985,
+        "resource_name": "PXI1Slot2_2",
+        "instrument_model": "NI PXI-5922",
+        "instrument_serial_number": "2094935",
+        "ni_scope_driver_version": "Driver: NI-SCOPE 23.8.0, Model: NI PXI-5922, Compiler: MSVC 14.00, Engine: IVI 21.00, Compiler: MSVC 14.00, Components: VISA-Spec 5.70",
+        "actual_sample_rate_hz": 50000.0,
+        "actual_record_length": 1100000,
+        "vertical_range_vpp": 2.0,
+        "input_impedance_ohm": 1000000.0,
+        "coupling": "DC",
+        "physical_channel": "0",
+        "max_input_frequency_hz": -1.0,
+        "trigger_type": "Immediate"
+      },
+      "targets": {
+        "1_hz": {
+          "asd_nv_per_sqrt_hz": 5.319220663966661,
+          "cv_percent": 10.646696136817022,
+          "minimum": 4.153299269866978,
+          "maximum": 6.72018032349595,
+          "first_50_rms": 5.34085607998557,
+          "last_50_rms": 5.297496887853828
+        },
+        "1000_hz": {
+          "asd_nv_per_sqrt_hz": 5.058863048083812,
+          "cv_percent": 1.0615083898841793,
+          "minimum": 4.942906715767982,
+          "maximum": 5.192684924832522,
+          "first_50_rms": 5.0622094525215715,
+          "last_50_rms": 5.0555144285559015
+        }
+      },
+      "summary_sha256": "68ff1bbdf086192e8d491d6cbaf7bd1867a1a2caf041deab2a03f985df1ed714"
+    },
+    {
+      "group_id": "N7",
+      "task_id": "RevB_Chip_1_wiShield_Gmx_4b1111_OSC_default_Vsup_pm6V",
+      "new_measurement": true,
+      "chip": 1,
+      "gmx_label": "4b1111",
+      "trim_code": "1111",
+      "supply_magnitude_v": 6,
+      "records": 100,
+      "welch_segments": 700,
+      "raw_bytes": 880196600,
+      "first_start_beijing": "2026-09-18T13:51:33.079442",
+      "last_end_beijing": "2026-09-18T14:28:18.952019",
+      "near_clipping_count": 0,
+      "dc_mean_v_range": [
+        0.00020129506400310023,
+        0.00034577187148079815
+      ],
+      "ac_rms_v_range": [
+        0.0006293988856678928,
+        0.0006316767143563567
+      ],
+      "max_absolute_output_v": 0.0037367725354634177,
+      "maximum_psd_relative_error": 0.0,
+      "acquisition": {
+        "closed_loop_gain_v_per_v": 1001.0,
+        "op_amp_gbw_hz": 15000000.0,
+        "estimated_closed_loop_bandwidth_hz": 14985.014985014985,
+        "resource_name": "PXI1Slot2_2",
+        "instrument_model": "NI PXI-5922",
+        "instrument_serial_number": "2094935",
+        "ni_scope_driver_version": "Driver: NI-SCOPE 23.8.0, Model: NI PXI-5922, Compiler: MSVC 14.00, Engine: IVI 21.00, Compiler: MSVC 14.00, Components: VISA-Spec 5.70",
+        "actual_sample_rate_hz": 50000.0,
+        "actual_record_length": 1100000,
+        "vertical_range_vpp": 2.0,
+        "input_impedance_ohm": 1000000.0,
+        "coupling": "DC",
+        "physical_channel": "0",
+        "max_input_frequency_hz": -1.0,
+        "trigger_type": "Immediate"
+      },
+      "targets": {
+        "1_hz": {
+          "asd_nv_per_sqrt_hz": 5.234280002594776,
+          "cv_percent": 11.192093890505706,
+          "minimum": 4.0236025371994755,
+          "maximum": 6.613454459716514,
+          "first_50_rms": 5.178045506315543,
+          "last_50_rms": 5.289916731447907
+        },
+        "1000_hz": {
+          "asd_nv_per_sqrt_hz": 4.621787926386674,
+          "cv_percent": 1.1545959127705818,
+          "minimum": 4.458249917694725,
+          "maximum": 4.721756915145681,
+          "first_50_rms": 4.61493211192851,
+          "last_50_rms": 4.628633586197804
+        }
+      },
+      "summary_sha256": "aa9bf5a1e2b0aebd2e3b2a66e6b1440349af769745a2844593b650e448b8a3b3"
+    }
+  ]
+}
