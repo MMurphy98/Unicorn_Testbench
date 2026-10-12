@@ -42,13 +42,14 @@ git config core.hooksPath .githooks
 在安装后处理依赖的 Python 环境中，从仓库根目录执行：
 
 ```bash
-python -m pip install -r Unicorn_CSA_RevB-COB/postprocess/requirements-notebook.txt 'PyVISA>=1.13,<2'
+python -m pip install -r Unicorn_CSA_RevB-COB/postprocess/requirements-notebook.txt 'PyVISA==1.16.2' 'npTDMS==1.11.0'
 python -m unittest discover -s scripts -p 'test_*.py' -v
 python -m unittest discover -s Unicorn_CSA_RevB-COB/field -p 'test_*.py' -v
 python -m unittest discover -s Unicorn_CSA_RevB-COB/postprocess -p 'test_*.py' -v
 ```
 
 旧 DMM 模拟测试还需要 Python 接口包 PyVISA，但不需要 NI-VISA 驱动或仪器。
+测试依赖对齐现场采集代码：worker 在模拟模式也检查 `npTDMS==1.11.0`，因此回归测试需要显式固定此版本。
 MATLAB 代码和测试已移除。现场控制改动在 Windows 设备环境验证；
 报告实际执行范围，不把离线回归写成现场验证。
 
