@@ -1,0 +1,83 @@
+{
+  "schema_version": 1,
+  "verified_at_utc": "2026-10-12T13:40:31.560896+00:00",
+  "scope": "RevB noise and offset_drift Jupyter entrypoint; historical RevA and earlier files are unchanged.",
+  "notebook": "Unicorn_CSA_RevB-COB/postprocess/postprocess.ipynb",
+  "notebook_sha256": "1974e9f5c94c13cb7697c3f418ba05c9a86e217a8f6bee05b8b57664a84a8ae5",
+  "notebook_format_valid": true,
+  "saved_notebook_outputs_empty": true,
+  "python_regression": {
+    "passed": true,
+    "tests": 17,
+    "existing_backend_tests": 12,
+    "new_notebook_tests": 5,
+    "seconds": 11.56,
+    "execution": "Real local Jupyter Python kernels using temporary synthetic TDMS, including spectra create/reuse/overwrite, offset stages, failed acquisition, missing raw data and active acquisition guards."
+  },
+  "real_task_replay": [
+    {
+      "task_id": "RevB_Chip_1_wiShield_Gmx_default_OSC_default_Vsup_pm6V",
+      "measurement_type": "noise",
+      "data_status": "complete",
+      "raw_files_verified": 100,
+      "spectra_reused": 100,
+      "valid_reading_count": null,
+      "numeric_reference_fields": [
+        "targets",
+        "target_distributions",
+        "spectrum_file_count",
+        "welch_nperseg"
+      ],
+      "numeric_values_identical": true,
+      "inline_image_count": 2,
+      "source_files_unchanged": true
+    },
+    {
+      "task_id": "Offset_Chip_1_Gain1001_20260918",
+      "measurement_type": "offset_drift",
+      "data_status": "complete",
+      "raw_files_verified": 3,
+      "spectra_reused": 0,
+      "valid_reading_count": 3000,
+      "numeric_reference_fields": [
+        "points",
+        "valid_reading_count",
+        "nominal_temperature_linear_slope_v_per_c",
+        "data_status"
+      ],
+      "numeric_values_identical": true,
+      "inline_image_count": 2,
+      "source_files_unchanged": true
+    },
+    {
+      "task_id": "Offset_Chip_2_Gain1001_20260918",
+      "measurement_type": "offset_drift",
+      "data_status": "failed",
+      "raw_files_verified": 0,
+      "spectra_reused": 0,
+      "valid_reading_count": 0,
+      "numeric_reference_fields": [
+        "points",
+        "valid_reading_count",
+        "nominal_temperature_linear_slope_v_per_c",
+        "data_status"
+      ],
+      "numeric_values_identical": true,
+      "inline_image_count": 1,
+      "source_files_unchanged": true
+    }
+  ],
+  "source_measurement_files_unchanged": true,
+  "historical_files_modified": false,
+  "versions": {
+    "jupyterlab": "4.6.4",
+    "ipykernel": "6.31.0",
+    "nbclient": "0.11.0",
+    "numpy": "2.5.4",
+    "scipy": "1.18.1",
+    "matplotlib": "3.11.2",
+    "npTDMS": "1.12.1"
+  },
+  "notebook_checks_passed": true,
+  "known_unrelated_document_issue": "README.md references missing thermal_stream/README.md; present before this change."
+}

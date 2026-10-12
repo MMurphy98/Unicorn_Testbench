@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "task_id": "Offset_Chip_3_Gain1001_20260918",
+  "measurement_type": "offset_drift",
+  "chip": 3,
+  "acquisition_status": "completed",
+  "layout_version": 1,
+  "data_directory": "data",
+  "spectra_directory": "spectra",
+  "results_directory": "results",
+  "legacy_run_path": "provenance/legacy_run",
+  "gain_v_per_v": 1001.0,
+  "target_temperatures_c": [
+    -40,
+    27,
+    125
+  ],
+  "expected_readings_each": 1000,
+  "actual_reading_count": 3000,
+  "test_date": "2026-09-18",
+  "retention_note": "",
+  "raw_file_sha256": {
+    "data/stage_03/Offset_Chip_3_Gain1001_20260918_dcv_0001.tdms": "40e93636d30251a6ec08bd6945d89d805a5f08954ccb8f17d72600d886b97d64",
+    "data/stage_02/Offset_Chip_3_Gain1001_20260918_dcv_0001.tdms": "ebce52183bc225f690b41dc7aa554d9c5537bdf6d2511cc12c1d416c08c4b885",
+    "data/stage_01/Offset_Chip_3_Gain1001_20260918_dcv_0001.tdms": "735581154c5dd9314813769f8fbf82db185bfa909965d8d4808b08debe99f903"
+  }
+}

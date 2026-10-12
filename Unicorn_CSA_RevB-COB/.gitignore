@@ -2,4 +2,10 @@ __pycache__/
 *.py[cod]
 data/
 spectra/
+/demo/
+.venv-postprocess/
+.venv-field/
+# Portable acquisition evidence belongs with its task; raw TDMS stays ignored.
+!tasks/*/logs/*.log
+!tasks/*/provenance/**/worker.log
 # Final results are versioned; shared intermediate-file rules live at the root.

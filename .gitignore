@@ -1,21 +1,3 @@
-# MATLAB generated files
-*.asv
-*.autosave
-*.m~
-*.mex*
-*.mlappinstall
-*.prj
-*.slxc
-*.mexa64
-*.mexw64
-*.mexmaci64
-codegen/
-slprj/
-
-# MATLAB project/user state
-*.matlab.R20*
-.SimulinkProject/
-
 # Raw data and per-capture spectra stay local at every directory depth.
 # Existing committed reference fixtures are retained; new data is ignored.
 *.tdms
@@ -30,17 +12,21 @@ per_run_fft/
 *.mat
 *.fig
 *FullResolution.csv
-results/PXI-5922/**/average_noise_asd.csv
+history/PXI-5922/results/**/average_noise_asd.csv
 
 # Python environments, bytecode and incomplete pipeline outputs
 .venv/
 venv/
+.venv-field/
+.venv-postprocess/
+.venv-thermal/
+node_modules/
 __pycache__/
 *.py[cod]
 .ipynb_checkpoints/
 *.partial.*
 
-# MATLAB machine-local preferences, certificates and graphics state
+# Keep legacy machine-local preferences/certificates out of future commits.
 /.codex-matlab-*/
 /MathWorks/
 
@@ -54,3 +40,24 @@ desktop.ini
 .idea/
 .vscode/
 *.log
+
+# Build caches and machine-local scratch; source/firmware archives stay versioned.
+/fpga/local_cache/
+/fpga/db/
+/fpga/incremental_db/
+/fpga/greybox_tmp/
+/fpga/*.qws
+/lfs/
+
+# Keep the five existing OPA189 reference fixtures after their relocation.
+!/history/OPA189/data/
+/history/OPA189/data/*
+!/history/OPA189/data/processed/
+/history/OPA189/data/processed/*
+!/history/OPA189/data/processed/formal_test/
+/history/OPA189/data/processed/formal_test/*
+!/history/OPA189/data/processed/formal_test/opa189_four_condition_analysis.mat
+!/history/OPA189/data/processed/formal_test/opa189_four_condition_summary.csv
+!/history/OPA189/data/processed/formal_test/opa189_four_condition_run_summary.csv
+!/history/OPA189/data/processed/formal_test/opa189_four_condition_0p1_to_100hz.png
+!/history/OPA189/data/processed/formal_test/opa189_with_shield_voltage_comparison_0p1_to_100hz.png

@@ -87,6 +87,8 @@ def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
         )
     )
     parser.add_argument("--task-id", type=task_id_value, default=DEFAULT_TASK_ID)
+    parser.add_argument("--task-dir", type=Path,
+                        help="Task directory; captures are written directly to its data/ folder")
     parser.add_argument("--runs", type=positive_int, default=1)
     parser.add_argument("--readings", type=at_least_two_int, default=100)
     parser.add_argument(
@@ -500,7 +502,8 @@ def main(argv: list[str] | None = None, *, check_cancel=None, on_reading=None) -
     check_runtime()
     check_cancel()
     output_base = args.output_dir.expanduser().resolve()
-    task_dir = output_base / args.task_id
+    task_dir = (args.task_dir.expanduser().resolve() / "data"
+                if args.task_dir is not None else output_base / args.task_id)
     task_dir.mkdir(parents=True, exist_ok=True)
 
     resource_manager = pyvisa.ResourceManager()

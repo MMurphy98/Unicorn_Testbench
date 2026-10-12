@@ -1,0 +1,93 @@
+{
+  "format_version": 1,
+  "task_id": "Offset_Chip_1_Gain1001_20260918",
+  "acquisition_status": "completed",
+  "data_status": "complete",
+  "sequence_completed": true,
+  "stop_confirmed": true,
+  "valid_reading_count": 3000,
+  "points": [
+    {
+      "task_id": "Offset_Chip_1_Gain1001_20260918",
+      "stage_index": 1,
+      "target_c": -40.0,
+      "reading_count": 1000,
+      "gain": 1001.0,
+      "output_mean_v": 0.00048629059860000003,
+      "input_offset_mean_v": 4.858047938061939e-07,
+      "input_offset_sample_std_v": 5.254309300746832e-08,
+      "product_temperature_mean_c": -39.55220030349014,
+      "product_temperature_min_c": -41.5,
+      "product_temperature_max_c": -37.9,
+      "temperature_sample_count": 659,
+      "temperature_out_of_band_samples": 363,
+      "first_reading_at_utc": "2026-09-18T12:07:19.648421+00:00",
+      "last_reading_at_utc": "2026-09-18T12:18:19.765921+00:00"
+    },
+    {
+      "task_id": "Offset_Chip_1_Gain1001_20260918",
+      "stage_index": 2,
+      "target_c": 27.0,
+      "reading_count": 1000,
+      "gain": 1001.0,
+      "output_mean_v": -0.00028674385652200003,
+      "input_offset_mean_v": -2.8645739912287714e-07,
+      "input_offset_sample_std_v": 1.1469308580319689e-07,
+      "product_temperature_mean_c": 27.203034901365704,
+      "product_temperature_min_c": 24.8,
+      "product_temperature_max_c": 29.7,
+      "temperature_sample_count": 659,
+      "temperature_out_of_band_samples": 455,
+      "first_reading_at_utc": "2026-09-18T12:23:56.583770+00:00",
+      "last_reading_at_utc": "2026-09-18T12:34:56.403770+00:00"
+    },
+    {
+      "task_id": "Offset_Chip_1_Gain1001_20260918",
+      "stage_index": 3,
+      "target_c": 125.0,
+      "reading_count": 1000,
+      "gain": 1001.0,
+      "output_mean_v": -0.0016352850427,
+      "input_offset_mean_v": -1.6336513913086913e-06,
+      "input_offset_sample_std_v": 3.9458621549225306e-07,
+      "product_temperature_mean_c": 124.05833333333334,
+      "product_temperature_min_c": 120.6,
+      "product_temperature_max_c": 127.6,
+      "temperature_sample_count": 660,
+      "temperature_out_of_band_samples": 513,
+      "first_reading_at_utc": "2026-09-18T12:41:22.663011+00:00",
+      "last_reading_at_utc": "2026-09-18T12:52:22.835011+00:00"
+    }
+  ],
+  "stages": [
+    {
+      "stage_index": 1,
+      "target_c": -40.0,
+      "acquisition_status": "completed",
+      "valid_reading_count": 1000,
+      "error": null,
+      "summary_file": "results/stage_01/Offset_Chip_1_Gain1001_20260918_dcv_offset_summary.json"
+    },
+    {
+      "stage_index": 2,
+      "target_c": 27.0,
+      "acquisition_status": "completed",
+      "valid_reading_count": 1000,
+      "error": null,
+      "summary_file": "results/stage_02/Offset_Chip_1_Gain1001_20260918_dcv_offset_summary.json"
+    },
+    {
+      "stage_index": 3,
+      "target_c": 125.0,
+      "acquisition_status": "completed",
+      "valid_reading_count": 1000,
+      "error": null,
+      "summary_file": "results/stage_03/Offset_Chip_1_Gain1001_20260918_dcv_offset_summary.json"
+    }
+  ],
+  "temperature_window": "Thermal samples between the first and last DMM query-midpoint timestamps; no gap interpolation.",
+  "drift_note": "The three-point slope uses nominal setpoints. It is a descriptive linear fit, not a device specification or uncertainty budget.",
+  "nominal_temperature_linear_slope_v_per_c": -1.2911487697962476e-08,
+  "legacy_run_path": "provenance/legacy_run",
+  "notes": []
+}

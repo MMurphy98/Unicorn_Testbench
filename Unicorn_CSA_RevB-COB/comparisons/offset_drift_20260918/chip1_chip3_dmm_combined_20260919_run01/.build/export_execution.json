@@ -1,0 +1,12 @@
+{
+  "exporter_exit_code": 1,
+  "completed_export_steps": [
+    "6000 measurement rows verified before serialization",
+    "CSV written",
+    "bounded preview written"
+  ],
+  "exporter_diagnostic": "No error diagnostic after final output; process nevertheless returned 1.",
+  "independent_csv_verifier_exit_code": 0,
+  "independent_csv_verification_all_passed": true,
+  "csv_sha256": "998f6d4b55aa7ab33e4d9e9ca8a7a157094657b1611d718257768c6367bd82b3"
+}

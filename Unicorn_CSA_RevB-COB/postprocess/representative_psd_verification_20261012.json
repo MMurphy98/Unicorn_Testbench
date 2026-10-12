@@ -1,0 +1,8 @@
+{
+  "records": 13,
+  "all_passed": true,
+  "max_relative_error": 1.0028267006026557e-14,
+  "rtol": 1e-10,
+  "atol": 0,
+  "purpose": "One real record from each noise group recomputed after task-path changes"
+}

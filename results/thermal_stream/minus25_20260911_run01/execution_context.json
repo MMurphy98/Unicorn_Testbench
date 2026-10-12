@@ -1,9 +1,0 @@
-{
-  "recorded_at": "2026-09-11T17:06:48.4980058+08:00",
-  "git_head": "2cd4efcdc73e599be5518a699d34802697e55fa5",
-  "git_branch": "task/T-20260911-01-offset-drift",
-  "runner_sha256": "E8BB6934767C12F4A37B5112692510283686FBECD1FBB3F7153A3DB102911108",
-  "python_executable": "C:\\Users\\jinge\\AppData\\Local\\Programs\\Python\\Python311\\python.exe",
-  "operator_requested_target_c": -25,
-  "operator_requested_stop_after_recording": true
-}

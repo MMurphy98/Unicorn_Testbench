@@ -1,0 +1,75 @@
+{
+  "format_version": 2,
+  "task_id": "RevB_Chip_3_wiShield_Gmx_max_OSC_default_Vsup_pm6V",
+  "spectrum_file_count": 100,
+  "first_run_number": 1,
+  "last_run_number": 100,
+  "welch_nperseg": 262144,
+  "total_welch_segments": 700,
+  "frequency_resolution_hz": 0.19073486328124997,
+  "estimated_closed_loop_bandwidth_hz": 14985.014985014985,
+  "smoothing_method": "arithmetic mean of PSD in a 1/6-octave full-width band, with at least 5 FFT bins",
+  "approximate_single_bin_asd_one_sigma_fraction": 0.01889822365046136,
+  "targets": {
+    "1_hz": {
+      "target_frequency_hz": 1.0,
+      "nearest_bin_frequency_hz": 0.9536743164062499,
+      "nearest_bin_asd_nv_per_sqrt_hz": 7.39504719963991,
+      "smoothed_estimate_asd_nv_per_sqrt_hz": 7.539210284990806,
+      "smoothing_band_lower_hz": 0.5722045898437499,
+      "smoothing_band_upper_hz": 1.3351440429687498,
+      "smoothing_bin_count": 5
+    },
+    "1000_hz": {
+      "target_frequency_hz": 1000.0,
+      "nearest_bin_frequency_hz": 1000.0228881835936,
+      "nearest_bin_asd_nv_per_sqrt_hz": 4.710522573097783,
+      "smoothed_estimate_asd_nv_per_sqrt_hz": 4.8055365469914095,
+      "smoothing_band_lower_hz": 943.9468383789061,
+      "smoothing_band_upper_hz": 1059.3414306640623,
+      "smoothing_bin_count": 606
+    }
+  },
+  "target_distribution_method": "for each record, arithmetic mean of local PSD followed by square root and conversion to nV/sqrt(Hz)",
+  "target_distributions": {
+    "1_hz": {
+      "count": 100,
+      "mean_asd_nv_per_sqrt_hz": 7.485925718511856,
+      "sample_std_asd_nv_per_sqrt_hz": 0.8992746000509929,
+      "coefficient_of_variation_percent": 12.01287100441282,
+      "minimum_asd_nv_per_sqrt_hz": 5.532057173772886,
+      "percentile_2p5_asd_nv_per_sqrt_hz": 5.920150046171803,
+      "percentile_25_asd_nv_per_sqrt_hz": 6.86374869983409,
+      "median_asd_nv_per_sqrt_hz": 7.452028237733002,
+      "percentile_75_asd_nv_per_sqrt_hz": 8.084219499738056,
+      "percentile_97p5_asd_nv_per_sqrt_hz": 9.36601995010252,
+      "maximum_asd_nv_per_sqrt_hz": 10.35978209247347,
+      "target_frequency_hz": 1.0,
+      "smoothing_band_lower_hz": 0.5722045898437499,
+      "smoothing_band_upper_hz": 1.3351440429687498,
+      "smoothing_bin_count": 5,
+      "asd_from_mean_psd_nv_per_sqrt_hz": 7.539210284990806
+    },
+    "1000_hz": {
+      "count": 100,
+      "mean_asd_nv_per_sqrt_hz": 4.805234201809696,
+      "sample_std_asd_nv_per_sqrt_hz": 0.05417676109636018,
+      "coefficient_of_variation_percent": 1.1274530818072657,
+      "minimum_asd_nv_per_sqrt_hz": 4.6456682105867815,
+      "percentile_2p5_asd_nv_per_sqrt_hz": 4.702202729227217,
+      "percentile_25_asd_nv_per_sqrt_hz": 4.768698602973838,
+      "median_asd_nv_per_sqrt_hz": 4.805504098268372,
+      "percentile_75_asd_nv_per_sqrt_hz": 4.841422914941772,
+      "percentile_97p5_asd_nv_per_sqrt_hz": 4.900012962373596,
+      "maximum_asd_nv_per_sqrt_hz": 4.924269913727513,
+      "target_frequency_hz": 1000.0,
+      "smoothing_band_lower_hz": 943.9468383789061,
+      "smoothing_band_upper_hz": 1059.3414306640623,
+      "smoothing_bin_count": 606,
+      "asd_from_mean_psd_nv_per_sqrt_hz": 4.8055365469914095
+    }
+  },
+  "plot": "/Users/jinge/Projects/Unicorn_Testbench/Unicorn_CSA_RevB-COB/tasks/RevB_Chip_3_wiShield_Gmx_max_OSC_default_Vsup_pm6V/results/RevB_Chip_3_wiShield_Gmx_max_OSC_default_Vsup_pm6V_average_input_noise_asd.png",
+  "distribution_plot": "/Users/jinge/Projects/Unicorn_Testbench/Unicorn_CSA_RevB-COB/tasks/RevB_Chip_3_wiShield_Gmx_max_OSC_default_Vsup_pm6V/results/RevB_Chip_3_wiShield_Gmx_max_OSC_default_Vsup_pm6V_target_asd_distributions.png",
+  "distribution_csv": "/Users/jinge/Projects/Unicorn_Testbench/Unicorn_CSA_RevB-COB/tasks/RevB_Chip_3_wiShield_Gmx_max_OSC_default_Vsup_pm6V/results/RevB_Chip_3_wiShield_Gmx_max_OSC_default_Vsup_pm6V_target_asd_distribution.csv"
+}

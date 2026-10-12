@@ -1,0 +1,80 @@
+{
+  "recorded_at_utc": "2026-09-18T13:03:16.095592+00:00",
+  "chip_id": 2,
+  "actual_gain_v_per_v": 1001,
+  "task_id": "Offset_Chip_2_Gain1001_20260918",
+  "authorization": "User explicitly approved this Chip 2 three-temperature offset plan after confirming chip replacement; remaining conditions inherit the Chip 1 plan.",
+  "physical_conditions": {
+    "gain": "User-approved 1001",
+    "supply": "Not provided",
+    "trim": "Not provided"
+  },
+  "flow_setting_scfm": 6,
+  "temperature_targets_c": [
+    -40,
+    27,
+    125
+  ],
+  "arrival_tolerance_c": 1,
+  "hold_seconds_after_first_arrival": 300,
+  "valid_readings_per_stage": 1000,
+  "known_limitation": "Temperature oscillations are recorded. Fixed waiting time is not a continuous +/-1 C stability test.",
+  "git_branch": "codex/T-20260817-01-noise-retest-20260918",
+  "git_head": "cf8392c5596ba0148129a1b4b17137bf5347915e",
+  "git_status_at_start": [
+    " M README.md",
+    " M Unicorn_CSA_RevB-COB/dut_revb_pmu_noise_capture.ipynb",
+    " M scripts/thermal_stream_offset_drift.md",
+    " M scripts/thermal_stream_temperature_run.py",
+    " M scripts/thermal_stream_temperature_sequence.py",
+    " M \"\\346\\265\\213\\350\\257\\225\\346\\227\\245\\345\\277\\227.md\"",
+    "?? docs/test-reports/2026/09/2026-09-14-T-20260911-01.md",
+    "?? docs/test-reports/2026/09/2026-09-18-T-20260911-01.md",
+    "?? results/offset_drift/analysis_20260914_run01/",
+    "?? results/offset_drift/analysis_20260914_run02/",
+    "?? results/offset_drift/chip1_gain1001_20260918_run01/",
+    "?? results/offset_drift/chip1_gain1001_20260918_run01_preflight.json",
+    "?? results/offset_drift/chip1_gain1001_20260918_run01_preflight_wire.jsonl",
+    "?? results/offset_drift/chip2_gain1001_20260918_run01/",
+    "?? results/offset_drift/chip2_gain1001_20260918_run01_preflight.json",
+    "?? results/offset_drift/chip2_gain1001_20260918_run01_preflight_wire.jsonl",
+    "?? results/thermal_stream/diagnostics_20260918T113034_139326Z.json",
+    "?? results/thermal_stream/diagnostics_20260918T113034_139326Z.wire.jsonl",
+    "?? results/thermal_stream/diagnostics_20260918_preflight.json",
+    "?? results/thermal_stream/diagnostics_20260918_preflight.wire.jsonl",
+    "?? results/thermal_stream/ethernet_setup_20260918.json",
+    "?? results/thermal_stream/ethernet_setup_20260918_ready.json",
+    "?? results/thermal_stream/ethernet_setup_20260918_restored.json",
+    "?? results/thermal_stream/ethernet_setup_20260918_restored.json.restore.json",
+    "?? results/thermal_stream/flow_compare_20260918_run01/",
+    "?? results/thermal_stream/flow_compare_20260918_run01_preflight.json",
+    "?? results/thermal_stream/flow_compare_20260918_run01_preflight.wire.jsonl",
+    "?? results/thermal_stream/flow_compare_20260918_run01_recovery.json",
+    "?? results/thermal_stream/flow_compare_20260918_run01_recovery.wire.jsonl",
+    "?? results/thermal_stream/sequence_20260918_run01/",
+    "?? scripts/analyze_offset_drift_tdms.py",
+    "?? scripts/test_analyze_offset_drift_tdms.py",
+    "?? scripts/test_thermal_stream_flow_comparison.py",
+    "?? scripts/thermal_stream_flow_comparison.md",
+    "?? scripts/thermal_stream_flow_comparison.py"
+  ],
+  "code_provenance": "Acquisition source hashes match the Chip 1 execution snapshots; current execution snapshots and SHA256 are saved by the runner.",
+  "prior_validation": {
+    "linked_offline_tests_passed": 11,
+    "acquisition_sources_changed_since_chip1": false
+  },
+  "preflight_file": "preflight.json",
+  "preflight_wire_file": "preflight_wire.jsonl",
+  "local_report_helpers": {
+    "verify_saved_data.py": {
+      "source": "C:\\Users\\jinge\\Projects\\Unicorn_Testbench\\results\\offset_drift\\chip1_gain1001_20260918_run01\\verify_saved_data.py",
+      "source_sha256": "45de41c8383507d6464862529daa910a5a0671792fd56610d800fb2fd143cac3",
+      "adapted_sha256": "ebbd245f267a8c18df70465cebf9790f44262ac070635d3d71f99c9e6eebdc85"
+    },
+    "write_report.py": {
+      "source": "C:\\Users\\jinge\\Projects\\Unicorn_Testbench\\results\\offset_drift\\chip1_gain1001_20260918_run01\\write_report.py",
+      "source_sha256": "00eba83a0603afcc3c3a48a145e9dc8b69e6fdb86ffcecdc5115dbc5e8e9ecc6",
+      "adapted_sha256": "c9b2965ce969b91277f848973ac73914c31010c87cb534548689960347620c0a"
+    }
+  }
+}

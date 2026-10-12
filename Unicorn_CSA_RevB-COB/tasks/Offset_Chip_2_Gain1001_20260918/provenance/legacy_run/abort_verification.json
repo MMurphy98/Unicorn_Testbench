@@ -1,0 +1,28 @@
+{
+  "verified_at_utc": "2026-09-18T13:12:43.336308+00:00",
+  "purpose": "Abort handling and retained evidence verification; this is not a completed offset test.",
+  "all_abort_checks_passed": true,
+  "checks": {
+    "sequence_aborted": true,
+    "main_and_worker_exit_one": true,
+    "worker_failure_recorded": true,
+    "request_and_failure_identity": true,
+    "request_sha256": true,
+    "chip2_label_and_gain": true,
+    "zero_valid_readings": true,
+    "no_tdms_without_valid_data": true,
+    "later_stages_not_started": true,
+    "waiting_completed": true,
+    "temperature_rows_preserved": true,
+    "thermal_communication_succeeded": true,
+    "controller_stop_confirmed": true,
+    "independent_stop_confirmed": true,
+    "flow_6_scfm_confirmed": true,
+    "dmm_fixed_range_preserved": true,
+    "code_snapshots_match": true
+  },
+  "valid_readings": 0,
+  "temperature_samples": 474,
+  "thermal_requests": 8580,
+  "failed_thermal_requests": 0
+}

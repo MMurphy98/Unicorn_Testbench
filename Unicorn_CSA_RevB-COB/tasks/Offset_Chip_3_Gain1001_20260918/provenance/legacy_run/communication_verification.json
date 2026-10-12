@@ -1,0 +1,11 @@
+{
+  "requests": 54940,
+  "failed_requests": 0,
+  "function_counts": {
+    "3": 18294,
+    "1": 36630,
+    "5": 13,
+    "6": 3
+  },
+  "flow_setting_writes": 0
+}

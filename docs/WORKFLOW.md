@@ -1,107 +1,62 @@
-# 协作与交付规则
+# 个人维护与交付
 
-## 角色
+仓库由用户本人维护。当前保留的测试结果均由用户本人完成；早期委托安排不代表已取得可用于当前基准的测试交付。
+旧协作规则及文件由用户另行备份，仓库中的旧快照已删除。
 
-- 仓库负责人 `@MMurphy98`：发布任务、维护验收标准、审核 PR、决定是否合并到 `main`。
-- 执行人：建立任务分支、每日推送、维护测试代码和按日期记录的测试结论、根据审核意见修改。
+## 记录与结果
 
-执行人不得自行批准自己的 PR。所有交付必须取得仓库负责人的 CODEOWNER approval。
+- [测试安排](../测试安排.md) 维护当前待办、优先级、状态及待补事项。
+- [测试日志](../测试日志.md) 按日期记录本人实际执行的测试、结论、异常及整理工作。
+- 详细条件、数值和限制保存在 `docs/test-reports/` 与对应任务结果目录，安排和日志引用这些证据。
+- 完成采集、数据完整、实验指标通过是不同状态。失败测试保留原因和证据，不能写成有效测量结果。
 
-## 两类提交
+任务编号可以继续用于串联历史记录；新代码整理、维护或分析工作不要求先发布委托任务。
 
-### 任务发布：不需要 PR
+## 分支与 main
 
-根目录 `测试安排.md` 是唯一任务源。仓库负责人可以在 `main` 直接修改并提交该文件，
-用于发布任务、调整优先级、补充验收标准或更新任务状态。
+个人维护可以使用工作分支，也可以直接维护 main。Pull Request 用于需要集中查看差异或讨论的工作，
+是可选方式，不要求维护者指定本人审核或取得本人 approval。
 
-一次任务发布提交只能修改这一个文件：
+本次全面整理先在当前工作分支形成可审查、可复现的基准；发布 main 是之后单独执行的步骤。
+发布前保存原 main 的提交位置，刷新远端状态，核对待提交内容和数据归档，并记录验证结果。
+使用保留历史的合并或快进方式；不因目录整理重写 Git 历史。
 
-```powershell
-git switch main
-git pull --ff-only
-# 编辑根目录 测试安排.md
-git add "测试安排.md"
-git commit -m "task: publish T-YYYYMMDD-NN"
-git push origin main
-```
+仓库内 hook 和 CI 不配置远端分支保护。发布 main 前需要单独核对 GitHub ruleset/branch protection，
+确保它不再要求旧委托审批或已移除的 policy 检查。本轮文件整理不修改远端设置。
 
-本地 hook 会检查暂存区；如果同时修改其他文件，提交会被拒绝。
+## 普通检查
 
-### 测试交付：必须 PR
-
-以下内容不得直接提交到 `main`：
-
-- `matlab/src/` 中的分析函数和算法。
-- `matlab/scripts/` 中的任务分析入口。
-- `matlab/tests/` 中的自动化测试。
-- `docs/test-reports/` 中按日期记录的测试结论。
-- 配置、工作流、说明文档以及任务安排文件之外的所有内容。
-
-标准交付流程：
-
-1. 从 `main` 创建 `task/T-YYYYMMDD-NN-short-name` 分支。
-2. 每日有实际进展时推送代码；当天有测试活动时更新按日期命名的测试结论。
-3. 运行相关 MATLAB 测试，记录准确的命令、环境和结果。
-4. 使用 PR 模板提交交付，并请求 `@MMurphy98` 审核。
-5. 自动检查通过且负责人批准后，方可合并到 `main`。
-
-## 分支与提交
-
-- 一个任务使用一个分支，不在同一 PR 混入无关修改。
-- 分支命名：`task/T-YYYYMMDD-NN-short-name`；修复分支可用
-  `fix/T-YYYYMMDD-NN-short-name`。
-- 交付提交信息：`T-YYYYMMDD-NN: 动词开头的简短说明`。
-- 任务发布提交信息：`task: publish T-YYYYMMDD-NN`。
-- 推荐使用 Squash merge 保持 `main` 历史简洁。
-
-## PR 必填内容
-
-每个交付 PR 必须说明：
-
-1. 测试内容：对象、范围、条件、环境和验收标准。
-2. 测试结果：通过状态、关键指标、异常和结论文件路径。
-3. 测试代码：仓库相对路径和可复现命令。
-4. 测试原始数据链接：稳定的 HTTPS 地址和访问权限；无原始数据时写明原因。
-
-PR 标题使用 `[T-YYYYMMDD-NN] 简要说明`。模板章节不能为空，检查清单必须全部勾选。
-
-## 测试结论记录
-
-- 文件命名：`docs/test-reports/YYYY/MM/YYYY-MM-DD-T-YYYYMMDD-NN.md`。
-- 一个任务同一天使用一个文件；同日多次运行增加独立运行记录。
-- 结论绑定 Git commit、MATLAB 版本、测试代码路径、输入数据链接和运行命令。
-- 失败结果同样记录，不覆盖或删除历史失败原因。
-- 所有层级的 `results/`、`analysis_results/`、`validation_results/` 允许提交图表和摘要。
-  新的 `data/`、`spectra/`、逐次 FFT、原始 TDMS、NPZ/MAT/FIG 及完整分辨率频谱 CSV 不入库；
-  原有参考数据继续用于回归测试。后续确需归档的最终二进制产物应单独审查并使用 Git LFS。
-- 缺少的信息统一写为 `<TBD>`，不根据上下文猜测。
-
-## GitHub 保护规则
-
-`main` 启用以下规则：
-
-- 交付变更必须先发起 Pull Request。
-- 至少 1 个 approval，并强制 CODEOWNER review。
-- 新提交会使旧 approval 失效。
-- PR 描述检查和会话解决后方可合并。
-- 禁止 force push 和删除 `main`。
-- 仓库管理员 `@MMurphy98` 保留绕过权限，只用于直接更新任务安排文件。
-
-GitHub 的分支保护无法将管理员绕过权限限制到某一个文件。因此仓库使用三层约束：
-
-1. 本地 `.githooks/pre-commit` 仅放行单独修改任务安排文件。
-2. `main` push 审计 Action 检查无关联 PR 的推送是否只修改任务安排文件。
-3. CODEOWNERS 和 PR 保护确保其他成员的交付必须由 `@MMurphy98` 批准。
-
-审计 Action 能发现违规的管理员直推，但 GitHub 执行 Action 时提交已经发生；它不能替代负责人对
-管理员绕过权限的正确使用。
-
-## 本地保护
-
-克隆仓库后执行：
+安装本地 hooks 和 Git LFS 支持：
 
 ```powershell
+git lfs install
 git config core.hooksPath .githooks
 ```
 
-本地 hook 可以被绕过，GitHub 分支保护和审计记录是远端补充边界。
+`pre-commit` 对所有分支执行 `git diff --cached --check`，检查空白错误和冲突标记。
+四个标准 Git LFS hooks 继续处理对象下载、检出及推送。
+
+`Offline checks` 在 push、可选 PR 或手动触发时执行 Python 语法、现行文档链接检查及三组离线回归测试。
+它使用模拟仪器或生成的数据，不连接现场设备，不要求下载全部 TDMS。
+
+在安装后处理依赖的 Python 环境中，从仓库根目录执行：
+
+```bash
+python -m pip install -r Unicorn_CSA_RevB-COB/postprocess/requirements-notebook.txt 'PyVISA>=1.13,<2'
+python -m unittest discover -s scripts -p 'test_*.py' -v
+python -m unittest discover -s Unicorn_CSA_RevB-COB/field -p 'test_*.py' -v
+python -m unittest discover -s Unicorn_CSA_RevB-COB/postprocess -p 'test_*.py' -v
+```
+
+旧 DMM 模拟测试还需要 Python 接口包 PyVISA，但不需要 NI-VISA 驱动或仪器。
+MATLAB 代码和测试已移除。现场控制改动在 Windows 设备环境验证；
+报告实际执行范围，不把离线回归写成现场验证。
+
+## 数据与历史实现
+
+正式任务记录来源、单位、处理参数、代码版本及原始文件 SHA-256。
+TDMS、逐次 NPZ、完整分辨率频谱和机器缓存留在独立数据存储；Git 保存结果摘要、图表、代码和来源清单。
+已有用于回归的参考文件按原规则保留。
+
+复制到另一台电脑时，按现场或后处理入口说明复制完整任务数据；只有 Git 检出不等于取得全部原始数据。
+保留的历史源码、固件和报告不因归类而改写测量结论或数值。

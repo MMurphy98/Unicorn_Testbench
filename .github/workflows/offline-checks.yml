@@ -1,0 +1,38 @@
+name: Offline checks
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  python-offline:
+    name: Python offline regression
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      MPLBACKEND: Agg
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install offline test dependencies
+        run: python -m pip install -r Unicorn_CSA_RevB-COB/postprocess/requirements-notebook.txt 'PyVISA>=1.13,<2'
+      - name: Check Python syntax
+        run: python -m compileall -q scripts Unicorn_CSA_RevB-COB/field Unicorn_CSA_RevB-COB/postprocess
+      - name: Check current documentation links
+        run: python scripts/check_document_links.py
+      - name: Test original controllers with simulated instruments
+        run: python -m unittest discover -s scripts -p 'test_*.py' -v
+      - name: Test field entrypoints without hardware
+        run: python -m unittest discover -s Unicorn_CSA_RevB-COB/field -p 'test_*.py' -v
+      - name: Test offline processing with generated fixtures
+        run: python -m unittest discover -s Unicorn_CSA_RevB-COB/postprocess -p 'test_*.py' -v

@@ -54,6 +54,10 @@ class ProtocolError(Exception):
 class Client:
     """Sequential vendor-compatible requests; writes restricted to this task."""
 
+    # An experiment subclass may explicitly allow documented R107 values.
+    # Ordinary temperature runs retain their existing setpoint-only write scope.
+    FLOW_WRITE_VALUES = frozenset()
+
     def __init__(self, host, port, unit, timeout, wire_log, *, mode="cold"):
         self.host, self.port, self.unit = host, port, unit
         self.timeout, self.wire_log = timeout, wire_log
@@ -80,7 +84,8 @@ class Client:
         if function == 5 and (address not in {0, 1, 14, 15, 16, 20, 21, 22}
                               or value not in {0, 0xff00}):
             raise ValueError("Coil write outside the temperature-run allowlist")
-        if function == 6 and address != self.setpoint_address:
+        if function == 6 and address != self.setpoint_address and not (
+                address == 107 and value in self.FLOW_WRITE_VALUES):
             raise ValueError(f"Only the selected setpoint R{self.setpoint_address} may be written")
         if self.sock is None:
             raise ConnectionError("Not connected")

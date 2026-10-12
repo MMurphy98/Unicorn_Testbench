@@ -2,6 +2,20 @@
 
 本目录是面向 Terasic DE2-115 开发板的 Quartus Prime 工程，用于向外部 DUT 提供 1 MHz 时钟、由拨码开关控制的同步信号以及上电复位信号，并通过板载 LED 显示工作状态。
 
+以下功能描述依据保留的 1 MHz 源工程。三份历史 `.sof` 分别保存在 `firmware/`，其中一份文件名标为
+500 kHz；本次仅归类文件，没有重新编译、烧录或确认当前现场使用的固件。
+
+## 目录
+
+- `src/`、`ip/`、`.qpf`、`.qsf`、`pin_assigment.tcl`：可编译源工程及约束，内容未改动。
+- [firmware/index.json](firmware/index.json)：三份历史固件的文件名、日期标签、字节数和 SHA-256。
+- [reports/legacy_build_20260819](reports/legacy_build_20260819/README.md)：原编译报告和引脚报告。
+- [archive](archive/README.md)：历史生成源码、备份源码和旧 Programmer 配置。
+- `local_cache/`：原构建数据库、GUI 状态及中间输出；留在本地，不提交 Git。
+- `output_files/`：未改动的源工程重新编译时使用的本地输出位置。
+
+原位置和新位置的逐文件哈希见 [migration_20261012.json](migration_20261012.json)。
+
 ## 工程信息
 
 | 项目 | 内容 |
@@ -69,10 +83,10 @@ FPGA GPIO 为 3.3-V LVTTL。连接外部 DUT 前，应确认 DUT 输入能够承
 
 ## 烧录文件
 
-本工程交付使用的 SRAM 配置文件为：
+原说明曾指定 2026-08-19 版本作为交付文件，迁移后位置为：
 
 ```text
-output_files/Unicorn_CSA_DE2_115_20260819.sof
+firmware/Unicorn_CSA_DE2_115_20260819.sof
 ```
 
 | 属性 | 值 |
@@ -84,13 +98,21 @@ output_files/Unicorn_CSA_DE2_115_20260819.sof
 
 该 `.sof` 文件用于通过 JTAG 临时配置 FPGA。开发板断电后配置会丢失，再次上电需要重新烧录。
 
+另外两份历史版本也完整保留：
+
+- [2026-08-18 固件](firmware/Unicorn_CSA_DE2_115_20260818.sof)。
+- [2026-08-28 固件，文件名标为 500 kHz](firmware/Unicorn_CSA_DE2_115_20260828_500kHz.sof)。
+
+三个版本均见 [固件清单](firmware/index.json)。日期和 500 kHz 标签来自原文件名；本次不据此选择新的默认版本。
+烧录前使用已经明确确认的固件版本。历史 2026-08-19 编译报告不能作为其他版本的验证记录。
+
 ### Quartus Programmer 烧录步骤
 
 1. 给 DE2-115 上电，并使用 USB-Blaster 连接开发板和电脑。
 2. 打开 Quartus Prime，选择 `Tools -> Programmer`。
 3. 点击 `Hardware Setup...`，选择可用的 `USB-Blaster`。
 4. 将 Programming Mode 设为 `JTAG`。
-5. 点击 `Add File...`，选择 `output_files/Unicorn_CSA_DE2_115_20260819.sof`。
+5. 点击 `Add File...`，选择已确认版本的 `.sof`；原交付版本现位于 `firmware/Unicorn_CSA_DE2_115_20260819.sof`。
 6. 勾选该文件对应的 `Program/Configure`。
 7. 点击 `Start`，等待 Progress 显示 `100% (Successful)`。
 8. 烧录完成后松开 `KEY[0]`，通过 `SW[0]`、`SW[1]` 检查 `LEDR[0]`、`LEDG[0]`，并确认 `LEDG[1]` 指示 PLL 锁定。
@@ -99,6 +121,7 @@ output_files/Unicorn_CSA_DE2_115_20260819.sof
 
 使用 Quartus Prime 18.1 打开 `Unicorn_CSA_DE2_115.qpf`，执行 `Processing -> Start Compilation`。当前 Pin 约束已经写入 `Unicorn_CSA_DE2_115.qsf`；`pin_assigment.tcl` 保存了同一组约束，便于查阅或重新导入。
 
-Quartus 生成的普通输出名是 `output_files/Unicorn_CSA_DE2_115.sof`。对外使用或归档时，应使用本 README 指定的带日期版本 `Unicorn_CSA_DE2_115_20260819.sof`，以免与后续重新编译的文件混淆。
+Quartus 生成的普通输出名仍是 `output_files/Unicorn_CSA_DE2_115.sof`，此本地输出不提交 Git。
+新的交付应明确记录版本、时钟、编译条件及 SHA-256；归档到 `firmware/` 时使用独立文件名，保留已有历史版本。
 
 > 当前工程没有 `.sdc` 时序约束文件。已有编译流程成功生成 `.sof`，但 Quartus Timing Analyzer 会报告缺少 SDC 的 Critical Warning；修改时钟或同步逻辑后，应补充相应时序约束并重新检查时序。

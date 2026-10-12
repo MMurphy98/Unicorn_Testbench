@@ -54,6 +54,8 @@ def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
         )
     )
     parser.add_argument("--task-id", type=task_id_value, default=DEFAULT_TASK_ID)
+    parser.add_argument("--task-dir", type=Path,
+                        help="Task directory; captures are written directly to its data/ folder")
     parser.add_argument("--runs", type=positive_int, default=100)
     parser.add_argument("--resource", default="PXI1Slot2")
     parser.add_argument("--channel", default="0")
@@ -253,7 +255,8 @@ def main(argv: list[str] | None = None) -> int:
     check_runtime()
 
     output_base = args.output_dir.expanduser().resolve()
-    task_dir = output_base / args.task_id
+    task_dir = (args.task_dir.expanduser().resolve() / "data"
+                if args.task_dir is not None else output_base / args.task_id)
     task_dir.mkdir(parents=True, exist_ok=True)
     channel_name = tdms_channel_name(args.channel)
     duration_s = args.samples / args.sample_rate

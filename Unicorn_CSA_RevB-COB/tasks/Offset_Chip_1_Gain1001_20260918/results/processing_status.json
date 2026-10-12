@@ -1,0 +1,16 @@
+{
+  "task_id": "Offset_Chip_1_Gain1001_20260918",
+  "measurement_type": "offset_drift",
+  "chip": 1,
+  "acquisition_status": "completed",
+  "data_status": "complete",
+  "processing_status": "completed",
+  "raw_file_count": 3,
+  "valid_reading_count": 3000,
+  "offset_stage_count": 3,
+  "nominal_temperature_linear_slope_uv_per_c": -0.012911487697962475,
+  "summary_file": "results/offset_drift_summary.json",
+  "notes": [],
+  "task_directory": "Offset_Chip_1_Gain1001_20260918",
+  "processed_at_utc": "2026-10-12T11:59:37.158160+00:00"
+}

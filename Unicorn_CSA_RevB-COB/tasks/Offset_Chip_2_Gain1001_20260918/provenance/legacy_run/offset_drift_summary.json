@@ -1,0 +1,9 @@
+{
+  "task_id": "Offset_Chip_2_Gain1001_20260918",
+  "sequence_completed": false,
+  "stop_confirmed": true,
+  "points": [],
+  "temperature_window": "Thermal samples between the first and last DMM query-midpoint timestamps; no gap interpolation.",
+  "drift_note": "The three-point slope uses nominal setpoints. It is a descriptive linear fit, not a device specification or uncertainty budget.",
+  "nominal_temperature_linear_slope_v_per_c": null
+}

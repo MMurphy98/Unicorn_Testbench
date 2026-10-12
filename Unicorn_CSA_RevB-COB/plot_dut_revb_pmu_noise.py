@@ -40,6 +40,8 @@ def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
         )
     )
     parser.add_argument("--task-id", type=task_id_value, default=DEFAULT_TASK_ID)
+    parser.add_argument("--task-dir", type=Path,
+                        help="Read spectra/ and write results/ directly inside this task directory")
     parser.add_argument(
         "--spectra-dir",
         type=Path,
@@ -378,8 +380,10 @@ def main(argv: list[str] | None = None) -> int:
         matplotlib.use("Agg")
     import matplotlib.pyplot as plt
 
-    task_spectra_dir = args.spectra_dir.expanduser().resolve() / args.task_id
-    task_output_dir = args.output_dir.expanduser().resolve() / args.task_id
+    task_spectra_dir = (args.task_dir.expanduser().resolve() / "spectra"
+                        if args.task_dir is not None else args.spectra_dir.expanduser().resolve() / args.task_id)
+    task_output_dir = (args.task_dir.expanduser().resolve() / "results"
+                       if args.task_dir is not None else args.output_dir.expanduser().resolve() / args.task_id)
     files = numbered_spectrum_files(task_spectra_dir, args.task_id)
     if not files:
         raise FileNotFoundError(

@@ -53,6 +53,12 @@ def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
         )
     )
     parser.add_argument("--task-id", type=task_id_value, default=DEFAULT_TASK_ID)
+    parser.add_argument("--task-dir", type=Path,
+                        help="Read data/ and write results/ directly inside this task directory")
+    parser.add_argument("--input-directory", type=Path,
+                        help="Read TDMS directly from this directory (for a temperature stage)")
+    parser.add_argument("--result-directory", type=Path,
+                        help="Write analysis directly into this directory (for a temperature stage)")
     parser.add_argument(
         "--data-dir",
         type=Path,
@@ -311,8 +317,12 @@ def main(argv: list[str] | None = None) -> int:
         matplotlib.use("Agg")
     import matplotlib.pyplot as plt
 
-    task_data_dir = args.data_dir.expanduser().resolve() / args.task_id
-    task_output_dir = args.output_dir.expanduser().resolve() / args.task_id
+    task_data_dir = (args.input_directory.expanduser().resolve() if args.input_directory is not None
+                     else args.task_dir.expanduser().resolve() / "data" if args.task_dir is not None
+                     else args.data_dir.expanduser().resolve() / args.task_id)
+    task_output_dir = (args.result_directory.expanduser().resolve() if args.result_directory is not None
+                       else args.task_dir.expanduser().resolve() / "results" if args.task_dir is not None
+                       else args.output_dir.expanduser().resolve() / args.task_id)
     files = numbered_tdms_files(task_data_dir, args.task_id)
     if not files:
         raise FileNotFoundError(

@@ -1,0 +1,5 @@
+# The original temperature controller analyzes each DMM stage as part of its
+# completion handshake, so this workflow also needs its existing plotting stack.
+-r requirements.txt
+scipy==1.17.1
+matplotlib==3.11.1

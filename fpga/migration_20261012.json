@@ -1,0 +1,894 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-12",
+  "scope": "FPGA file classification only; no compilation or firmware modification",
+  "build_report_date_provenance": "Existing flow, assembler, fitter, synthesis, and timing reports contain 2026-08-19 timestamps.",
+  "records": [
+    {
+      "original_path": "fpga/.DS_Store",
+      "current_path": "fpga/local_cache/.DS_Store",
+      "category": "local_machine_file",
+      "bytes": 6148,
+      "sha256_before": "53f0b2a2aebdfb2109a6ed8d15a9d4c81f58442e2c31ed69dbca8abe8c97a084",
+      "sha256_after": "53f0b2a2aebdfb2109a6ed8d15a9d4c81f58442e2c31ed69dbca8abe8c97a084"
+    },
+    {
+      "original_path": "fpga/README.md",
+      "current_path": "fpga/README.md",
+      "category": "documentation_updated",
+      "bytes": 5852,
+      "sha256_before": "54c47889f288bd8cab2ae5a85696d431e80998ca514d6dc8e680ce61e5ad31b3",
+      "sha256_after": "86ee3bee9b9b4a9234a5956d4b84a68e494664cc7b58abfe859853fcf1b76a05"
+    },
+    {
+      "original_path": "fpga/Unicorn_CSA_DE2_115.qpf",
+      "current_path": "fpga/Unicorn_CSA_DE2_115.qpf",
+      "category": "retained_source",
+      "bytes": 1332,
+      "sha256_before": "d7675ef55f738ce8f1eb880db364c0605275bbccd81f46dab57e88ae24849319",
+      "sha256_after": "d7675ef55f738ce8f1eb880db364c0605275bbccd81f46dab57e88ae24849319"
+    },
+    {
+      "original_path": "fpga/Unicorn_CSA_DE2_115.qsf",
+      "current_path": "fpga/Unicorn_CSA_DE2_115.qsf",
+      "category": "retained_source",
+      "bytes": 4981,
+      "sha256_before": "0828aa1f310f3594f9f0e66070fa9bec63b397dd01c23e455959759f016a471e",
+      "sha256_after": "0828aa1f310f3594f9f0e66070fa9bec63b397dd01c23e455959759f016a471e"
+    },
+    {
+      "original_path": "fpga/Unicorn_CSA_DE2_115.qws",
+      "current_path": "fpga/local_cache/Unicorn_CSA_DE2_115.qws",
+      "category": "local_build_cache",
+      "bytes": 619,
+      "sha256_before": "f2fbf9a7e091a409b0b80f2a1f01b5436aa2ce965bd45e32ec8ea2dfc1ac537b",
+      "sha256_after": "f2fbf9a7e091a409b0b80f2a1f01b5436aa2ce965bd45e32ec8ea2dfc1ac537b"
+    },
+    {
+      "original_path": "fpga/db/.cmp.kpt",
+      "current_path": "fpga/local_cache/db/.cmp.kpt",
+      "category": "local_build_cache",
+      "bytes": 219,
+      "sha256_before": "ef430dba3a90daf80694fdd8d6a28575e2e219c1df0fbd6cb223ec5e4f496a70",
+      "sha256_after": "ef430dba3a90daf80694fdd8d6a28575e2e219c1df0fbd6cb223ec5e4f496a70"
+    },
+    {
+      "original_path": "fpga/db/Unicorn_CSA_DE2_115.(0).cnf.cdb",
+      "current_path": "fpga/local_cache/db/Unicorn_CSA_DE2_115.(0).cnf.cdb",
+      "category": "local_build_cache",
+      "bytes": 1601,
+      "sha256_before": "8d24d45c18a2bfb811750ce6f001405c83870af76854058ffa57ba8f5d2024ba",
+      "sha256_after": "8d24d45c18a2bfb811750ce6f001405c83870af76854058ffa57ba8f5d2024ba"
+    },
+    {
+      "original_path": "fpga/db/Unicorn_CSA_DE2_115.(0).cnf.hdb",
+      "current_path": "fpga/local_cache/db/Unicorn_CSA_DE2_115.(0).cnf.hdb",
+      "category": "local_build_cache",
+      "bytes": 883,
+      "sha256_before": "e8c5a626a94779812362f85df233a2596dcebb620cc7505c147d5aaf947474f3",
+      "sha256_after": "e8c5a626a94779812362f85df233a2596dcebb620cc7505c147d5aaf947474f3"
+    },
+    {
+      "original_path": "fpga/db/Unicorn_CSA_DE2_115.(1).cnf.cdb",
+      "current_path": "fpga/local_cache/db/Unicorn_CSA_DE2_115.(1).cnf.cdb",
+      "category": "local_build_cache",
+      "bytes": 2053,
+      "sha256_before": "946da2cccb702faa756916f56d91385146c30af2029e451faed6de82b03ade24",
+      "sha256_after": "946da2cccb702faa756916f56d91385146c30af2029e451faed6de82b03ade24"
+    },
+    {
+      "original_path": "fpga/db/Unicorn_CSA_DE2_115.(1).cnf.hdb",
+      "current_path": "fpga/local_cache/db/Unicorn_CSA_DE2_115.(1).cnf.hdb",
+      "category": "local_build_cache",
+      "bytes": 1198,
+      "sha256_before": "ec87804d3e251fc8ee4cd48f5ff78c56b2f31257a9452881d9851475cc2c5ae2",
+      "sha256_after": "ec87804d3e251fc8ee4cd48f5ff78c56b2f31257a9452881d9851475cc2c5ae2"
+    },
+    {
+      "original_path": "fpga/db/Unicorn_CSA_DE2_115.(2).cnf.cdb",
+      "current_path": "fpga/local_cache/db/Unicorn_CSA_DE2_115.(2).cnf.cdb",
+      "category": "local_build_cache",
+      "bytes": 1849,
+      "sha256_before": "d5394e7547297ca26f0f0689995fc3df4204a813cc0d14778c55d116bf289ed0",
+      "sha256_after": "d5394e7547297ca26f0f0689995fc3df4204a813cc0d14778c55d116bf289ed0"
+    },
+    {
+      "original_path": "fpga/db/Unicorn_CSA_DE2_115.(2).cnf.hdb",
+      "current_path": "fpga/local_cache/db/Unicorn_CSA_DE2_115.(2).cnf.hdb",
+      "category": "local_build_cache",
+      "bytes": 1067,
+      "sha256_before": "a5be1e9d252243518716f731ff189bb7b602e5ed734013334dd4642bd23dee00",
+      "sha256_after": "a5be1e9d252243518716f731ff189bb7b602e5ed734013334dd4642bd23dee00"
+    },
+    {
+      "original_path": "fpga/db/Unicorn_CSA_DE2_115.(3).cnf.cdb",
+      "current_path": "fpga/local_cache/db/Unicorn_CSA_DE2_115.(3).cnf.cdb",
+      "category": "local_build_cache",
+      "bytes": 2133,
+      "sha256_before": "1a7ce5c4527e36acae73948997862c4769aea3527c1420981b74c7f993eb9c6e",
+      "sha256_after": "1a7ce5c4527e36acae73948997862c4769aea3527c1420981b74c7f993eb9c6e"
+    },
+    {
+      "original_path": "fpga/db/Unicorn_CSA_DE2_115.(3).cnf.hdb",
+      "current_path": "fpga/local_cache/db/Unicorn_CSA_DE2_115.(3).cnf.hdb",
+      "category": "local_build_cache",
+      "bytes": 1005,
+      "sha256_before": "cb3655230876e087eeb5b05cc2f659151f9a1ec11a007d0b3d2e847933c9ee7e",
+      "sha256_after": "cb3655230876e087eeb5b05cc2f659151f9a1ec11a007d0b3d2e847933c9ee7e"
+    },
+    {
+      "original_path": "fpga/db/Unicorn_CSA_DE2_115.asm.qmsg",
+      "current_path": "fpga/local_cache/db/Unicorn_CSA_DE2_115.asm.qmsg",
+      "category": "local_build_cache",
+      "bytes": 3084,
+      "sha256_before": "07156704dac01e77f0f7680295ffdd2f66d5ac75a388fb0a8ff0377effe0b1ff",
+      "sha256_after": "07156704dac01e77f0f7680295ffdd2f66d5ac75a388fb0a8ff0377effe0b1ff"
+    },
+    {
+      "original_path": "fpga/db/Unicorn_CSA_DE2_115.asm.rdb",
+      "current_path": "fpga/local_cache/db/Unicorn_CSA_DE2_115.asm.rdb",
+      "category": "local_build_cache",
+      "bytes": 829,
+      "sha256_before": "420d36202384bb87bb96232de77dbf32174cba23acf73715897932761cbde326",
+      "sha256_after": "420d36202384bb87bb96232de77dbf32174cba23acf73715897932761cbde326"
+    },
+    {
+      "original_path": "fpga/db/Unicorn_CSA_DE2_115.asm_labs.ddb",
+      "current_path": "fpga/local_cache/db/Unicorn_CSA_DE2_115.asm_labs.ddb",
+      "category": "local_build_cache",
+      "bytes": 89170,
+      "sha256_before": "84586d5ed5ea9b75c78e0e3e6b7117b2dd3dc8492e3ba0f6b91ff12be22b8213",
+      "sha256_after": "84586d5ed5ea9b75c78e0e3e6b7117b2dd3dc8492e3ba0f6b91ff12be22b8213"
+    },
+    {
+      "original_path": "fpga/db/Unicorn_CSA_DE2_115.cbx.xml",
+      "current_path": "fpga/local_cache/db/Unicorn_CSA_DE2_115.cbx.xml",
+      "category": "local_build_cache",
+      "bytes": 101,
+      "sha256_before": "0709704782c3bd8bc90c5fcebb027c87d5330a870039dcc3f290628edcec1ffb",
+      "sha256_after": "0709704782c3bd8bc90c5fcebb027c87d5330a870039dcc3f290628edcec1ffb"
+    },
+    {
+      "original_path": "fpga/db/Unicorn_CSA_DE2_115.cmp.bpm",
+      "current_path": "fpga/local_cache/db/Unicorn_CSA_DE2_115.cmp.bpm",
+      "category": "local_build_cache",
+      "bytes": 902,
+      "sha256_before": "d54f527ff77f3e6a4cb56c7342f8a49d4f544c1eeace1a9dac293c84f0f1ba41",
+      "sha256_after": "d54f527ff77f3e6a4cb56c7342f8a49d4f544c1eeace1a9dac293c84f0f1ba41"
+    },
+    {
+      "original_path": "fpga/db/Unicorn_CSA_DE2_115.cmp.cdb",
+      "current_path": "fpga/local_cache/db/Unicorn_CSA_DE2_115.cmp.cdb",
+      "category": "local_build_cache",
+      "bytes": 6927,
+      "sha256_before": "71b8ac5092585ea290b14f633f8e0f40adad77f828c0406d7bd75b894761b277",
+      "sha256_after": "71b8ac5092585ea290b14f633f8e0f40adad77f828c0406d7bd75b894761b277"
+    },
+    {
+      "original_path": "fpga/db/Unicorn_CSA_DE2_115.cmp.hdb",
+      "current_path": "fpga/local_cache/db/Unicorn_CSA_DE2_115.cmp.hdb",
+      "category": "local_build_cache",
+      "bytes": 13880,
+      "sha256_before": "e93c5acefa0aed04d3657b56ebf7871cf71f03bd5e3a8ca2d1d3e5e375f36ba6",
+      "sha256_after": "e93c5acefa0aed04d3657b56ebf7871cf71f03bd5e3a8ca2d1d3e5e375f36ba6"
+    },
+    {
+      "original_path": "fpga/db/Unicorn_CSA_DE2_115.cmp.idb",
+      "current_path": "fpga/local_cache/db/Unicorn_CSA_DE2_115.cmp.idb",
+      "category": "local_build_cache",
+      "bytes": 1225,
+      "sha256_before": "82393ab99a98a9ffd88c4087f5b732d0d2999c2eb08c2ea0c2744fad08b2807e",
+      "sha256_after": "82393ab99a98a9ffd88c4087f5b732d0d2999c2eb08c2ea0c2744fad08b2807e"
+    },
+    {
+      "original_path": "fpga/db/Unicorn_CSA_DE2_115.cmp.logdb",
+      "current_path": "fpga/local_cache/db/Unicorn_CSA_DE2_115.cmp.logdb",
+      "category": "local_build_cache",
+      "bytes": 10508,
+      "sha256_before": "523818abb7690a73e4301ddb1cd0b11d9a37728cf4599ca26039a4d6201ae212",
+      "sha256_after": "523818abb7690a73e4301ddb1cd0b11d9a37728cf4599ca26039a4d6201ae212"
+    },
+    {
+      "original_path": "fpga/db/Unicorn_CSA_DE2_115.cmp.rdb",
+      "current_path": "fpga/local_cache/db/Unicorn_CSA_DE2_115.cmp.rdb",
+      "category": "local_build_cache",
+      "bytes": 30384,
+      "sha256_before": "d1a13cb104a5cd0e07d6336af69fd10784ac1d1b2ad8bb9d5fb43744c9828db5",
+      "sha256_after": "d1a13cb104a5cd0e07d6336af69fd10784ac1d1b2ad8bb9d5fb43744c9828db5"
+    },
+    {
+      "original_path": "fpga/db/Unicorn_CSA_DE2_115.cmp_merge.kpt",
+      "current_path": "fpga/local_cache/db/Unicorn_CSA_DE2_115.cmp_merge.kpt",
+      "category": "local_build_cache",
+      "bytes": 223,
+      "sha256_before": "375f72062f36281537af7556f405fc311ecef82bd9df01c3987ca5a74228c2e5",
+      "sha256_after": "375f72062f36281537af7556f405fc311ecef82bd9df01c3987ca5a74228c2e5"
+    },
+    {
+      "original_path": "fpga/db/Unicorn_CSA_DE2_115.cycloneive_io_sim_cache.45um_ff_1200mv_0c_fast.hsd",
+      "current_path": "fpga/local_cache/db/Unicorn_CSA_DE2_115.cycloneive_io_sim_cache.45um_ff_1200mv_0c_fast.hsd",
+      "category": "local_build_cache",
+      "bytes": 746439,
+      "sha256_before": "b68402f75236b6899c575ae4a41697e9bc9492d57a89ea4fb98d06b1f0da69b2",
+      "sha256_after": "b68402f75236b6899c575ae4a41697e9bc9492d57a89ea4fb98d06b1f0da69b2"
+    },
+    {
+      "original_path": "fpga/db/Unicorn_CSA_DE2_115.cycloneive_io_sim_cache.45um_ii_1200mv_0c_slow.hsd",
+      "current_path": "fpga/local_cache/db/Unicorn_CSA_DE2_115.cycloneive_io_sim_cache.45um_ii_1200mv_0c_slow.hsd",
+      "category": "local_build_cache",
+      "bytes": 749618,
+      "sha256_before": "81e2c2ff78456152f34f0fa14d95f81ff66840978f941db5508820ae37aafdd5",
+      "sha256_after": "81e2c2ff78456152f34f0fa14d95f81ff66840978f941db5508820ae37aafdd5"
+    },
+    {
+      "original_path": "fpga/db/Unicorn_CSA_DE2_115.cycloneive_io_sim_cache.45um_ii_1200mv_85c_slow.hsd",
+      "current_path": "fpga/local_cache/db/Unicorn_CSA_DE2_115.cycloneive_io_sim_cache.45um_ii_1200mv_85c_slow.hsd",
+      "category": "local_build_cache",
+      "bytes": 749777,
+      "sha256_before": "110e9507db81a612342c9bcc916a30a00bc53873dde156c40b4361c4fe0c3690",
+      "sha256_after": "110e9507db81a612342c9bcc916a30a00bc53873dde156c40b4361c4fe0c3690"
+    },
+    {
+      "original_path": "fpga/db/Unicorn_CSA_DE2_115.db_info",
+      "current_path": "fpga/local_cache/db/Unicorn_CSA_DE2_115.db_info",
+      "category": "local_build_cache",
+      "bytes": 144,
+      "sha256_before": "e6b571fbfa0937ed6192875614b57d6e7deffffd5569f13b26164cc5b7cfac27",
+      "sha256_after": "e6b571fbfa0937ed6192875614b57d6e7deffffd5569f13b26164cc5b7cfac27"
+    },
+    {
+      "original_path": "fpga/db/Unicorn_CSA_DE2_115.fit.qmsg",
+      "current_path": "fpga/local_cache/db/Unicorn_CSA_DE2_115.fit.qmsg",
+      "category": "local_build_cache",
+      "bytes": 25412,
+      "sha256_before": "80a5d55380dcb256543cd26c3dea0dff60bbdef58dc34acc260d44419483988d",
+      "sha256_after": "80a5d55380dcb256543cd26c3dea0dff60bbdef58dc34acc260d44419483988d"
+    },
+    {
+      "original_path": "fpga/db/Unicorn_CSA_DE2_115.hier_info",
+      "current_path": "fpga/local_cache/db/Unicorn_CSA_DE2_115.hier_info",
+      "category": "local_build_cache",
+      "bytes": 2614,
+      "sha256_before": "91cbdc7796849cf494919dba562257f8baf74ca9d8f21e8f383787746a5a5659",
+      "sha256_after": "91cbdc7796849cf494919dba562257f8baf74ca9d8f21e8f383787746a5a5659"
+    },
+    {
+      "original_path": "fpga/db/Unicorn_CSA_DE2_115.hif",
+      "current_path": "fpga/local_cache/db/Unicorn_CSA_DE2_115.hif",
+      "category": "local_build_cache",
+      "bytes": 2823,
+      "sha256_before": "3bde2b189f6f59f14af5d705b1152cc954f2649988afb0a90113f15f9f578a66",
+      "sha256_after": "3bde2b189f6f59f14af5d705b1152cc954f2649988afb0a90113f15f9f578a66"
+    },
+    {
+      "original_path": "fpga/db/Unicorn_CSA_DE2_115.lpc.html",
+      "current_path": "fpga/local_cache/db/Unicorn_CSA_DE2_115.lpc.html",
+      "category": "local_build_cache",
+      "bytes": 810,
+      "sha256_before": "439da683c9b045ffdf2b30f5535889aaaa0f59b6f801558c85f2a2c48a3f6125",
+      "sha256_after": "439da683c9b045ffdf2b30f5535889aaaa0f59b6f801558c85f2a2c48a3f6125"
+    },
+    {
+      "original_path": "fpga/db/Unicorn_CSA_DE2_115.lpc.rdb",
+      "current_path": "fpga/local_cache/db/Unicorn_CSA_DE2_115.lpc.rdb",
+      "category": "local_build_cache",
+      "bytes": 498,
+      "sha256_before": "ae1e4ada7172515cfd48b69838f5e83ae87f8259bd99aad5de333632c0856adb",
+      "sha256_after": "ae1e4ada7172515cfd48b69838f5e83ae87f8259bd99aad5de333632c0856adb"
+    },
+    {
+      "original_path": "fpga/db/Unicorn_CSA_DE2_115.lpc.txt",
+      "current_path": "fpga/local_cache/db/Unicorn_CSA_DE2_115.lpc.txt",
+      "category": "local_build_cache",
+      "bytes": 1944,
+      "sha256_before": "1582a8eb751a9dd3a04d8218713358e9a47764e1fb0acbf10095bfcaa07a6a6b",
+      "sha256_after": "1582a8eb751a9dd3a04d8218713358e9a47764e1fb0acbf10095bfcaa07a6a6b"
+    },
+    {
+      "original_path": "fpga/db/Unicorn_CSA_DE2_115.map.ammdb",
+      "current_path": "fpga/local_cache/db/Unicorn_CSA_DE2_115.map.ammdb",
+      "category": "local_build_cache",
+      "bytes": 133,
+      "sha256_before": "af1e5443490b1171909511c6b648a477db1059495dd3d9ea338fb95563bae060",
+      "sha256_after": "af1e5443490b1171909511c6b648a477db1059495dd3d9ea338fb95563bae060"
+    },
+    {
+      "original_path": "fpga/db/Unicorn_CSA_DE2_115.map.bpm",
+      "current_path": "fpga/local_cache/db/Unicorn_CSA_DE2_115.map.bpm",
+      "category": "local_build_cache",
+      "bytes": 814,
+      "sha256_before": "c373c0218771b4f3869b746c1efbed950d390184b787ec518ed0763b17a46535",
+      "sha256_after": "c373c0218771b4f3869b746c1efbed950d390184b787ec518ed0763b17a46535"
+    },
+    {
+      "original_path": "fpga/db/Unicorn_CSA_DE2_115.map.cdb",
+      "current_path": "fpga/local_cache/db/Unicorn_CSA_DE2_115.map.cdb",
+      "category": "local_build_cache",
+      "bytes": 3839,
+      "sha256_before": "986b27707635ee354c567a7c896dfd3826274be15d648d7a5f73f74f9913ece9",
+      "sha256_after": "986b27707635ee354c567a7c896dfd3826274be15d648d7a5f73f74f9913ece9"
+    },
+    {
+      "original_path": "fpga/db/Unicorn_CSA_DE2_115.map.hdb",
+      "current_path": "fpga/local_cache/db/Unicorn_CSA_DE2_115.map.hdb",
+      "category": "local_build_cache",
+      "bytes": 12879,
+      "sha256_before": "b6f913b6e88e496749e1299a45114becbaffb182a8e161c9af8842ce2084e706",
+      "sha256_after": "b6f913b6e88e496749e1299a45114becbaffb182a8e161c9af8842ce2084e706"
+    },
+    {
+      "original_path": "fpga/db/Unicorn_CSA_DE2_115.map.kpt",
+      "current_path": "fpga/local_cache/db/Unicorn_CSA_DE2_115.map.kpt",
+      "category": "local_build_cache",
+      "bytes": 419,
+      "sha256_before": "04c3af1b76821efb389c17d49723817e160091904419b182796d24acc6ece7ca",
+      "sha256_after": "04c3af1b76821efb389c17d49723817e160091904419b182796d24acc6ece7ca"
+    },
+    {
+      "original_path": "fpga/db/Unicorn_CSA_DE2_115.map.logdb",
+      "current_path": "fpga/local_cache/db/Unicorn_CSA_DE2_115.map.logdb",
+      "category": "local_build_cache",
+      "bytes": 4,
+      "sha256_before": "2dfede0e6610c473959c963b292fcec325452acba33fd1bba21110e04933df53",
+      "sha256_after": "2dfede0e6610c473959c963b292fcec325452acba33fd1bba21110e04933df53"
+    },
+    {
+      "original_path": "fpga/db/Unicorn_CSA_DE2_115.map.qmsg",
+      "current_path": "fpga/local_cache/db/Unicorn_CSA_DE2_115.map.qmsg",
+      "category": "local_build_cache",
+      "bytes": 19913,
+      "sha256_before": "eeb10f3b41f865621cc6e36326970c2fb38c775d80aaf249361661560f8c5547",
+      "sha256_after": "eeb10f3b41f865621cc6e36326970c2fb38c775d80aaf249361661560f8c5547"
+    },
+    {
+      "original_path": "fpga/db/Unicorn_CSA_DE2_115.map.rdb",
+      "current_path": "fpga/local_cache/db/Unicorn_CSA_DE2_115.map.rdb",
+      "category": "local_build_cache",
+      "bytes": 1351,
+      "sha256_before": "6197ba4f6b37489043929980809dde3c97e69abfd62e5cd7ae9fb34146de98bf",
+      "sha256_after": "6197ba4f6b37489043929980809dde3c97e69abfd62e5cd7ae9fb34146de98bf"
+    },
+    {
+      "original_path": "fpga/db/Unicorn_CSA_DE2_115.map_bb.cdb",
+      "current_path": "fpga/local_cache/db/Unicorn_CSA_DE2_115.map_bb.cdb",
+      "category": "local_build_cache",
+      "bytes": 2113,
+      "sha256_before": "ad442c0a3088243c5c23e104f205599f081811aaab82e6d8a7dfbb7088cf2ec7",
+      "sha256_after": "ad442c0a3088243c5c23e104f205599f081811aaab82e6d8a7dfbb7088cf2ec7"
+    },
+    {
+      "original_path": "fpga/db/Unicorn_CSA_DE2_115.map_bb.hdb",
+      "current_path": "fpga/local_cache/db/Unicorn_CSA_DE2_115.map_bb.hdb",
+      "category": "local_build_cache",
+      "bytes": 11201,
+      "sha256_before": "cfd0df9518fdb25749d56970de9fb7ff8cecaa933877fedfca0a3dd83e6b858a",
+      "sha256_after": "cfd0df9518fdb25749d56970de9fb7ff8cecaa933877fedfca0a3dd83e6b858a"
+    },
+    {
+      "original_path": "fpga/db/Unicorn_CSA_DE2_115.map_bb.logdb",
+      "current_path": "fpga/local_cache/db/Unicorn_CSA_DE2_115.map_bb.logdb",
+      "category": "local_build_cache",
+      "bytes": 4,
+      "sha256_before": "2dfede0e6610c473959c963b292fcec325452acba33fd1bba21110e04933df53",
+      "sha256_after": "2dfede0e6610c473959c963b292fcec325452acba33fd1bba21110e04933df53"
+    },
+    {
+      "original_path": "fpga/db/Unicorn_CSA_DE2_115.pplq.rdb",
+      "current_path": "fpga/local_cache/db/Unicorn_CSA_DE2_115.pplq.rdb",
+      "category": "local_build_cache",
+      "bytes": 303,
+      "sha256_before": "24066902a53123431797523b9904c8f598e11d4c5682571e85633c84328fc2df",
+      "sha256_after": "24066902a53123431797523b9904c8f598e11d4c5682571e85633c84328fc2df"
+    },
+    {
+      "original_path": "fpga/db/Unicorn_CSA_DE2_115.pre_map.hdb",
+      "current_path": "fpga/local_cache/db/Unicorn_CSA_DE2_115.pre_map.hdb",
+      "category": "local_build_cache",
+      "bytes": 21204,
+      "sha256_before": "4959a08a22545c233db6c8a48a3460fb0f7c70c6951e67509bca2adc91544fad",
+      "sha256_after": "4959a08a22545c233db6c8a48a3460fb0f7c70c6951e67509bca2adc91544fad"
+    },
+    {
+      "original_path": "fpga/db/Unicorn_CSA_DE2_115.root_partition.map.reg_db.cdb",
+      "current_path": "fpga/local_cache/db/Unicorn_CSA_DE2_115.root_partition.map.reg_db.cdb",
+      "category": "local_build_cache",
+      "bytes": 236,
+      "sha256_before": "0e38bff716e2f16f655a7a1a445230ce2fc199438165cf8af5314a38ec45b220",
+      "sha256_after": "0e38bff716e2f16f655a7a1a445230ce2fc199438165cf8af5314a38ec45b220"
+    },
+    {
+      "original_path": "fpga/db/Unicorn_CSA_DE2_115.routing.rdb",
+      "current_path": "fpga/local_cache/db/Unicorn_CSA_DE2_115.routing.rdb",
+      "category": "local_build_cache",
+      "bytes": 28670,
+      "sha256_before": "facb90b0602e1dd767975ac85f9e00b1f1e03003f7353a794c333a20d07c3281",
+      "sha256_after": "facb90b0602e1dd767975ac85f9e00b1f1e03003f7353a794c333a20d07c3281"
+    },
+    {
+      "original_path": "fpga/db/Unicorn_CSA_DE2_115.rtlv.hdb",
+      "current_path": "fpga/local_cache/db/Unicorn_CSA_DE2_115.rtlv.hdb",
+      "category": "local_build_cache",
+      "bytes": 15355,
+      "sha256_before": "ab2668963e30a923ec71c6bdb0377ea69c5c8dbdc52514bb1bc5e73e26cfb904",
+      "sha256_after": "ab2668963e30a923ec71c6bdb0377ea69c5c8dbdc52514bb1bc5e73e26cfb904"
+    },
+    {
+      "original_path": "fpga/db/Unicorn_CSA_DE2_115.rtlv_sg.cdb",
+      "current_path": "fpga/local_cache/db/Unicorn_CSA_DE2_115.rtlv_sg.cdb",
+      "category": "local_build_cache",
+      "bytes": 5427,
+      "sha256_before": "73d8ba571f2f37aa603821107d38edc9357a1cfc3675c3ceea4ebb25388c751a",
+      "sha256_after": "73d8ba571f2f37aa603821107d38edc9357a1cfc3675c3ceea4ebb25388c751a"
+    },
+    {
+      "original_path": "fpga/db/Unicorn_CSA_DE2_115.rtlv_sg_swap.cdb",
+      "current_path": "fpga/local_cache/db/Unicorn_CSA_DE2_115.rtlv_sg_swap.cdb",
+      "category": "local_build_cache",
+      "bytes": 3567,
+      "sha256_before": "c585e46e4e6ad76729586d00db429811fde02c0f4caf541a648ac580a4fe96b4",
+      "sha256_after": "c585e46e4e6ad76729586d00db429811fde02c0f4caf541a648ac580a4fe96b4"
+    },
+    {
+      "original_path": "fpga/db/Unicorn_CSA_DE2_115.sld_design_entry.sci",
+      "current_path": "fpga/local_cache/db/Unicorn_CSA_DE2_115.sld_design_entry.sci",
+      "category": "local_build_cache",
+      "bytes": 227,
+      "sha256_before": "1ab208080d55cb8804ee365b1172b7831c1fcd72f854640f46e815b5cdb45417",
+      "sha256_after": "1ab208080d55cb8804ee365b1172b7831c1fcd72f854640f46e815b5cdb45417"
+    },
+    {
+      "original_path": "fpga/db/Unicorn_CSA_DE2_115.sld_design_entry_dsc.sci",
+      "current_path": "fpga/local_cache/db/Unicorn_CSA_DE2_115.sld_design_entry_dsc.sci",
+      "category": "local_build_cache",
+      "bytes": 227,
+      "sha256_before": "1ab208080d55cb8804ee365b1172b7831c1fcd72f854640f46e815b5cdb45417",
+      "sha256_after": "1ab208080d55cb8804ee365b1172b7831c1fcd72f854640f46e815b5cdb45417"
+    },
+    {
+      "original_path": "fpga/db/Unicorn_CSA_DE2_115.smart_action.txt",
+      "current_path": "fpga/local_cache/db/Unicorn_CSA_DE2_115.smart_action.txt",
+      "category": "local_build_cache",
+      "bytes": 6,
+      "sha256_before": "47acd618a9d45e43b901feaf0edae12ffaa1764399fb271bebf55607e9e7d9a5",
+      "sha256_after": "47acd618a9d45e43b901feaf0edae12ffaa1764399fb271bebf55607e9e7d9a5"
+    },
+    {
+      "original_path": "fpga/db/Unicorn_CSA_DE2_115.sta.qmsg",
+      "current_path": "fpga/local_cache/db/Unicorn_CSA_DE2_115.sta.qmsg",
+      "category": "local_build_cache",
+      "bytes": 14478,
+      "sha256_before": "d35fe4a17273a335e2f972d1d7e03e81f3493a5c24cc529b662b3412fb1ce114",
+      "sha256_after": "d35fe4a17273a335e2f972d1d7e03e81f3493a5c24cc529b662b3412fb1ce114"
+    },
+    {
+      "original_path": "fpga/db/Unicorn_CSA_DE2_115.sta.rdb",
+      "current_path": "fpga/local_cache/db/Unicorn_CSA_DE2_115.sta.rdb",
+      "category": "local_build_cache",
+      "bytes": 7487,
+      "sha256_before": "9f3fb2ab2393348ebd95d0337476f9c8a5b493a1de129fbf5da1315bb9bf4511",
+      "sha256_after": "9f3fb2ab2393348ebd95d0337476f9c8a5b493a1de129fbf5da1315bb9bf4511"
+    },
+    {
+      "original_path": "fpga/db/Unicorn_CSA_DE2_115.sta_cmp.7_slow_1200mv_85c.tdb",
+      "current_path": "fpga/local_cache/db/Unicorn_CSA_DE2_115.sta_cmp.7_slow_1200mv_85c.tdb",
+      "category": "local_build_cache",
+      "bytes": 4083,
+      "sha256_before": "bb3a653bdd411b26b310d8bc109c5637f5c613f40d667740d574fb9d0a016e83",
+      "sha256_after": "bb3a653bdd411b26b310d8bc109c5637f5c613f40d667740d574fb9d0a016e83"
+    },
+    {
+      "original_path": "fpga/db/Unicorn_CSA_DE2_115.tis_db_list.ddb",
+      "current_path": "fpga/local_cache/db/Unicorn_CSA_DE2_115.tis_db_list.ddb",
+      "category": "local_build_cache",
+      "bytes": 298,
+      "sha256_before": "b5f0a8a6d869f530b5b08f999a42b97046ca44745ad043629c91dadcf0f0d8e5",
+      "sha256_after": "b5f0a8a6d869f530b5b08f999a42b97046ca44745ad043629c91dadcf0f0d8e5"
+    },
+    {
+      "original_path": "fpga/db/Unicorn_CSA_DE2_115.tiscmp.fast_1200mv_0c.ddb",
+      "current_path": "fpga/local_cache/db/Unicorn_CSA_DE2_115.tiscmp.fast_1200mv_0c.ddb",
+      "category": "local_build_cache",
+      "bytes": 116256,
+      "sha256_before": "341fd0063334a7c6c367709afd0d441b7831d3327df9dedb9efbdd80b333f92c",
+      "sha256_after": "341fd0063334a7c6c367709afd0d441b7831d3327df9dedb9efbdd80b333f92c"
+    },
+    {
+      "original_path": "fpga/db/Unicorn_CSA_DE2_115.tiscmp.slow_1200mv_0c.ddb",
+      "current_path": "fpga/local_cache/db/Unicorn_CSA_DE2_115.tiscmp.slow_1200mv_0c.ddb",
+      "category": "local_build_cache",
+      "bytes": 115757,
+      "sha256_before": "977dc77d0c9cff52a74f6adef0f919272e927f2735a573880b3876dcc5aa77e9",
+      "sha256_after": "977dc77d0c9cff52a74f6adef0f919272e927f2735a573880b3876dcc5aa77e9"
+    },
+    {
+      "original_path": "fpga/db/Unicorn_CSA_DE2_115.tiscmp.slow_1200mv_85c.ddb",
+      "current_path": "fpga/local_cache/db/Unicorn_CSA_DE2_115.tiscmp.slow_1200mv_85c.ddb",
+      "category": "local_build_cache",
+      "bytes": 115574,
+      "sha256_before": "0f7758342ec94eac40a1488bdf1b5523e18f2c8633c09e1f8b55e6fabf31cd6d",
+      "sha256_after": "0f7758342ec94eac40a1488bdf1b5523e18f2c8633c09e1f8b55e6fabf31cd6d"
+    },
+    {
+      "original_path": "fpga/db/Unicorn_CSA_DE2_115.tmw_info",
+      "current_path": "fpga/local_cache/db/Unicorn_CSA_DE2_115.tmw_info",
+      "category": "local_build_cache",
+      "bytes": 304,
+      "sha256_before": "13a5c87f63abe3af926a0615027ab869374fbb65e1f2dde626f44585e122c9b3",
+      "sha256_after": "13a5c87f63abe3af926a0615027ab869374fbb65e1f2dde626f44585e122c9b3"
+    },
+    {
+      "original_path": "fpga/db/Unicorn_CSA_DE2_115.vpr.ammdb",
+      "current_path": "fpga/local_cache/db/Unicorn_CSA_DE2_115.vpr.ammdb",
+      "category": "local_build_cache",
+      "bytes": 514,
+      "sha256_before": "409d3ab309a92f72ac6ac81e7f5409f1c120806931dbf323c9e98c2bc406cc3b",
+      "sha256_after": "409d3ab309a92f72ac6ac81e7f5409f1c120806931dbf323c9e98c2bc406cc3b"
+    },
+    {
+      "original_path": "fpga/db/Unicorn_CSA_DE2_115_partition_pins.json",
+      "current_path": "fpga/local_cache/db/Unicorn_CSA_DE2_115_partition_pins.json",
+      "category": "local_build_cache",
+      "bytes": 613,
+      "sha256_before": "94359990c332bdebc21ec7ae9321941d57242d4a8e794bb326f89aadf6f4e694",
+      "sha256_after": "94359990c332bdebc21ec7ae9321941d57242d4a8e794bb326f89aadf6f4e694"
+    },
+    {
+      "original_path": "fpga/db/pll_altpll.v",
+      "current_path": "fpga/archive/generated_sources/pll_altpll.v",
+      "category": "archived_generated_source",
+      "bytes": 4612,
+      "sha256_before": "f5c401b1ab2f35cbeba5482c7aa2710c0cc7508f3413dcf5ddd2487f8526e764",
+      "sha256_after": "f5c401b1ab2f35cbeba5482c7aa2710c0cc7508f3413dcf5ddd2487f8526e764"
+    },
+    {
+      "original_path": "fpga/db/prev_cmp_Unicorn_CSA_DE2_115.qmsg",
+      "current_path": "fpga/local_cache/db/prev_cmp_Unicorn_CSA_DE2_115.qmsg",
+      "category": "local_build_cache",
+      "bytes": 19913,
+      "sha256_before": "73f78d80768ffb61e9ccc8245a0c0a73386717c95adf9e91fd836b16a9e66719",
+      "sha256_after": "73f78d80768ffb61e9ccc8245a0c0a73386717c95adf9e91fd836b16a9e66719"
+    },
+    {
+      "original_path": "fpga/greybox_tmp/cbx_args.txt",
+      "current_path": "fpga/local_cache/greybox_tmp/cbx_args.txt",
+      "category": "local_build_cache",
+      "bytes": 1453,
+      "sha256_before": "7f1ff5a5bebefcedc3d81971ec7395775ebd1ab0bdefbf036c62250ecdbc176f",
+      "sha256_after": "7f1ff5a5bebefcedc3d81971ec7395775ebd1ab0bdefbf036c62250ecdbc176f"
+    },
+    {
+      "original_path": "fpga/incremental_db/README",
+      "current_path": "fpga/local_cache/incremental_db/README",
+      "category": "local_build_cache",
+      "bytes": 653,
+      "sha256_before": "bd005f0652ca29160c77642b084b3f6b3ba88c474095d862e5d0a0c7879814b4",
+      "sha256_after": "bd005f0652ca29160c77642b084b3f6b3ba88c474095d862e5d0a0c7879814b4"
+    },
+    {
+      "original_path": "fpga/incremental_db/compiled_partitions/Unicorn_CSA_DE2_115.db_info",
+      "current_path": "fpga/local_cache/incremental_db/compiled_partitions/Unicorn_CSA_DE2_115.db_info",
+      "category": "local_build_cache",
+      "bytes": 144,
+      "sha256_before": "bfb3a8ca63ac9e1e715c3e19b768e21cc0adbfa9ee05a7aa4dd52b71970dba5a",
+      "sha256_after": "bfb3a8ca63ac9e1e715c3e19b768e21cc0adbfa9ee05a7aa4dd52b71970dba5a"
+    },
+    {
+      "original_path": "fpga/incremental_db/compiled_partitions/Unicorn_CSA_DE2_115.root_partition.cmp.ammdb",
+      "current_path": "fpga/local_cache/incremental_db/compiled_partitions/Unicorn_CSA_DE2_115.root_partition.cmp.ammdb",
+      "category": "local_build_cache",
+      "bytes": 323,
+      "sha256_before": "6e5231a356aa326387f599574dd3d9473d5e1c9c259c46b57671e2e55b48ed0e",
+      "sha256_after": "6e5231a356aa326387f599574dd3d9473d5e1c9c259c46b57671e2e55b48ed0e"
+    },
+    {
+      "original_path": "fpga/incremental_db/compiled_partitions/Unicorn_CSA_DE2_115.root_partition.cmp.cdb",
+      "current_path": "fpga/local_cache/incremental_db/compiled_partitions/Unicorn_CSA_DE2_115.root_partition.cmp.cdb",
+      "category": "local_build_cache",
+      "bytes": 4574,
+      "sha256_before": "37293ab922a561b954b50799df107515cc0971a45463db137551b1f00c731679",
+      "sha256_after": "37293ab922a561b954b50799df107515cc0971a45463db137551b1f00c731679"
+    },
+    {
+      "original_path": "fpga/incremental_db/compiled_partitions/Unicorn_CSA_DE2_115.root_partition.cmp.dfp",
+      "current_path": "fpga/local_cache/incremental_db/compiled_partitions/Unicorn_CSA_DE2_115.root_partition.cmp.dfp",
+      "category": "local_build_cache",
+      "bytes": 33,
+      "sha256_before": "a6ae55c17174b65af6de0b1e51c4edc823941aae2a58b293fa6f28b016738c04",
+      "sha256_after": "a6ae55c17174b65af6de0b1e51c4edc823941aae2a58b293fa6f28b016738c04"
+    },
+    {
+      "original_path": "fpga/incremental_db/compiled_partitions/Unicorn_CSA_DE2_115.root_partition.cmp.hdb",
+      "current_path": "fpga/local_cache/incremental_db/compiled_partitions/Unicorn_CSA_DE2_115.root_partition.cmp.hdb",
+      "category": "local_build_cache",
+      "bytes": 12563,
+      "sha256_before": "c77c901b16f3c1f49b2295ef9924a6b221379602dffe9c7dccedc0efe0237220",
+      "sha256_after": "c77c901b16f3c1f49b2295ef9924a6b221379602dffe9c7dccedc0efe0237220"
+    },
+    {
+      "original_path": "fpga/incremental_db/compiled_partitions/Unicorn_CSA_DE2_115.root_partition.cmp.logdb",
+      "current_path": "fpga/local_cache/incremental_db/compiled_partitions/Unicorn_CSA_DE2_115.root_partition.cmp.logdb",
+      "category": "local_build_cache",
+      "bytes": 4,
+      "sha256_before": "2dfede0e6610c473959c963b292fcec325452acba33fd1bba21110e04933df53",
+      "sha256_after": "2dfede0e6610c473959c963b292fcec325452acba33fd1bba21110e04933df53"
+    },
+    {
+      "original_path": "fpga/incremental_db/compiled_partitions/Unicorn_CSA_DE2_115.root_partition.cmp.rcfdb",
+      "current_path": "fpga/local_cache/incremental_db/compiled_partitions/Unicorn_CSA_DE2_115.root_partition.cmp.rcfdb",
+      "category": "local_build_cache",
+      "bytes": 2720,
+      "sha256_before": "7fee4981ceb35872f08f590b79134dcb27994bb2ee70f1f5aee568b91876633c",
+      "sha256_after": "7fee4981ceb35872f08f590b79134dcb27994bb2ee70f1f5aee568b91876633c"
+    },
+    {
+      "original_path": "fpga/incremental_db/compiled_partitions/Unicorn_CSA_DE2_115.root_partition.map.cdb",
+      "current_path": "fpga/local_cache/incremental_db/compiled_partitions/Unicorn_CSA_DE2_115.root_partition.map.cdb",
+      "category": "local_build_cache",
+      "bytes": 3432,
+      "sha256_before": "3e6d8ca76d8e76e5f606e622c6bbca84b30d92c5d05aceb8820b7b65c0b04528",
+      "sha256_after": "3e6d8ca76d8e76e5f606e622c6bbca84b30d92c5d05aceb8820b7b65c0b04528"
+    },
+    {
+      "original_path": "fpga/incremental_db/compiled_partitions/Unicorn_CSA_DE2_115.root_partition.map.dpi",
+      "current_path": "fpga/local_cache/incremental_db/compiled_partitions/Unicorn_CSA_DE2_115.root_partition.map.dpi",
+      "category": "local_build_cache",
+      "bytes": 3685,
+      "sha256_before": "b49891f7f3f11b7429aa45178fe9b316d2b59722ae782290f286cb1fc7b1ffec",
+      "sha256_after": "b49891f7f3f11b7429aa45178fe9b316d2b59722ae782290f286cb1fc7b1ffec"
+    },
+    {
+      "original_path": "fpga/incremental_db/compiled_partitions/Unicorn_CSA_DE2_115.root_partition.map.hbdb.cdb",
+      "current_path": "fpga/local_cache/incremental_db/compiled_partitions/Unicorn_CSA_DE2_115.root_partition.map.hbdb.cdb",
+      "category": "local_build_cache",
+      "bytes": 2911,
+      "sha256_before": "662717f5094688f2d3bcea991bc509db30e19b20035a64c2e35a8c7c0f1414ab",
+      "sha256_after": "662717f5094688f2d3bcea991bc509db30e19b20035a64c2e35a8c7c0f1414ab"
+    },
+    {
+      "original_path": "fpga/incremental_db/compiled_partitions/Unicorn_CSA_DE2_115.root_partition.map.hbdb.hb_info",
+      "current_path": "fpga/local_cache/incremental_db/compiled_partitions/Unicorn_CSA_DE2_115.root_partition.map.hbdb.hb_info",
+      "category": "local_build_cache",
+      "bytes": 48,
+      "sha256_before": "8ccbc34c833b6e62323e9155b271865f54a3b56970f3d85bc59d8853b15ee471",
+      "sha256_after": "8ccbc34c833b6e62323e9155b271865f54a3b56970f3d85bc59d8853b15ee471"
+    },
+    {
+      "original_path": "fpga/incremental_db/compiled_partitions/Unicorn_CSA_DE2_115.root_partition.map.hbdb.hdb",
+      "current_path": "fpga/local_cache/incremental_db/compiled_partitions/Unicorn_CSA_DE2_115.root_partition.map.hbdb.hdb",
+      "category": "local_build_cache",
+      "bytes": 11765,
+      "sha256_before": "b1b462185853a55c55b1a73916ae93868f5982996fc919203a92a29254f481f1",
+      "sha256_after": "b1b462185853a55c55b1a73916ae93868f5982996fc919203a92a29254f481f1"
+    },
+    {
+      "original_path": "fpga/incremental_db/compiled_partitions/Unicorn_CSA_DE2_115.root_partition.map.hbdb.sig",
+      "current_path": "fpga/local_cache/incremental_db/compiled_partitions/Unicorn_CSA_DE2_115.root_partition.map.hbdb.sig",
+      "category": "local_build_cache",
+      "bytes": 32,
+      "sha256_before": "226be4fa3a3f82404cb3dd03fbb841ebaf7722c10726a6c2c835482776ca8ae1",
+      "sha256_after": "226be4fa3a3f82404cb3dd03fbb841ebaf7722c10726a6c2c835482776ca8ae1"
+    },
+    {
+      "original_path": "fpga/incremental_db/compiled_partitions/Unicorn_CSA_DE2_115.root_partition.map.hdb",
+      "current_path": "fpga/local_cache/incremental_db/compiled_partitions/Unicorn_CSA_DE2_115.root_partition.map.hdb",
+      "category": "local_build_cache",
+      "bytes": 11683,
+      "sha256_before": "27eaa5292a0e967e660f5d52f0f4a2da1a77cc89c2bd0a48ef26db7428a6ec3f",
+      "sha256_after": "27eaa5292a0e967e660f5d52f0f4a2da1a77cc89c2bd0a48ef26db7428a6ec3f"
+    },
+    {
+      "original_path": "fpga/incremental_db/compiled_partitions/Unicorn_CSA_DE2_115.root_partition.map.kpt",
+      "current_path": "fpga/local_cache/incremental_db/compiled_partitions/Unicorn_CSA_DE2_115.root_partition.map.kpt",
+      "category": "local_build_cache",
+      "bytes": 422,
+      "sha256_before": "2cf24289470277aa6d05230669c56a905ab741dd42ca2a95333562b2a859571a",
+      "sha256_after": "2cf24289470277aa6d05230669c56a905ab741dd42ca2a95333562b2a859571a"
+    },
+    {
+      "original_path": "fpga/incremental_db/compiled_partitions/Unicorn_CSA_DE2_115.rrp.hdb",
+      "current_path": "fpga/local_cache/incremental_db/compiled_partitions/Unicorn_CSA_DE2_115.rrp.hdb",
+      "category": "local_build_cache",
+      "bytes": 13836,
+      "sha256_before": "0b3a0ccbd9b94ad79594dcf86632ad4f0a6290619fc207876641068af544a124",
+      "sha256_after": "0b3a0ccbd9b94ad79594dcf86632ad4f0a6290619fc207876641068af544a124"
+    },
+    {
+      "original_path": "fpga/ip/pll.ppf",
+      "current_path": "fpga/ip/pll.ppf",
+      "category": "retained_source",
+      "bytes": 472,
+      "sha256_before": "39b500edcff4df4dbb2055d4368e3bac0c6aca23b811ff3dfcfab5cbf4ddea29",
+      "sha256_after": "39b500edcff4df4dbb2055d4368e3bac0c6aca23b811ff3dfcfab5cbf4ddea29"
+    },
+    {
+      "original_path": "fpga/ip/pll.qip",
+      "current_path": "fpga/ip/pll.qip",
+      "category": "retained_source",
+      "bytes": 424,
+      "sha256_before": "0bd6af40a16cef8ef14e7cdfaac904fb796cb659137e24db167efff2ba8e4e3e",
+      "sha256_after": "0bd6af40a16cef8ef14e7cdfaac904fb796cb659137e24db167efff2ba8e4e3e"
+    },
+    {
+      "original_path": "fpga/ip/pll.v",
+      "current_path": "fpga/ip/pll.v",
+      "category": "retained_source",
+      "bytes": 15253,
+      "sha256_before": "99e22755ff848692a1639ae6d7c3894af73969c3f51be56c860921155b94d389",
+      "sha256_after": "99e22755ff848692a1639ae6d7c3894af73969c3f51be56c860921155b94d389"
+    },
+    {
+      "original_path": "fpga/ip/pll_bb.v",
+      "current_path": "fpga/ip/pll_bb.v",
+      "category": "retained_source",
+      "bytes": 11360,
+      "sha256_before": "3e0d63a3209ab806cffc7542610c47eeedc6da57770b2dfe067978e353dc28b6",
+      "sha256_after": "3e0d63a3209ab806cffc7542610c47eeedc6da57770b2dfe067978e353dc28b6"
+    },
+    {
+      "original_path": "fpga/output_files/Unicorn_CSA_DE2_115.asm.rpt",
+      "current_path": "fpga/reports/legacy_build_20260819/Unicorn_CSA_DE2_115.asm.rpt",
+      "category": "historical_build_report",
+      "bytes": 4699,
+      "sha256_before": "1c81e482edc7d0dcfef3560bb67f9af65e265092ed0eaa518530040e345f0f07",
+      "sha256_after": "1c81e482edc7d0dcfef3560bb67f9af65e265092ed0eaa518530040e345f0f07"
+    },
+    {
+      "original_path": "fpga/output_files/Unicorn_CSA_DE2_115.cdf",
+      "current_path": "fpga/archive/programmer/Unicorn_CSA_DE2_115.cdf",
+      "category": "machine_specific_programmer_file",
+      "bytes": 366,
+      "sha256_before": "a8e2b4293b0add1a99b8d4f5e2dcd2ff2a9662a42dbafd50aa43a25c99f70027",
+      "sha256_after": "a8e2b4293b0add1a99b8d4f5e2dcd2ff2a9662a42dbafd50aa43a25c99f70027"
+    },
+    {
+      "original_path": "fpga/output_files/Unicorn_CSA_DE2_115.done",
+      "current_path": "fpga/local_cache/output_files/Unicorn_CSA_DE2_115.done",
+      "category": "local_build_cache",
+      "bytes": 26,
+      "sha256_before": "26e9131905ef16551b5ba3ed92797327a0600b9c56d2a3418aa8cc985329d96b",
+      "sha256_after": "26e9131905ef16551b5ba3ed92797327a0600b9c56d2a3418aa8cc985329d96b"
+    },
+    {
+      "original_path": "fpga/output_files/Unicorn_CSA_DE2_115.fit.rpt",
+      "current_path": "fpga/reports/legacy_build_20260819/Unicorn_CSA_DE2_115.fit.rpt",
+      "category": "historical_build_report",
+      "bytes": 240527,
+      "sha256_before": "009e8332da244c38f18ab75bb2940c5c48e8e35fcf3b3bb6968f49f4e9af3259",
+      "sha256_after": "009e8332da244c38f18ab75bb2940c5c48e8e35fcf3b3bb6968f49f4e9af3259"
+    },
+    {
+      "original_path": "fpga/output_files/Unicorn_CSA_DE2_115.fit.smsg",
+      "current_path": "fpga/local_cache/output_files/Unicorn_CSA_DE2_115.fit.smsg",
+      "category": "local_build_cache",
+      "bytes": 703,
+      "sha256_before": "bff381894c1dc45dfc5f6fb651d1bbe3793ead7f7adc4646fd1806e464e18e75",
+      "sha256_after": "bff381894c1dc45dfc5f6fb651d1bbe3793ead7f7adc4646fd1806e464e18e75"
+    },
+    {
+      "original_path": "fpga/output_files/Unicorn_CSA_DE2_115.fit.summary",
+      "current_path": "fpga/reports/legacy_build_20260819/Unicorn_CSA_DE2_115.fit.summary",
+      "category": "historical_build_report",
+      "bytes": 642,
+      "sha256_before": "059eda8a4fb20e4bd73075136353e90304f0356ef68aaff53195518e2efe0db5",
+      "sha256_after": "059eda8a4fb20e4bd73075136353e90304f0356ef68aaff53195518e2efe0db5"
+    },
+    {
+      "original_path": "fpga/output_files/Unicorn_CSA_DE2_115.flow.rpt",
+      "current_path": "fpga/reports/legacy_build_20260819/Unicorn_CSA_DE2_115.flow.rpt",
+      "category": "historical_build_report",
+      "bytes": 8716,
+      "sha256_before": "b91d0d93cab56a5b90e757141d4c95525181de9746668517e8ee6752a1ac1ed8",
+      "sha256_after": "b91d0d93cab56a5b90e757141d4c95525181de9746668517e8ee6752a1ac1ed8"
+    },
+    {
+      "original_path": "fpga/output_files/Unicorn_CSA_DE2_115.jdi",
+      "current_path": "fpga/local_cache/output_files/Unicorn_CSA_DE2_115.jdi",
+      "category": "local_build_cache",
+      "bytes": 239,
+      "sha256_before": "3a7b445b62cdc41191d9330d48b363de718e943624f301c6e1ad9c8d2639c70c",
+      "sha256_after": "3a7b445b62cdc41191d9330d48b363de718e943624f301c6e1ad9c8d2639c70c"
+    },
+    {
+      "original_path": "fpga/output_files/Unicorn_CSA_DE2_115.map.rpt",
+      "current_path": "fpga/reports/legacy_build_20260819/Unicorn_CSA_DE2_115.map.rpt",
+      "category": "historical_build_report",
+      "bytes": 66278,
+      "sha256_before": "d2f5d24e17c8409ad866b5ce8cbb059ed0bae85f0a4d43970d06b000603d513d",
+      "sha256_after": "d2f5d24e17c8409ad866b5ce8cbb059ed0bae85f0a4d43970d06b000603d513d"
+    },
+    {
+      "original_path": "fpga/output_files/Unicorn_CSA_DE2_115.map.summary",
+      "current_path": "fpga/reports/legacy_build_20260819/Unicorn_CSA_DE2_115.map.summary",
+      "category": "historical_build_report",
+      "bytes": 488,
+      "sha256_before": "3d6c8b97ab03a9590a8d1aeb9c479e37f96de40357fe80c9e69be32850457f49",
+      "sha256_after": "3d6c8b97ab03a9590a8d1aeb9c479e37f96de40357fe80c9e69be32850457f49"
+    },
+    {
+      "original_path": "fpga/output_files/Unicorn_CSA_DE2_115.pin",
+      "current_path": "fpga/reports/legacy_build_20260819/Unicorn_CSA_DE2_115.pin",
+      "category": "historical_build_report",
+      "bytes": 92619,
+      "sha256_before": "762059b78b5652b8baae4fa691d19886445d35479f9dc9c77028b5843f03a779",
+      "sha256_after": "762059b78b5652b8baae4fa691d19886445d35479f9dc9c77028b5843f03a779"
+    },
+    {
+      "original_path": "fpga/output_files/Unicorn_CSA_DE2_115.sld",
+      "current_path": "fpga/local_cache/output_files/Unicorn_CSA_DE2_115.sld",
+      "category": "local_build_cache",
+      "bytes": 21,
+      "sha256_before": "c7de3cc5544a1144192d6825eb69cf5e065bf99f16fb9acb42fadd23adede991",
+      "sha256_after": "c7de3cc5544a1144192d6825eb69cf5e065bf99f16fb9acb42fadd23adede991"
+    },
+    {
+      "original_path": "fpga/output_files/Unicorn_CSA_DE2_115.sta.rpt",
+      "current_path": "fpga/reports/legacy_build_20260819/Unicorn_CSA_DE2_115.sta.rpt",
+      "category": "historical_build_report",
+      "bytes": 59458,
+      "sha256_before": "9de51d3aeb5092f9fbf8eccc2b06cdec8df572c1c9b78f3e29cab4e9dec17553",
+      "sha256_after": "9de51d3aeb5092f9fbf8eccc2b06cdec8df572c1c9b78f3e29cab4e9dec17553"
+    },
+    {
+      "original_path": "fpga/output_files/Unicorn_CSA_DE2_115.sta.summary",
+      "current_path": "fpga/reports/legacy_build_20260819/Unicorn_CSA_DE2_115.sta.summary",
+      "category": "historical_build_report",
+      "bytes": 908,
+      "sha256_before": "89b6cd5dc916e6380487c2dd5f02b5be6f64f0f497038c457f51767d04119b44",
+      "sha256_after": "89b6cd5dc916e6380487c2dd5f02b5be6f64f0f497038c457f51767d04119b44"
+    },
+    {
+      "original_path": "fpga/output_files/Unicorn_CSA_DE2_115_20260818.sof",
+      "current_path": "fpga/firmware/Unicorn_CSA_DE2_115_20260818.sof",
+      "category": "historical_firmware",
+      "bytes": 3541772,
+      "sha256_before": "a4739e21ae4b99f570b14c18848fa30107013a70a335788ebc9c713eb7384d45",
+      "sha256_after": "a4739e21ae4b99f570b14c18848fa30107013a70a335788ebc9c713eb7384d45"
+    },
+    {
+      "original_path": "fpga/output_files/Unicorn_CSA_DE2_115_20260819.sof",
+      "current_path": "fpga/firmware/Unicorn_CSA_DE2_115_20260819.sof",
+      "category": "historical_firmware",
+      "bytes": 3541772,
+      "sha256_before": "93218d7d393435f9f4596893011271e3f03e6e29b97c5b1e3242cce0fdf1c24e",
+      "sha256_after": "93218d7d393435f9f4596893011271e3f03e6e29b97c5b1e3242cce0fdf1c24e"
+    },
+    {
+      "original_path": "fpga/output_files/Unicorn_CSA_DE2_115_20260828_500kHz.sof",
+      "current_path": "fpga/firmware/Unicorn_CSA_DE2_115_20260828_500kHz.sof",
+      "category": "historical_firmware",
+      "bytes": 3541772,
+      "sha256_before": "16ee06855b625a27ee09fde195500f3387c7701fbc4561b0981f802eeb482b13",
+      "sha256_after": "16ee06855b625a27ee09fde195500f3387c7701fbc4561b0981f802eeb482b13"
+    },
+    {
+      "original_path": "fpga/pin_assigment.tcl",
+      "current_path": "fpga/pin_assigment.tcl",
+      "category": "retained_source",
+      "bytes": 2295,
+      "sha256_before": "ad441f142dda984cea283405e2ebf8ec454f1e9c8cf39795b371384b9b0439cd",
+      "sha256_after": "ad441f142dda984cea283405e2ebf8ec454f1e9c8cf39795b371384b9b0439cd"
+    },
+    {
+      "original_path": "fpga/src/Unicorn_CAS_DE2_115.v",
+      "current_path": "fpga/src/Unicorn_CAS_DE2_115.v",
+      "category": "retained_source",
+      "bytes": 1075,
+      "sha256_before": "8891462b1bd83cc5e20e4c7c9623b92fb0ad334555ce7efcf618f5f8facbb68f",
+      "sha256_after": "8891462b1bd83cc5e20e4c7c9623b92fb0ad334555ce7efcf618f5f8facbb68f"
+    },
+    {
+      "original_path": "fpga/src/Unicorn_CAS_DE2_115.v.bak",
+      "current_path": "fpga/archive/source_backups/Unicorn_CAS_DE2_115.v.bak",
+      "category": "archived_source_backup",
+      "bytes": 1017,
+      "sha256_before": "630b551451da6dfff9ec0f7a668474436d4c9508258cdc7fcbbd07f509ac599b",
+      "sha256_after": "630b551451da6dfff9ec0f7a668474436d4c9508258cdc7fcbbd07f509ac599b"
+    }
+  ],
+  "verification": {
+    "original_file_count": 110,
+    "preserved_artifacts": 109,
+    "all_artifact_bytes_unchanged": true,
+    "documentation_change": "fpga/README.md updated for new navigation; its original version is preserved in legacy/baseline_snapshot_20261012/fpga/README.md"
+  }
+}

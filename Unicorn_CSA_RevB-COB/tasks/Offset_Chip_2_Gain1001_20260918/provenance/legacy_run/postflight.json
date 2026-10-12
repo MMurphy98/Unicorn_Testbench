@@ -1,0 +1,37 @@
+{
+  "started_at_utc": "2026-09-18T13:11:03.329548+00:00",
+  "read_only": true,
+  "independent_connection": true,
+  "thermal": {
+    "air_temperature_c": 25.4,
+    "product_temperature_c": -12.1,
+    "temperature_output_raw": 177,
+    "setpoint_readback_c": -40.0,
+    "temperature_slope_raw": 0,
+    "flow_raw": 54,
+    "running": false,
+    "product_control": true,
+    "cold_mode": true,
+    "cold_flag": true,
+    "hot_mode": false,
+    "ambient_mode": false,
+    "hot_flag": false,
+    "ambient_flag": false,
+    "program_mode": false,
+    "timer_enabled": false,
+    "defrost_active": false,
+    "tuning_active": false,
+    "flow_setting_raw": 60
+  },
+  "dmm": {
+    "identity": "KEITHLEY INSTRUMENTS,MODEL DMM7510,04476049,1.6.7d",
+    "terminals": "FRON",
+    "function": "\"VOLT:DC\"",
+    "range_v": "0.1",
+    "autorange": "0",
+    "nplc": "10",
+    "input_impedance": "AUTO"
+  },
+  "at_utc": "2026-09-18T13:11:03.512676+00:00",
+  "stop_and_flow_confirmed": true
+}

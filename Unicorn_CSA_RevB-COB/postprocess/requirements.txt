@@ -1,0 +1,5 @@
+# Offline only: Python 3.10+ on Windows, macOS, or Linux; no NI/VISA drivers.
+numpy>=1.26,<3
+scipy>=1.11,<2
+matplotlib>=3.8,<4
+npTDMS>=1.9,<2

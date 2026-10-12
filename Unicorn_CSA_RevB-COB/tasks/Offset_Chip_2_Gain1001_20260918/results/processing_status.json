@@ -1,0 +1,18 @@
+{
+  "task_id": "Offset_Chip_2_Gain1001_20260918",
+  "measurement_type": "offset_drift",
+  "chip": 2,
+  "acquisition_status": "failed",
+  "data_status": "failed",
+  "processing_status": "completed",
+  "raw_file_count": 0,
+  "valid_reading_count": 0,
+  "offset_stage_count": 0,
+  "nominal_temperature_linear_slope_uv_per_c": null,
+  "summary_file": "results/offset_drift_summary.json",
+  "notes": [
+    "Stage 1 acquisition failed; no offset estimate."
+  ],
+  "task_directory": "Offset_Chip_2_Gain1001_20260918",
+  "processed_at_utc": "2026-10-12T11:52:24.987637+00:00"
+}

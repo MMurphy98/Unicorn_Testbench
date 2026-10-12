@@ -42,6 +42,8 @@ def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
         )
     )
     parser.add_argument("--task-id", type=task_id_value, default=DEFAULT_TASK_ID)
+    parser.add_argument("--task-dir", type=Path,
+                        help="Read data/ and write spectra/ directly inside this task directory")
     parser.add_argument(
         "--data-dir",
         type=Path,
@@ -234,8 +236,10 @@ def save_spectrum(
 
 def main(argv: list[str] | None = None) -> int:
     args = parse_args(argv)
-    task_data_dir = args.data_dir.expanduser().resolve() / args.task_id
-    task_output_dir = args.output_dir.expanduser().resolve() / args.task_id
+    task_data_dir = (args.task_dir.expanduser().resolve() / "data"
+                     if args.task_dir is not None else args.data_dir.expanduser().resolve() / args.task_id)
+    task_output_dir = (args.task_dir.expanduser().resolve() / "spectra"
+                       if args.task_dir is not None else args.output_dir.expanduser().resolve() / args.task_id)
     captures = numbered_tdms_files(task_data_dir, args.task_id)
     if not captures:
         raise FileNotFoundError(

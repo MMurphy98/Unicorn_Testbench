@@ -1,0 +1,18 @@
+{
+  "task_id": "RevB_Chip_2_wiShield_Gmx_max_OSC_default_Vsup_pm6V",
+  "measurement_type": "noise",
+  "chip": 2,
+  "acquisition_status": "completed",
+  "data_status": "complete",
+  "processing_status": "completed",
+  "raw_file_count": 100,
+  "spectrum_file_count": 100,
+  "spectra_created": 0,
+  "spectra_reused": 100,
+  "noise_1_hz_nv_per_sqrt_hz": 34.04684184948979,
+  "noise_1000_hz_nv_per_sqrt_hz": 4.824876331869191,
+  "summary_file": "results/RevB_Chip_2_wiShield_Gmx_max_OSC_default_Vsup_pm6V_noise_summary.json",
+  "notes": [],
+  "task_directory": "RevB_Chip_2_wiShield_Gmx_max_OSC_default_Vsup_pm6V",
+  "processed_at_utc": "2026-10-12T11:52:34.402964+00:00"
+}

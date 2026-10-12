@@ -1,0 +1,13 @@
+Metric,ExpectedValue,MeasuredValue,ErrorValue,AcceptanceLimit,Pass,ErrorDefinition,Unit
+Explicit PSD vs MATLAB periodogram,0,6.31745069119095e-16,6.31745069119095e-16,1e-11,1,max|P-Pref|/max(Pref),ratio
+Explicit PSD vs MATLAB one-segment pwelch,0,6.31745069119095e-16,6.31745069119095e-16,1e-11,1,max|P-Pref|/max(Pref),ratio
+Frequency grid vs MATLAB references,0,0,0,1e-12,1,maximum absolute frequency error,Hz
+Explicit vs MATLAB periodic Hamming,0,6.66133814775094e-16,6.66133814775094e-16,1e-12,1,maximum absolute window-coefficient error,coefficient
+Maximum Parseval relative error,0,3.43820903147856e-16,3.43820903147856e-16,1e-12,1,|RMSfreq-RMStime|/RMStime,ratio
+Known ensemble broadband ASD (100 Hz-10 kHz),6.32455532033676e-06,6.32397391753094e-06,9.192785521972e-05,0.01,1,absolute relative error,V/sqrt(Hz)
+Known ensemble 1 Hz 1/12-octave ASD,6.32455532033676e-06,6.10874416803905e-06,0.0341227392863125,0.3,1,absolute relative error; relaxed for low statistical DOF,V/sqrt(Hz)
+Known white-noise integrated RMS (1 Hz-25 kHz),0.000999979545282531,0.000999795395188086,0.000184153861260139,0.01,1,absolute relative error,Vrms
+Flat PSD through 1/12-octave smoother,0,1.94032014780505e-13,1.94032014780505e-13,1e-12,1,maximum relative error,ratio
+Octave smoothing/ensemble linearity,0,1.60842700000599e-15,1.60842700000599e-15,1e-12,1,maximum relative error,ratio
+Known coherent-tone peak ASD,0.000401783005981238,0.000401783005981238,4.44089209850063e-16,1e-08,1,absolute relative error,V/sqrt(Hz)
+Known coherent-tone main-lobe RMS,0.0001,0.0001,1.11022302462516e-16,1e-08,1,absolute relative error,Vrms

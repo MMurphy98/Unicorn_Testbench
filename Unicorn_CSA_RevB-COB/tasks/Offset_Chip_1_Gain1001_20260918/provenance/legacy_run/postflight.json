@@ -1,0 +1,28 @@
+{
+  "started_at_utc": "2026-09-18T12:52:51.431556+00:00",
+  "read_only": true,
+  "independent_connection": true,
+  "thermal": {
+    "air_temperature_c": 25.6,
+    "product_temperature_c": 88.1,
+    "temperature_output_raw": 62,
+    "setpoint_readback_c": 125.0,
+    "temperature_slope_raw": 0,
+    "flow_raw": 58,
+    "running": false,
+    "product_control": true,
+    "cold_mode": false,
+    "cold_flag": false,
+    "hot_mode": true,
+    "ambient_mode": false,
+    "hot_flag": true,
+    "ambient_flag": false,
+    "program_mode": false,
+    "timer_enabled": false,
+    "defrost_active": false,
+    "tuning_active": false,
+    "flow_setting_raw": 60
+  },
+  "at_utc": "2026-09-18T12:52:51.530222+00:00",
+  "passed": true
+}

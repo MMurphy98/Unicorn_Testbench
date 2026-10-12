@@ -1,0 +1,47 @@
+{
+  "at_utc": "2026-09-18T13:18:23.752257+00:00",
+  "output_dir": "C:\\Users\\jinge\\Projects\\Unicorn_Testbench\\results\\offset_drift\\chip3_gain1001_20260918_run01",
+  "read_only": true,
+  "chip_id": 3,
+  "gain": 1001,
+  "dmm_resources": [
+    "USB0::0x05E6::0x7510::04476049::INSTR"
+  ],
+  "dmm": {
+    "identity": "KEITHLEY INSTRUMENTS,MODEL DMM7510,04476049,1.6.7d",
+    "terminals": "FRON",
+    "range_v": "0.1",
+    "nplc": "10",
+    "line_frequency_hz": "50"
+  },
+  "thermal": {
+    "air_temperature_c": -17.9,
+    "product_temperature_c": 26.7,
+    "temperature_output_raw": 120,
+    "setpoint_readback_c": 27.0,
+    "temperature_slope_raw": 0,
+    "flow_raw": 59,
+    "running": true,
+    "product_control": true,
+    "cold_mode": false,
+    "cold_flag": false,
+    "hot_mode": false,
+    "ambient_mode": true,
+    "hot_flag": false,
+    "ambient_flag": true,
+    "program_mode": false,
+    "timer_enabled": false,
+    "defrost_active": false,
+    "tuning_active": false,
+    "flow_setting_raw": 60
+  },
+  "checks": {
+    "dmm_identity": true,
+    "front_terminals": true,
+    "line_frequency_50hz": true,
+    "flow_6_scfm": true,
+    "no_defrost_or_tuning": true
+  },
+  "passed": true,
+  "startup_policy": "Confirm STOP before setting the first temperature, whether preflight finds the instrument stopped or running."
+}

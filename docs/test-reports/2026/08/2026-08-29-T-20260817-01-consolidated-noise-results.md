@@ -1,5 +1,9 @@
 # 2026-08-29 - T-20260817-01 - Unicorn CSA RevA COB 噪声测试合并报告
 
+> 2026-10-12 整理说明：用户确认本报告保留的测试由项目负责人本人执行；旧委托安排不作为当前保留成果的执行人或完成状态依据。
+> 测试方法、历史数值与异常记录保持；文中的当日待办不自动代表当前状态。现用路径已更新；旧版原文由用户另行备份，仓库中的基线快照已删除。
+> 项目 MATLAB 源码、分析和专用测试入口已按本次用户要求移除；MAT／FIG 数据与历史验证证据保留，下文 MATLAB 方法描述只记录当时实验。
+
 ## 1. 报告目的与当前状态
 
 本文档合并截至 2026-08-29 已完成的 Unicorn CSA RevA COB 噪声测试、MATLAB 频谱验证和测试链路排查结果，作为后续复测与设计迭代的统一基线。
@@ -162,7 +166,7 @@ wiShield 相对 woShield nominal：
 
 结论：屏蔽罩没有降低宽带噪声。50 Hz 与 150 Hz 的相反变化说明屏蔽层更可能改变了工频耦合和回流路径，而不是降低 DUT 本征白噪声。
 
-![Shielding comparison](../../../../Unicorn_CSA_RevA-COB_wiShiled_20260828/analysis_results/welch_8s_50pct/Shielding_Comparison.png)
+![Shielding comparison](../../../../history/RevA/Unicorn_CSA_RevA-COB_wiShiled_20260828/analysis_results/welch_8s_50pct/Shielding_Comparison.png)
 
 ### 5.4 1.2×电流影响
 
@@ -181,7 +185,7 @@ wiShield 相对 woShield nominal：
 
 1 kHz下降是稳定且可重复的；对比脚本给出的 repeatability-only 95% 区间为 `−6.218% 至 −4.299%`，不跨越零，但该区间不包含顺序测试造成的系统误差。10–100 Hz 的下降还包含 50 Hz spur 大幅下降的贡献，不能全部归因于 DUT 本征噪声改善。与此同时，1–25 kHz积分值上升、10–25 kHz滚降减小，推测与偏置增加后 DUT 带宽提高有关。由于20–25 kHz处于PXI滤波过渡区，该高频结论只用于相同设置下的相对比较。
 
-![Current comparison](../../../../Unicorn_CSA_RevA-COB_woShiled_1p2_20260828/analysis_results/welch_8s_50pct/Current_1p2_vs_Nominal.png)
+![Current comparison](../../../../history/RevA/Unicorn_CSA_RevA-COB_woShiled_1p2_20260828/analysis_results/welch_8s_50pct/Current_1p2_vs_Nominal.png)
 
 ## 6. Gain = 101新增初步结果
 
@@ -428,9 +432,9 @@ R_{meas}=R_f\parallel(R_L+R_g)
 
 当前实测方向是主偏置从1.0增加到1.2后噪声下降，因此不建议为降低1 kHz噪声而同时降低主OTA偏置电流。若继续优化斩波，应固定主偏置、小步扫描`fchop`，并使用PSTB检查周期稳定性。
 
-## 11. 测量算法验证
+## 11. 历史测量算法验证
 
-MATLAB合成验证复刻了`Fs = 50 kSa/s`、1,100,002点和20次记录，并与`periodogram`及单段`pwelch`交叉检查。
+当时的 MATLAB 合成验证复刻了`Fs = 50 kSa/s`、1,100,002点和20次记录，并与`periodogram`及单段`pwelch`交叉检查。
 
 关键结果：
 
@@ -495,40 +499,35 @@ S_{DUT,in}(f)
 ASD_{DUT,in}(f)=\sqrt{\max(S_{DUT,in}(f),0)}
 \]
 
-## 14. 数据、脚本与结果索引
+## 14. 保留数据与结果索引
+
+2026-10-12 按用户要求移除原 MATLAB 分析和验证入口；当前保留下面的数据、图表、摘要及历史验证输出，本次未新增替代分析流程。
 
 ### Gain = 1001，woShield nominal
 
-- 原始目录：`Unicorn_CSA_RevA-COB_woShiled_20260828/`
-- 分析入口：`Unicorn_CSA_RevA-COB_woShiled_20260828/analyze_20run_welch_8s_noise.m`
-- 结果目录：`Unicorn_CSA_RevA-COB_woShiled_20260828/analysis_results/welch_8s_50pct/`
+- 原始目录：`history/RevA/Unicorn_CSA_RevA-COB_woShiled_20260828/`
+- 结果目录：`history/RevA/Unicorn_CSA_RevA-COB_woShiled_20260828/analysis_results/welch_8s_50pct/`
 
 ### Gain = 1001，wiShield nominal
 
-- 原始目录：`Unicorn_CSA_RevA-COB_wiShiled_20260828/`
-- 分析入口：`Unicorn_CSA_RevA-COB_wiShiled_20260828/analyze_20run_welch_8s_noise.m`
-- 结果目录：`Unicorn_CSA_RevA-COB_wiShiled_20260828/analysis_results/welch_8s_50pct/`
-- 屏蔽对比入口：`Unicorn_CSA_RevA-COB_wiShiled_20260828/compare_wi_vs_wo_welch_8s.m`
+- 原始目录：`history/RevA/Unicorn_CSA_RevA-COB_wiShiled_20260828/`
+- 结果目录：`history/RevA/Unicorn_CSA_RevA-COB_wiShiled_20260828/analysis_results/welch_8s_50pct/`
 
 ### Gain = 1001，woShield 1.2× current
 
-- 原始目录：`Unicorn_CSA_RevA-COB_woShiled_1p2_20260828/`
-- 分析入口：`Unicorn_CSA_RevA-COB_woShiled_1p2_20260828/analyze_20run_welch_8s_noise.m`
-- 结果目录：`Unicorn_CSA_RevA-COB_woShiled_1p2_20260828/analysis_results/welch_8s_50pct/`
-- 电流对比入口：`Unicorn_CSA_RevA-COB_woShiled_1p2_20260828/compare_1p2_vs_nominal_wo_noise.m`
+- 原始目录：`history/RevA/Unicorn_CSA_RevA-COB_woShiled_1p2_20260828/`
+- 结果目录：`history/RevA/Unicorn_CSA_RevA-COB_woShiled_1p2_20260828/analysis_results/welch_8s_50pct/`
 
 ### Gain = 101，woShield
 
-- 原始目录：`Unicorn_CSA_RevA-COB_woShiled_Gain101_20260829/`
-- 用户分析入口：`periodogram_mode_Gain101.mlx`
-- 保存工作区：`Unicorn_CSA_RevA-COB_woShiled_Gain101_20260829.mat`
+- 原始目录：`history/RevA/Unicorn_CSA_RevA-COB_woShiled_Gain101_20260829/`
+- 保存工作区：`history/RevA/Unicorn_CSA_RevA-COB_woShiled_Gain101_20260829.mat`
 - 保存PSD矩阵：`psdV2PerHz_array`，尺寸`50,001 × 120`。
-- 当前MATLAB图：`combine_Gain1001_Gain101.fig`。
+- 历史 FIG 数据：`history/RevA/combine_Gain1001_Gain101.fig`。
 
 ### 验证与历史报告
 
-- 合成验证入口：`Unicorn_CSA_RevA-COB_woShiled_20260828/validate_synthetic_noise_psd_method.m`
-- 合成验证结果：`Unicorn_CSA_RevA-COB_woShiled_20260828/validation_results/`
+- 合成验证结果：`history/RevA/Unicorn_CSA_RevA-COB_woShiled_20260828/validation_results/`
 - [2026-08-28屏蔽罩测试报告](2026-08-28-T-20260817-01.md)
 - [2026-08-14 OPA189正式测试报告](2026-08-14-T-20260814-01.md)
 

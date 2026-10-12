@@ -1,0 +1,162 @@
+{
+  "matlab_version": "25.2.0.2998904 (R2025b)",
+  "matlab_release": "2025b",
+  "temporary_outputs": "/private/var/folders/nb/v208grlx6b7fr7fz06123rkr0000gn/T/tp82aef791_a14d_42dc_904a_8a0ee1660890",
+  "relative_tolerance": 1E-10,
+  "absolute_tolerance": 1E-24,
+  "native_tdms_reader_verified": false,
+  "native_tdms_limitation": "This Mac lacks MATLAB mexTDMS; production native TDMS reading remains unverified.",
+  "reva_validation_reader": "Original raw samples decoded by npTDMS into temporary MAT; only input reader adapted in temporary source copies.",
+  "tests": {
+    "total": 15,
+    "passed": 15,
+    "failed": 0,
+    "incomplete": 0,
+    "reused_previous_batch": true
+  },
+  "reva": [
+    {
+      "condition": "Unicorn_CSA_RevA-COB_woShiled_20260828",
+      "profile": "whole_record_22s",
+      "average": {
+        "fields": [
+          "frequencyHz",
+          "ensemblePsdV2PerHz",
+          "ensembleAsdVPerSqrtHz",
+          "octaveFrequencyHz",
+          "ensembleOctavePsdV2PerHz",
+          "ensembleOctaveAsdVPerSqrtHz"
+        ],
+        "maximum_relative_difference": 4.5789648197226629E-13
+      },
+      "per_run": {
+        "fields": [
+          "frequencyHz",
+          "psdV2PerHzByRun",
+          "runNumbers"
+        ],
+        "maximum_relative_difference": 1.5009302261651564E-11
+      },
+      "passed": true
+    },
+    {
+      "condition": "Unicorn_CSA_RevA-COB_woShiled_20260828",
+      "profile": "welch_8s_50pct",
+      "average": {
+        "fields": [
+          "frequencyHz",
+          "ensemblePsdV2PerHz",
+          "ensembleAsdVPerSqrtHz",
+          "octaveFrequencyHz",
+          "ensembleOctavePsdV2PerHz",
+          "ensembleOctaveAsdVPerSqrtHz"
+        ],
+        "maximum_relative_difference": 7.4341162112401369E-13
+      },
+      "per_run": {
+        "fields": [
+          "frequencyHz",
+          "psdV2PerHzByRun",
+          "runNumbers"
+        ],
+        "maximum_relative_difference": 1.4393588299704004E-11
+      },
+      "passed": true
+    }
+  ],
+  "reva_coverage": "wo condition: both shared algorithm profiles numerically replayed; wi and1p2 wrappers checked by migrated path review and both comparison profiles.",
+  "reva_comparisons": [
+    {
+      "condition": "Unicorn_CSA_RevA-COB_wiShiled_20260828",
+      "profile": "whole_record_22s",
+      "passed": true
+    },
+    {
+      "condition": "Unicorn_CSA_RevA-COB_woShiled_1p2_20260828",
+      "profile": "whole_record_22s",
+      "passed": true
+    },
+    {
+      "condition": "Unicorn_CSA_RevA-COB_wiShiled_20260828",
+      "profile": "welch_8s_50pct",
+      "passed": true
+    },
+    {
+      "condition": "Unicorn_CSA_RevA-COB_woShiled_1p2_20260828",
+      "profile": "welch_8s_50pct",
+      "passed": true
+    }
+  ],
+  "pxi": [
+    {
+      "run": 1,
+      "numeric": {
+        "fields": [
+          "frequencyHz",
+          "averagePsdV2PerHz",
+          "averageAsdVrtHz",
+          "perRunPsdV2PerHz"
+        ],
+        "maximum_relative_difference": 2.160638134801701E-12
+      },
+      "passed": true
+    },
+    {
+      "run": 2,
+      "numeric": {
+        "fields": [
+          "frequencyHz",
+          "averagePsdV2PerHz",
+          "averageAsdVrtHz",
+          "perRunPsdV2PerHz"
+        ],
+        "maximum_relative_difference": 6.0087475146118979E-12
+      },
+      "passed": true
+    },
+    {
+      "run": 3,
+      "numeric": {
+        "fields": [
+          "frequencyHz",
+          "averagePsdV2PerHz",
+          "averageAsdVrtHz",
+          "perRunPsdV2PerHz"
+        ],
+        "maximum_relative_difference": 1.0151592632732321E-11
+      },
+      "passed": true
+    }
+  ],
+  "pxi_comparison": {
+    "passed": true,
+    "frequency_bin_count": 450001
+  },
+  "opa189": {
+    "passed": true,
+    "mode": "processed_replay",
+    "conditions": 4,
+    "raw_waveforms_available": false
+  },
+  "portable_scripts": [
+    {
+      "script": "/Users/jinge/Projects/Unicorn_Testbench/history/RevA/periodogram_mode_Gain101.m",
+      "passed": true,
+      "mode": "temporary raw-reader adapter; production script unchanged",
+      "cached_gain_psd_maximum_relative_difference": 1.7576578349665994E-12
+    },
+    {
+      "script": "/Users/jinge/Projects/Unicorn_Testbench/history/RevA/periodogram_mode.m",
+      "passed": true,
+      "mode": "temporary raw-reader adapter; production script unchanged",
+      "cached_gain_psd_maximum_relative_difference": []
+    },
+    {
+      "script": "/Users/jinge/Projects/Unicorn_Testbench/history/RevA/Unicorn_CSA_RevA-COB_woShiled_1p2_20260828/periodogram_mode.m",
+      "passed": true,
+      "mode": "temporary raw-reader adapter; production script unchanged",
+      "cached_gain_psd_maximum_relative_difference": []
+    }
+  ],
+  "all_passed": true
+}

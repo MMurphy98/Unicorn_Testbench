@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "task_id": "Offset_Chip_2_Gain1001_20260918",
+  "measurement_type": "offset_drift",
+  "chip": 2,
+  "acquisition_status": "failed",
+  "layout_version": 1,
+  "data_directory": "data",
+  "spectra_directory": "spectra",
+  "results_directory": "results",
+  "legacy_run_path": "provenance/legacy_run",
+  "gain_v_per_v": 1001.0,
+  "target_temperatures_c": [
+    -40,
+    27,
+    125
+  ],
+  "expected_readings_each": 1000,
+  "actual_reading_count": 0,
+  "test_date": "2026-09-18",
+  "retention_note": "Retain failed first-stage evidence",
+  "raw_file_sha256": {}
+}

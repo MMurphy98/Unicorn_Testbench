@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "task_id": "Offset_Chip_1_Gain1001_20260918",
+  "run_id": "38dd02d9d5844ccf9f0812ea20dd7e38",
+  "job_id": "0463ff6283394a00aa7cd4b5b69a3526",
+  "stage_index": 2,
+  "target_c": 27.0,
+  "issued_at_utc": "2026-09-18T12:23:48.280884+00:00",
+  "stop_file": "C:\\Users\\jinge\\Projects\\Unicorn_Testbench\\results\\offset_drift\\chip1_gain1001_20260918_run01\\STOP",
+  "dmm": {
+    "readings": 1000,
+    "gain": 1001.0,
+    "range_v": 0.1,
+    "nplc": 10.0,
+    "terminals": "FRONT",
+    "input_impedance": "AUTO",
+    "resource": "USB0::0x05E6::0x7510::04476049::INSTR",
+    "timeout": 60.0,
+    "settling_delay": 2.0,
+    "discard_readings": 3,
+    "inter_reading_delay": 0.0
+  }
+}

@@ -1,0 +1,111 @@
+{
+  "all_passed": true,
+  "retained_raw_spectra_and_immutable_evidence_files_checked": 2806,
+  "bytes_checked": 13703496119,
+  "mismatches": [],
+  "original_source_files": 123,
+  "source_snapshot_mismatches": [],
+  "retained_history_tracked_changes": [],
+  "task_count": 16,
+  "deleted_excluded_collections": [
+    {
+      "path": "Unicorn_CSA_RevB-COB/data/DMM7510_short_100mV_10NPLC_drfit",
+      "files": 1
+    },
+    {
+      "path": "Unicorn_CSA_RevB-COB/results/DMM7510_short_100mV_10NPLC_drfit",
+      "files": 3
+    },
+    {
+      "path": "Unicorn_CSA_RevB-COB/data/Offset_RevB_Chip_1_woShield_Gmx_default_OSC_default_Vsup_pm6V_night_Gain101",
+      "files": 1
+    },
+    {
+      "path": "Unicorn_CSA_RevB-COB/results/Offset_RevB_Chip_1_woShield_Gmx_default_OSC_default_Vsup_pm6V_night_Gain101",
+      "files": 3
+    },
+    {
+      "path": "Unicorn_CSA_RevB-COB/data/Offset_RevB_Chip_5_wiShield_Gmx_default_OSC_default_Vsup_pm6V",
+      "files": 2
+    },
+    {
+      "path": "Unicorn_CSA_RevB-COB/results/Offset_RevB_Chip_5_wiShield_Gmx_default_OSC_default_Vsup_pm6V",
+      "files": 3
+    },
+    {
+      "path": "Unicorn_CSA_RevB-COB/data/Offset_RevB_Chip_5_wiShield_Gmx_default_OSC_default_Vsup_pm6V_night",
+      "files": 1
+    },
+    {
+      "path": "Unicorn_CSA_RevB-COB/results/Offset_RevB_Chip_5_wiShield_Gmx_default_OSC_default_Vsup_pm6V_night",
+      "files": 3
+    },
+    {
+      "path": "Unicorn_CSA_RevB-COB/data/Offset_RevB_Chip_5_wiShield_Gmx_default_OSC_default_Vsup_pm6V_night_Gain1001",
+      "files": 1
+    },
+    {
+      "path": "Unicorn_CSA_RevB-COB/results/Offset_RevB_Chip_5_wiShield_Gmx_default_OSC_default_Vsup_pm6V_night_Gain1001",
+      "files": 3
+    },
+    {
+      "path": "Unicorn_CSA_RevB-COB/data/Offset_RevB_Chip_5_woShield_Gmx_default_OSC_default_Vsup_pm6V_night",
+      "files": 1
+    },
+    {
+      "path": "Unicorn_CSA_RevB-COB/results/Offset_RevB_Chip_5_woShield_Gmx_default_OSC_default_Vsup_pm6V_night",
+      "files": 3
+    },
+    {
+      "path": "Unicorn_CSA_RevB-COB/results/Offset_RevB_Chip_1_wiShield_Gmx_default_OSC_default_Vsup_pm6V_20260909",
+      "files": 3
+    },
+    {
+      "path": "Unicorn_CSA_RevB-COB/results/Offset_RevB_Chip_2_wiShield_Gmx_default_OSC_default_Vsup_pm6V_20260909",
+      "files": 3
+    },
+    {
+      "path": "Unicorn_CSA_RevB-COB/results/Offset_RevB_Chip_3_wiShield_Gmx_default_OSC_default_Vsup_pm6V_20260909",
+      "files": 3
+    },
+    {
+      "path": "Unicorn_CSA_RevB-COB/results/Offset_RevB_Chip_4_wiShield_Gmx_default_OSC_default_Vsup_pm6V_20260909",
+      "files": 3
+    },
+    {
+      "path": "Unicorn_CSA_RevB-COB/results/Offset_RevB_Chip_5_wiShield_Gmx_default_OSC_default_Vsup_pm6V_20260909",
+      "files": 3
+    },
+    {
+      "path": "results/offset_drift",
+      "files": 104
+    },
+    {
+      "path": "results/thermal_stream",
+      "files": 139
+    },
+    {
+      "path": "docs/test-reports/2026/09/2026-09-09-T-20260909-01.md",
+      "files": 1
+    },
+    {
+      "path": "docs/test-reports/2026/09/2026-09-13-T-20260911-01.md",
+      "files": 1
+    },
+    {
+      "path": "docs/test-reports/2026/09/2026-09-14-T-20260911-01.md",
+      "files": 1
+    }
+  ],
+  "demo_ignored": true,
+  "migration_rerun_preserves_existing_metadata_and_results": true,
+  "validation_tests": {
+    "existing_scripts": 47,
+    "field_entrypoints": 16,
+    "offline_postprocess": 12,
+    "total": 75
+  },
+  "current_markdown_links_valid": true,
+  "representative_noise_psd_recomputed_groups": 13,
+  "representative_noise_psd_max_relative_error": 1.0028267006026557e-14
+}

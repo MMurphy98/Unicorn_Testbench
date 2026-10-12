@@ -1,0 +1,84 @@
+{
+  "format_version": 1,
+  "task_id": "Offset_Chip_3_Gain1001_20260918",
+  "generated_at_utc": "2026-10-12T11:52:25.467236+00:00",
+  "run_count": 1,
+  "total_reading_count": 1000,
+  "source_files": [
+    "/Users/jinge/Projects/Unicorn_Testbench/Unicorn_CSA_RevB-COB/tasks/Offset_Chip_3_Gain1001_20260918/data/stage_03/Offset_Chip_3_Gain1001_20260918_dcv_0001.tdms"
+  ],
+  "configuration": {
+    "instrument_manufacturer": "KEITHLEY INSTRUMENTS",
+    "instrument_model": "MODEL DMM7510",
+    "instrument_serial_number": "04476049",
+    "instrument_firmware_revision": "1.6.7d",
+    "terminals": "FRONT",
+    "measurement_function": "VOLT:DC",
+    "range_v": 0.1,
+    "autorange_enabled": false,
+    "input_impedance_mode": "AUTO",
+    "nplc": 10.0,
+    "autozero_enabled": true,
+    "dmm_averaging_enabled": false,
+    "relative_enabled": false,
+    "line_sync_enabled": true,
+    "line_frequency_hz": 50.0,
+    "closed_loop_gain_v_per_v": 1001.0
+  },
+  "output_voltage_v": {
+    "count": 1000,
+    "mean": -0.00232725154,
+    "median": -0.0023085505,
+    "sample_std": 0.00023356777158429467,
+    "standard_error": 7.3860614621632585e-06,
+    "confidence_95_lower": -0.0023417455146416827,
+    "confidence_95_upper": -0.002312757565358317,
+    "minimum": -0.002944676,
+    "maximum": -0.001671675
+  },
+  "equivalent_input_offset_v": {
+    "count": 1000,
+    "mean": -2.324926613386613e-06,
+    "median": -2.306244255744256e-06,
+    "sample_std": 2.3333443714714753e-07,
+    "standard_error": 7.378682779383875e-09,
+    "confidence_95_lower": -2.3394061085331498e-06,
+    "confidence_95_upper": -2.3104471182400766e-06,
+    "minimum": -2.9417342657342656e-06,
+    "maximum": -1.670004995004995e-06
+  },
+  "per_run": [
+    {
+      "run_number": 1,
+      "source_file": "/Users/jinge/Projects/Unicorn_Testbench/Unicorn_CSA_RevB-COB/tasks/Offset_Chip_3_Gain1001_20260918/data/stage_03/Offset_Chip_3_Gain1001_20260918_dcv_0001.tdms",
+      "acquisition_start_utc": "2026-09-18T13:58:29.938906+00:00",
+      "output_voltage_v": {
+        "count": 1000,
+        "mean": -0.00232725154,
+        "median": -0.0023085505,
+        "sample_std": 0.00023356777158429467,
+        "standard_error": 7.3860614621632585e-06,
+        "confidence_95_lower": -0.0023417455146416827,
+        "confidence_95_upper": -0.002312757565358317,
+        "minimum": -0.002944676,
+        "maximum": -0.001671675
+      },
+      "equivalent_input_offset_v": {
+        "count": 1000,
+        "mean": -2.324926613386613e-06,
+        "median": -2.306244255744256e-06,
+        "sample_std": 2.3333443714714753e-07,
+        "standard_error": 7.378682779383875e-09,
+        "confidence_95_lower": -2.3394061085331493e-06,
+        "confidence_95_upper": -2.310447118240077e-06,
+        "minimum": -2.9417342657342656e-06,
+        "maximum": -1.670004995004995e-06
+      }
+    }
+  ],
+  "between_run_output_mean_v": null,
+  "between_run_equivalent_input_mean_v": null,
+  "uncertainty_note": "Standard errors and 95% t intervals are descriptive repeatability statistics. They assume independent readings and do not include DMM calibration uncertainty, thermoelectric EMF, gain error, or correlated DUT temperature and low-frequency drift.",
+  "plot": "/Users/jinge/Projects/Unicorn_Testbench/Unicorn_CSA_RevB-COB/tasks/Offset_Chip_3_Gain1001_20260918/results/stage_03/Offset_Chip_3_Gain1001_20260918_dcv_offset.png",
+  "readings_csv": "/Users/jinge/Projects/Unicorn_Testbench/Unicorn_CSA_RevB-COB/tasks/Offset_Chip_3_Gain1001_20260918/results/stage_03/Offset_Chip_3_Gain1001_20260918_dcv_readings.csv"
+}

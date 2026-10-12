@@ -1,0 +1,6 @@
+{
+  "main_exit_code": 1,
+  "recorded_at_utc": "2026-09-18T13:11:03.512676+00:00",
+  "exec_session_id": 13348,
+  "source": "Completed exec session reported exit_code 1; DMM overrange triggered abort"
+}

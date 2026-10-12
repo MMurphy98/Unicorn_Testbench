@@ -1,0 +1,18 @@
+{
+  "task_id": "Offset_Chip_3_Gain1001_20260918",
+  "run_id": "4fc4a19500c446f392e3e2764e651c13",
+  "job_id": "ff7eccb8e5ae4c158ae444e99f9191bf",
+  "stage_index": 2,
+  "target_c": 27.0,
+  "schema_version": 1,
+  "request_sha256": "7a9d89d811c75afa8f7fa72f8d3739d08decb6dfc3e9ae3df828a4f1019f7061",
+  "status": "running",
+  "started_at_utc": "2026-09-18T13:41:37.803363+00:00",
+  "requested_readings": 1000,
+  "completed_readings": 1000,
+  "gain": 1001.0,
+  "execution_environment": "real_hardware",
+  "first_reading_at_utc": "2026-09-18T13:41:43.676943+00:00",
+  "last_reading_at_utc": "2026-09-18T13:52:44.410943+00:00",
+  "updated_at_utc": "2026-09-18T13:52:44.735640+00:00"
+}

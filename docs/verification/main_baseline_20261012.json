@@ -1,0 +1,654 @@
+{
+  "schema_version": 1,
+  "baseline_date": "2026-10-12",
+  "verified_at_utc": "2026-10-12T12:39:20.601655+00:00",
+  "status": "historical_validation_before_matlab_removal",
+  "scope": "Historical validation of the pre-removal baseline. MATLAB code and helpers were subsequently removed at user request; this report does not describe the current file inventory or available MATLAB entrypoints.",
+  "git_state": {
+    "branch": "codex/T-20260817-01-noise-retest-20260918",
+    "head": "cf8392c5596ba0148129a1b4b17137bf5347915e",
+    "local_main": "29562f81221e3cb7fadf5733ba6e7dedc3ae5893",
+    "cached_origin_main": "29562f81221e3cb7fadf5733ba6e7dedc3ae5893",
+    "main_vs_head_ahead_behind": [
+      "0",
+      "20"
+    ],
+    "workspace_index_or_refs_modified_by_this_verification": false,
+    "remote_main_state_refreshed": false,
+    "main_publication_performed": false
+  },
+  "checks": {
+    "history": {
+      "manifest": "history/migration_20261012.json",
+      "manifest_sha256": "f1e2180f1b5d7420fe872ea9d85a769793090075281abe3d6dc086d6363f02e4",
+      "byte_preserved_files_checked": 509,
+      "updated_sources_checked": 9,
+      "updated_sources": [
+        {
+          "source": "Unicorn_CSA_RevA-COB_wiShiled_20260828/analyze_20run_time_only_noise.m",
+          "destination": "history/RevA/Unicorn_CSA_RevA-COB_wiShiled_20260828/analyze_20run_time_only_noise.m",
+          "snapshot": "legacy/baseline_snapshot_20261012/Unicorn_CSA_RevA-COB_wiShiled_20260828/analyze_20run_time_only_noise.m",
+          "original_sha256": "a9f2511269afeeec13fea4dc0d65f775a476b89a10413fd264429d94e2af4677",
+          "current_sha256": "4d84607d59a2a4514d18fd96953b54add89297256757266860298953df875a01"
+        },
+        {
+          "source": "Unicorn_CSA_RevA-COB_wiShiled_20260828/analyze_20run_welch_8s_noise.m",
+          "destination": "history/RevA/Unicorn_CSA_RevA-COB_wiShiled_20260828/analyze_20run_welch_8s_noise.m",
+          "snapshot": "legacy/baseline_snapshot_20261012/Unicorn_CSA_RevA-COB_wiShiled_20260828/analyze_20run_welch_8s_noise.m",
+          "original_sha256": "0b08e185b4afc8f8d1e09c1bfdf1dd2f102f7c6912a00ec823cc350788cc1ccb",
+          "current_sha256": "094ec5829a6e37d3656485db1c047f95286b9866d8242fa104eadabdc7b62a1d"
+        },
+        {
+          "source": "Unicorn_CSA_RevA-COB_wiShiled_20260828/compare_wi_vs_wo_noise.m",
+          "destination": "history/RevA/Unicorn_CSA_RevA-COB_wiShiled_20260828/compare_wi_vs_wo_noise.m",
+          "snapshot": "legacy/baseline_snapshot_20261012/Unicorn_CSA_RevA-COB_wiShiled_20260828/compare_wi_vs_wo_noise.m",
+          "original_sha256": "cc33ac81fe64939810da642600e379ab7f602fef15c8a85b08317abe370ae01a",
+          "current_sha256": "a35c468e2f6a00a6d6a2fe7afbb598a69c0f8a22d58a6cf34da491b53ce82bf3"
+        },
+        {
+          "source": "Unicorn_CSA_RevA-COB_wiShiled_20260828/compare_wi_vs_wo_welch_8s.m",
+          "destination": "history/RevA/Unicorn_CSA_RevA-COB_wiShiled_20260828/compare_wi_vs_wo_welch_8s.m",
+          "snapshot": "legacy/baseline_snapshot_20261012/Unicorn_CSA_RevA-COB_wiShiled_20260828/compare_wi_vs_wo_welch_8s.m",
+          "original_sha256": "b332ab98a10cd4240ed3addf324f2f75c23499e380dc14e17d7289584b411356",
+          "current_sha256": "b145686fe6cf0394ec705d581de6682f348e323db747a1954c7a85744d469b6e"
+        },
+        {
+          "source": "Unicorn_CSA_RevA-COB_woShiled_20260828/analyze_20run_time_only_noise.m",
+          "destination": "history/RevA/Unicorn_CSA_RevA-COB_woShiled_20260828/analyze_20run_time_only_noise.m",
+          "snapshot": "legacy/baseline_snapshot_20261012/Unicorn_CSA_RevA-COB_woShiled_20260828/analyze_20run_time_only_noise.m",
+          "original_sha256": "96595a5a8ba50a499328347e8494a23ab1964a5842c7ebfc2638a9403eedc04d",
+          "current_sha256": "52d7bfe79b269596258f3a1b6fff5b628f0649e6284af6608c9c658ca25e2299"
+        },
+        {
+          "source": "Unicorn_CSA_RevA-COB_woShiled_20260828/analyze_20run_welch_8s_noise.m",
+          "destination": "history/RevA/Unicorn_CSA_RevA-COB_woShiled_20260828/analyze_20run_welch_8s_noise.m",
+          "snapshot": "legacy/baseline_snapshot_20261012/Unicorn_CSA_RevA-COB_woShiled_20260828/analyze_20run_welch_8s_noise.m",
+          "original_sha256": "c438f0deac2adcd8fc36439e7061859f8aef74ae27a5d120f98b75b8e027e0c2",
+          "current_sha256": "bf3e6b10fd9db01deec665f352daea94d71e0eae8aace88b9e5f794fd0b8acab"
+        },
+        {
+          "source": "Unicorn_CSA_RevA-COB_woShiled_1p2_20260828/analyze_20run_time_only_noise.m",
+          "destination": "history/RevA/Unicorn_CSA_RevA-COB_woShiled_1p2_20260828/analyze_20run_time_only_noise.m",
+          "snapshot": "legacy/baseline_snapshot_20261012/Unicorn_CSA_RevA-COB_woShiled_1p2_20260828/analyze_20run_time_only_noise.m",
+          "original_sha256": "c3d002c162a894dff7c2a92775ba844ca7534a88cd55904e8862afd7d4566b6a",
+          "current_sha256": "4cf3097c8e3eaf3d83e94e6303202d36f1f1c816ea6d843fc720138164e302c8"
+        },
+        {
+          "source": "Unicorn_CSA_RevA-COB_woShiled_1p2_20260828/analyze_20run_welch_8s_noise.m",
+          "destination": "history/RevA/Unicorn_CSA_RevA-COB_woShiled_1p2_20260828/analyze_20run_welch_8s_noise.m",
+          "snapshot": "legacy/baseline_snapshot_20261012/Unicorn_CSA_RevA-COB_woShiled_1p2_20260828/analyze_20run_welch_8s_noise.m",
+          "original_sha256": "bd4c245a76a640a0a495fec340184ebefab822012f0c3ba59e9bfe6cbd69a913",
+          "current_sha256": "75eda64480477313fb82ba08e93c73cdae388c0ebb37613f11974fff2e4bb6c0"
+        },
+        {
+          "source": "Unicorn_CSA_RevA-COB_woShiled_1p2_20260828/compare_1p2_vs_nominal_wo_noise.m",
+          "destination": "history/RevA/Unicorn_CSA_RevA-COB_woShiled_1p2_20260828/compare_1p2_vs_nominal_wo_noise.m",
+          "snapshot": "legacy/baseline_snapshot_20261012/Unicorn_CSA_RevA-COB_woShiled_1p2_20260828/compare_1p2_vs_nominal_wo_noise.m",
+          "original_sha256": "4a0dea25b5765be2ee4d1020fe371a3f7758f793321b4936963cb7ba33981b5e",
+          "current_sha256": "a71b101390e940432e510e64df24650780ad97f64a02fc26947e3ea13567171e"
+        }
+      ],
+      "recovered_files": [
+        {
+          "destination": "history/RevA/Unicorn_CSA_RevA-COB_woShiled_Gain101_20260829.mat",
+          "source": ".git/lfs/objects/46/d0/46d0df29db02b5e07e27b78b506c23cba57d80d439889073eef2ed8c29c61849",
+          "sha256": "46d0df29db02b5e07e27b78b506c23cba57d80d439889073eef2ed8c29c61849",
+          "bytes": 207087200,
+          "destination_hash_matched": true,
+          "local_LFS_source_hash_matched": true,
+          "method": "Recovered local MAT after MATLAB variable validation",
+          "matlab_variable_validation": {
+            "sample_rate_hz": 49999.99999999999,
+            "sample_count_per_run": 1200000,
+            "run_count": 10,
+            "psd_shape": [
+              50001,
+              120
+            ],
+            "segment_count": 120
+          }
+        }
+      ],
+      "errors": [],
+      "passed": true,
+      "active_matlab_source_changes_checked": 9,
+      "active_matlab_source_changes": [
+        {
+          "source": "matlab/README.md",
+          "destination": "matlab/README.md",
+          "preservation": "source_updated",
+          "sha256": "6b95261a2c597af678f4a744df3dc6ade081914b689daf051047888e63fc64df",
+          "current_sha256": "537edd8459544f506372d64c6fd88d41a8126cf7634b41d430a67d68a25139b1",
+          "source_snapshot": "legacy/baseline_snapshot_20261012/matlab/README.md",
+          "reason": "Historical default paths, portable documentation, or matching processed replay test paths."
+        },
+        {
+          "source": "matlab/scripts/README.md",
+          "destination": "matlab/scripts/README.md",
+          "preservation": "source_updated",
+          "sha256": "4d4a8dcaea3e7089942cadd798ddac647caeb29413be3886f17d0452fd6f170f",
+          "current_sha256": "3aceba32a2963ad31636720b1115098f68ff1e3e3776e9d7a3428ab74ec0fd05",
+          "source_snapshot": "legacy/baseline_snapshot_20261012/matlab/scripts/README.md",
+          "reason": "Historical default paths, portable documentation, or matching processed replay test paths."
+        },
+        {
+          "source": "matlab/scripts/plotPxi5922AcDcComparison.m",
+          "destination": "matlab/scripts/plotPxi5922AcDcComparison.m",
+          "preservation": "source_updated",
+          "sha256": "2cb0f5635b216d6311636e781b792bc510ec5f2c3b3a598dd47c6a0d784d95b3",
+          "current_sha256": "3da96509567f4797408a7f98b6a28852b5693e7b0fcc61719df7bc344e03100a",
+          "source_snapshot": "legacy/baseline_snapshot_20261012/matlab/scripts/plotPxi5922AcDcComparison.m",
+          "reason": "Historical default paths, portable documentation, or matching processed replay test paths."
+        },
+        {
+          "source": "matlab/scripts/plotPxi5922Run02NoiseReference.m",
+          "destination": "matlab/scripts/plotPxi5922Run02NoiseReference.m",
+          "preservation": "source_updated",
+          "sha256": "75a7b905f5afc13df409d5a75116de400dac92043746dc1ed998501fcffc97bf",
+          "current_sha256": "9ef7ba544a7b907e19cbfd9f7c2e3eecfc38197159b2f10c9a4b1be49afd4226",
+          "source_snapshot": "legacy/baseline_snapshot_20261012/matlab/scripts/plotPxi5922Run02NoiseReference.m",
+          "reason": "Historical default paths, portable documentation, or matching processed replay test paths."
+        },
+        {
+          "source": "matlab/scripts/runOpa189NoiseAnalysis.m",
+          "destination": "matlab/scripts/runOpa189NoiseAnalysis.m",
+          "preservation": "source_updated",
+          "sha256": "6faf769e040b4343d1b1f0ba1c1a8a28772b48964291095cedb7df5aedeefc3c",
+          "current_sha256": "e00e515e1a2f50e8aa2b9659bc06eccbb2cdfa2971f59868028cfe9cac93329f",
+          "source_snapshot": "legacy/baseline_snapshot_20261012/matlab/scripts/runOpa189NoiseAnalysis.m",
+          "reason": "Historical default paths, portable documentation, or matching processed replay test paths."
+        },
+        {
+          "source": "matlab/scripts/runPxi5922DcNoiseAnalysis.m",
+          "destination": "matlab/scripts/runPxi5922DcNoiseAnalysis.m",
+          "preservation": "source_updated",
+          "sha256": "a66404a0248c7cba119b97b83bd55b3b9c22feb2e00b91fe85509b5483f3a1bb",
+          "current_sha256": "b76bede552e57013f9b604467d8c7242b4c6b80d31805701606fe0cd34feb19f",
+          "source_snapshot": "legacy/baseline_snapshot_20261012/matlab/scripts/runPxi5922DcNoiseAnalysis.m",
+          "reason": "Historical default paths, portable documentation, or matching processed replay test paths."
+        },
+        {
+          "source": "matlab/scripts/runPxi5922FloatingInputNoiseAnalysis.m",
+          "destination": "matlab/scripts/runPxi5922FloatingInputNoiseAnalysis.m",
+          "preservation": "source_updated",
+          "sha256": "6580caeace85ee3aad15dc3b16136b0e26fd05826083fda4bbfc487d0b86aa90",
+          "current_sha256": "1398c1f25255c845199253b6009acacfa4952d6e0a0d06a4d3d566d921937558",
+          "source_snapshot": "legacy/baseline_snapshot_20261012/matlab/scripts/runPxi5922FloatingInputNoiseAnalysis.m",
+          "reason": "Historical default paths, portable documentation, or matching processed replay test paths."
+        },
+        {
+          "source": "matlab/scripts/runPxi5922NoiseAnalysis.m",
+          "destination": "matlab/scripts/runPxi5922NoiseAnalysis.m",
+          "preservation": "source_updated",
+          "sha256": "2832473a6513c639a91a9f290ef0e4d56aed1242596b1f55450cdef4b86c75b7",
+          "current_sha256": "6aaa96c26b5b13cf6668252e7d51ca059e98d1d95f41081e96d362501e421f6f",
+          "source_snapshot": "legacy/baseline_snapshot_20261012/matlab/scripts/runPxi5922NoiseAnalysis.m",
+          "reason": "Historical default paths, portable documentation, or matching processed replay test paths."
+        },
+        {
+          "source": "matlab/tests/opa189ProcessedReplayTest.m",
+          "destination": "matlab/tests/opa189ProcessedReplayTest.m",
+          "preservation": "source_updated",
+          "sha256": "6b4c1ed8f1a8ec2bca5cfaaa69a84151927b6329d958e35f3525b9786c472ca8",
+          "current_sha256": "56d13929e560da26249d7a722666e2a5eebfed6350af0f402e05bed44dff3220",
+          "source_snapshot": "legacy/baseline_snapshot_20261012/matlab/tests/opa189ProcessedReplayTest.m",
+          "reason": "Historical default paths, portable documentation, or matching processed replay test paths."
+        }
+      ]
+    },
+    "fpga": {
+      "manifest": "fpga/migration_20261012.json",
+      "manifest_sha256": "c64b2ddcc4389a6b5b3e7fc062f951d4ebdbf48b3e1e3d6febdb778306dfed94",
+      "after_hash_files_checked": 110,
+      "unchanged_artifacts": 109,
+      "firmware_count": 3,
+      "errors": [],
+      "passed": true
+    },
+    "snapshots": [
+      {
+        "directory": "legacy/baseline_snapshot_20261012",
+        "manifest_sha256": "d6de8d2876a6a1a00ae1b928a330f24a0043b7ee2a1d23fe357d4c0f2d819b48",
+        "files_checked": 150,
+        "errors": [],
+        "passed": true
+      },
+      {
+        "directory": "legacy/source_snapshot_20261012",
+        "manifest_sha256": "a2d68aac201f53e27773e252d47f2e6286f7e8b7d456d72e6474fd02a242b165",
+        "files_checked": 123,
+        "errors": [],
+        "passed": true
+      }
+    ],
+    "supporting_evidence": {
+      "unicorn-baseline-revb-verify.json": {
+        "source_path": "/private/tmp/unicorn-baseline-revb-verify.json",
+        "sha256": "dfe7bb038d5f5021f75b9bfd00cf4d7f658cd5fc62b13aa92ebd9f844a91e6f0",
+        "record": {
+          "task_count": 16,
+          "raw_files": 1306,
+          "spectra_files": 1300,
+          "errors": [],
+          "tasks": [
+            {
+              "task_id": "Offset_Chip_1_Gain1001_20260918",
+              "measurement_type": "offset_drift",
+              "acquisition_status": "completed",
+              "verified_raw_files": 3,
+              "spectra_files": 0
+            },
+            {
+              "task_id": "Offset_Chip_2_Gain1001_20260918",
+              "measurement_type": "offset_drift",
+              "acquisition_status": "failed",
+              "verified_raw_files": 0,
+              "spectra_files": 0
+            },
+            {
+              "task_id": "Offset_Chip_3_Gain1001_20260918",
+              "measurement_type": "offset_drift",
+              "acquisition_status": "completed",
+              "verified_raw_files": 3,
+              "spectra_files": 0
+            },
+            {
+              "task_id": "RevB_Chip_1_wiShield_Gmx_1p2_OSC_default_Vsup_pm6V",
+              "measurement_type": "noise",
+              "acquisition_status": "completed",
+              "verified_raw_files": 100,
+              "spectra_files": 100
+            },
+            {
+              "task_id": "RevB_Chip_1_wiShield_Gmx_4b1111_OSC_default_Vsup_pm6V",
+              "measurement_type": "noise",
+              "acquisition_status": "completed",
+              "verified_raw_files": 100,
+              "spectra_files": 100
+            },
+            {
+              "task_id": "RevB_Chip_1_wiShield_Gmx_default_OSC_default_Vsup_pm6V",
+              "measurement_type": "noise",
+              "acquisition_status": "completed",
+              "verified_raw_files": 100,
+              "spectra_files": 100
+            },
+            {
+              "task_id": "RevB_Chip_1_wiShield_Gmx_max_OSC_default_Vsup_pm6V",
+              "measurement_type": "noise",
+              "acquisition_status": "completed",
+              "verified_raw_files": 100,
+              "spectra_files": 100
+            },
+            {
+              "task_id": "RevB_Chip_2_wiShield_Gmx_4b1001_OSC_default_Vsup_pm6V",
+              "measurement_type": "noise",
+              "acquisition_status": "completed",
+              "verified_raw_files": 100,
+              "spectra_files": 100
+            },
+            {
+              "task_id": "RevB_Chip_2_wiShield_Gmx_default_OSC_default_Vsup_pm6V",
+              "measurement_type": "noise",
+              "acquisition_status": "completed",
+              "verified_raw_files": 100,
+              "spectra_files": 100
+            },
+            {
+              "task_id": "RevB_Chip_2_wiShield_Gmx_max_OSC_default_Vsup_pm6V",
+              "measurement_type": "noise",
+              "acquisition_status": "completed",
+              "verified_raw_files": 100,
+              "spectra_files": 100
+            },
+            {
+              "task_id": "RevB_Chip_3_wiShield_Gmx_default_OSC_default_Vsup_pm12V",
+              "measurement_type": "noise",
+              "acquisition_status": "completed",
+              "verified_raw_files": 100,
+              "spectra_files": 100
+            },
+            {
+              "task_id": "RevB_Chip_3_wiShield_Gmx_default_OSC_default_Vsup_pm6V",
+              "measurement_type": "noise",
+              "acquisition_status": "completed",
+              "verified_raw_files": 100,
+              "spectra_files": 100
+            },
+            {
+              "task_id": "RevB_Chip_3_wiShield_Gmx_max_OSC_default_Vsup_pm12V",
+              "measurement_type": "noise",
+              "acquisition_status": "completed",
+              "verified_raw_files": 100,
+              "spectra_files": 100
+            },
+            {
+              "task_id": "RevB_Chip_3_wiShield_Gmx_max_OSC_default_Vsup_pm6V",
+              "measurement_type": "noise",
+              "acquisition_status": "completed",
+              "verified_raw_files": 100,
+              "spectra_files": 100
+            },
+            {
+              "task_id": "RevB_Chip_4_wiShield_Gmx_default_OSC_default_Vsup_pm6V",
+              "measurement_type": "noise",
+              "acquisition_status": "completed",
+              "verified_raw_files": 100,
+              "spectra_files": 100
+            },
+            {
+              "task_id": "RevB_Chip_5_wiShield_Gmx_default_OSC_default_Vsup_pm6V",
+              "measurement_type": "noise",
+              "acquisition_status": "completed",
+              "verified_raw_files": 100,
+              "spectra_files": 100
+            }
+          ],
+          "seconds": 5.7
+        }
+      },
+      "unicorn-git-byte-preservation.json": {
+        "source_path": "/private/tmp/unicorn-git-byte-preservation.json",
+        "sha256": "9aebff9252fd70a9a6dd7403045c47095e535027052cb49c6f7a63fed4ca82b2",
+        "record": {
+          "protected_files_checked": 673,
+          "git_clean_filter_changes": [],
+          "all_passed": true
+        }
+      },
+      "unicorn-python-checkout-equivalence.json": {
+        "source_path": "/private/tmp/unicorn-python-checkout-equivalence.json",
+        "sha256": "fb50fca4339eec95b2556c30a7740020f4f1ff146aa4ca5ec3abf87e665f4fb2",
+        "record": {
+          "files_checked": 34,
+          "errors": [],
+          "all_passed": true
+        }
+      },
+      "unicorn-main-materialized-tree.json": {
+        "source_path": "/private/tmp/unicorn-main-materialized-tree.json",
+        "sha256": "aecd20444a352f10a0d696428fd34f6d94e1434cf6fd420af6fb347212d65159",
+        "record": {
+          "candidate_files": 851,
+          "tree": "cbbf06c269ab08799c07af46027d9274cffb07ef",
+          "checkout": "/private/tmp/unicorn-main-git-checkout-20261012",
+          "source": "Non-ignored working tree exported, staged in independent temporary repository and materialized using git checkout-index; no workspace index or refs changed"
+        }
+      }
+    },
+    "revb_retained_data": {
+      "task_count": 16,
+      "raw_files": 1306,
+      "spectra_files": 1300,
+      "errors": [],
+      "passed": true
+    },
+    "python_regression": [
+      {
+        "environment": "current_worktree",
+        "suites": [
+          {
+            "suite": "original_scripts",
+            "log_path": "/private/tmp/unicorn-baseline-python-0.log",
+            "log_sha256": "db37a02a50b5f29ace8232e7cf71d52bc0da829c28a65c98ef0d7f3eca15491f",
+            "tests": 47,
+            "seconds": 8.1,
+            "unittest_result": "OK",
+            "passed": true
+          },
+          {
+            "suite": "field_entrypoints",
+            "log_path": "/private/tmp/unicorn-baseline-python-1.log",
+            "log_sha256": "b99afd0f713de9971b352aa4d07f521c2a5fe10c4e424575b0a326596684cdc2",
+            "tests": 16,
+            "seconds": 0.142,
+            "unittest_result": "OK",
+            "passed": true
+          },
+          {
+            "suite": "offline_processing",
+            "log_path": "/private/tmp/unicorn-baseline-python-2.log",
+            "log_sha256": "fbbba0468500fd62b984eba593ec9a02fe4a451e99e7cf25a714195d4e539307",
+            "tests": 12,
+            "seconds": 11.079,
+            "unittest_result": "OK",
+            "passed": true
+          }
+        ],
+        "total_tests": 75,
+        "passed": true
+      },
+      {
+        "environment": "Git_candidate_export",
+        "suites": [
+          {
+            "suite": "original_scripts",
+            "log_path": "/private/tmp/unicorn-candidate-python-0.log",
+            "log_sha256": "a38fabed96c6c02b59a7eb0c3cdf02f39846c130b50b84475f5eb74a0ee94178",
+            "tests": 47,
+            "seconds": 8.665,
+            "unittest_result": "OK",
+            "passed": true
+          },
+          {
+            "suite": "field_entrypoints",
+            "log_path": "/private/tmp/unicorn-candidate-python-1.log",
+            "log_sha256": "b99afd0f713de9971b352aa4d07f521c2a5fe10c4e424575b0a326596684cdc2",
+            "tests": 16,
+            "seconds": 0.142,
+            "unittest_result": "OK",
+            "passed": true
+          },
+          {
+            "suite": "offline_processing",
+            "log_path": "/private/tmp/unicorn-candidate-python-2.log",
+            "log_sha256": "f70f7f3ccf3c1a977aa0b52412367e5c2cbb794f9068f58f2150cfd2b6381966",
+            "tests": 12,
+            "seconds": 2.528,
+            "unittest_result": "OK",
+            "passed": true
+          }
+        ],
+        "total_tests": 75,
+        "passed": true
+      }
+    ],
+    "current_document_links": {
+      "command": "python scripts/check_document_links.py",
+      "exit_code": 0,
+      "checked": 309,
+      "missing": 0,
+      "output": "Checked 309 current-document local links; 0 missing.",
+      "stderr": "",
+      "passed": true
+    },
+    "final_git_candidate": {
+      "candidate_files": 856,
+      "tree": "ecba09c843b6b59fdb8ecd5f2b0a1532d60f03f0",
+      "checkout": "/private/tmp/unicorn-main-git-checkout-20261012",
+      "source": "Current non-ignored working files staged and checked out in an independent temporary Git repository; workspace index and refs untouched. Aggregate report itself is updated afterward to record this check.",
+      "current_document_links": "Checked 309 current-document local links; 0 missing.",
+      "active_python_files_equal_to_tested_export_and_checkout": 37,
+      "protected_files_byte_equal_in_git_checkout": 676,
+      "errors": [],
+      "validation_only_python_bridge": "Included and syntax checked; exercised by the MATLAB validation workflow, separate from the unchanged 75-test Python suites.",
+      "additional_python_provenance_copies_equal_to_tested_export_and_checkout": 34
+    }
+  },
+  "matlab": {
+    "status": "passed_with_native_tdms_limitation",
+    "report": "history/verification_20261012.json",
+    "report_sha256": "052242c304636a111ee87c55b4ce05c1575a6055f1762ef9c7ae2758e743cbcb",
+    "record": {
+      "matlab_version": "25.2.0.2998904 (R2025b)",
+      "matlab_release": "2025b",
+      "temporary_outputs": "/private/var/folders/nb/v208grlx6b7fr7fz06123rkr0000gn/T/tp82aef791_a14d_42dc_904a_8a0ee1660890",
+      "relative_tolerance": 1e-10,
+      "absolute_tolerance": 1e-24,
+      "native_tdms_reader_verified": false,
+      "native_tdms_limitation": "This Mac lacks MATLAB mexTDMS; production native TDMS reading remains unverified.",
+      "reva_validation_reader": "Original raw samples decoded by npTDMS into temporary MAT; only input reader adapted in temporary source copies.",
+      "tests": {
+        "total": 15,
+        "passed": 15,
+        "failed": 0,
+        "incomplete": 0,
+        "reused_previous_batch": true
+      },
+      "reva": [
+        {
+          "condition": "Unicorn_CSA_RevA-COB_woShiled_20260828",
+          "profile": "whole_record_22s",
+          "average": {
+            "fields": [
+              "frequencyHz",
+              "ensemblePsdV2PerHz",
+              "ensembleAsdVPerSqrtHz",
+              "octaveFrequencyHz",
+              "ensembleOctavePsdV2PerHz",
+              "ensembleOctaveAsdVPerSqrtHz"
+            ],
+            "maximum_relative_difference": 4.578964819722663e-13
+          },
+          "per_run": {
+            "fields": [
+              "frequencyHz",
+              "psdV2PerHzByRun",
+              "runNumbers"
+            ],
+            "maximum_relative_difference": 1.5009302261651564e-11
+          },
+          "passed": true
+        },
+        {
+          "condition": "Unicorn_CSA_RevA-COB_woShiled_20260828",
+          "profile": "welch_8s_50pct",
+          "average": {
+            "fields": [
+              "frequencyHz",
+              "ensemblePsdV2PerHz",
+              "ensembleAsdVPerSqrtHz",
+              "octaveFrequencyHz",
+              "ensembleOctavePsdV2PerHz",
+              "ensembleOctaveAsdVPerSqrtHz"
+            ],
+            "maximum_relative_difference": 7.434116211240137e-13
+          },
+          "per_run": {
+            "fields": [
+              "frequencyHz",
+              "psdV2PerHzByRun",
+              "runNumbers"
+            ],
+            "maximum_relative_difference": 1.4393588299704004e-11
+          },
+          "passed": true
+        }
+      ],
+      "reva_coverage": "wo condition: both shared algorithm profiles numerically replayed; wi and1p2 wrappers checked by migrated path review and both comparison profiles.",
+      "reva_comparisons": [
+        {
+          "condition": "Unicorn_CSA_RevA-COB_wiShiled_20260828",
+          "profile": "whole_record_22s",
+          "passed": true
+        },
+        {
+          "condition": "Unicorn_CSA_RevA-COB_woShiled_1p2_20260828",
+          "profile": "whole_record_22s",
+          "passed": true
+        },
+        {
+          "condition": "Unicorn_CSA_RevA-COB_wiShiled_20260828",
+          "profile": "welch_8s_50pct",
+          "passed": true
+        },
+        {
+          "condition": "Unicorn_CSA_RevA-COB_woShiled_1p2_20260828",
+          "profile": "welch_8s_50pct",
+          "passed": true
+        }
+      ],
+      "pxi": [
+        {
+          "run": 1,
+          "numeric": {
+            "fields": [
+              "frequencyHz",
+              "averagePsdV2PerHz",
+              "averageAsdVrtHz",
+              "perRunPsdV2PerHz"
+            ],
+            "maximum_relative_difference": 2.160638134801701e-12
+          },
+          "passed": true
+        },
+        {
+          "run": 2,
+          "numeric": {
+            "fields": [
+              "frequencyHz",
+              "averagePsdV2PerHz",
+              "averageAsdVrtHz",
+              "perRunPsdV2PerHz"
+            ],
+            "maximum_relative_difference": 6.008747514611898e-12
+          },
+          "passed": true
+        },
+        {
+          "run": 3,
+          "numeric": {
+            "fields": [
+              "frequencyHz",
+              "averagePsdV2PerHz",
+              "averageAsdVrtHz",
+              "perRunPsdV2PerHz"
+            ],
+            "maximum_relative_difference": 1.015159263273232e-11
+          },
+          "passed": true
+        }
+      ],
+      "pxi_comparison": {
+        "passed": true,
+        "frequency_bin_count": 450001
+      },
+      "opa189": {
+        "passed": true,
+        "mode": "processed_replay",
+        "conditions": 4,
+        "raw_waveforms_available": false
+      },
+      "portable_scripts": [
+        {
+          "script": "/Users/jinge/Projects/Unicorn_Testbench/history/RevA/periodogram_mode_Gain101.m",
+          "passed": true,
+          "mode": "temporary raw-reader adapter; production script unchanged",
+          "cached_gain_psd_maximum_relative_difference": 1.7576578349665994e-12
+        },
+        {
+          "script": "/Users/jinge/Projects/Unicorn_Testbench/history/RevA/periodogram_mode.m",
+          "passed": true,
+          "mode": "temporary raw-reader adapter; production script unchanged",
+          "cached_gain_psd_maximum_relative_difference": []
+        },
+        {
+          "script": "/Users/jinge/Projects/Unicorn_Testbench/history/RevA/Unicorn_CSA_RevA-COB_woShiled_1p2_20260828/periodogram_mode.m",
+          "passed": true,
+          "mode": "temporary raw-reader adapter; production script unchanged",
+          "cached_gain_psd_maximum_relative_difference": []
+        }
+      ],
+      "all_passed": true
+    }
+  },
+  "non_matlab_checks_passed": true,
+  "limitations": [
+    "Raw TDMS, spectra, and most historical MAT/FIG remain local or independently archived; a Git-only checkout cannot reproduce every raw measurement.",
+    "The current Mac lacks MATLAB mexTDMS. RevA raw samples were decoded with npTDMS into temporary MAT inputs for algorithm validation; production native TDMS reading remains unchanged and was not validated here.",
+    "RevA numerical replay covers the wo condition for both shared profiles. Other condition wrappers were checked by path review and four comparison runs; not every condition/profile combination was recalculated.",
+    "OPA189 raw waveforms are missing. Four-condition validation replays the tracked processed baseline.",
+    "No hardware connections, FPGA compilation/programming, remote rule changes, or main publication were performed."
+  ],
+  "superseded_by": "docs/verification/matlab_removal_20261012.json"
+}

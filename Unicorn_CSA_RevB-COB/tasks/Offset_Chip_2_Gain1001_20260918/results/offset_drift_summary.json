@@ -1,0 +1,26 @@
+{
+  "format_version": 1,
+  "task_id": "Offset_Chip_2_Gain1001_20260918",
+  "acquisition_status": "failed",
+  "data_status": "failed",
+  "sequence_completed": false,
+  "stop_confirmed": true,
+  "valid_reading_count": 0,
+  "points": [],
+  "stages": [
+    {
+      "stage_index": 1,
+      "target_c": -40.0,
+      "acquisition_status": "failed",
+      "valid_reading_count": 0,
+      "error": "RuntimeError: Reading 1 is invalid or overrange: np.float64(9.9e+37) V on the 0.1 V range."
+    }
+  ],
+  "temperature_window": "Thermal samples between the first and last DMM query-midpoint timestamps; no gap interpolation.",
+  "drift_note": "The three-point slope uses nominal setpoints. It is a descriptive linear fit, not a device specification or uncertainty budget.",
+  "nominal_temperature_linear_slope_v_per_c": null,
+  "legacy_run_path": "provenance/legacy_run",
+  "notes": [
+    "Stage 1 acquisition failed; no offset estimate."
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "default_firmware": null,
+  "note": "Historical bytes preserved. Date/clock labels come from original filenames; no current field firmware or new default was selected and no programming or compilation was performed. Original README identified the 2026-08-19 file as the earlier delivery.",
+  "firmware": [
+    {
+      "path": "firmware/Unicorn_CSA_DE2_115_20260818.sof",
+      "filename": "Unicorn_CSA_DE2_115_20260818.sof",
+      "date_label": "2026-08-18",
+      "clock_label": null,
+      "bytes": 3541772,
+      "sha256": "a4739e21ae4b99f570b14c18848fa30107013a70a335788ebc9c713eb7384d45"
+    },
+    {
+      "path": "firmware/Unicorn_CSA_DE2_115_20260819.sof",
+      "filename": "Unicorn_CSA_DE2_115_20260819.sof",
+      "date_label": "2026-08-19",
+      "clock_label": null,
+      "bytes": 3541772,
+      "sha256": "93218d7d393435f9f4596893011271e3f03e6e29b97c5b1e3242cce0fdf1c24e"
+    },
+    {
+      "path": "firmware/Unicorn_CSA_DE2_115_20260828_500kHz.sof",
+      "filename": "Unicorn_CSA_DE2_115_20260828_500kHz.sof",
+      "date_label": "2026-08-28",
+      "clock_label": "500 kHz (filename label only)",
+      "bytes": 3541772,
+      "sha256": "16ee06855b625a27ee09fde195500f3387c7701fbc4561b0981f802eeb482b13"
+    }
+  ]
+}

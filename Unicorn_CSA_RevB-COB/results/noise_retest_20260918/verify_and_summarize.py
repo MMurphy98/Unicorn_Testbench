@@ -71,13 +71,13 @@ def main():
     groups, manifest, curves = [], [], {}
     for group_id, chip, gmx, supply, is_new in CONDITIONS:
         task = f"RevB_Chip_{chip}_wiShield_Gmx_{gmx}_OSC_default_Vsup_pm{supply}V"
-        captures = analysis.numbered_tdms_files(PROJECT / "data" / task, task)
-        spectra = plotting.numbered_spectrum_files(PROJECT / "spectra" / task, task)
+        captures = analysis.numbered_tdms_files(PROJECT / "tasks" / task / "data", task)
+        spectra = plotting.numbered_spectrum_files(PROJECT / "tasks" / task / "spectra", task)
         require([n for n, _ in captures] == list(range(1, 101)), task + " TDMS sequence")
         require([n for n, _ in spectra] == list(range(1, 101)), task + " NPZ sequence")
-        require(not list((PROJECT / "data" / task).glob("*.partial.*")), task + " partial TDMS")
-        require(not list((PROJECT / "spectra" / task).glob("*.partial.*")), task + " partial NPZ")
-        result_dir = PROJECT / "results" / task
+        require(not list((PROJECT / "tasks" / task / "data").glob("*.partial.*")), task + " partial TDMS")
+        require(not list((PROJECT / "tasks" / task / "spectra").glob("*.partial.*")), task + " partial NPZ")
+        result_dir = PROJECT / "tasks" / task / "results"
         summary_path = result_dir / f"{task}_noise_summary.json"
         summary = json.loads(summary_path.read_text(encoding="utf-8"))
         require(summary["task_id"] == task and summary["spectrum_file_count"] == 100, task + " summary identity")
@@ -164,7 +164,7 @@ def main():
     write_csv("condition_summary.csv", summary_rows)
     write_csv("raw_file_manifest.csv", manifest)
     scripts = [Path(__file__), PROJECT / "capture_dut_revb_pmu_noise.py", PROJECT / "analyze_dut_revb_pmu_noise.py", PROJECT / "plot_dut_revb_pmu_noise.py", PROJECT / "run_dut_revb_pmu_noise_pipeline.py"]
-    report = {"verified_at_utc": datetime.now(timezone.utc).isoformat(), "verification": "All 1000 TDMS waveforms checked and Welch PSD recomputed against existing NPZ; all target CSVs and JSON statistics reproduced at rtol=1e-10, atol=0", "git_head_at_verification": subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=REPO, text=True).strip(), "environment": {"python": sys.version, "platform": platform.platform(), "packages": {p: version(p) for p in ["numpy", "scipy", "npTDMS", "matplotlib", "niscope"]}}, "trim_mapping_provenance": {"max_and_4b1111": "Operator confirmed on 2026-09-18: same code 1111; Chip 1's explicitly named 4b1111 group is a repeat", "default": "Project README: 0110", "4b1001": "Acquisition task ID; not independently read from DUT"}, "code_sha256": {p.relative_to(REPO).as_posix(): sha256(p) for p in scripts}, "groups": groups}
+    report = {"verified_at_utc": datetime.now(timezone.utc).isoformat(), "verification": "All 1000 TDMS waveforms checked and Welch PSD recomputed against existing NPZ; all target CSVs and JSON statistics reproduced at rtol=1e-10, atol=0", "git_head_at_verification": subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=REPO, text=True).strip(), "environment": {"python": sys.version, "platform": platform.platform(), "packages": {p: version(p) for p in ["numpy", "scipy", "npTDMS", "matplotlib"]}}, "trim_mapping_provenance": {"max_and_4b1111": "Operator confirmed on 2026-09-18: same code 1111; Chip 1's explicitly named 4b1111 group is a repeat", "default": "Project README: 0110", "4b1001": "Acquisition task ID; not independently read from DUT"}, "code_sha256": {p.relative_to(REPO).as_posix(): sha256(p) for p in scripts}, "groups": groups}
     (OUTPUT / "verification_summary.json").write_text(json.dumps(report, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
 
     fig, axes = plt.subplots(1, 3, figsize=(15, 5), layout="constrained")

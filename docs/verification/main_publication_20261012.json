@@ -1,0 +1,48 @@
+{
+  "verified_at_utc": "2026-10-12T13:49:09.290457+00:00",
+  "scope": "Publication preflight on files materialized from the Git index, without ignored local measurement data. This records pre-push validation, not remote publication completion.",
+  "source_branch": "codex/T-20260817-01-noise-retest-20260918",
+  "old_main": "29562f81221e3cb7fadf5733ba6e7dedc3ae5893",
+  "backup_branch": "codex/main-backup-20261012-29562f8",
+  "backup_pushed": true,
+  "git_candidate": {
+    "candidate_directory": "/var/folders/nb/v208grlx6b7fr7fz06123rkr0000gn/T/unicorn-main-release-20261012-nw1c56ts",
+    "tracked_files": 539,
+    "protected_files_exact_bytes": 435,
+    "opa189_reference_fixtures": 5,
+    "unexpected_local_files": []
+  },
+  "python_test_suites": [
+    {
+      "suite": "original_scripts",
+      "tests": 47,
+      "seconds": 7.747,
+      "passed": true,
+      "log_sha256": "aab89f3222e404e682b6942f1a3b0152165eea9be6289550ff2ff4990f8906a6"
+    },
+    {
+      "suite": "field_entrypoints",
+      "tests": 16,
+      "seconds": 0.109,
+      "passed": true,
+      "log_sha256": "1a9050d2a7a12ec2f8e67d571884e0244be1fb32ebf2f952dc722b278b4ed958"
+    },
+    {
+      "suite": "offline_processing_and_notebook",
+      "tests": 17,
+      "seconds": 19.574,
+      "passed": true,
+      "log_sha256": "d391c9223539b615d3aabd9de86639f9bc33821572b4ef479047bc22b3e773ae"
+    }
+  ],
+  "total_tests": 80,
+  "current_document_links": {
+    "checked": 303,
+    "missing": 0
+  },
+  "whitespace_check_passed": true,
+  "git_hooks_executable": true,
+  "raw_data_remains_ignored": true,
+  "remote_rules_changed": false,
+  "preflight_passed": true
+}

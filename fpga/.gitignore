@@ -1,0 +1,9 @@
+# Quartus regenerates these directories beside the unchanged source project.
+/db/
+/incremental_db/
+/greybox_tmp/
+/local_cache/
+*.qws
+# Reviewed historical firmware and reports live in firmware/ and reports/.
+/output_files/*
+!/output_files/README.md

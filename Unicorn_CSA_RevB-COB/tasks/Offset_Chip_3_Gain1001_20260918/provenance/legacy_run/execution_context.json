@@ -1,0 +1,89 @@
+{
+  "recorded_at_utc": "2026-09-18T13:19:38.390839+00:00",
+  "chip_id": 3,
+  "actual_gain_v_per_v": 1001,
+  "task_id": "Offset_Chip_3_Gain1001_20260918",
+  "authorization": "User confirmed replacement with Chip 3 and requested restarting the same offset test. Gain and test conditions inherit the previously approved plan.",
+  "user_report_about_previous_chip": "User suspects Chip 2 is damaged. This is not an independently confirmed diagnosis.",
+  "physical_conditions": {
+    "gain": "User-approved inherited 1001",
+    "supply": "Not provided",
+    "trim": "Not provided"
+  },
+  "flow_setting_scfm": 6,
+  "temperature_targets_c": [
+    -40,
+    27,
+    125
+  ],
+  "arrival_tolerance_c": 1,
+  "hold_seconds_after_first_arrival": 300,
+  "valid_readings_per_stage": 1000,
+  "known_limitation": "Temperature oscillations are recorded. Fixed waiting time is not a continuous +/-1 C stability test.",
+  "git_branch": "codex/T-20260817-01-noise-retest-20260918",
+  "git_head": "cf8392c5596ba0148129a1b4b17137bf5347915e",
+  "git_status_at_start": [
+    " M README.md",
+    " M Unicorn_CSA_RevB-COB/dut_revb_pmu_noise_capture.ipynb",
+    " M scripts/thermal_stream_offset_drift.md",
+    " M scripts/thermal_stream_temperature_run.py",
+    " M scripts/thermal_stream_temperature_sequence.py",
+    " M \"\\346\\265\\213\\350\\257\\225\\346\\227\\245\\345\\277\\227.md\"",
+    "?? docs/test-reports/2026/09/2026-09-14-T-20260911-01.md",
+    "?? docs/test-reports/2026/09/2026-09-18-T-20260911-01.md",
+    "?? results/offset_drift/analysis_20260914_run01/",
+    "?? results/offset_drift/analysis_20260914_run02/",
+    "?? results/offset_drift/chip1_gain1001_20260918_run01/",
+    "?? results/offset_drift/chip1_gain1001_20260918_run01_preflight.json",
+    "?? results/offset_drift/chip1_gain1001_20260918_run01_preflight_wire.jsonl",
+    "?? results/offset_drift/chip2_gain1001_20260918_run01/",
+    "?? results/offset_drift/chip2_gain1001_20260918_run01_preflight.json",
+    "?? results/offset_drift/chip2_gain1001_20260918_run01_preflight_wire.jsonl",
+    "?? results/offset_drift/chip3_gain1001_20260918_run01/",
+    "?? results/offset_drift/chip3_gain1001_20260918_run01_preflight.json",
+    "?? results/offset_drift/chip3_gain1001_20260918_run01_preflight_wire.jsonl",
+    "?? results/thermal_stream/diagnostics_20260918T113034_139326Z.json",
+    "?? results/thermal_stream/diagnostics_20260918T113034_139326Z.wire.jsonl",
+    "?? results/thermal_stream/diagnostics_20260918_preflight.json",
+    "?? results/thermal_stream/diagnostics_20260918_preflight.wire.jsonl",
+    "?? results/thermal_stream/ethernet_setup_20260918.json",
+    "?? results/thermal_stream/ethernet_setup_20260918_ready.json",
+    "?? results/thermal_stream/ethernet_setup_20260918_restored.json",
+    "?? results/thermal_stream/ethernet_setup_20260918_restored.json.restore.json",
+    "?? results/thermal_stream/flow_compare_20260918_run01/",
+    "?? results/thermal_stream/flow_compare_20260918_run01_preflight.json",
+    "?? results/thermal_stream/flow_compare_20260918_run01_preflight.wire.jsonl",
+    "?? results/thermal_stream/flow_compare_20260918_run01_recovery.json",
+    "?? results/thermal_stream/flow_compare_20260918_run01_recovery.wire.jsonl",
+    "?? results/thermal_stream/sequence_20260918_run01/",
+    "?? scripts/analyze_offset_drift_tdms.py",
+    "?? scripts/test_analyze_offset_drift_tdms.py",
+    "?? scripts/test_thermal_stream_flow_comparison.py",
+    "?? scripts/thermal_stream_flow_comparison.md",
+    "?? scripts/thermal_stream_flow_comparison.py"
+  ],
+  "code_provenance": "Acquisition source hashes match the Chip 1 execution snapshots; current execution snapshots and SHA256 are saved by the runner.",
+  "prior_validation": {
+    "linked_offline_tests_passed": 11,
+    "acquisition_sources_changed_since_chip1": false
+  },
+  "preflight_file": "preflight.json",
+  "preflight_wire_file": "preflight_wire.jsonl",
+  "local_report_helpers": {
+    "verify_saved_data.py": {
+      "source": "C:\\Users\\jinge\\Projects\\Unicorn_Testbench\\results\\offset_drift\\chip1_gain1001_20260918_run01\\verify_saved_data.py",
+      "source_sha256": "45de41c8383507d6464862529daa910a5a0671792fd56610d800fb2fd143cac3",
+      "adapted_sha256": "3ebb1c6eb1add350c6fdf173827270f9be3a6066f9d9ce6974deb7d6680dca69"
+    },
+    "write_report.py": {
+      "source": "C:\\Users\\jinge\\Projects\\Unicorn_Testbench\\results\\offset_drift\\chip1_gain1001_20260918_run01\\write_report.py",
+      "source_sha256": "00eba83a0603afcc3c3a48a145e9dc8b69e6fdb86ffcecdc5115dbc5e8e9ecc6",
+      "adapted_sha256": "add42517d4f6e05b9a9674779299240b16256d5baed56ae74186758bd52e7870",
+      "initial_adapted_sha256": "bec9f73bbb7f86339da492e41dff34f4856fb87fa3e9e3e457cec83f28f26595",
+      "post_run_refinement": {
+        "recorded_at_utc": "2026-09-18T14:11:59.544468+00:00",
+        "description": "Document user-reported Chip 2 damage suspicion as unconfirmed and clarify UTC time axes in DMM plots. Acquisition and verification logic unchanged."
+      }
+    }
+  }
+}

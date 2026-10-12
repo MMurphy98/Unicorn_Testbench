@@ -1,0 +1,17 @@
+task_id,measurement_type,chip,acquisition_status,data_status,processing_status,raw_file_count,spectrum_file_count,valid_reading_count,offset_stage_count,noise_1_hz_nv_per_sqrt_hz,noise_1000_hz_nv_per_sqrt_hz,nominal_temperature_linear_slope_uv_per_c,input_offset_mean_uv,input_offset_sample_std_uv,task_directory,notes
+Offset_Chip_1_Gain1001_20260918,offset_drift,1,completed,complete,completed,3,,3000,3,,,-0.012911487697962475,,,Offset_Chip_1_Gain1001_20260918,
+Offset_Chip_2_Gain1001_20260918,offset_drift,2,failed,failed,completed,0,,0,0,,,,,,Offset_Chip_2_Gain1001_20260918,Stage 1 acquisition failed; no offset estimate.
+Offset_Chip_3_Gain1001_20260918,offset_drift,3,completed,complete,completed,3,,3000,3,,,-0.012907057477706088,,,Offset_Chip_3_Gain1001_20260918,
+RevB_Chip_1_wiShield_Gmx_1p2_OSC_default_Vsup_pm6V,noise,1,completed,complete,completed,100,100,,,5.1255422721490715,4.670711955926007,,,,RevB_Chip_1_wiShield_Gmx_1p2_OSC_default_Vsup_pm6V,
+RevB_Chip_1_wiShield_Gmx_4b1111_OSC_default_Vsup_pm6V,noise,1,completed,complete,completed,100,100,,,5.234280002594776,4.621787926386674,,,,RevB_Chip_1_wiShield_Gmx_4b1111_OSC_default_Vsup_pm6V,
+RevB_Chip_1_wiShield_Gmx_default_OSC_default_Vsup_pm6V,noise,1,completed,complete,completed,100,100,,,5.253586144108587,5.174125113016561,,,,RevB_Chip_1_wiShield_Gmx_default_OSC_default_Vsup_pm6V,
+RevB_Chip_1_wiShield_Gmx_max_OSC_default_Vsup_pm6V,noise,1,completed,complete,completed,100,100,,,5.459819976065687,4.6069079872165615,,,,RevB_Chip_1_wiShield_Gmx_max_OSC_default_Vsup_pm6V,
+RevB_Chip_2_wiShield_Gmx_4b1001_OSC_default_Vsup_pm6V,noise,2,completed,complete,completed,100,100,,,5.319220663966661,5.058863048083812,,,,RevB_Chip_2_wiShield_Gmx_4b1001_OSC_default_Vsup_pm6V,
+RevB_Chip_2_wiShield_Gmx_default_OSC_default_Vsup_pm6V,noise,2,completed,complete,completed,100,100,,,5.43587503426962,5.210721617989695,,,,RevB_Chip_2_wiShield_Gmx_default_OSC_default_Vsup_pm6V,
+RevB_Chip_2_wiShield_Gmx_max_OSC_default_Vsup_pm6V,noise,2,completed,complete,completed,100,100,,,34.04684184948979,4.824876331869191,,,,RevB_Chip_2_wiShield_Gmx_max_OSC_default_Vsup_pm6V,
+RevB_Chip_3_wiShield_Gmx_default_OSC_default_Vsup_pm12V,noise,3,completed,complete,completed,100,100,,,5.503148057409553,5.163839528870627,,,,RevB_Chip_3_wiShield_Gmx_default_OSC_default_Vsup_pm12V,
+RevB_Chip_3_wiShield_Gmx_default_OSC_default_Vsup_pm6V,noise,3,completed,complete,completed,100,100,,,5.459184595803214,5.325620323807731,,,,RevB_Chip_3_wiShield_Gmx_default_OSC_default_Vsup_pm6V,
+RevB_Chip_3_wiShield_Gmx_max_OSC_default_Vsup_pm12V,noise,3,completed,complete,completed,100,100,,,10.217370970625675,4.6701003547160695,,,,RevB_Chip_3_wiShield_Gmx_max_OSC_default_Vsup_pm12V,
+RevB_Chip_3_wiShield_Gmx_max_OSC_default_Vsup_pm6V,noise,3,completed,complete,completed,100,100,,,7.539210284990806,4.8055365469914095,,,,RevB_Chip_3_wiShield_Gmx_max_OSC_default_Vsup_pm6V,
+RevB_Chip_4_wiShield_Gmx_default_OSC_default_Vsup_pm6V,noise,4,completed,complete,completed,100,100,,,6.430463199340386,4.628116906999948,,,,RevB_Chip_4_wiShield_Gmx_default_OSC_default_Vsup_pm6V,
+RevB_Chip_5_wiShield_Gmx_default_OSC_default_Vsup_pm6V,noise,5,completed,complete,completed,100,100,,,6.932498610883649,5.262222959661209,,,,RevB_Chip_5_wiShield_Gmx_default_OSC_default_Vsup_pm6V,

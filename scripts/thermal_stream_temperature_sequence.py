@@ -103,10 +103,14 @@ def write_summary_file(path, summary):
 
 
 def run(args, *, client_factory=None, clock=None, plotter=None, plot_preflight=None,
-        measurement=None):
+        measurement=None, stages=None, stage_setup=None, extra_fields=(), snapshot_sources=()):
     """Dependencies can be injected by offline tests; the CLI uses the real client."""
     client_factory = client_factory or Client
     clock = clock or time
+    stages = STAGES if stages is None else tuple(stages)
+    if not stages:
+        raise ValueError("At least one temperature stage is required")
+    fields = FIELDS + tuple(extra_fields)
     plotter = plotter or plot_run
     plot_preflight = plot_preflight or load_pyplot
     # Fail before connecting or issuing commands if required plotting support is missing.
@@ -122,6 +126,7 @@ def run(args, *, client_factory=None, clock=None, plotter=None, plot_preflight=N
     hashes = {}
     sources = [Path(__file__).parent / name for name in (
         Path(__file__).name, "thermal_stream_temperature_run.py", "plot_thermal_stream_temperature.py")]
+    sources.extend(snapshot_sources)
     if measurement is not None:
         sources.extend(measurement.snapshot_sources())
     for source in sources:
@@ -172,7 +177,7 @@ def run(args, *, client_factory=None, clock=None, plotter=None, plot_preflight=N
         events = stack.enter_context((folder / "events.jsonl").open("x", encoding="utf-8"))
         csv_file = stack.enter_context((folder / "temperature.csv").open(
             "x", newline="", encoding="utf-8"))
-        writer = csv.DictWriter(csv_file, fieldnames=FIELDS)
+        writer = csv.DictWriter(csv_file, fieldnames=fields)
         writer.writeheader()
         csv_file.flush()
 
@@ -197,7 +202,7 @@ def run(args, *, client_factory=None, clock=None, plotter=None, plot_preflight=N
                 hold_elapsed = stage.get("hold_elapsed_s", 0.0) if stage else 0.0
             target = stage["target_c"] if stage else state["setpoint_readback_c"]
             error = state["product_temperature_c"] - target
-            row = {key: state[key] for key in FIELDS if key in state}
+            row = {key: state[key] for key in fields if key in state}
             row.update(timestamp_utc=at_utc or utc_now(), elapsed_s=round(now - started, 6),
                        phase=phase, stage_index=stage["index"] if stage else 0,
                        stage_mode=stage["mode"] if stage else "preflight",
@@ -233,7 +238,7 @@ def run(args, *, client_factory=None, clock=None, plotter=None, plot_preflight=N
                                     "flow_setting_raw": client.register(107)}
             event("preflight", **summary["preflight"])
             record(initial, "preflight")
-            if not all(low <= target <= high for _, target in STAGES):
+            if not all(low <= target <= high for _, target in stages):
                 raise ValueError(f"Sequence target outside device limits {low}..{high} C")
             if not low <= initial["product_temperature_c"] <= high:
                 raise ValueError("Product feedback outside configured limits")
@@ -242,7 +247,7 @@ def run(args, *, client_factory=None, clock=None, plotter=None, plot_preflight=N
             check_stop()
             owned = True
 
-            for index, (mode, target) in enumerate(STAGES, 1):
+            for index, (mode, target) in enumerate(stages, 1):
                 check_stop()
                 stage = {"index": index, "mode": mode, "target_c": target,
                          "status": "configuring", "hold_samples": 0,
@@ -257,6 +262,9 @@ def run(args, *, client_factory=None, clock=None, plotter=None, plot_preflight=N
                 before = client.snapshot()
                 if before["running"] or before["defrost_active"] or before["tuning_active"]:
                     raise SequenceAbort("configuration_changed", "Device not ready for reconfiguration")
+                if stage_setup is not None:
+                    stage_setup(client, stage, event)
+                    check_stop()
                 address, mode_coil = PRESETS[mode]
                 client.exchange(6, address, encode_temperature(target))
                 if temperature(client.register(address)) != target:

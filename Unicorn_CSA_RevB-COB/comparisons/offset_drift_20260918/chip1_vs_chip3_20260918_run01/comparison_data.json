@@ -1,0 +1,74 @@
+{
+  "created_at_utc": "2026-09-18T14:15:17.455067+00:00",
+  "x_axis": "nominal target temperature in degrees Celsius",
+  "y_axis": "input-referred mean offset in microvolts",
+  "error_bars": "plus/minus one sample standard deviation, not standard error or confidence interval",
+  "gain": 1001,
+  "flow_setting_scfm": 6,
+  "series": [
+    {
+      "chip_id": 1,
+      "source_summary": "chip1_gain1001_20260918_run01/offset_drift_summary.json",
+      "source_sha256": "747791435e82762d1d558a0223afde6f4af9ca2eeaec80e91095065acc28c2d4",
+      "nominal_slope_nv_per_c": -12.911487697962473,
+      "points": [
+        {
+          "target_c": -40.0,
+          "reading_count": 1000,
+          "input_mean_uv": 0.4858047938061939,
+          "input_sample_std_uv": 0.05254309300746832,
+          "actual_temperature_min_c": -41.5,
+          "actual_temperature_max_c": -37.9
+        },
+        {
+          "target_c": 27.0,
+          "reading_count": 1000,
+          "input_mean_uv": -0.28645739912287715,
+          "input_sample_std_uv": 0.11469308580319688,
+          "actual_temperature_min_c": 24.8,
+          "actual_temperature_max_c": 29.7
+        },
+        {
+          "target_c": 125.0,
+          "reading_count": 1000,
+          "input_mean_uv": -1.6336513913086912,
+          "input_sample_std_uv": 0.39458621549225303,
+          "actual_temperature_min_c": 120.6,
+          "actual_temperature_max_c": 127.6
+        }
+      ]
+    },
+    {
+      "chip_id": 3,
+      "source_summary": "chip3_gain1001_20260918_run01/offset_drift_summary.json",
+      "source_sha256": "95f23c5f4d65de3a8fa209041ebc52d5f90653388560002992f5f601d771ab92",
+      "nominal_slope_nv_per_c": -12.907057477706086,
+      "points": [
+        {
+          "target_c": -40.0,
+          "reading_count": 1000,
+          "input_mean_uv": -0.1445586022157842,
+          "input_sample_std_uv": 0.2209722253051555,
+          "actual_temperature_min_c": -42.0,
+          "actual_temperature_max_c": -33.9
+        },
+        {
+          "target_c": 27.0,
+          "reading_count": 1000,
+          "input_mean_uv": -1.4394936368631368,
+          "input_sample_std_uv": 0.17510695616542743,
+          "actual_temperature_min_c": 24.0,
+          "actual_temperature_max_c": 33.2
+        },
+        {
+          "target_c": 125.0,
+          "reading_count": 1000,
+          "input_mean_uv": -2.324926613386613,
+          "input_sample_std_uv": 0.23333443714714752,
+          "actual_temperature_min_c": 116.5,
+          "actual_temperature_max_c": 128.1
+        }
+      ]
+    }
+  ]
+}

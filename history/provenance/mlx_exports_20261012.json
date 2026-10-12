@@ -1,0 +1,28 @@
+{
+  "exports": [
+    {
+      "source_mlx": "history/RevA/periodogram_mode.mlx",
+      "exported_m": "history/RevA/periodogram_mode.m",
+      "matlab_release": "R2025b",
+      "method": "matlab.desktop.editor.openDocument(...,Visible=0).saveAs(.m)",
+      "export_sha256": "8da960a94c53910b710c2987dc73f228444f6f2651a847d92f18e5b29ff73471",
+      "portable_m_sha256": "6aa8ae9c5dc51f2b8f4ed9d7bc3cf204f3e189b66e16d447d0da792d5b6af662"
+    },
+    {
+      "source_mlx": "history/RevA/periodogram_mode_Gain101.mlx",
+      "exported_m": "history/RevA/periodogram_mode_Gain101.m",
+      "matlab_release": "R2025b",
+      "method": "matlab.desktop.editor.openDocument(...,Visible=0).saveAs(.m)",
+      "export_sha256": "5360ebf3f03912796941e3f4bf331b91904c7c9e0e424e35c186fd0997aa1e5c",
+      "portable_m_sha256": "c0c0a5d3c28eb413f54937dd55f83264b89297ef369499f35afb35ee78014c77"
+    },
+    {
+      "source_mlx": "history/RevA/Unicorn_CSA_RevA-COB_woShiled_1p2_20260828/periodogram_mode.mlx",
+      "exported_m": "history/RevA/Unicorn_CSA_RevA-COB_woShiled_1p2_20260828/periodogram_mode.m",
+      "matlab_release": "R2025b",
+      "method": "matlab.desktop.editor.openDocument(...,Visible=0).saveAs(.m)",
+      "export_sha256": "47b50430cfe468d2247a0509b93cbdde610b7d8b749436eb843a6227c18574b8",
+      "portable_m_sha256": "a4c16cb675cbbcd92ec976dd4bdd2710bd63e4eff5153d1e4cb4a87c8183c674"
+    }
+  ]
+}

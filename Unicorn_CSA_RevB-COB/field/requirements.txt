@@ -1,0 +1,6 @@
+# Windows 64-bit / CPython 3.11.9 field capture environment, recorded 2026-09-09.
+# NI-SCOPE and NI-VISA native drivers are installed separately.
+niscope==1.4.7
+PyVISA==1.16.2
+npTDMS==1.11.0
+numpy==2.4.6

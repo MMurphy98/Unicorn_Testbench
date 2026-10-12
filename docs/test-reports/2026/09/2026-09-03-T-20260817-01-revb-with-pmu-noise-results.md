@@ -1,5 +1,8 @@
 # 2026-09-03 - T-20260817-01 - Unicorn CSA RevB（with PMU）噪声测试记录
 
+> 2026-10-12 整理说明：用户确认本报告保留的测试由项目负责人本人执行；旧委托安排不作为当前保留成果的执行人或完成状态依据。
+> 测试方法、历史数值与异常记录保持；文中的当日待办不自动代表当前状态。现用路径已更新；旧版原文由用户另行备份，仓库中的基线快照已删除。
+
 ## 1. 结论摘要
 
 本记录收束 2026-09-02 至 2026-09-03 完成的三组 RevB（with PMU）噪声测试。三组各包含 100 个 22 s TDMS 记录，共 300 个原始文件、330,000,000 个 `float64` 样本和 2,100 个 Welch 段。TDMS 与频谱文件数量匹配，所有记录的采集参数一致，未发现接近削顶的记录。
@@ -26,7 +29,7 @@
 
 - 关联任务：`T-20260817-01`（DUT 低压噪声测试）。
 - 测试对象：Unicorn CSA RevB（with PMU）。
-- 执行人：`@chiger-git`（来自测试安排）。
+- 实际执行人：项目负责人本人（2026-10-12 归属校正）。
 - 采集时间：2026-09-02 15:29 UTC 至 17:48 UTC；北京时间跨 2026-09-02 至 2026-09-03。
 - 操作系统：Windows 10。
 - 采集设备：NI PXI-5922，资源名 `PXI1Slot2`，序列号 `2094935`。
@@ -178,26 +181,29 @@ Chip 1 的 Gmx A/B 测试不是交错或随机顺序采集，因此 `−9.729%` 
 
 ### Chip 1，Gmx default
 
-![Chip 1 Gmx default average input noise](../../../../Unicorn_CSA_RevB-COB/results/RevB_Chip_1_wiShield_Gmx_default_OSC_default_Vsup_pm6V/RevB_Chip_1_wiShield_Gmx_default_OSC_default_Vsup_pm6V_average_input_noise_asd.png)
+![Chip 1 Gmx default average input noise](../../../../Unicorn_CSA_RevB-COB/tasks/RevB_Chip_1_wiShield_Gmx_default_OSC_default_Vsup_pm6V/results/RevB_Chip_1_wiShield_Gmx_default_OSC_default_Vsup_pm6V_average_input_noise_asd.png)
 
-- [JSON 摘要](../../../../Unicorn_CSA_RevB-COB/results/RevB_Chip_1_wiShield_Gmx_default_OSC_default_Vsup_pm6V/RevB_Chip_1_wiShield_Gmx_default_OSC_default_Vsup_pm6V_noise_summary.json)，SHA-256：`4321AF82120EAD40838B53F720E8523CFA51CD48172D07A249D75D1392553BC2`
+- [JSON 摘要](../../../../Unicorn_CSA_RevB-COB/tasks/RevB_Chip_1_wiShield_Gmx_default_OSC_default_Vsup_pm6V/results/RevB_Chip_1_wiShield_Gmx_default_OSC_default_Vsup_pm6V_noise_summary.json)，SHA-256：`4321AF82120EAD40838B53F720E8523CFA51CD48172D07A249D75D1392553BC2`
 - PNG SHA-256：`9D71158617D98F9941B7DCB3387B1604A2A4A9213486CEB89DA7C202F844D741`
 
 ### Chip 1，Gmx `1p2`
 
-![Chip 1 Gmx 1p2 average input noise](../../../../Unicorn_CSA_RevB-COB/results/RevB_Chip_1_wiShield_Gmx_1p2_OSC_default_Vsup_pm6V/RevB_Chip_1_wiShield_Gmx_1p2_OSC_default_Vsup_pm6V_average_input_noise_asd.png)
+![Chip 1 Gmx 1p2 average input noise](../../../../Unicorn_CSA_RevB-COB/tasks/RevB_Chip_1_wiShield_Gmx_1p2_OSC_default_Vsup_pm6V/results/RevB_Chip_1_wiShield_Gmx_1p2_OSC_default_Vsup_pm6V_average_input_noise_asd.png)
 
-- [JSON 摘要](../../../../Unicorn_CSA_RevB-COB/results/RevB_Chip_1_wiShield_Gmx_1p2_OSC_default_Vsup_pm6V/RevB_Chip_1_wiShield_Gmx_1p2_OSC_default_Vsup_pm6V_noise_summary.json)，SHA-256：`81DE69C4AE64D529D5316BF7F0C19B24253052E28AE72C2F7BD31E1913F975EA`
+- [JSON 摘要](../../../../Unicorn_CSA_RevB-COB/tasks/RevB_Chip_1_wiShield_Gmx_1p2_OSC_default_Vsup_pm6V/results/RevB_Chip_1_wiShield_Gmx_1p2_OSC_default_Vsup_pm6V_noise_summary.json)，SHA-256：`81DE69C4AE64D529D5316BF7F0C19B24253052E28AE72C2F7BD31E1913F975EA`
 - PNG SHA-256：`71AEB9C5EAA1DE225DE24FBD7E3FBA1FF4DF152DB17BB79F12E0B8486774181F`
 
 ### Chip 4，Gmx default
 
-![Chip 4 Gmx default average input noise](../../../../Unicorn_CSA_RevB-COB/results/RevB_Chip_4_wiShield_Gmx_default_OSC_default_Vsup_pm6V/RevB_Chip_4_wiShield_Gmx_default_OSC_default_Vsup_pm6V_average_input_noise_asd.png)
+![Chip 4 Gmx default average input noise](../../../../Unicorn_CSA_RevB-COB/tasks/RevB_Chip_4_wiShield_Gmx_default_OSC_default_Vsup_pm6V/results/RevB_Chip_4_wiShield_Gmx_default_OSC_default_Vsup_pm6V_average_input_noise_asd.png)
 
-- [JSON 摘要](../../../../Unicorn_CSA_RevB-COB/results/RevB_Chip_4_wiShield_Gmx_default_OSC_default_Vsup_pm6V/RevB_Chip_4_wiShield_Gmx_default_OSC_default_Vsup_pm6V_noise_summary.json)，SHA-256：`C3303090498674B16CCE82582D8C3A8F74DE31D1F3AD0FE2B6A3AA5475F39317`
+- [JSON 摘要](../../../../Unicorn_CSA_RevB-COB/tasks/RevB_Chip_4_wiShield_Gmx_default_OSC_default_Vsup_pm6V/results/RevB_Chip_4_wiShield_Gmx_default_OSC_default_Vsup_pm6V_noise_summary.json)，SHA-256：`C3303090498674B16CCE82582D8C3A8F74DE31D1F3AD0FE2B6A3AA5475F39317`
 - PNG SHA-256：`4A67492EAE400C20C1D500F82EE48DB9DB497DF68AFEFB9C4F54CA3195D99F46`
 
-## 9. 验收状态
+## 9. 2026-09-03 数据与审核状态
+
+此表保留当日记录。“负责人审核”来自用户当日 review 确认，不作为旧委托交付完成状态的依据；
+器件本征噪声性能另列为未评定。
 
 | 项目 | 状态 | 说明 |
 | --- | --- | --- |
@@ -220,3 +226,18 @@ Chip 1 的 Gmx A/B 测试不是交错或随机顺序采集，因此 `−9.729%` 
 3. 对 Chip 1 执行 default → `1p2` → default 的 A-B-A 复测，确认 1 kHz 约 9.7% 的下降可以随设置可逆重现。
 4. 对更多芯片执行相同 default 条件，建立 1 Hz 与 1 kHz 的样片间分布；当前只有 Chip 1 和 Chip 4，不能估计批次统计。
 5. 如需正式对比 4.6 nV/√Hz 目标，补测相同配置的低阻短路基线、实际 1 kHz 闭环增益，并在 PSD 功率域扣除测试链与反馈网络贡献。
+
+## 2026-10-12 当前目录与状态补充
+
+本报告的三组包含在当前 13 组 RevB 噪声中，完整索引还包括 Chip 5 default 等其他保留组，见[任务索引](../../../../Unicorn_CSA_RevB-COB/tasks/README.md)。
+所有原始数据、频谱与结果已归入 `Unicorn_CSA_RevB-COB/tasks/<task-id>/`，13 组正式原始 TDMS 的 SHA-256 已绑定各 `task.json`。
+上文“未建立哈希”和“当前只有 Chip 1/4”是 9 月 3 日状态；外部长期归档仍待完善。
+器件本征噪声规格未评定的边界继续适用，不把数据核验通过解释成性能规格通过。
+
+从仓库根目录执行当前[离线后处理](../../../../Unicorn_CSA_RevB-COB/postprocess/README.md)：
+
+```bash
+python Unicorn_CSA_RevB-COB/postprocess/process_tasks.py --all
+```
+
+新现场采集入口见[Windows 现场说明](../../../../Unicorn_CSA_RevB-COB/field/README.md)。

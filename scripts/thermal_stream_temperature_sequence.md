@@ -17,7 +17,7 @@
 
 2026-09-13 经用户授权执行实机测试，−40℃阶段首次到温约 57 秒后开始计时，累计约 149 秒时通信中断；
 未执行到 27℃或 125℃。自动重连停机未确认，随后独立恢复连接、发送 STOP 并确认 C10=0。
-本次完整流程验证未通过，详见 [实机记录](../results/thermal_stream/sequence_20260913_run01/README.md)。
+本次完整流程验证未通过，详见 实机记录（该历史结果已于2026-10-12移除）。
 
 ## 运行
 
@@ -105,4 +105,4 @@ python -m unittest discover -s scripts -p "test_thermal_stream_temperature*.py" 
 通信／模式异常、启停失败、日志和绘图错误、Windows 摘要文件短暂占用，以及停止文件检查耗时跨过采样等待截止点的情况。
 
 完整三段、每段 300 秒的虚拟时间模拟及曲线见
-[离线验证记录](../results/thermal_stream/sequence_offline_validation_20260911/README.md)。
+离线验证记录（该历史结果已于2026-10-12移除）。

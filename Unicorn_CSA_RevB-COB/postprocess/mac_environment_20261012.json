@@ -1,0 +1,13 @@
+{
+  "packages": {
+    "numpy": "2.5.4",
+    "scipy": "1.18.1",
+    "matplotlib": "3.11.2",
+    "npTDMS": "1.12.1"
+  },
+  "acquisition_packages_installed": {
+    "niscope": false,
+    "pyvisa": false
+  },
+  "python": "3.12.14 (main, Aug 25 2026, 13:50:33) [Clang 22.1.3 ]"
+}

@@ -1,0 +1,24 @@
+{
+  "task_id": "Offset_Chip_3_Gain1001_20260918",
+  "run_id": "4fc4a19500c446f392e3e2764e651c13",
+  "job_id": "75e6b148bced46548c5ae4cf4cb89e86",
+  "stage_index": 1,
+  "target_c": -40.0,
+  "schema_version": 1,
+  "request_sha256": "7197d3c66929f4402a3d5d56865114b394d2cfc4d946713b1c59fa6f09f81b3d",
+  "status": "completed",
+  "started_at_utc": "2026-09-18T13:25:09.005034+00:00",
+  "requested_readings": 1000,
+  "completed_readings": 1000,
+  "gain": 1001.0,
+  "execution_environment": "real_hardware",
+  "first_reading_at_utc": "2026-09-18T13:25:15.160685+00:00",
+  "last_reading_at_utc": "2026-09-18T13:36:16.543185+00:00",
+  "artifacts": {
+    "summary": "results/Offset_Chip_3_Gain1001_20260918/Offset_Chip_3_Gain1001_20260918_dcv_offset_summary.json",
+    "readings_csv": "results/Offset_Chip_3_Gain1001_20260918/Offset_Chip_3_Gain1001_20260918_dcv_readings.csv",
+    "plot": "results/Offset_Chip_3_Gain1001_20260918/Offset_Chip_3_Gain1001_20260918_dcv_offset.png",
+    "tdms": "data/Offset_Chip_3_Gain1001_20260918/Offset_Chip_3_Gain1001_20260918_dcv_0001.tdms"
+  },
+  "finished_at_utc": "2026-09-18T13:36:18.728618+00:00"
+}

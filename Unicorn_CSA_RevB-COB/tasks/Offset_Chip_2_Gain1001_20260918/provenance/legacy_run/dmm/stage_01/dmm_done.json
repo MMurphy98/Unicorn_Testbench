@@ -1,0 +1,17 @@
+{
+  "task_id": "Offset_Chip_2_Gain1001_20260918",
+  "run_id": "134d2aa52620447284c718e070d61a6b",
+  "job_id": "3109e65d5c264869b67c0de856194789",
+  "stage_index": 1,
+  "target_c": -40.0,
+  "schema_version": 1,
+  "request_sha256": "084d3e8bd99c12b47d257c679e16547ea070879f6a31b0d9eff8c7dab21d600e",
+  "status": "failed",
+  "started_at_utc": "2026-09-18T13:10:13.230340+00:00",
+  "requested_readings": 1000,
+  "completed_readings": 0,
+  "gain": 1001.0,
+  "execution_environment": "real_hardware",
+  "error": "RuntimeError: Reading 1 is invalid or overrange: np.float64(9.9e+37) V on the 0.1 V range.",
+  "finished_at_utc": "2026-09-18T13:10:20.636901+00:00"
+}
